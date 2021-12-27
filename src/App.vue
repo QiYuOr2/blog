@@ -1,17 +1,22 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>/hello /user</div>
+  <MDXProvider>
+    <Test />
+  </MDXProvider>
+  <router-view></router-view>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { MDXProvider } from '@mdx-js/vue';
+import Test from './components/Test.mdx';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    MDXProvider,
+    Test,
+  },
+};
 </script>
 
 <style>
