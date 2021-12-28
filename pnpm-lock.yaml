@@ -1,6 +1,8 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@fect-ui/vue': ^1.0.5
+  '@fect-ui/vue-icons': ^2.0.0
   '@mdx-js/loader': ^2.0.0-rc.2
   '@mdx-js/mdx': ^2.0.0-rc.2
   '@mdx-js/vue': ^2.0.0-rc.2
@@ -18,6 +20,8 @@ specifiers:
   webpack-node-externals: ^3.0.0
 
 dependencies:
+  '@fect-ui/vue': 1.0.5_vue@3.2.26
+  '@fect-ui/vue-icons': 2.0.0_vue@3.2.26
   '@mdx-js/loader': 2.0.0-rc.2
   '@mdx-js/mdx': 2.0.0-rc.2
   '@mdx-js/vue': 2.0.0-rc.2_vue@3.2.26
@@ -1232,6 +1236,36 @@ packages:
       '@babel/helper-validator-identifier': 7.15.7
       to-fast-properties: 2.0.0
     dev: true
+
+  /@fect-ui/themes/1.1.0:
+    resolution: {integrity: sha1-aPXfvfKKdUduXw5KvKs/DpVbpVs=, tarball: '@fect-ui/themes/download/@fect-ui/themes-1.1.0.tgz'}
+    dev: false
+
+  /@fect-ui/vue-hooks/0.0.3_vue@3.2.26:
+    resolution: {integrity: sha512-1JJvg5VDvWrc90cD1UDL6mt9AQryYXubJwkXvfV69JNeVKoKeVHPIKMySWArJJd9OIEEgccgkf+0EcWcfW8Qbg==, tarball: '@fect-ui/vue-hooks/download/@fect-ui/vue-hooks-0.0.3.tgz'}
+    peerDependencies:
+      vue: ^3.0.11
+    dependencies:
+      vue: 3.2.26
+    dev: false
+
+  /@fect-ui/vue-icons/2.0.0_vue@3.2.26:
+    resolution: {integrity: sha512-/ZhSicpoZIk/Ib9nZ3iTCUd8sR0JgAKB2PIZQexcwBko7XMxNOfpAbm1SPoZOB8WicaNyAr80sInzJb7+C8QYg==, tarball: '@fect-ui/vue-icons/download/@fect-ui/vue-icons-2.0.0.tgz'}
+    peerDependencies:
+      vue: ^3.0.11
+    dependencies:
+      vue: 3.2.26
+    dev: false
+
+  /@fect-ui/vue/1.0.5_vue@3.2.26:
+    resolution: {integrity: sha512-D91F5HZ8CREHLtz5huJ8JmhcYdKHDVBO4KJGXDIaNNsgDsMYny8UOtcZ/nct+D45I5FXfbAbGQSpz48TOZtFTA==, tarball: '@fect-ui/vue/download/@fect-ui/vue-1.0.5.tgz'}
+    peerDependencies:
+      vue: ^3.0.11
+    dependencies:
+      '@fect-ui/themes': 1.1.0
+      '@fect-ui/vue-hooks': 0.0.3_vue@3.2.26
+      vue: 3.2.26
+    dev: false
 
   /@hapi/hoek/9.2.1:
     resolution: {integrity: sha1-lVEUKhmAUDdSU2tQUP2Z9KfxOxc=, tarball: '@hapi/hoek/download/@hapi/hoek-9.2.1.tgz'}
@@ -4128,7 +4162,7 @@ packages:
     dev: true
 
   /json5/1.0.1:
-    resolution: {integrity: sha1-d5+wAYYE+oVOrL9iUhgNg1Q+Pb4=, tarball: json5/download/json5-1.0.1.tgz?cache=0&sync_timestamp=1633171261610&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fjson5%2Fdownload%2Fjson5-1.0.1.tgz}
+    resolution: {integrity: sha1-d5+wAYYE+oVOrL9iUhgNg1Q+Pb4=, tarball: json5/download/json5-1.0.1.tgz}
     hasBin: true
     dependencies:
       minimist: 1.2.5

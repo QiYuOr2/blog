@@ -1,8 +1,8 @@
 import { createRouter } from 'vue-router';
 
 const routes = [
-  { path: '/user', component: () => import('./components/MyUser.vue') },
-  { path: '/hello', component: () => import('./components/HelloWorld.vue') },
+  { path: '/', name: 'list', component: () => import('./pages/List.vue') },
+  { path: '/posts', name: 'article', component: () => import('./pages/Article.vue') },
 ];
 
 export default function (history) {

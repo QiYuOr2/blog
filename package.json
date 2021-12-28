@@ -2,7 +2,9 @@
   "name": "blog",
   "version": "0.1.0",
   "private": true,
+  "files": ["dist", "server.js"],
   "scripts": {
+    "start": "node server.js",
     "serve": "vue-cli-service serve",
     "build": "npm run build:client && npm run build:server",
     "lint": "vue-cli-service lint",
@@ -10,6 +12,8 @@
     "build:server": "SSR=1 vue-cli-service build --dest dist/server"
   },
   "dependencies": {
+    "@fect-ui/vue": "^1.0.5",
+    "@fect-ui/vue-icons": "^2.0.0",
     "@mdx-js/loader": "^2.0.0-rc.2",
     "@mdx-js/mdx": "^2.0.0-rc.2",
     "@mdx-js/vue": "^2.0.0-rc.2",

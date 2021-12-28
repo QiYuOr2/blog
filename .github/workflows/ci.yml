@@ -1,0 +1,60 @@
+# 自动部署服务器
+
+name: CI
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@v1
+
+      - name: install
+        run: pnpm install
+
+      - name: build
+        run: pnpm run build
+
+      - name: pack
+        run: tar -zcvf release.tgz dist server.js package.json pnpm-lock.yaml pm2.config.json
+
+      - name: create release
+        id: create_release
+        uses: actions/create-release@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+
+      - name: upload release
+        id: upload_release
+        uses: actions/upload-release-asset@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./release.tgz
+          asset_name: release.tgz
+          asset_content_type: application/x-tgz
+
+      - name: deploy remote
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_KEY }}
+          script: |
+            cd /root/workspace/blog
+            wget https://github.com/QiYuOr2/blog/releases/latest/download/release.tgz -0 release.tgz
+            tar zxvf release.tgz
+            pnpm install
+            pm2 reload pm2.config.json

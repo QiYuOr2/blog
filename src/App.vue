@@ -1,20 +1,17 @@
 <template>
-  <div>/hello /user</div>
   <MDXProvider>
-    <Test />
+    <Layout />
   </MDXProvider>
-  <router-view></router-view>
 </template>
 
 <script>
 import { MDXProvider } from '@mdx-js/vue';
-import Test from './components/Test.mdx';
+import Layout from './components/Layout.vue';
 
 export default {
-  name: 'App',
   components: {
     MDXProvider,
-    Test,
+    Layout,
   },
 };
 </script>

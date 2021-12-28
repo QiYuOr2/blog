@@ -4,6 +4,12 @@ const webpack = require('webpack');
 
 module.exports = {
   chainWebpack: (webpackConfig) => {
+    // title
+    webpackConfig.plugin('html').tap((args) => {
+      args[0].title = '柒宇';
+      return args;
+    });
+
     // mdx config
     webpackConfig.module
       .rule('mdx')
@@ -38,7 +44,9 @@ module.exports = {
     // 这会告诉服务端的包使用 Node 风格的导出
     webpackConfig.output.libraryTarget('commonjs2');
 
-    webpackConfig.plugin('manifest').use(new WebpackManifestPlugin({ fileName: 'ssr-manifest.json' }));
+    webpackConfig
+      .plugin('manifest')
+      .use(new WebpackManifestPlugin({ fileName: 'ssr-manifest.json' }));
 
     // https://webpack.js.org/configuration/externals/#function
     // https://github.com/liady/webpack-node-externals
@@ -47,7 +55,10 @@ module.exports = {
 
     // 不要将需要被 webpack 处理的依赖变为外部扩展
     // 也应该把修改 `global` 的依赖 (例如各种 polyfill) 整理成一个白名单
-    webpackConfig.externals(nodeExternals({ allowlist: [/\.(css|vue|mdx)$/, '@mdx-js/vue'] }));
+    // @mdx-js/vue@2.0.0-rc.2仅有esm，因此需要打包到app.js中
+    webpackConfig.externals(
+      nodeExternals({ allowlist: [/\.(css|vue|mdx)$/, '@mdx-js/vue'] })
+    );
 
     webpackConfig.optimization.splitChunks(false).minimize(false);
 
