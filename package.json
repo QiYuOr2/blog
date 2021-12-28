@@ -1,8 +1,10 @@
 {
   "name": "blog",
   "version": "0.1.0",
-  "private": true,
-  "files": ["dist", "server.js"],
+  "files": [
+    "dist",
+    "server.js"
+  ],
   "scripts": {
     "start": "node server.js",
     "serve": "vue-cli-service serve",
