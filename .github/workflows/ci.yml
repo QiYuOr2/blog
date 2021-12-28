@@ -14,9 +14,10 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - uses: actions/setup-node@v1
-
+      - uses: pnpm/action-setup@v2.0.1
+      
       - name: install
-        run: pnpm install
+        run: npm i -g  pnpm install
 
       - name: build
         run: pnpm run build
