@@ -55,8 +55,9 @@ jobs:
           username: ${{ secrets.DEPLOY_USER }}
           key: ${{ secrets.DEPLOY_KEY }}
           script: |
+            mkdir /root/workspace/blog
             cd /root/workspace/blog
-            wget https://github.com/QiYuOr2/blog/releases/latest/download/release.tgz -0 release.tgz
+            wget https://github.com/QiYuOr2/blog/releases/latest/download/release.tgz -O release.tgz
             tar zxvf release.tgz
             pnpm install
             pm2 reload pm2.config.json
