@@ -1,7 +1,10 @@
 <template>
   <header class="nav-bar">
     <div class="nav-bar__info">
-      <div>柒宇</div>
+      <div class="profile">
+        <img class="profile__logo" :src="LOGO_LINK" />
+        <h1 class="profile__title">柒宇的博客</h1>
+      </div>
       <fe-button size="mini" auto @click="setDark">
         <template #icon>
           <moon v-if="!dark" />
@@ -33,6 +36,9 @@ import { ref } from 'vue';
 import { Moon, Sun } from '@fect-ui/vue-icons';
 import { useRouter } from 'vue-router';
 
+const LOGO_LINK =
+  'https://cdn.jsdelivr.net/gh/qiyuor2/blog-image/img/pixelartoc_1.png';
+
 export default {
   components: { Moon, Sun },
   setup() {
@@ -47,6 +53,7 @@ export default {
     };
 
     return {
+      LOGO_LINK,
       dark,
       setDark,
       isActive,
@@ -64,6 +71,21 @@ export default {
     align-items: center;
 
     margin-left: 1rem;
+
+    .profile {
+      display: flex;
+      align-items: center;
+      &__logo {
+        width: 42px;
+        height: 42px;
+        margin-right: 1rem;
+        border-radius: 50%;
+      }
+
+      &__title {
+        font-size: 1.5rem;
+      }
+    }
   }
 
   &__links {

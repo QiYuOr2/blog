@@ -8,7 +8,7 @@
     </ul>
 
     <div class="posts-list__pagination">
-      <fe-button size="small">查看更多</fe-button>
+      <fe-button size="large">查看更多</fe-button>
     </div>
   </div>
 </template>
@@ -17,9 +17,9 @@
 import { reactive, ref } from 'vue';
 import { importAll, omit } from '../common/utils';
 
-const posts = importAll(require.context('../posts', false, /\.mdx$/)).map(
-  omit('default')
-);
+const posts = importAll(require.context('../posts', false, /\.mdx$/))
+  .map(omit('default'))
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
 export default {
   setup() {
@@ -40,12 +40,6 @@ export default {
     padding: 1rem;
     margin-bottom: 3rem;
     border-radius: var(--size-radius);
-    border: 1px solid transparent;
-
-    cursor: pointer;
-    &:hover {
-      border-color: var(--color-hover);
-    }
 
     h2,
     p {
@@ -54,9 +48,34 @@ export default {
 
     h2 {
       display: inline-block;
-      margin-bottom: 1rem;
-      margin-right: auto;
+      margin: 0 auto 0.5rem -0.5rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: var(--size-radius);
+
       font-weight: bold;
+      cursor: pointer;
+
+      transition: background 0.3s;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0.5rem;
+        right: 0.5rem;
+        bottom: 0;
+        height: 2px;
+        background: var(--color-hover);
+      }
+
+      &:hover {
+        background: var(--color-hover);
+        transition: background 0.3s;
+
+        &::after {
+          background: #000;
+        }
+      }
     }
 
     p {
@@ -67,6 +86,10 @@ export default {
   &__pagination {
     margin-top: 3rem;
     margin-left: 1rem;
+
+    .fect-button {
+      width: 100%;
+    }
   }
 }
 </style>
