@@ -22,7 +22,7 @@ jobs:
           version: 6.23.6
 
       - name: install
-        run: pnpm install
+        run: npm config set registry https://registry.npmmirror.com/ & pnpm install
 
       - name: build
         run: pnpm run build
