@@ -19,12 +19,27 @@ export default {
 <style>
 :root {
   --color-text: #121212;
+  --color-hover: #0000000f;
+
+  --size-radius: 4px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --color-text: hsla(0, 0%, 100%, 0.87);
   }
+}
+
+html {
+  font-size: 16px;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
 }
 
 #app {

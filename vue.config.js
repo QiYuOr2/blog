@@ -1,6 +1,8 @@
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const nodeExternals = require('webpack-node-externals');
 const webpack = require('webpack');
+const remarkFrontmatter = require('remark-frontmatter');
+const { remarkMdxFrontmatter } = require('remark-mdx-frontmatter');
 
 module.exports = {
   chainWebpack: (webpackConfig) => {
@@ -20,7 +22,11 @@ module.exports = {
       .end()
       .use('@mdx-js/loader')
       .loader('@mdx-js/loader')
-      .options({ jsx: true, providerImportSource: '@mdx-js/vue' })
+      .options({
+        jsx: true,
+        providerImportSource: '@mdx-js/vue',
+        remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
+      })
       .end();
 
     // 我们需要禁用 cache loader，否则客户端构建版本会从服务端构建版本使用缓存过的组件

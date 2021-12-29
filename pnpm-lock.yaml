@@ -14,6 +14,8 @@ specifiers:
   babel-loader: ^8.2.3
   core-js: ^3.6.5
   express: ^4.17.2
+  remark-frontmatter: ^3.0.0
+  remark-mdx-frontmatter: ^1.1.1
   vue: ^3.0.0
   vue-router: ^4.0.12
   webpack-manifest-plugin: ^4.0.2
@@ -28,6 +30,8 @@ dependencies:
   '@vue/server-renderer': 3.2.26_vue@3.2.26
   core-js: 3.20.1
   express: 4.17.2
+  remark-frontmatter: 3.0.0
+  remark-mdx-frontmatter: 1.1.1
   vue: 3.2.26
   vue-router: 4.0.12_vue@3.2.26
 
@@ -2280,6 +2284,10 @@ packages:
     resolution: {integrity: sha1-G8R4GPMFdk8jqzMGsL/AhsWinRE=, tarball: arch/download/arch-2.2.0.tgz}
     dev: true
 
+  /argparse/2.0.1:
+    resolution: {integrity: sha1-JG9Q88p4oyQPbJl+ipvR6sSeSzg=, tarball: argparse/download/argparse-2.0.1.tgz}
+    dev: false
+
   /array-flatten/1.1.1:
     resolution: {integrity: sha1-ml9pkFGx5wczKPKgCJaLZOopVdI=, tarball: array-flatten/download/array-flatten-1.1.1.tgz}
 
@@ -2395,7 +2403,7 @@ packages:
     dev: true
 
   /bail/2.0.2:
-    resolution: {integrity: sha1-0m9c2P5db4MqMVF7n3w1YEC6bV0=, tarball: bail/download/bail-2.0.2.tgz?cache=0&sync_timestamp=1636277237028&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fbail%2Fdownload%2Fbail-2.0.2.tgz}
+    resolution: {integrity: sha1-0m9c2P5db4MqMVF7n3w1YEC6bV0=, tarball: bail/download/bail-2.0.2.tgz}
     dev: false
 
   /balanced-match/1.0.2:
@@ -3327,8 +3335,19 @@ packages:
       estree-walker: 3.0.1
     dev: false
 
+  /estree-util-is-identifier-name/1.1.0:
+    resolution: {integrity: sha1-LjSI6gbZ6i+s4RYFiGT2Nws3RW0=, tarball: estree-util-is-identifier-name/download/estree-util-is-identifier-name-1.1.0.tgz}
+    dev: false
+
   /estree-util-is-identifier-name/2.0.0:
     resolution: {integrity: sha1-4tPSrjAywBeyESgyv8XYupOMgBA=, tarball: estree-util-is-identifier-name/download/estree-util-is-identifier-name-2.0.0.tgz}
+    dev: false
+
+  /estree-util-value-to-estree/1.3.0:
+    resolution: {integrity: sha1-HTElWUtNZoD2ZmREkeesF0Wj30k=, tarball: estree-util-value-to-estree/download/estree-util-value-to-estree-1.3.0.tgz}
+    engines: {node: '>=12.0.0'}
+    dependencies:
+      is-plain-obj: 3.0.0
     dev: false
 
   /estree-util-visit/1.1.0:
@@ -3460,6 +3479,12 @@ packages:
       reusify: 1.0.4
     dev: true
 
+  /fault/1.0.4:
+    resolution: {integrity: sha1-6vz8Cm0hT8lGAeFw3ymVSk+ELxM=, tarball: fault/download/fault-1.0.4.tgz}
+    dependencies:
+      format: 0.2.2
+    dev: false
+
   /faye-websocket/0.11.4:
     resolution: {integrity: sha1-fw2Sdc/dhqHJY9yLZfzEUe3Lsdo=, tarball: faye-websocket/download/faye-websocket-0.11.4.tgz}
     engines: {node: '>=0.8.0'}
@@ -3521,6 +3546,11 @@ packages:
     dependencies:
       debug: 4.3.3
     dev: true
+
+  /format/0.2.2:
+    resolution: {integrity: sha1-1hcBB+nv3E7TDJ3DkBbflCtctYs=, tarball: format/download/format-0.2.2.tgz}
+    engines: {node: '>=0.4.x'}
+    dev: false
 
   /forwarded/0.2.0:
     resolution: {integrity: sha1-ImmTZCiq1MFcfr6XeahL8LKoGBE=, tarball: forwarded/download/forwarded-0.2.0.tgz}
@@ -4032,7 +4062,6 @@ packages:
   /is-plain-obj/3.0.0:
     resolution: {integrity: sha1-r28uoUrFpkYYOlu9tbqrvBVq2dc=, tarball: is-plain-obj/download/is-plain-obj-3.0.0.tgz}
     engines: {node: '>=10'}
-    dev: true
 
   /is-plain-obj/4.0.0:
     resolution: {integrity: sha1-BsCZn9dXTt9akGulZErQ/rOoTSI=, tarball: is-plain-obj/download/is-plain-obj-4.0.0.tgz}
@@ -4133,6 +4162,13 @@ packages:
   /js-tokens/4.0.0:
     resolution: {integrity: sha1-GSA/tZmR35jjoocFDUZHzerzJJk=, tarball: js-tokens/download/js-tokens-4.0.0.tgz}
     dev: true
+
+  /js-yaml/4.1.0:
+    resolution: {integrity: sha1-wftl+PUBeQHN0slRhkuhhFihBgI=, tarball: js-yaml/download/js-yaml-4.1.0.tgz}
+    hasBin: true
+    dependencies:
+      argparse: 2.0.1
+    dev: false
 
   /jsesc/0.5.0:
     resolution: {integrity: sha1-597mbjXW/Bb3EP6R1c9p9w8IkR0=, tarball: jsesc/download/jsesc-0.5.0.tgz}
@@ -4364,6 +4400,12 @@ packages:
       - supports-color
     dev: false
 
+  /mdast-util-frontmatter/0.2.0:
+    resolution: {integrity: sha1-i9XNVeI2wD4gSgNvc3Lr6eZ0gkA=, tarball: mdast-util-frontmatter/download/mdast-util-frontmatter-0.2.0.tgz}
+    dependencies:
+      micromark-extension-frontmatter: 0.2.2
+    dev: false
+
   /mdast-util-mdx-expression/1.1.1:
     resolution: {integrity: sha1-ZXUi54uE9chc0jlXdquo3Pt7uw8=, tarball: mdast-util-mdx-expression/download/mdast-util-mdx-expression-1.1.1.tgz}
     dependencies:
@@ -4497,6 +4539,12 @@ packages:
       uvu: 0.5.2
     dev: false
 
+  /micromark-extension-frontmatter/0.2.2:
+    resolution: {integrity: sha1-YbjpLpIT4dPBP1pZ54YvXKmN+lM=, tarball: micromark-extension-frontmatter/download/micromark-extension-frontmatter-0.2.2.tgz}
+    dependencies:
+      fault: 1.0.4
+    dev: false
+
   /micromark-extension-mdx-expression/1.0.3:
     resolution: {integrity: sha512-TjYtjEMszWze51NJCZmhv7MEBcgYRgb3tJeMAJ+HQCAaZHHRBaDCccqQzGizR/H4ODefP44wRTgOn2vE5I6nZA==, tarball: micromark-extension-mdx-expression/download/micromark-extension-mdx-expression-1.0.3.tgz}
     dependencies:
@@ -4612,7 +4660,7 @@ packages:
     dev: false
 
   /micromark-util-character/1.1.0:
-    resolution: {integrity: sha1-2XxU1XQqDZYRpoygzUEkMx8mTYY=, tarball: micromark-util-character/download/micromark-util-character-1.1.0.tgz}
+    resolution: {integrity: sha1-2XxU1XQqDZYRpoygzUEkMx8mTYY=, tarball: micromark-util-character/download/micromark-util-character-1.1.0.tgz?cache=0&sync_timestamp=1636510383858&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fmicromark-util-character%2Fdownload%2Fmicromark-util-character-1.1.0.tgz}
     dependencies:
       micromark-util-symbol: 1.0.1
       micromark-util-types: 1.0.2
@@ -5761,6 +5809,23 @@ packages:
     engines: {node: '>= 0.10'}
     dev: true
 
+  /remark-frontmatter/3.0.0:
+    resolution: {integrity: sha1-yl2ZY2F2XIWb2URQXzd9axhqbsY=, tarball: remark-frontmatter/download/remark-frontmatter-3.0.0.tgz}
+    dependencies:
+      mdast-util-frontmatter: 0.2.0
+      micromark-extension-frontmatter: 0.2.2
+    dev: false
+
+  /remark-mdx-frontmatter/1.1.1:
+    resolution: {integrity: sha512-7teX9DW4tI2WZkXS4DBxneYSY7NHiXl4AKdWDO9LXVweULlCT8OPWsOjLEnMIXViN1j+QcY8mfbq3k0EK6x3uA==, tarball: remark-mdx-frontmatter/download/remark-mdx-frontmatter-1.1.1.tgz}
+    engines: {node: '>=12.2.0'}
+    dependencies:
+      estree-util-is-identifier-name: 1.1.0
+      estree-util-value-to-estree: 1.3.0
+      js-yaml: 4.1.0
+      toml: 3.0.0
+    dev: false
+
   /remark-mdx/2.0.0-rc.2:
     resolution: {integrity: sha512-TMgFSEVx42/YzJWjDY+GKw7CGSbp3XKqBraXPxFS27r8iD9U6zuOZKXH4MoLl9JqiTOmQi0M1zJwT2YhPs32ug==, tarball: remark-mdx/download/remark-mdx-2.0.0-rc.2.tgz}
     dependencies:
@@ -6378,6 +6443,10 @@ packages:
   /toidentifier/1.0.1:
     resolution: {integrity: sha512-o5sSPKEkg/DIQNmH43V0/uerLrpzVedkUh8tGNvaeXpfpuwjKenlSox/2O/BTlZUtEe+JG7s5YhEz608PlAHRA==, tarball: toidentifier/download/toidentifier-1.0.1.tgz}
     engines: {node: '>=0.6'}
+
+  /toml/3.0.0:
+    resolution: {integrity: sha1-NCFg8a8ZBOydIE0DpdYSItdixe4=, tarball: toml/download/toml-3.0.0.tgz}
+    dev: false
 
   /totalist/1.1.0:
     resolution: {integrity: sha1-pNZaPlRlF3AePlw3pHpwrJf+Vt8=, tarball: totalist/download/totalist-1.1.0.tgz}
