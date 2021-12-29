@@ -17,12 +17,21 @@ export default {
 </script>
 
 <style>
+:root {
+  --color-text: #121212;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text: hsla(0, 0%, 100%, 0.87);
+  }
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+
+  color: var(--color-text);
 }
 </style>

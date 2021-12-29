@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="layout">
     <nav-bar />
     <router-view></router-view>
     <x-footer />
@@ -15,3 +15,10 @@ export default {
   setup() {},
 };
 </script>
+
+<style>
+.layout {
+  width: 48rem;
+  margin: 0 auto;
+}
+</style>
