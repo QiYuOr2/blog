@@ -1,15 +1,20 @@
 <template>
-  <div>
-    /posts
+  <article class="article">
     <HelloWorld />
-  </div>
+  </article>
 </template>
 
 <script>
-import HelloWorld from '../posts/hello-world.mdx';
+import HelloWorld from '../posts/use-webpack-build-vue.mdx';
 
 export default {
   components: { HelloWorld },
   setup() {},
 };
 </script>
+
+<style lang="less">
+.article {
+  padding: 0 1rem;
+}
+</style>

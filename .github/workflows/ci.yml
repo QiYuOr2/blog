@@ -17,14 +17,18 @@ jobs:
         with:
           node-version: '16'
 
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6.23.6
+
       - name: install
-        run: npm install
+        run: pnpm install
 
       - name: build
-        run: npm run build
+        run: pnpm run build
 
       - name: pack
-        run: tar -zcvf release.tgz dist server.js package.json package-lock.json pm2.config.json
+        run: tar -zcvf release.tgz dist server.js package.json pnpm-lock.yaml pm2.config.json
 
       - name: create release
         id: create_release
@@ -57,7 +61,8 @@ jobs:
           script: |
             mkdir /root/workspace/blog
             cd /root/workspace/blog
+            rm -rf node_modules/
             wget https://github.com/QiYuOr2/blog/releases/latest/download/release.tgz -O release.tgz
             tar zxvf release.tgz
-            npm install
+            npm config set registry https://registry.npmmirror.com/ & pnpm install
             pm2 reload pm2.config.json
