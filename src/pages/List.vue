@@ -37,8 +37,8 @@ export default {
 <style lang="less">
 .posts-list {
   &__item {
-    padding: 1rem;
-    margin-bottom: 3rem;
+    padding: 0 0.65rem;
+    margin-bottom: 4rem;
     border-radius: var(--size-radius);
 
     h2,
@@ -65,7 +65,8 @@ export default {
         right: 0.5rem;
         bottom: 0;
         height: 2px;
-        background: var(--color-hover);
+        background: #0000000f;
+        transition: background 0.3s;
       }
 
       &:hover {
@@ -73,7 +74,8 @@ export default {
         transition: background 0.3s;
 
         &::after {
-          background: #000;
+          background: var(--color-primary);
+          transition: background 0.3s;
         }
       }
     }

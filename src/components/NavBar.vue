@@ -5,7 +5,7 @@
         <img class="profile__logo" :src="LOGO_LINK" />
         <h1 class="profile__title">柒宇的博客</h1>
       </div>
-      <fe-button size="mini" auto @click="setDark">
+      <fe-button size="small" auto @click="setDark">
         <template #icon>
           <moon v-if="!dark" />
           <sun v-else />
@@ -14,17 +14,19 @@
     </div>
     <nav class="nav-bar__links">
       <ul>
-        <li :class="['link', { active: isActive('list') }]">
-          <router-link to="/">主页</router-link>
+        <li class="link">
+          <fe-link to="/" block :color="isActive('list')">主页</fe-link>
         </li>
-        <li :class="['link', { active: isActive('archives') }]">
-          <router-link to="archives">归档</router-link>
+        <li class="link">
+          <fe-link to="archives" block :color="isActive('archives')">
+            归档
+          </fe-link>
         </li>
-        <li :class="['link', { active: isActive('links') }]">
-          <router-link to="links">链接</router-link>
+        <li class="link">
+          <fe-link to="links" block :color="isActive('links')">链接</fe-link>
         </li>
-        <li :class="['link', { active: isActive('about') }]">
-          <router-link to="about">关于</router-link>
+        <li class="link">
+          <fe-link to="about" block :color="isActive('about')">关于</fe-link>
         </li>
       </ul>
     </nav>
@@ -32,7 +34,7 @@
 </template>
 
 <script>
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { Moon, Sun } from '@fect-ui/vue-icons';
 import { useRouter } from 'vue-router';
 
@@ -89,34 +91,26 @@ export default {
   }
 
   &__links {
-    margin-top: 2rem;
+    margin-top: 1rem;
 
     ul {
       display: flex;
-      margin-left: 0.55rem;
 
       .link {
         margin-right: 0.5rem;
-        & a {
-          padding: 0.45rem 0.75rem;
-          background: #fff;
-          border-radius: var(--size-radius);
 
+        .fect-link.block {
+          padding-left: 12px;
+          padding-right: 12px;
           font-size: 1.2rem;
-          color: var(--color-text);
-
-          transition: background 0.3s;
 
           &:hover {
-            background: var(--color-hover);
-
-            transition: background 0.3s;
+            background-color: var(--color-hover);
           }
-        }
-        &.active a {
-          background: var(--color-hover);
 
-          transition: background 0.3s;
+          &.color {
+            background-color: var(--color-hover);
+          }
         }
       }
     }

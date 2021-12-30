@@ -1,5 +1,6 @@
 <template>
   <link :href="FONT_LINK" />
+  <link rel="stylesheet" :href="HETI_LINK" />
   <MDXProvider>
     <Layout />
   </MDXProvider>
@@ -11,6 +12,7 @@ import Layout from './components/Layout.vue';
 
 const FONT_LINK =
   'https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap';
+const HETI_LINK = '//unpkg.com/heti/umd/heti.min.css';
 
 export default {
   components: {
@@ -18,21 +20,37 @@ export default {
     Layout,
   },
   setup() {
-    return { FONT_LINK };
+    return { FONT_LINK, HETI_LINK };
   },
 };
 </script>
 
 <style>
 :root {
-  --color-text: #121212;
-  --color-text-hover: #121212af;
-  --color-hover: #0000000f;
+  /* #edfcf7 */
+  /* #bbf0de */
+  /* #8de3c9 */
+  /* #63d6b7 */
+  /* #3cc9a9 */
+  --color-primary: #1abc9c;
+  /* #0e9680 */
+  /* #047062 */
+  /* #004a43 */
+  /* #002421 */
+
+  --color-text: #002421;
+  --color-text-hover: #002421af;
+  --color-text-underline: #0000000f;
+  --color-hover: #edfcf7;
   --color-shadow: #0000002f;
 
   --size-radius: 4px;
 
   --shadow-hover: 0 0 10px 1px var(--color-shadow);
+
+  /* 覆盖fect color */
+  --success-default: var(--color-primary) !important;
+  --success-light: var(--color-primary) !important;
 }
 
 @media (prefers-color-scheme: dark) {
