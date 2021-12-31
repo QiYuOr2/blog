@@ -1,11 +1,42 @@
 import { createRouter } from 'vue-router';
 
+import List from './pages/List.vue';
+import Article from './pages/Article.vue';
+import About from './pages/About.vue';
+import Archives from './pages/Archives.vue';
+import Links from './pages/Links.vue';
+
+const posts = require
+  .context('./posts', false, /\.mdx$/)
+  .keys()
+  .map((file) => {
+    const name = file.replace(/.\/|.mdx/g, '');
+    return { path: `/posts/${name}`, name, component: Article };
+  });
+
 const routes = [
-  { path: '/', name: 'list', component: () => import('./pages/List.vue') },
-  { path: '/posts', name: 'article', component: () => import('./pages/Article.vue') },
-  { path: '/about', name: 'about', component: () => import('./pages/About.vue') },
-  { path: '/archives', name: 'archives', component: () => import('./pages/Archives.vue') },
-  { path: '/links', name: 'links', component: () => import('./pages/Links.vue') },
+  { path: '/', name: 'list', component: List },
+  {
+    path: '/posts',
+    name: 'article',
+    component: Article,
+    children: posts,
+  },
+  {
+    path: '/about',
+    name: 'about',
+    component: About,
+  },
+  {
+    path: '/archives',
+    name: 'archives',
+    component: Archives,
+  },
+  {
+    path: '/links',
+    name: 'links',
+    component: Links,
+  },
 ];
 
 export default function (history) {

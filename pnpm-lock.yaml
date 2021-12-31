@@ -1,7 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@fect-ui/vue': ^1.0.5
+  '@fect-ui/vue': ^1.1.0
   '@fect-ui/vue-icons': ^2.0.0
   '@mdx-js/loader': ^2.0.0-rc.2
   '@mdx-js/mdx': ^2.0.0-rc.2
@@ -24,7 +24,7 @@ specifiers:
   webpack-node-externals: ^3.0.0
 
 dependencies:
-  '@fect-ui/vue': 1.0.5_vue@3.2.26
+  '@fect-ui/vue': 1.1.0_vue@3.2.26
   '@fect-ui/vue-icons': 2.0.0_vue@3.2.26
   '@mdx-js/loader': 2.0.0-rc.2
   '@mdx-js/mdx': 2.0.0-rc.2
@@ -1249,8 +1249,8 @@ packages:
     resolution: {integrity: sha1-aPXfvfKKdUduXw5KvKs/DpVbpVs=, tarball: '@fect-ui/themes/download/@fect-ui/themes-1.1.0.tgz'}
     dev: false
 
-  /@fect-ui/vue-hooks/0.0.3_vue@3.2.26:
-    resolution: {integrity: sha512-1JJvg5VDvWrc90cD1UDL6mt9AQryYXubJwkXvfV69JNeVKoKeVHPIKMySWArJJd9OIEEgccgkf+0EcWcfW8Qbg==, tarball: '@fect-ui/vue-hooks/download/@fect-ui/vue-hooks-0.0.3.tgz'}
+  /@fect-ui/vue-hooks/1.0.0_vue@3.2.26:
+    resolution: {integrity: sha512-iLw8GVBJNcg4i2ugS64Fjc2zojVOV5UIWV5KIq6iotBHHjrdDbR9M64lNiCFL+8fiWsYFl/MxW5JGVPtmejk6A==, tarball: '@fect-ui/vue-hooks/download/@fect-ui/vue-hooks-1.0.0.tgz'}
     peerDependencies:
       vue: ^3.0.11
     dependencies:
@@ -1265,13 +1265,14 @@ packages:
       vue: 3.2.26
     dev: false
 
-  /@fect-ui/vue/1.0.5_vue@3.2.26:
-    resolution: {integrity: sha512-D91F5HZ8CREHLtz5huJ8JmhcYdKHDVBO4KJGXDIaNNsgDsMYny8UOtcZ/nct+D45I5FXfbAbGQSpz48TOZtFTA==, tarball: '@fect-ui/vue/download/@fect-ui/vue-1.0.5.tgz'}
+  /@fect-ui/vue/1.1.0_vue@3.2.26:
+    resolution: {integrity: sha512-ri3jb5B4nMcDNl+Y+XO4/tyllXhibYLxAisyvD/yPEJAjMFNghLgU/PGdB3NcM5RUmr/UPNobxIeYpWLUCup2A==, tarball: '@fect-ui/vue/download/@fect-ui/vue-1.1.0.tgz'}
     peerDependencies:
       vue: ^3.0.11
     dependencies:
       '@fect-ui/themes': 1.1.0
-      '@fect-ui/vue-hooks': 0.0.3_vue@3.2.26
+      '@fect-ui/vue-hooks': 1.0.0_vue@3.2.26
+      proy: 0.0.3
       vue: 3.2.26
     dev: false
 
@@ -5755,6 +5756,10 @@ packages:
     dependencies:
       forwarded: 0.2.0
       ipaddr.js: 1.9.1
+
+  /proy/0.0.3:
+    resolution: {integrity: sha512-T1RE9NuaGXX54LGpt9PjxtXGio/N681v15ONwTfVkHlmt7TcNomJvV10UhNJ6PlniOygqH3cNmzVBpdvm+BZqg==, tarball: proy/download/proy-0.0.3.tgz}
+    dev: false
 
   /prr/1.0.1:
     resolution: {integrity: sha1-0/wRS6BplaRexok/SEzrHXj19HY=, tarball: prr/download/prr-1.0.1.tgz}

@@ -2,33 +2,57 @@
   <div class="posts-list">
     <ul>
       <li class="posts-list__item" v-for="(post, i) in list" :key="i">
-        <h2>{{ post.title }}</h2>
+        <h2 @click="toDetail(post.to)">{{ post.title }}</h2>
         <p>{{ post.summary }}</p>
       </li>
     </ul>
 
     <div class="posts-list__pagination">
-      <fe-button size="large">查看更多</fe-button>
+      <fe-button v-if="hasMore" size="large" @click="loadMore">
+        查看更多
+      </fe-button>
     </div>
   </div>
 </template>
 
 <script>
-import { reactive, ref } from 'vue';
+import { computed, ref } from 'vue';
+import { useRouter } from 'vue-router';
 import { importAll, omit } from '../common/utils';
 
-const posts = importAll(require.context('../posts', false, /\.mdx$/))
-  .map(omit('default'))
+const posts = importAll(require.context('../posts', false, /\.mdx$/), true)
+  .map(({ module, file }) => ({
+    ...omit('default', module),
+    to: `/posts/${file.replace(/.\/|.mdx/g, '')}`,
+  }))
   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+const PAGE_SIZE = 7;
+const TOTAL_COUNT = posts.length;
 
 export default {
   setup() {
     const page = ref(1);
-    const list = reactive(posts);
+    const list = computed(() => posts.slice(0, page.value * PAGE_SIZE));
+    const hasMore = computed(() => page.value * PAGE_SIZE <= TOTAL_COUNT);
+
+    const loadMore = () => {
+      if (hasMore.value) {
+        page.value += 1;
+      }
+    };
+
+    const r = useRouter();
+    const toDetail = (to) => {
+      r.push(to);
+    };
 
     return {
       list,
       page,
+      loadMore,
+      hasMore,
+      toDetail,
     };
   },
 };
@@ -65,7 +89,7 @@ export default {
         right: 0.5rem;
         bottom: 0;
         height: 2px;
-        background: #0000000f;
+        background: var(--color-text-underline);
         transition: background 0.3s;
       }
 

@@ -2,12 +2,12 @@
   <header class="nav-bar">
     <div class="nav-bar__info">
       <div class="profile">
-        <img class="profile__logo" :src="LOGO_LINK" />
+        <fe-avatar class="profile__logo" :src="LOGO_LINK" />
         <h1 class="profile__title">柒宇的博客</h1>
       </div>
-      <fe-button size="small" auto @click="setDark">
+      <fe-button size="small" auto @click="themeChange">
         <template #icon>
-          <moon v-if="!dark" />
+          <moon v-if="theme === 'light-theme'" />
           <sun v-else />
         </template>
       </fe-button>
@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import { onMounted, ref } from 'vue';
+import { useTheme } from '@fect-ui/vue';
 import { Moon, Sun } from '@fect-ui/vue-icons';
 import { useRouter } from 'vue-router';
 
@@ -44,10 +44,7 @@ const LOGO_LINK =
 export default {
   components: { Moon, Sun },
   setup() {
-    const dark = ref(false);
-    const setDark = () => {
-      dark.value = !dark.value;
-    };
+    const { theme, themeChange } = useTheme();
 
     const r = useRouter();
     const isActive = (name) => {
@@ -56,8 +53,8 @@ export default {
 
     return {
       LOGO_LINK,
-      dark,
-      setDark,
+      theme,
+      themeChange,
       isActive,
     };
   },
@@ -98,6 +95,7 @@ export default {
 
       .link {
         margin-right: 0.5rem;
+        font-weight: bold;
 
         .fect-link.block {
           padding-left: 12px;

@@ -25,24 +25,29 @@ export default {
 };
 </script>
 
-<style>
+<style lang="less">
 :root {
   /* #edfcf7 */
-  /* #bbf0de */
+  --color-primary-light: #bbf0de;
   /* #8de3c9 */
   /* #63d6b7 */
   /* #3cc9a9 */
   --color-primary: #1abc9c;
   /* #0e9680 */
   /* #047062 */
-  /* #004a43 */
+  --color-primary-dark: #004a43;
   /* #002421 */
+
+
+  --color-select-light: #acd2fe;
+  --color-select-dark: #304b6a;
 
   --color-text: #002421;
   --color-text-hover: #002421af;
   --color-text-underline: #0000000f;
   --color-hover: #edfcf7;
   --color-shadow: #0000002f;
+  --color-selection: var(--color-select-light);
 
   --size-radius: 4px;
 
@@ -51,13 +56,21 @@ export default {
   /* 覆盖fect color */
   --success-default: var(--color-primary) !important;
   --success-light: var(--color-primary) !important;
+  --primary-selection: var(--color-selection) !important;
+
+  &.dark-theme {
+    --color-primary: #edfcf7;
+    --color-hover: #1abc9cbf;
+    --color-text-underline: #edfcf74f;
+    --color-selection: var(--color-select-dark);
+  }
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --color-text: hsla(0, 0%, 100%, 0.87);
   }
-}
+} */
 
 html {
   font-size: 16px;
