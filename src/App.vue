@@ -38,7 +38,6 @@ export default {
   --color-primary-dark: #004a43;
   /* #002421 */
 
-
   --color-select-light: #acd2fe;
   --color-select-dark: #304b6a;
 
@@ -50,13 +49,22 @@ export default {
   --color-selection: var(--color-select-light);
 
   --size-radius: 4px;
+  --size-layout: 48rem;
+
+  --size-text-remark: 0.8rem;
+  --size-text-title: 1.5rem;
+  --size-text-main: 1.15rem;
 
   --shadow-hover: 0 0 10px 1px var(--color-shadow);
+
+  --font-family-monospace: 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono',
+    'Courier New', monospace;
 
   /* 覆盖fect color */
   --success-default: var(--color-primary) !important;
   --success-light: var(--color-primary) !important;
   --primary-selection: var(--color-selection) !important;
+  --primary-foreground: var(--color-text) !important;
 
   &.dark-theme {
     --color-primary: #edfcf7;
@@ -79,7 +87,6 @@ html {
     Microsoft YaHei, Noto Sans, Segoe UI, Roboto, Helvetica Neue, Helvetica,
     Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
     Noto Color Emoji;
-  color: var(--color-text);
 }
 
 ul {
@@ -89,5 +96,49 @@ ul {
 
 li {
   list-style: none;
+}
+
+/* 单行显示，超出部分显示为省略号 */
+.oneline {
+  display: inline-block;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// 适配
+@media screen and (min-width: 1200px) {
+  :root {
+    --size-layout: 48rem;
+  }
+}
+/* 当页面宽度大于960px小于1200px */
+@media screen and (min-width: 960px) and (max-width: 1200px) {
+  :root {
+    --size-layout: 48rem;
+  }
+}
+/* 当页面宽度大于600px小于960px */
+@media screen and (min-width: 600px) and (max-width: 960px) {
+  :root {
+    --size-layout: 34rem;
+  }
+}
+/* 当页面宽度大于300px小于600px */
+@media screen and (min-width: 300px) and (max-width: 600px) {
+  :root {
+    --size-layout: 92%;
+    --size-text-title: 1.25rem;
+    --size-text-main: 1rem;
+  }
+}
+/* 当页面宽度小于300px*/
+@media screen and (max-width: 300px) {
+  :root {
+    --size-layout: 96%;
+    --size-text-title: 1.25rem;
+    --size-text-main: 1rem;
+  }
 }
 </style>

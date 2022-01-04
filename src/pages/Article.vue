@@ -40,5 +40,8 @@ export default {
 <style lang="less">
 .article {
   padding: 0 1rem;
+  img {
+    max-width: 100%;
+  }
 }
 </style>

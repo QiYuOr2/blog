@@ -2,7 +2,7 @@
   <div class="posts-list">
     <ul>
       <li class="posts-list__item" v-for="(post, i) in list" :key="i">
-        <h2 @click="toDetail(post.to)">{{ post.title }}</h2>
+        <h2 class="oneline" @click="toDetail(post.to)">{{ post.title }}</h2>
         <p>{{ post.summary }}</p>
       </li>
     </ul>
@@ -17,8 +17,8 @@
 
 <script>
 import { computed, ref } from 'vue';
-import { useRouter } from 'vue-router';
-import { importAll, omit } from '../common/utils';
+import { importAll, omit, pageCache } from '../common/utils';
+import { useNav } from '../composables';
 
 const posts = importAll(require.context('../posts', false, /\.mdx$/), true)
   .map(({ module, file }) => ({
@@ -32,19 +32,17 @@ const TOTAL_COUNT = posts.length;
 
 export default {
   setup() {
-    const page = ref(1);
+    const { toDetail } = useNav();
+
+    const page = ref(pageCache.read());
     const list = computed(() => posts.slice(0, page.value * PAGE_SIZE));
     const hasMore = computed(() => page.value * PAGE_SIZE <= TOTAL_COUNT);
 
     const loadMore = () => {
       if (hasMore.value) {
         page.value += 1;
+        pageCache.increase();
       }
-    };
-
-    const r = useRouter();
-    const toDetail = (to) => {
-      r.push(to);
     };
 
     return {
@@ -76,6 +74,7 @@ export default {
       padding: 0.25rem 0.5rem;
       border-radius: var(--size-radius);
 
+      font-size: var(--size-text-title);
       font-weight: bold;
       cursor: pointer;
 
@@ -105,7 +104,7 @@ export default {
     }
 
     p {
-      font-size: 1.15rem;
+      font-size: var(--size-text-main);
     }
   }
 

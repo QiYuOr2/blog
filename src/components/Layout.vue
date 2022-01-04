@@ -18,7 +18,7 @@ export default {
 
 <style>
 .layout {
-  width: 48rem;
+  width: var(--size-layout);
   margin: 0 auto;
 }
 </style>
