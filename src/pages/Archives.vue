@@ -42,7 +42,6 @@ export default {
     align-items: center;
     height: 2.5rem;
 
-    cursor: pointer;
     &__date {
       margin-right: 1rem;
       font-size: var(--size-text-remark);
@@ -50,10 +49,29 @@ export default {
     }
 
     &__title {
+      width: unset !important;
+      margin-right: auto;
       transition: color 0.3s;
+      cursor: pointer;
+
+      position: relative;
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+        background: var(--color-primary);
+        transform: scaleX(0);
+        transition: transform 0.3s;
+      }
+
       &:hover {
-        color: var(--color-primary);
-        transition: color 0.3s;
+        &::after {
+          transform: scaleX(1);
+          transition: transform 0.3s;
+        }
       }
     }
   }
