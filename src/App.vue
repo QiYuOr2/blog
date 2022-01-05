@@ -69,6 +69,7 @@ export default {
   &.dark-theme {
     --color-primary: #edfcf7;
     --color-hover: #1abc9cbf;
+    --color-text: hsla(0, 0%, 100%, 0.87);
     --color-text-underline: #edfcf74f;
     --color-selection: var(--color-select-dark);
   }

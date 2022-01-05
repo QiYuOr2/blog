@@ -1,7 +1,7 @@
 <template>
   <div class="links">
     <fe-grid-group :gap="2">
-      <fe-grid v-for="i in 6" :xs="24" :sm="12" :md="6" :key="i">
+      <fe-grid v-for="i in 6" :xs="24" :sm="12" :key="i">
         <friend-card />
       </fe-grid>
     </fe-grid-group>
@@ -13,7 +13,8 @@ import FriendCard from '../components/FriendCard.vue';
 
 export default {
   components: { FriendCard },
-  setup() {},
+  setup() {
+  },
 };
 </script>
 
