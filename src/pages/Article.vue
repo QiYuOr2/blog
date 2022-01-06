@@ -49,6 +49,7 @@ export default {
     max-width: 100%;
   }
   &.custom {
+    max-width: 100% !important;
     blockquote {
       margin-inline-start: 0;
       margin-inline-end: 0;

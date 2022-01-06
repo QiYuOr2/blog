@@ -1,7 +1,6 @@
 <template>
   <link :href="FONT_LINK" />
   <link rel="stylesheet" :href="HETI_LINK" />
-  <link rel="stylesheet" :href="HIGHLIGHT_LINK" />
   <MDXProvider :components="customComponents">
     <Layout />
   </MDXProvider>
@@ -9,14 +8,13 @@
 
 <script>
 import { MDXProvider } from '@mdx-js/vue';
+import { computed } from 'vue';
 import Layout from './components/Layout.vue';
 import Link from './components/Link.vue';
 
 const FONT_LINK =
   'https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap';
 const HETI_LINK = '//unpkg.com/heti/umd/heti.min.css';
-const HIGHLIGHT_LINK =
-  'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/github.min.css';
 
 export default {
   components: {
@@ -28,12 +26,15 @@ export default {
       a: Link,
     };
 
-    return { FONT_LINK, HETI_LINK, HIGHLIGHT_LINK, customComponents };
+    return { FONT_LINK, HETI_LINK, customComponents };
   },
 };
 </script>
 
 <style lang="less">
+@import url('./common/lib/github.less');
+@import url('./common/lib/github-dark.less');
+
 :root {
   --color-primary-light2: #edfef9bf;
   --color-primary-light: #bbf0de;
