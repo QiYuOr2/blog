@@ -22,7 +22,7 @@ jobs:
           version: 6.23.6
 
       - name: install
-        run: pnpm config set registry https://registry.npmmirror.com/ & pnpm install
+        run: pnpm install --registry=https://registry.npmmirror.com/
 
       - name: build
         run: pnpm run build
@@ -64,5 +64,5 @@ jobs:
             rm -rf node_modules/
             wget https://github.com/QiYuOr2/blog/releases/latest/download/release.tgz -O release.tgz
             tar zxvf release.tgz
-            pnpm config set registry https://registry.npmmirror.com/ & pnpm install
+            pnpm install --registry=https://registry.npmmirror.com/
             pm2 reload pm2.config.json
