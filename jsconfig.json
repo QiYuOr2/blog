@@ -1,0 +1,5 @@
+{
+  "compilerOptions": {
+    "types": ["@fect-ui/vue/components"]
+  },
+}

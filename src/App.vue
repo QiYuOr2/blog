@@ -1,7 +1,8 @@
 <template>
   <link :href="FONT_LINK" />
   <link rel="stylesheet" :href="HETI_LINK" />
-  <MDXProvider>
+  <link rel="stylesheet" :href="HIGHLIGHT_LINK" />
+  <MDXProvider :components="customComponents">
     <Layout />
   </MDXProvider>
 </template>
@@ -9,10 +10,13 @@
 <script>
 import { MDXProvider } from '@mdx-js/vue';
 import Layout from './components/Layout.vue';
+import Link from './components/Link.vue';
 
 const FONT_LINK =
   'https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap';
 const HETI_LINK = '//unpkg.com/heti/umd/heti.min.css';
+const HIGHLIGHT_LINK =
+  'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/github.min.css';
 
 export default {
   components: {
@@ -20,14 +24,18 @@ export default {
     Layout,
   },
   setup() {
-    return { FONT_LINK, HETI_LINK };
+    const customComponents = {
+      a: Link,
+    };
+
+    return { FONT_LINK, HETI_LINK, HIGHLIGHT_LINK, customComponents };
   },
 };
 </script>
 
 <style lang="less">
 :root {
-  /* #edfcf7 */
+  --color-primary-light2: #edfef9bf;
   --color-primary-light: #bbf0de;
   /* #8de3c9 */
   /* #63d6b7 */
@@ -60,11 +68,16 @@ export default {
   --font-family-monospace: 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono',
     'Courier New', monospace;
 
+  --article-blockquote-bg: var(--color-primary-light2);
+  --article-blockquote-mark: var(--color-primary);
+
   /* 覆盖fect color */
   --success-default: var(--color-primary) !important;
   --success-light: var(--color-primary) !important;
   --primary-selection: var(--color-selection) !important;
   --primary-foreground: var(--color-text) !important;
+  --fay-code-color: #f39c12 !important;
+  --fay-link-color: #3498db !important;
 
   &.dark-theme {
     --color-primary: #edfcf7;
@@ -72,6 +85,9 @@ export default {
     --color-text: hsla(0, 0%, 100%, 0.87);
     --color-text-underline: #edfcf74f;
     --color-selection: var(--color-select-dark);
+
+    --article-blockquote-bg: #004a439f;
+    --article-blockquote-mark: var(--color-primary-dark);
   }
 }
 
@@ -109,32 +125,33 @@ li {
 }
 
 // 适配
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1920px) {
+  :root {
+    --size-layout: 54rem;
+  }
+}
+@media screen and (min-width: 1280px) and (max-width: 1920px) {
+  :root {
+    --size-layout: 52rem;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1280px) {
   :root {
     --size-layout: 48rem;
   }
 }
-/* 当页面宽度大于960px小于1200px */
-@media screen and (min-width: 960px) and (max-width: 1200px) {
-  :root {
-    --size-layout: 48rem;
-  }
-}
-/* 当页面宽度大于600px小于960px */
-@media screen and (min-width: 600px) and (max-width: 960px) {
+@media screen and (min-width: 650px) and (max-width: 900px) {
   :root {
     --size-layout: 34rem;
   }
 }
-/* 当页面宽度大于300px小于600px */
-@media screen and (min-width: 300px) and (max-width: 600px) {
+@media screen and (min-width: 300px) and (max-width: 650px) {
   :root {
     --size-layout: 92%;
     --size-text-title: 1.25rem;
     --size-text-main: 1rem;
   }
 }
-/* 当页面宽度小于300px*/
 @media screen and (max-width: 300px) {
   :root {
     --size-layout: 96%;

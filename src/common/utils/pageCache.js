@@ -1,11 +1,10 @@
-const PAGE_CACHE_KEY = 'blog@page_cache_key';
-
 export const pageCache = {
+  page: 1,
   read() {
-    return Number(sessionStorage.getItem(PAGE_CACHE_KEY) || 1);
+    return Number(this.page || 1);
   },
   cache(val) {
-    return sessionStorage.setItem(PAGE_CACHE_KEY, Number(val));
+    return (this.page = Number(val));
   },
   increase() {
     let page = this.read();

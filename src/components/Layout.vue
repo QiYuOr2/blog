@@ -2,7 +2,9 @@
   <div class="layout">
     <nav-bar />
     <router-view></router-view>
-    <x-footer />
+    <div class="layout__footer">
+      <x-footer  />
+    </div>
   </div>
 </template>
 
@@ -16,9 +18,16 @@ export default {
 };
 </script>
 
-<style>
+<style lang="less">
 .layout {
+  display: flex;
+  flex-direction: column;
   width: var(--size-layout);
+  min-height: 100vh;
   margin: 0 auto;
+
+  &__footer {
+    margin-top: auto;
+  }
 }
 </style>

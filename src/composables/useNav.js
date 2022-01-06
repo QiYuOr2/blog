@@ -6,5 +6,9 @@ export function useNav() {
     r.push(to);
   };
 
-  return { toDetail };
+  const toOut = (to) => {
+    open(to, '__blank');
+  };
+
+  return { toDetail, toOut };
 }

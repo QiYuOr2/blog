@@ -2,7 +2,11 @@
   <footer class="footer">
     <div class="footer__copyright">QIYUOR2 © 2021</div>
     <div class="footer__links">
-      <github class="icon" size="16" />
+      <github
+        class="icon"
+        size="16"
+        @click="toOut('https://github.com/QiYuOr2')"
+      />
       <rss class="icon" size="16" />
     </div>
   </footer>
@@ -10,10 +14,17 @@
 
 <script>
 import { Github, Rss } from '@fect-ui/vue-icons';
+import { useNav } from '../composables';
 
 export default {
   components: { Github, Rss },
-  setup() {},
+  setup() {
+    const { toOut } = useNav();
+
+    return {
+      toOut,
+    };
+  },
 };
 </script>
 
@@ -27,6 +38,13 @@ export default {
   &__links {
     .icon {
       margin-left: 1rem;
+      cursor: pointer;
+      transition: color 0.3s;
+
+      &:hover {
+        color: var(--color-primary) !important;
+        transition: color 0.3s;
+      }
     }
   }
 }

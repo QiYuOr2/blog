@@ -1,6 +1,6 @@
 {
   "name": "blog",
-  "version": "0.1.0",
+  "version": "1.0.0-beta.1",
   "files": [
     "dist",
     "server.js"
@@ -8,13 +8,13 @@
   "scripts": {
     "start": "node server.js",
     "serve": "vue-cli-service serve",
-    "build": "npm run build:client && npm run build:server",
+    "build": "npm run build:client && npm run build:server && node scripts/feed.mjs",
     "lint": "vue-cli-service lint",
     "build:client": "vue-cli-service build --dest dist/client",
     "build:server": "SSR=1 vue-cli-service build --dest dist/server"
   },
   "dependencies": {
-    "@fect-ui/vue": "^1.1.0",
+    "@fect-ui/vue": "^1.2.0-rc.0",
     "@fect-ui/vue-icons": "^2.0.0",
     "@mdx-js/loader": "^2.0.0-rc.2",
     "@mdx-js/mdx": "^2.0.0-rc.2",
@@ -22,6 +22,7 @@
     "@vue/server-renderer": "^3.2.26",
     "core-js": "^3.6.5",
     "express": "^4.17.2",
+    "rehype-highlight": "4",
     "remark-frontmatter": "^3.0.0",
     "remark-mdx-frontmatter": "^1.1.1",
     "vue": "^3.0.0",
@@ -33,10 +34,15 @@
     "@vue/cli-service": "^5.0.0-rc.1",
     "@vue/compiler-sfc": "^3.0.0",
     "babel-loader": "^8.2.3",
+    "feed": "^4.2.2",
     "less": "^4.1.2",
     "less-loader": "^10.2.0",
+    "unist-util-remove": "^3.1.0",
+    "unist-util-visit": "^4.1.0",
+    "vfile": "^5.2.1",
     "webpack-manifest-plugin": "^4.0.2",
-    "webpack-node-externals": "^3.0.0"
+    "webpack-node-externals": "^3.0.0",
+    "yaml": "^1.10.2"
   },
   "browserslist": [
     "> 1%",

@@ -70,6 +70,8 @@ export default {
 
     h2 {
       display: inline-block;
+      width: unset !important;
+      max-width: 100%;
       margin: 0 auto 0.5rem -0.5rem;
       padding: 0.25rem 0.5rem;
       border-radius: var(--size-radius);

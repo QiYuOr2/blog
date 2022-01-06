@@ -3,6 +3,7 @@ const nodeExternals = require('webpack-node-externals');
 const webpack = require('webpack');
 const remarkFrontmatter = require('remark-frontmatter');
 const { remarkMdxFrontmatter } = require('remark-mdx-frontmatter');
+const highlight = require('rehype-highlight')
 
 module.exports = {
   chainWebpack: (webpackConfig) => {
@@ -26,6 +27,7 @@ module.exports = {
         jsx: true,
         providerImportSource: '@mdx-js/vue',
         remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
+        rehypePlugins: [highlight]
       })
       .end();
 

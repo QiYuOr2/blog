@@ -1,7 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@fect-ui/vue': ^1.1.0
+  '@fect-ui/vue': ^1.2.0-rc.0
   '@fect-ui/vue-icons': ^2.0.0
   '@mdx-js/loader': ^2.0.0-rc.2
   '@mdx-js/mdx': ^2.0.0-rc.2
@@ -14,17 +14,23 @@ specifiers:
   babel-loader: ^8.2.3
   core-js: ^3.6.5
   express: ^4.17.2
+  feed: ^4.2.2
   less: ^4.1.2
   less-loader: ^10.2.0
+  rehype-highlight: '4'
   remark-frontmatter: ^3.0.0
   remark-mdx-frontmatter: ^1.1.1
+  unist-util-remove: ^3.1.0
+  unist-util-visit: ^4.1.0
+  vfile: ^5.2.1
   vue: ^3.0.0
   vue-router: ^4.0.12
   webpack-manifest-plugin: ^4.0.2
   webpack-node-externals: ^3.0.0
+  yaml: ^1.10.2
 
 dependencies:
-  '@fect-ui/vue': 1.1.0_vue@3.2.26
+  '@fect-ui/vue': 1.2.0-rc.0_vue@3.2.26
   '@fect-ui/vue-icons': 2.0.0_vue@3.2.26
   '@mdx-js/loader': 2.0.0-rc.2
   '@mdx-js/mdx': 2.0.0-rc.2
@@ -32,6 +38,7 @@ dependencies:
   '@vue/server-renderer': 3.2.26_vue@3.2.26
   core-js: 3.20.1
   express: 4.17.2
+  rehype-highlight: 4.1.0
   remark-frontmatter: 3.0.0
   remark-mdx-frontmatter: 1.1.1
   vue: 3.2.26
@@ -43,10 +50,15 @@ devDependencies:
   '@vue/cli-service': 5.0.0-rc.1_less-loader@10.2.0
   '@vue/compiler-sfc': 3.2.26
   babel-loader: 8.2.3
+  feed: 4.2.2
   less: 4.1.2
   less-loader: 10.2.0_less@4.1.2
+  unist-util-remove: 3.1.0
+  unist-util-visit: 4.1.0
+  vfile: 5.2.1
   webpack-manifest-plugin: 4.0.2
   webpack-node-externals: 3.0.0
+  yaml: 1.10.2
 
 packages:
 
@@ -1265,8 +1277,8 @@ packages:
       vue: 3.2.26
     dev: false
 
-  /@fect-ui/vue/1.1.0_vue@3.2.26:
-    resolution: {integrity: sha512-ri3jb5B4nMcDNl+Y+XO4/tyllXhibYLxAisyvD/yPEJAjMFNghLgU/PGdB3NcM5RUmr/UPNobxIeYpWLUCup2A==, tarball: '@fect-ui/vue/download/@fect-ui/vue-1.1.0.tgz'}
+  /@fect-ui/vue/1.2.0-rc.0_vue@3.2.26:
+    resolution: {integrity: sha512-qHRor8jHJUZzhGYkCo5PTLkKXDQIFVdIGcQk9a3XacxiMz146Rkhe0HSbfO3PRLCqRuY8ibqmwSIRhnmsBln8g==, tarball: '@fect-ui/vue/download/@fect-ui/vue-1.2.0-rc.0.tgz'}
     peerDependencies:
       vue: ^3.0.11
     dependencies:
@@ -1316,7 +1328,7 @@ packages:
       unist-util-position-from-estree: 1.1.1
       unist-util-stringify-position: 3.0.0
       unist-util-visit: 4.1.0
-      vfile: 5.2.0
+      vfile: 5.2.1
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -1563,7 +1575,6 @@ packages:
 
   /@types/unist/2.0.6:
     resolution: {integrity: sha1-JQp7FsO5H2cqJFUuxkZ47rHToI0=, tarball: '@types/unist/download/@types/unist-2.0.6.tgz'}
-    dev: false
 
   /@types/webpack-dev-middleware/5.0.2:
     resolution: {integrity: sha1-D2ZWbCyn1ISJG0VSyKe2SjBE4+I=, tarball: '@types/webpack-dev-middleware/download/@types/webpack-dev-middleware-5.0.2.tgz'}
@@ -2409,7 +2420,7 @@ packages:
     dev: true
 
   /bail/2.0.2:
-    resolution: {integrity: sha1-0m9c2P5db4MqMVF7n3w1YEC6bV0=, tarball: bail/download/bail-2.0.2.tgz}
+    resolution: {integrity: sha1-0m9c2P5db4MqMVF7n3w1YEC6bV0=, tarball: bail/download/bail-2.0.2.tgz?cache=0&sync_timestamp=1636277237028&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fbail%2Fdownload%2Fbail-2.0.2.tgz}
     dev: false
 
   /balanced-match/1.0.2:
@@ -3513,6 +3524,13 @@ packages:
       websocket-driver: 0.7.4
     dev: true
 
+  /feed/4.2.2:
+    resolution: {integrity: sha1-hleD727RJXnixEu+88kRO8SVan4=, tarball: feed/download/feed-4.2.2.tgz}
+    engines: {node: '>=0.4.0'}
+    dependencies:
+      xml-js: 1.6.11
+    dev: true
+
   /figures/2.0.0:
     resolution: {integrity: sha1-OrGi0qYsi/tDGgyUy3l6L84nyWI=, tarball: figures/download/figures-2.0.0.tgz}
     engines: {node: '>=4'}
@@ -3743,6 +3761,10 @@ packages:
     resolution: {integrity: sha1-gdAbtd6OpKIUrV1urRtSNGCwtFo=, tarball: hash-sum/download/hash-sum-2.0.0.tgz}
     dev: true
 
+  /hast-util-is-element/1.1.0:
+    resolution: {integrity: sha1-Oz7VFZonB8YTe0hjf7/gaOF1pCU=, tarball: hast-util-is-element/download/hast-util-is-element-1.1.0.tgz}
+    dev: false
+
   /hast-util-to-estree/2.0.2:
     resolution: {integrity: sha1-ecW/WIkVYQs/DUfKg6dNwCacfcI=, tarball: hast-util-to-estree/download/hast-util-to-estree-2.0.2.tgz}
     dependencies:
@@ -3764,6 +3786,14 @@ packages:
       - supports-color
     dev: false
 
+  /hast-util-to-text/2.0.1:
+    resolution: {integrity: sha1-BPLgZWQqDtsINBl2CEqiF2JKD4s=, tarball: hast-util-to-text/download/hast-util-to-text-2.0.1.tgz}
+    dependencies:
+      hast-util-is-element: 1.1.0
+      repeat-string: 1.6.1
+      unist-util-find-after: 3.0.0
+    dev: false
+
   /hast-util-whitespace/2.0.0:
     resolution: {integrity: sha1-T8EIZGfMHvW6IGc8trA87DqXDxw=, tarball: hast-util-whitespace/download/hast-util-whitespace-2.0.0.tgz}
     dev: false
@@ -3775,7 +3805,6 @@ packages:
 
   /highlight.js/10.7.3:
     resolution: {integrity: sha512-tzcUFauisWKNHaRkN4Wjl/ZA07gENAjFl3J/c480dprkGTg5EQstgaNFqBfUqCq54kZRIEcreTsAgF/m2quD7A==, tarball: highlight.js/download/highlight.js-10.7.3.tgz}
-    dev: true
 
   /hosted-git-info/2.8.9:
     resolution: {integrity: sha1-3/wL+aIcAiCQkPKqaUKeFBTa8/k=, tarball: hosted-git-info/download/hosted-git-info-2.8.9.tgz}
@@ -4011,7 +4040,6 @@ packages:
   /is-buffer/2.0.5:
     resolution: {integrity: sha1-68JS5ADSL/jXf6CYiIIaJKZYwZE=, tarball: is-buffer/download/is-buffer-2.0.5.tgz}
     engines: {node: '>=4'}
-    dev: false
 
   /is-core-module/2.8.0:
     resolution: {integrity: sha1-AyEzbD0JJeSX/Zf12VyxFKXM1Ug=, tarball: is-core-module/download/is-core-module-2.8.0.tgz}
@@ -4403,6 +4431,13 @@ packages:
     dependencies:
       tslib: 2.3.1
     dev: true
+
+  /lowlight/1.20.0:
+    resolution: {integrity: sha1-3bGX0zRirQ2TvxnRe2wwGqOUGIg=, tarball: lowlight/download/lowlight-1.20.0.tgz}
+    dependencies:
+      fault: 1.0.4
+      highlight.js: 10.7.3
+    dev: false
 
   /lru-cache/4.1.5:
     resolution: {integrity: sha1-i75Q6oW+1ZvJ4z3KuCNe6bz0Q80=, tarball: lru-cache/download/lru-cache-4.1.5.tgz}
@@ -5908,6 +5943,14 @@ packages:
       jsesc: 0.5.0
     dev: true
 
+  /rehype-highlight/4.1.0:
+    resolution: {integrity: sha1-gX2lrWEHLmwJhwOhd9sVhAhiUlU=, tarball: rehype-highlight/download/rehype-highlight-4.1.0.tgz}
+    dependencies:
+      hast-util-to-text: 2.0.1
+      lowlight: 1.20.0
+      unist-util-visit: 2.0.3
+    dev: false
+
   /relateurl/0.2.7:
     resolution: {integrity: sha1-VNvzd+UUQKypCkzSdGANP/LYiKk=, tarball: relateurl/download/relateurl-0.2.7.tgz}
     engines: {node: '>= 0.10'}
@@ -5967,6 +6010,11 @@ packages:
       lodash: 4.17.21
       strip-ansi: 6.0.1
     dev: true
+
+  /repeat-string/1.6.1:
+    resolution: {integrity: sha1-jcrkcOHIirwtYA//Sndihtp15jc=, tarball: repeat-string/download/repeat-string-1.6.1.tgz}
+    engines: {node: '>=0.10'}
+    dev: false
 
   /require-directory/2.1.1:
     resolution: {integrity: sha1-jGStX9MNqxyXbiNE/+f3kqam30I=, tarball: require-directory/download/require-directory-2.1.1.tgz}
@@ -6053,7 +6101,6 @@ packages:
   /sax/1.2.4:
     resolution: {integrity: sha1-KBYjTiN4vdxOU1T6tcqold9xANk=, tarball: sax/download/sax-1.2.4.tgz}
     dev: true
-    optional: true
 
   /schema-utils/2.7.1:
     resolution: {integrity: sha1-HKTzLRskxZDCA7jnpQvw6kzTlNc=, tarball: schema-utils/download/schema-utils-2.7.1.tgz}
@@ -6628,7 +6675,7 @@ packages:
       is-buffer: 2.0.5
       is-plain-obj: 4.0.0
       trough: 2.0.2
-      vfile: 5.2.0
+      vfile: 5.2.1
     dev: false
 
   /unist-builder/3.0.0:
@@ -6637,13 +6684,22 @@ packages:
       '@types/unist': 2.0.6
     dev: false
 
+  /unist-util-find-after/3.0.0:
+    resolution: {integrity: sha1-XGX86/ZNT49JbbRvqP0PvzVLQ+Y=, tarball: unist-util-find-after/download/unist-util-find-after-3.0.0.tgz}
+    dependencies:
+      unist-util-is: 4.1.0
+    dev: false
+
   /unist-util-generated/2.0.0:
     resolution: {integrity: sha1-hvr7d+ts6b+mtmPD9a1PjlamARM=, tarball: unist-util-generated/download/unist-util-generated-2.0.0.tgz}
     dev: false
 
+  /unist-util-is/4.1.0:
+    resolution: {integrity: sha1-l25fRip6Xec9lLcGusG5BnG1d5c=, tarball: unist-util-is/download/unist-util-is-4.1.0.tgz}
+    dev: false
+
   /unist-util-is/5.1.1:
     resolution: {integrity: sha1-6K7OCxAvqbwJew/vj4cMSW1KYjY=, tarball: unist-util-is/download/unist-util-is-5.1.1.tgz}
-    dev: false
 
   /unist-util-position-from-estree/1.1.1:
     resolution: {integrity: sha1-lvTVQ9+wQo7cAeu5KFcLYC0oDEw=, tarball: unist-util-position-from-estree/download/unist-util-position-from-estree-1.1.1.tgz}
@@ -6662,10 +6718,24 @@ packages:
       unist-util-visit: 4.1.0
     dev: false
 
+  /unist-util-remove/3.1.0:
+    resolution: {integrity: sha1-gEJXfhUdrJibdReXa/5LrFj3bM0=, tarball: unist-util-remove/download/unist-util-remove-3.1.0.tgz}
+    dependencies:
+      '@types/unist': 2.0.6
+      unist-util-is: 5.1.1
+      unist-util-visit-parents: 5.1.0
+    dev: true
+
   /unist-util-stringify-position/3.0.0:
     resolution: {integrity: sha1-1RfSiD100NqgtWWtw9EKArSozek=, tarball: unist-util-stringify-position/download/unist-util-stringify-position-3.0.0.tgz}
     dependencies:
       '@types/unist': 2.0.6
+
+  /unist-util-visit-parents/3.1.1:
+    resolution: {integrity: sha1-ZabOaY94prD1aqDojxOAGIbNrvY=, tarball: unist-util-visit-parents/download/unist-util-visit-parents-3.1.1.tgz}
+    dependencies:
+      '@types/unist': 2.0.6
+      unist-util-is: 4.1.0
     dev: false
 
   /unist-util-visit-parents/4.1.1:
@@ -6680,6 +6750,13 @@ packages:
     dependencies:
       '@types/unist': 2.0.6
       unist-util-is: 5.1.1
+
+  /unist-util-visit/2.0.3:
+    resolution: {integrity: sha1-w3A4kxRt9HIDu4qXla9H17lxIIw=, tarball: unist-util-visit/download/unist-util-visit-2.0.3.tgz}
+    dependencies:
+      '@types/unist': 2.0.6
+      unist-util-is: 4.1.0
+      unist-util-visit-parents: 3.1.1
     dev: false
 
   /unist-util-visit/3.1.0:
@@ -6696,7 +6773,6 @@ packages:
       '@types/unist': 2.0.6
       unist-util-is: 5.1.1
       unist-util-visit-parents: 5.1.0
-    dev: false
 
   /universalify/2.0.0:
     resolution: {integrity: sha1-daSYTv7cSwiXXFrrc/Uw0C3yVxc=, tarball: universalify/download/universalify-2.0.0.tgz}
@@ -6758,16 +6834,14 @@ packages:
     dependencies:
       '@types/unist': 2.0.6
       unist-util-stringify-position: 3.0.0
-    dev: false
 
-  /vfile/5.2.0:
-    resolution: {integrity: sha1-oypkb/klHCdNvoZ1ZEo5AxAls2k=, tarball: vfile/download/vfile-5.2.0.tgz}
+  /vfile/5.2.1:
+    resolution: {integrity: sha512-vXW5XKbELM6mLj88kmkJ+gjFGZ/2gTmpdqPDjs3y+qbvI5i7md7rba/+pbYEawa7t22W7ynywPV6lUUAS1WiYg==, tarball: vfile/download/vfile-5.2.1.tgz}
     dependencies:
       '@types/unist': 2.0.6
       is-buffer: 2.0.5
       unist-util-stringify-position: 3.0.0
       vfile-message: 3.0.2
-    dev: false
 
   /vue-hot-reload-api/2.3.4:
     resolution: {integrity: sha1-UylVzB6yCKPZkLOp+acFdGV+CPI=, tarball: vue-hot-reload-api/download/vue-hot-reload-api-2.3.4.tgz}
@@ -7119,6 +7193,13 @@ packages:
         optional: true
       utf-8-validate:
         optional: true
+    dev: true
+
+  /xml-js/1.6.11:
+    resolution: {integrity: sha1-kn0vaUf38cGaMW3Y7qNhTosY+Ok=, tarball: xml-js/download/xml-js-1.6.11.tgz}
+    hasBin: true
+    dependencies:
+      sax: 1.2.4
     dev: true
 
   /y18n/5.0.8:
