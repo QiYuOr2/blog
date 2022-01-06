@@ -11,7 +11,7 @@
     "build": "npm run build:client && npm run build:server && node scripts/feed.mjs",
     "lint": "vue-cli-service lint",
     "build:client": "vue-cli-service build --dest dist/client",
-    "build:server": "SSR=1 vue-cli-service build --dest dist/server"
+    "build:server": "cross-env SSR=1 vue-cli-service build --dest dist/server"
   },
   "dependencies": {
     "@fect-ui/vue": "^1.2.0-rc.0",
@@ -34,6 +34,7 @@
     "@vue/cli-service": "^5.0.0-rc.1",
     "@vue/compiler-sfc": "^3.0.0",
     "babel-loader": "^8.2.3",
+    "cross-env": "^7.0.3",
     "feed": "^4.2.2",
     "less": "^4.1.2",
     "less-loader": "^10.2.0",
