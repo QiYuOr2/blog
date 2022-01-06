@@ -52,6 +52,10 @@ server.get('*', async (req, res) => {
   });
 });
 
-server.listen(80, () => {
-  console.log('You can navigate to http://localhost:80');
-});
+if (!process.env.VERCEL) {
+  server.listen(80, () => {
+    console.log('You can navigate to http://localhost:80');
+  });
+}
+
+module.exports = server;

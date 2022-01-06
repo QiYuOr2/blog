@@ -7,7 +7,7 @@
         size="16"
         @click="toOut('https://github.com/QiYuOr2')"
       />
-      <rss class="icon" size="16" />
+      <rss class="icon" size="16" @click="toOut('/rss')" />
     </div>
   </footer>
 </template>
