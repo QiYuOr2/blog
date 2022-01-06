@@ -11,7 +11,7 @@ import { Feed } from 'feed';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const POSTS_DIR = '../src/posts';
-const BASE_URL = 'http://qiyuor2.cn/posts/';
+const BASE_URL = 'https://blog.qiyuor2.cn/posts/';
 
 function compileFrontmatter() {
   return (tree, file) => {
