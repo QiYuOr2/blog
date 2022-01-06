@@ -1,44 +1,12 @@
 <template>
   <article class="article heti custom">
-    <h1>{{ title }}</h1>
-    <component :is="currentArticle"></component>
-    <copyright />
+    <router-view></router-view>
   </article>
 </template>
 
 <script>
-import { ref, watch } from 'vue';
-import { useRouter } from 'vue-router';
-import { importAll } from '../common/utils';
-import Copyright from '../components/Copyright.vue';
-
-const nameToTitle = {};
-const posts = importAll(
-  require.context('../posts', false, /\.mdx$/),
-  true
-).reduce((total, { module, file }) => {
-  const name = file.replace(/.\/|.mdx/g, '');
-  total[name] = module.default;
-  nameToTitle[name] = module.title;
-  return total;
-}, {});
-
 export default {
-  components: { ...posts, Copyright },
-  setup() {
-    const r = useRouter();
-    const currentArticle = ref('');
-    watch(
-      () => r.currentRoute.value.name,
-      (val) => {
-        scrollTo({ top: 0 });
-        currentArticle.value = val;
-      },
-      { immediate: true }
-    );
-
-    return { currentArticle, title: nameToTitle[currentArticle.value] };
-  },
+  setup() {},
 };
 </script>
 

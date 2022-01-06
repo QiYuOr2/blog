@@ -20,9 +20,10 @@
 
 <script>
 export default {
-  setup() {
+  props: ['filename'],
+  setup(props) {
     return {
-      url: location.href,
+      url: `https://blog.qiyuor2.cn/posts/${props.filename}`,
     };
   },
 };

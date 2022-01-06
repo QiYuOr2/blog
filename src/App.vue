@@ -8,7 +8,6 @@
 
 <script>
 import { MDXProvider } from '@mdx-js/vue';
-import { computed } from 'vue';
 import Layout from './components/Layout.vue';
 import Link from './components/Link.vue';
 

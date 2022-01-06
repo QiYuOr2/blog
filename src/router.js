@@ -1,4 +1,5 @@
 import { createRouter } from 'vue-router';
+import { importAll } from './common/utils';
 
 import List from './pages/List.vue';
 import Article from './pages/Article.vue';
@@ -6,13 +7,12 @@ import About from './pages/About.vue';
 import Archives from './pages/Archives.vue';
 import Links from './pages/Links.vue';
 
-const posts = require
-  .context('./posts', false, /\.mdx$/)
-  .keys()
-  .map((file) => {
-    const name = file.replace(/.\/|.mdx/g, '');
-    return { path: `/posts/${name}`, name, component: Article };
-  });
+const posts = importAll(require.context('./_posts', false, /\.vue$/), true).map(
+  ({ module, file }) => {
+    const name = file.replace(/.\/|.vue/g, '');
+    return { path: `/posts/${name}`, name, component: module.default };
+  }
+);
 
 const routes = [
   { path: '/', name: 'list', component: List },
