@@ -15,7 +15,7 @@
 import { importAll, omit } from '../common/utils';
 import { useNav } from '../composables';
 
-const posts = importAll(require.context('../posts', false, /\.mdx$/), true)
+const posts = importAll(require.context('../posts', true, /\.mdx$/), true)
   .map(({ module, file }) => ({
     ...omit('default', module),
     date: module.date.split(' ')[0],

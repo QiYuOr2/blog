@@ -7,23 +7,40 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const POSTS_DIR = '../src/posts';
 
 const template = (filename) =>
-  `<template><h1>{{ title }}</h1><mdx-source /><copyright filename="${filename.replace('.mdx', '')}" /></template><script>import Copyright from '../components/Copyright.vue';const MdxSource = require('../posts/${filename}');export default { components: { MdxSource: MdxSource.default, Copyright }, setup() { return { title: MdxSource.title } } };</script>
+  `<template><h1>{{ title }}</h1><mdx-source /><copyright filename="${filename
+    .slice(4)
+    .replace(
+      '.mdx',
+      ''
+    )}" /></template><script>import Copyright from '../components/Copyright.vue';const MdxSource = require('../posts/${filename}');export default { components: { MdxSource: MdxSource.default, Copyright }, setup() { return { title: MdxSource.title } } };</script>
 `;
 
-const compliedDir = join(__dirname, '../src/_posts');
+const compiledDir = join(__dirname, '../src/_posts');
 
 (async function setup() {
-  const files = await readdir(join(__dirname, POSTS_DIR));
+  const postsDirs = (await readdir(join(__dirname, POSTS_DIR))).map((dir) =>
+    join(POSTS_DIR, dir)
+  );
 
-  if (existsSync(compliedDir)) {
-    await rm(compliedDir, { recursive: true, force: true });
+  const files = [];
+
+  for await (const postsDir of postsDirs) {
+    const filenames = (await readdir(join(__dirname, postsDir))).map((f) =>
+      join(postsDir.replace(`${POSTS_DIR}/`, ''), f)
+    );
+    files.push(filenames);
   }
 
-  await mkdir(compliedDir);
+  if (existsSync(compiledDir)) {
+    await rm(compiledDir, { recursive: true, force: true });
+  }
 
-  for await (const file of files) {
+  await mkdir(compiledDir);
+
+  const willCompileFiles = files.flat();
+  for await (const file of willCompileFiles) {
     await writeFile(
-      join(compliedDir, `${file.replace('.mdx', '.vue')}`),
+      join(compiledDir, `${file.slice(4).replace('.mdx', '.vue')}`),
       template(file)
     );
   }

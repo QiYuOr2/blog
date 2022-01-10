@@ -20,10 +20,10 @@ import { computed, ref } from 'vue';
 import { importAll, omit, pageCache } from '../common/utils';
 import { useNav } from '../composables';
 
-const posts = importAll(require.context('../posts', false, /\.mdx$/), true)
+const posts = importAll(require.context('../posts', true, /\.mdx$/), true)
   .map(({ module, file }) => ({
     ...omit('default', module),
-    to: `/posts/${file.replace(/.\/|.mdx/g, '')}`,
+    to: `/posts/${file.replace(/.\/\d{4}\/|.mdx/g, '')}`,
   }))
   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 

@@ -7,7 +7,7 @@ import About from './pages/About.vue';
 import Archives from './pages/Archives.vue';
 import Links from './pages/Links.vue';
 
-const posts = importAll(require.context('./_posts', false, /\.vue$/), true).map(
+const posts = importAll(require.context('./_posts', true, /\.vue$/), true).map(
   ({ module, file }) => {
     const name = file.replace(/.\/|.vue/g, '');
     return { path: `/posts/${name}`, name, component: module.default };
