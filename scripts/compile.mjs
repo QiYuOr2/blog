@@ -1,10 +1,7 @@
 import { existsSync } from 'fs';
 import { readdir, mkdir, rm, writeFile } from 'fs/promises';
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const POSTS_DIR = '../src/posts';
+import { join } from 'path';
+import { POSTS_DIR, __dirname } from './constants.mjs';
 
 const template = (filename) =>
   `<template><h1>{{ title }}</h1><mdx-source /><copyright filename="${filename

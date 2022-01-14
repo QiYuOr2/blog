@@ -9,7 +9,7 @@ module.exports = {
   chainWebpack: (webpackConfig) => {
     // title
     webpackConfig.plugin('html').tap((args) => {
-      args[0].title = '柒宇的博客';
+      args[0].title = '@柒宇';
       return args;
     });
 

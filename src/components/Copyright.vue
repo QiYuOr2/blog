@@ -19,11 +19,14 @@
 </template>
 
 <script>
+const f = (filename) =>
+  filename.slice(0, 1) === '/' ? filename.slice(1) : filename;
+
 export default {
   props: ['filename'],
   setup(props) {
     return {
-      url: `https://blog.qiyuor2.cn/posts/${props.filename}`,
+      url: `https://blog.qiyuor2.cn/posts/${f(props.filename)}`,
     };
   },
 };

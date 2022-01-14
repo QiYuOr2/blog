@@ -6,6 +6,7 @@
     "server.js"
   ],
   "scripts": {
+    "create": "node scripts/create.mjs",
     "compile": "node scripts/compile.mjs",
     "start": "node server.js",
     "serve": "npm run compile && vue-cli-service serve",
