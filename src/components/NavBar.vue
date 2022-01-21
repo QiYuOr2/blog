@@ -18,6 +18,9 @@
           <fe-link to="/" block :color="isActive('list')">主页</fe-link>
         </li>
         <li class="link">
+          <fe-link to="/talk" block :color="isActive('talk')">随想</fe-link>
+        </li>
+        <li class="link">
           <fe-link to="/archives" block :color="isActive('archives')">
             归档
           </fe-link>
@@ -100,7 +103,7 @@ export default {
         .fect-link.block {
           padding-left: 12px;
           padding-right: 12px;
-          font-size: 1.2rem;
+          font-size: var(--size-text-navbar);
 
           &:hover {
             background-color: var(--color-hover);

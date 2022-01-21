@@ -16,27 +16,30 @@
 </template>
 
 <script>
-import { computed, ref } from 'vue';
-import { importAll, omit, pageCache } from '../common/utils';
+import { computed, inject, ref } from 'vue';
+import { pageCache } from '../common/utils';
 import { useNav } from '../composables';
-
-const posts = importAll(require.context('../posts', true, /\.mdx$/), true)
-  .map(({ module, file }) => ({
-    ...omit('default', module),
-    to: `/posts/${file.replace(/.\/\d{4}\/|.mdx/g, '')}`,
-  }))
-  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+import { injectKey } from '../common/constants';
 
 const PAGE_SIZE = 7;
-const TOTAL_COUNT = posts.length;
 
 export default {
   setup() {
     const { toDetail } = useNav();
 
+    const getPosts = inject(injectKey.POSTS, () => []);
+
     const page = ref(pageCache.read());
-    const list = computed(() => posts.slice(0, page.value * PAGE_SIZE));
-    const hasMore = computed(() => page.value * PAGE_SIZE <= TOTAL_COUNT);
+    const list = computed(() =>
+      getPosts()
+        .filter((item) => !item.isTalk)
+        .slice(0, page.value * PAGE_SIZE)
+    );
+    const hasMore = computed(
+      () =>
+        page.value * PAGE_SIZE <=
+        getPosts().filter((item) => !item.isTalk).length
+    );
 
     const loadMore = () => {
       if (hasMore.value) {
@@ -112,7 +115,6 @@ export default {
 
   &__pagination {
     margin-top: 3rem;
-    margin-left: 1rem;
 
     .fect-button {
       width: 100%;

@@ -12,21 +12,18 @@
 </template>
 
 <script>
-import { importAll, omit } from '../common/utils';
+import { inject } from 'vue';
+import { injectKey } from '../common/constants';
 import { useNav } from '../composables';
-
-const posts = importAll(require.context('../posts', true, /\.mdx$/), true)
-  .map(({ module, file }) => ({
-    ...omit('default', module),
-    to: `/posts/${file.replace(/.\/\d{4}\/|.mdx/g, '')}`,
-  }))
-  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
 export default {
   setup() {
     const { toDetail } = useNav();
+
+    const getPosts = inject(injectKey.POSTS, () => []);
+
     return {
-      posts,
+      posts: getPosts(),
       toDetail,
     };
   },
@@ -72,6 +69,23 @@ export default {
           transition: transform 0.3s;
         }
       }
+    }
+  }
+}
+@media screen and (min-width: 300px) and (max-width: 650px) {
+  .archives-item {
+    flex-direction: column;
+    align-items: flex-start;
+
+    margin-bottom: 1rem;
+
+    &__date {
+      color: var(--color-gray);
+      margin-bottom: 4px;
+    }
+
+    &__title {
+      width: 100% !important;
     }
   }
 }

@@ -8,12 +8,17 @@
 
 <script>
 import { MDXProvider } from '@mdx-js/vue';
+import { importPosts } from './common/utils';
+import { injectKey } from './common/constants';
 import Layout from './components/Layout.vue';
 import Link from './components/Link.vue';
+import { provide } from 'vue';
 
 const FONT_LINK =
   'https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap';
 const HETI_LINK = '//unpkg.com/heti/umd/heti.min.css';
+
+const posts = importPosts(require.context('./posts', true, /\.mdx$/));
 
 export default {
   components: {
@@ -24,6 +29,8 @@ export default {
     const customComponents = {
       a: Link,
     };
+
+    provide(injectKey.POSTS, () => posts);
 
     return { FONT_LINK, HETI_LINK, customComponents };
   },
@@ -37,6 +44,7 @@ export default {
 :root {
   --color-primary-light2: #edfef9bf;
   --color-primary-light: #bbf0de;
+  --color-gray: #999;
   /* #8de3c9 */
   /* #63d6b7 */
   /* #3cc9a9 */
@@ -62,6 +70,7 @@ export default {
   --size-text-remark: 0.8rem;
   --size-text-title: 1.5rem;
   --size-text-main: 1.15rem;
+  --size-text-navbar: 1.2rem;
 
   --shadow-hover: 0 0 10px 1px var(--color-shadow);
 
@@ -147,6 +156,7 @@ li {
 }
 @media screen and (min-width: 300px) and (max-width: 650px) {
   :root {
+    --size-text-navbar: 0.8rem;
     --size-layout: 92%;
     --size-text-title: 1.25rem;
     --size-text-main: 1rem;

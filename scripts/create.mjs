@@ -4,8 +4,10 @@ import { POSTS_DIR, __dirname } from './constants.mjs';
 
 const filename = process.argv[2]
   .trim()
-  .replace(/[A-Z]/g, '-$1')
+  .replace(/([A-Z])/g, '-$1')
   .toLocaleLowerCase();
+
+const isTalk = process.argv[3] && process.argv[3] === '--talk';
 
 const dateFormatter = (date) => {
   const source = new Date(date);
@@ -24,6 +26,7 @@ const template = (name) => `---
 title: ${name}
 date: ${dateFormatter(Date.now())}
 summary: ${name}摘要
+${isTalk && 'isTalk: true'}
 ---
 
 ${name}摘要

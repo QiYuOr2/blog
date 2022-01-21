@@ -6,6 +6,7 @@ import Article from './pages/Article.vue';
 import About from './pages/About.vue';
 import Archives from './pages/Archives.vue';
 import Links from './pages/Links.vue';
+import Talk from './pages/Talk.vue';
 
 const posts = importAll(require.context('./_posts', true, /\.vue$/), true).map(
   ({ module, file }) => {
@@ -21,6 +22,11 @@ const routes = [
     name: 'article',
     component: Article,
     children: posts,
+  },
+  {
+    path: '/talk',
+    name: 'talk',
+    component: Talk,
   },
   {
     path: '/about',
