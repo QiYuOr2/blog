@@ -10,7 +10,7 @@ import Talk from './pages/Talk.vue';
 
 const posts = importAll(require.context('./_posts', true, /\.vue$/), true).map(
   ({ module, file }) => {
-    const name = file.replace(/.\/|.vue/g, '');
+    const name = file.replace(/.\/|.vue$/g, '');
     return { path: `/posts/${name}`, name, component: module.default };
   }
 );
