@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>柒宇的博客</title>
+        <link>http://qiyuor2.cn</link>
+        <description>柒宇的博客</description>
+        <lastBuildDate>Wed, 06 Apr 2022 08:31:43 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <image>
+            <title>柒宇的博客</title>
+            <url>http://qiyuor2.cn/favicon.ico</url>
+            <link>http://qiyuor2.cn</link>
+        </image>
+        <copyright>QIYUOR2 © 2021</copyright>
+        <item>
+            <title><![CDATA[C# 封装SqlHelper]]></title>
+            <link>https://blog.qiyuor2.cn/posts/chsarp-sql-helper</link>
+            <guid>https://blog.qiyuor2.cn/posts/chsarp-sql-helper</guid>
+            <pubDate>Fri, 23 Aug 2019 13:48:47 GMT</pubDate>
+            <description><![CDATA[老师在讲C#实战项目时所使用的SqlHelper，使用的数据库是SQL Server]]></description>
+        </item>
+        <item>
+            <title><![CDATA[C# HtmlAgilityPack+Selenium爬取需要拉动滚动条的页面内容]]></title>
+            <link>https://blog.qiyuor2.cn/posts/csharp-html-agility-pack-selenium</link>
+            <guid>https://blog.qiyuor2.cn/posts/csharp-html-agility-pack-selenium</guid>
+            <pubDate>Thu, 05 Sep 2019 04:02:37 GMT</pubDate>
+            <description><![CDATA[现在大多数网站都是随着滚动条的滑动加载页面内容的，因此单纯获得静态页面的Html是无法获得全部的页面内容的。使用Selenium就可以模拟浏览器拉动滑动条来加载所有页面内容...]]></description>
+        </item>
+        <item>
+            <title><![CDATA[C# HtmlAgilityPack爬取静态页面]]></title>
+            <link>https://blog.qiyuor2.cn/posts/csharp-html-agility-pack</link>
+            <guid>https://blog.qiyuor2.cn/posts/csharp-html-agility-pack</guid>
+            <pubDate>Wed, 04 Sep 2019 14:10:24 GMT</pubDate>
+            <description><![CDATA[最近对爬虫很感兴趣，稍微研究了一下，利用HtmlAgilityPack制作了一个十分简单的爬虫，这个简易爬虫只能获取静态页面的Html...]]></description>
+        </item>
+        <item>
+            <title><![CDATA[C#中使用XML存储数据]]></title>
+            <link>https://blog.qiyuor2.cn/posts/csharp-use-xml</link>
+            <guid>https://blog.qiyuor2.cn/posts/csharp-use-xml</guid>
+            <pubDate>Mon, 29 Jul 2019 02:05:13 GMT</pubDate>
+            <description><![CDATA[C#对于XML的一些增删改查的操作]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Git学习记录]]></title>
+            <link>https://blog.qiyuor2.cn/posts/git-tutorial</link>
+            <guid>https://blog.qiyuor2.cn/posts/git-tutorial</guid>
+            <pubDate>Sun, 17 Nov 2019 07:18:05 GMT</pubDate>
+            <description><![CDATA[本篇文章介绍Git的本地使用]]></description>
+        </item>
+        <item>
+            <title><![CDATA[搭建hexo静态博客]]></title>
+            <link>https://blog.qiyuor2.cn/posts/hexo-blog</link>
+            <guid>https://blog.qiyuor2.cn/posts/hexo-blog</guid>
+            <pubDate>Sat, 31 Aug 2019 01:13:23 GMT</pubDate>
+            <description><![CDATA[使用hexo搭建博客，并将博客部署到github]]></description>
+        </item>
+        <item>
+            <title><![CDATA[JavaScript闭包]]></title>
+            <link>https://blog.qiyuor2.cn/posts/js-closure</link>
+            <guid>https://blog.qiyuor2.cn/posts/js-closure</guid>
+            <pubDate>Fri, 18 Oct 2019 14:00:04 GMT</pubDate>
+            <description><![CDATA[闭包是JavaScript中的一个难点，同时也是它的特色，JavaScript的很多高级应用都要依靠闭包来实现。以下是我学习闭包的记录，希望对你有些帮助。]]></description>
+        </item>
+        <item>
+            <title><![CDATA[利用JavaScript实现倒计时]]></title>
+            <link>https://blog.qiyuor2.cn/posts/js-count-down</link>
+            <guid>https://blog.qiyuor2.cn/posts/js-count-down</guid>
+            <pubDate>Sat, 17 Aug 2019 11:59:18 GMT</pubDate>
+            <description><![CDATA[利用 JS 中的 Date 对象即可实现，创建目标时间和当前时间，利用 getTime 函数将两个时间转换成距离 1970-01-01 的秒数，相减后转化为年月日即可]]></description>
+        </item>
+        <item>
+            <title><![CDATA[JS实现可用滑块滑动的缓动图]]></title>
+            <link>https://blog.qiyuor2.cn/posts/js-move-pic-by-slider</link>
+            <guid>https://blog.qiyuor2.cn/posts/js-move-pic-by-slider</guid>
+            <pubDate>Sat, 31 Aug 2019 04:48:44 GMT</pubDate>
+            <description><![CDATA[尝试模仿京东的“发现好货”模块的可用滑块滑动的缓动图]]></description>
+        </item>
+        <item>
+            <title><![CDATA[T-SQL学习笔记]]></title>
+            <link>https://blog.qiyuor2.cn/posts/t-sql-note</link>
+            <guid>https://blog.qiyuor2.cn/posts/t-sql-note</guid>
+            <pubDate>Mon, 09 Sep 2019 12:47:19 GMT</pubDate>
+            <description><![CDATA[学习T-SQL时记录的笔记，记得并不全也不详细]]></description>
+        </item>
+        <item>
+            <title><![CDATA[关于HTTP]]></title>
+            <link>https://blog.qiyuor2.cn/posts/about-http</link>
+            <guid>https://blog.qiyuor2.cn/posts/about-http</guid>
+            <pubDate>Fri, 27 Nov 2020 10:22:40 GMT</pubDate>
+            <description><![CDATA[web开发中，无论是前端还是后端，所离不开的东西就是HTTP协议和HTTP相关的东西，今天我们就来聊聊和HTTP相关的一些知识。]]></description>
+        </item>
+        <item>
+            <title><![CDATA[使用 webpack 手动搭建 vue 项目]]></title>
+            <link>https://blog.qiyuor2.cn/posts/build-vue-for-webpack</link>
+            <guid>https://blog.qiyuor2.cn/posts/build-vue-for-webpack</guid>
+            <pubDate>Mon, 07 Dec 2020 12:30:13 GMT</pubDate>
+            <description><![CDATA[webpack 是一个前端工程化打包工具，对于前端工程师来说 webpack 是一项十分重要的技能。下面我们就通过搭建一个 vue 项目来学习使用 webpack]]></description>
+        </item>
+        <item>
+            <title><![CDATA[深入学习JavaScript数据类型]]></title>
+            <link>https://blog.qiyuor2.cn/posts/deep-in-js-data-type</link>
+            <guid>https://blog.qiyuor2.cn/posts/deep-in-js-data-type</guid>
+            <pubDate>Mon, 06 Jul 2020 11:44:50 GMT</pubDate>
+            <description><![CDATA[数据类型是我们学习`JavaScript`时最先接触的东西，它是`JavaScript`中最基础的知识，这些知识看似简单，但实则有着许多初学者甚至是部分学习了多年`JavaScript`的老手所不了解的知识。]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Electron踩坑记录]]></title>
+            <link>https://blog.qiyuor2.cn/posts/electron-learn</link>
+            <guid>https://blog.qiyuor2.cn/posts/electron-learn</guid>
+            <pubDate>Wed, 21 Oct 2020 02:00:47 GMT</pubDate>
+            <description><![CDATA[心血来潮想做一个PC端应用，就来学学Electron，以下为学习Electron时的踩坑记录。]]></description>
+        </item>
+        <item>
+            <title><![CDATA[JavaScript实现常见的数据结构]]></title>
+            <link>https://blog.qiyuor2.cn/posts/js-datastructure</link>
+            <guid>https://blog.qiyuor2.cn/posts/js-datastructure</guid>
+            <pubDate>Wed, 29 Jan 2020 07:26:47 GMT</pubDate>
+            <description><![CDATA[使用JavaScript实现栈、队列、链表、集合等常见数据结构。可能会有点用？]]></description>
+        </item>
+        <item>
+            <title><![CDATA[nodejs爬虫--抓取CSDN某用户全部文章]]></title>
+            <link>https://blog.qiyuor2.cn/posts/node-spider-csdn</link>
+            <guid>https://blog.qiyuor2.cn/posts/node-spider-csdn</guid>
+            <pubDate>Tue, 11 Feb 2020 05:30:55 GMT</pubDate>
+            <description><![CDATA[最近正在学习node.js，就像搞一些东西来玩玩，于是这个简单的爬虫就诞生了。]]></description>
+        </item>
+        <item>
+            <title><![CDATA[利用PicGo、GitHub和jsDelivr搭建图床]]></title>
+            <link>https://blog.qiyuor2.cn/posts/picgo-jsdelivr-github</link>
+            <guid>https://blog.qiyuor2.cn/posts/picgo-jsdelivr-github</guid>
+            <pubDate>Tue, 28 Jan 2020 15:24:12 GMT</pubDate>
+            <description><![CDATA[一个高速稳定的图床对于每一个写博客的人来说都很重要，之前大部分人的选择可能都是利用微博搭建图床，但是从2019年4月开始微博开启了防盗链，导致所有依赖微博图床的图片全部无法显示。利用PicGo将图片上传到GitHub仓库，再使用jsDelivr优化对于我们来说会是一个不错的选择。]]></description>
+        </item>
+        <item>
+            <title><![CDATA[TypeScript实现设计模式——生成器模式]]></title>
+            <link>https://blog.qiyuor2.cn/posts/ts-builder</link>
+            <guid>https://blog.qiyuor2.cn/posts/ts-builder</guid>
+            <pubDate>Mon, 28 Sep 2020 05:47:16 GMT</pubDate>
+            <description><![CDATA[生成器模式是一种在TypeScript/JavaScript中非常常见的创建型设计模式，它使你能够分步骤创建复杂对象。当你需要创建一个可能有许多配置选项的对象时， 该模式会特别有用。]]></description>
+        </item>
+        <item>
+            <title><![CDATA[TypeScript实现设计模式——工厂模式]]></title>
+            <link>https://blog.qiyuor2.cn/posts/ts-factory</link>
+            <guid>https://blog.qiyuor2.cn/posts/ts-factory</guid>
+            <pubDate>Fri, 20 Mar 2020 03:47:31 GMT</pubDate>
+            <description><![CDATA[上回用typescript实现了单例模式，这回来实现工厂模式。工厂模式又分为简单工厂模式、工厂方法模式以及抽象工厂模式。]]></description>
+        </item>
+        <item>
+            <title><![CDATA[TypeScript实现设计模式——观察者模式]]></title>
+            <link>https://blog.qiyuor2.cn/posts/ts-observer</link>
+            <guid>https://blog.qiyuor2.cn/posts/ts-observer</guid>
+            <pubDate>Thu, 16 Apr 2020 09:55:55 GMT</pubDate>
+            <description><![CDATA[观察者模式是一种行为设计模式，允许一个对象将其状态的改变通知其他对象。观察者模式提供了一种作用于任何实现了订阅者接口的对象的机制， 可对其事件进行订阅和取消订阅。]]></description>
+        </item>
+        <item>
+            <title><![CDATA[TypeScript实现设计模式——单例模式]]></title>
+            <link>https://blog.qiyuor2.cn/posts/ts-singleton</link>
+            <guid>https://blog.qiyuor2.cn/posts/ts-singleton</guid>
+            <pubDate>Thu, 19 Mar 2020 13:51:43 GMT</pubDate>
+            <description><![CDATA[最近在学习设计模式，又正好刚上手了typescript，就想要用ts实现一下试试。]]></description>
+        </item>
+        <item>
+            <title><![CDATA[TypeScript实现设计模式——策略模式]]></title>
+            <link>https://blog.qiyuor2.cn/posts/ts-strategy</link>
+            <guid>https://blog.qiyuor2.cn/posts/ts-strategy</guid>
+            <pubDate>Sat, 21 Mar 2020 09:29:07 GMT</pubDate>
+            <description><![CDATA[策略模式（Strategy）：它定义了算法家族，分别封装起来，让它们之间可以互相替换，此模式让算法的变化不会影响到使用算法的客户。——《大话设计模式》]]></description>
+        </item>
+        <item>
+            <title><![CDATA[使用Github Actions将Vue项目部署到Github Pages]]></title>
+            <link>https://blog.qiyuor2.cn/posts/use-github-actions</link>
+            <guid>https://blog.qiyuor2.cn/posts/use-github-actions</guid>
+            <pubDate>Mon, 16 Nov 2020 13:44:13 GMT</pubDate>
+            <description><![CDATA[GitHub Actions 是 GitHub 的持续集成服务，是一个非常强大的功能，用它可以实现很多自动化功能。现在我们来使用Github Actions将我们做好的Vue项目部署到Github Pages上。]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Chrome插件开发入门]]></title>
+            <link>https://blog.qiyuor2.cn/posts/chrome-ext-get-image</link>
+            <guid>https://blog.qiyuor2.cn/posts/chrome-ext-get-image</guid>
+            <pubDate>Sun, 18 Apr 2021 09:22:37 GMT</pubDate>
+            <description><![CDATA[最近学习了Chrome插件的开发，总体来说上手还是很容易的，因为浏览器插件本质上依旧是网页，写几个demo基本就了解了他的开发过程。]]></description>
+        </item>
+        <item>
+            <title><![CDATA[浅谈src与href的区别]]></title>
+            <link>https://blog.qiyuor2.cn/posts/difference-between-src-href</link>
+            <guid>https://blog.qiyuor2.cn/posts/difference-between-src-href</guid>
+            <pubDate>Sun, 09 May 2021 08:04:33 GMT</pubDate>
+            <description><![CDATA[src 和 href 都是用来引入外部资源的属性，例如：图片、视频、CSS 文件、JavaScript 文件等。那么它们两者之间究竟有什么样的区别呢？]]></description>
+        </item>
+        <item>
+            <title><![CDATA[使用Github Actions自动化发布npm包的探索]]></title>
+            <link>https://blog.qiyuor2.cn/posts/github-actions-publish-package</link>
+            <guid>https://blog.qiyuor2.cn/posts/github-actions-publish-package</guid>
+            <pubDate>Fri, 28 May 2021 08:31:54 GMT</pubDate>
+            <description><![CDATA[最近编写了一个封装了前端存储 API 的工具库，准备将它发布在 npm 上方便以后使用，不过如果每次都手动从本地打包发布的话就会非常麻烦，因此这次尝试一下自动化发布。]]></description>
+        </item>
+        <item>
+            <title><![CDATA[JavaScript的事件循环机制（Event Loop）]]></title>
+            <link>https://blog.qiyuor2.cn/posts/js-event-loop</link>
+            <guid>https://blog.qiyuor2.cn/posts/js-event-loop</guid>
+            <pubDate>Mon, 17 May 2021 09:12:32 GMT</pubDate>
+            <description><![CDATA[事件循环机制是JavaScript运行的核心，因此要想写出bug少的js代码就必须要了解这个机制是如何运作的，以及为什么会有这个机制。本篇文章是我对Event Loop的理解]]></description>
+        </item>
+        <item>
+            <title><![CDATA[React Native中使用Markdown编辑器]]></title>
+            <link>https://blog.qiyuor2.cn/posts/package-md-editor-for-rn</link>
+            <guid>https://blog.qiyuor2.cn/posts/package-md-editor-for-rn</guid>
+            <pubDate>Wed, 17 Feb 2021 03:31:32 GMT</pubDate>
+            <description><![CDATA[最近在研究`React Native`，准备用它写一个笔记APP，但是并没有搜到很好用的编辑器插件，因此准备使用`WebView`和已有的Web端编辑器自己封装一个。]]></description>
+        </item>
+        <item>
+            <title><![CDATA[实现一个简单的静态博客生成器]]></title>
+            <link>https://blog.qiyuor2.cn/posts/simple-blog-generate</link>
+            <guid>https://blog.qiyuor2.cn/posts/simple-blog-generate</guid>
+            <pubDate>Sun, 07 Feb 2021 11:55:00 GMT</pubDate>
+            <description><![CDATA[作为一名程序员，写博客是积累知识、提升水平必不可少的一个方法。我们写博客主要有三种方法，一种是使用掘金、博客园、CSDN 等博客网站，第二种是自己搭建网站，存放自己的博客，第三种就是使用静态博客生成器，将生成的网页部署到服务器或者 github pages、gitee pages 等服务上。这...]]></description>
+        </item>
+        <item>
+            <title><![CDATA[使用Webpack构建多页面程序]]></title>
+            <link>https://blog.qiyuor2.cn/posts/webpack-multipage</link>
+            <guid>https://blog.qiyuor2.cn/posts/webpack-multipage</guid>
+            <pubDate>Mon, 15 Mar 2021 12:32:48 GMT</pubDate>
+            <description><![CDATA[使用webpack搭建单页面程序十分常见，但在实际开发中我们可能还会有开发多页面程序的需求，因此我研究了一下如何使用webpack搭建多页面程序。]]></description>
+        </item>
+        <item>
+            <title><![CDATA[完全没有料到的生活 - 2021]]></title>
+            <link>https://blog.qiyuor2.cn/posts/2021-review</link>
+            <guid>https://blog.qiyuor2.cn/posts/2021-review</guid>
+            <pubDate>Mon, 10 Jan 2022 03:44:01 GMT</pubDate>
+            <description><![CDATA[2021年一转眼就过完了。感觉自从新冠疫情开始后，时间的流逝速度就变快了，仿佛昨天还在学校里上课玩手机，今天就在公司上班摸鱼。嗯，如你所见这是一篇全是废话和垃圾的年终总结]]></description>
+        </item>
+        <item>
+            <title><![CDATA[擅长捉弄的高木同学]]></title>
+            <link>https://blog.qiyuor2.cn/posts/takagai-san</link>
+            <guid>https://blog.qiyuor2.cn/posts/takagai-san</guid>
+            <pubDate>Wed, 19 Jan 2022 15:50:17 GMT</pubDate>
+            <description><![CDATA[擅长调情的西片太太]]></description>
+        </item>
+        <item>
+            <title><![CDATA[龙与虎]]></title>
+            <link>https://blog.qiyuor2.cn/posts/tiger-and-dragon</link>
+            <guid>https://blog.qiyuor2.cn/posts/tiger-and-dragon</guid>
+            <pubDate>Tue, 11 Jan 2022 03:03:33 GMT</pubDate>
+            <description><![CDATA[「ホーリーナイト」]]></description>
+        </item>
+        <item>
+            <title><![CDATA[无职转生]]></title>
+            <link>https://blog.qiyuor2.cn/posts/wu-zhi-zhuan-sheng</link>
+            <guid>https://blog.qiyuor2.cn/posts/wu-zhi-zhuan-sheng</guid>
+            <pubDate>Wed, 19 Jan 2022 15:10:11 GMT</pubDate>
+            <description><![CDATA[若批评不再是批评]]></description>
+        </item>
+    </channel>
+</rss>

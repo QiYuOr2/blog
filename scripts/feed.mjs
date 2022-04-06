@@ -37,7 +37,7 @@ function compileMdx(code) {
 }
 
 (async function setup() {
-  const files = await readdir(join(__dirname, POSTS_DIR));
+  const years = await readdir(join(__dirname, POSTS_DIR));
 
   const feed = new Feed({
     title: '柒宇的博客',
@@ -52,22 +52,25 @@ function compileMdx(code) {
     },
   });
 
-  for await (const file of files) {
-    const fileContent = await readFile(join(__dirname, POSTS_DIR, file), {
-      encoding: 'utf-8',
-    });
+  for await (const y of years) {
+    const files = await readdir(join(__dirname, POSTS_DIR, y));
+    for await (const file of files) {
+      const fileContent = await readFile(join(__dirname, POSTS_DIR, y, file), {
+        encoding: 'utf-8',
+      });
 
-    const compiledFile = await compileMdx(fileContent);
-    const articleData = compiledFile.data.frontmatter;
+      const compiledFile = await compileMdx(fileContent);
+      const articleData = compiledFile.data.frontmatter;
 
-    feed.addItem({
-      title: articleData.title,
-      description: articleData.summary,
-      date: new Date(articleData.date),
-      link: `${BASE_URL}${file.replace('.mdx', '')}`,
-    });
+      feed.addItem({
+        title: articleData.title,
+        description: articleData.summary,
+        date: new Date(articleData.date),
+        link: `${BASE_URL}${file.replace('.mdx', '')}`,
+      });
+    }
+
+    await writeFile(join(__dirname, '../dist/client/atom.xml'), feed.atom1());
+    await writeFile(join(__dirname, '../dist/client/rss.xml'), feed.rss2());
   }
-
-  await writeFile(join(__dirname, '../dist/client/atom.xml'), feed.atom1());
-  await writeFile(join(__dirname, '../dist/client/rss.xml'), feed.rss2());
 })();
