@@ -256,15 +256,15 @@
   margin-right: 0.5rem;
   font-weight: bold;
 }
-.nav-bar__links ul .link .fect-link.block {
+.nav-bar__links ul .link .fect-link--block {
   padding-left: 12px;
   padding-right: 12px;
   font-size: var(--size-text-navbar);
 }
-.nav-bar__links ul .link .fect-link.block:hover {
+.nav-bar__links ul .link .fect-link--block:hover {
   background-color: var(--color-hover);
 }
-.nav-bar__links ul .link .fect-link.block.color {
+.nav-bar__links ul .link .fect-link--block.color {
   background-color: var(--color-hover);
 }
 

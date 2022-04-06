@@ -100,7 +100,7 @@ export default {
         margin-right: 0.5rem;
         font-weight: bold;
 
-        .fect-link.block {
+        .fect-link--block {
           padding-left: 12px;
           padding-right: 12px;
           font-size: var(--size-text-navbar);
