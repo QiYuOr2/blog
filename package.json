@@ -17,7 +17,7 @@
     "deploy": "npm run build && vc --prod"
   },
   "dependencies": {
-    "@fect-ui/vue": "^1.2.0-rc.0",
+    "@fect-ui/vue": "^1.4.0",
     "@fect-ui/vue-icons": "^2.0.0",
     "@mdx-js/loader": "^2.0.0-rc.2",
     "@mdx-js/mdx": "^2.0.0-rc.2",
