@@ -53,8 +53,8 @@ export default {
     }
   }
   /deep/ .fect-image {
-    border-top-left-radius: var(--fay-radius);
-    border-top-right-radius: var(--fay-radius);
+    border-top-left-radius: var(--fect-radius);
+    border-top-right-radius: var(--fect-radius);
   }
 
   .card {

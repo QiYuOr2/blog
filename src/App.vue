@@ -85,8 +85,8 @@ export default {
   --success-light: var(--color-primary) !important;
   --primary-selection: var(--color-selection) !important;
   --primary-foreground: var(--color-text) !important;
-  --fay-code-color: #f39c12 !important;
-  --fay-link-color: #3498db !important;
+  --fect-code-color: #f39c12 !important;
+  --fect-link-color: #3498db !important;
 
   &.dark-theme {
     --color-primary: #edfcf7;
@@ -122,6 +122,10 @@ ul {
 
 li {
   list-style: none;
+}
+
+ul li::before {
+  display: none;
 }
 
 /* 单行显示，超出部分显示为省略号 */

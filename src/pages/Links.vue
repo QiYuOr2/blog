@@ -38,7 +38,7 @@ export default {
   flex: 1;
   padding: 0 1rem;
 
-  --fay-gap: 1.8vh 0.6vw;
+  --fect-gap: 1.8vh 0.6vw;
 
   &__hide {
     flex: 1;

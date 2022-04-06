@@ -4,7 +4,7 @@ import createRouter from './router.js';
 import App from './App.vue';
 import FectUI from '@fect-ui/vue';
 import '@fect-ui/vue/lib/main.css';
-import '@fect-ui/themes';
+import '@fect-ui/themes/main.css';
 
 export default function () {
   const app = createSSRApp(App);
