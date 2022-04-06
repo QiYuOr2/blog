@@ -509,8 +509,8 @@
   --size-text-main: 1.15rem;
   --size-text-navbar: 1.2rem;
   --shadow-hover: 0 0 10px 1px var(--color-shadow);
-  --font-family-monospace: 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono',
-    'Courier New', monospace;
+  --font-family-monospace: 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New',
+    monospace;
   --article-blockquote-bg: var(--color-primary-light2);
   --article-blockquote-mark: var(--color-primary);
   /* 覆盖fect color */
@@ -543,8 +543,11 @@ ul {
   margin: 0;
   padding: 0;
 }
-li {
+ul li {
   list-style: none;
+  margin-bottom: unset;
+  font-size: unset;
+  line-height: unset;
 }
 ul li::before {
   display: none;

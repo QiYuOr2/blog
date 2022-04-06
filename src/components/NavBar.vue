@@ -21,9 +21,7 @@
           <fe-link to="/talk" block :color="isActive('talk')">随想</fe-link>
         </li>
         <li class="link">
-          <fe-link to="/archives" block :color="isActive('archives')">
-            归档
-          </fe-link>
+          <fe-link to="/archives" block :color="isActive('archives')">归档</fe-link>
         </li>
         <li class="link">
           <fe-link to="/links" block :color="isActive('links')">链接</fe-link>
@@ -41,8 +39,7 @@ import { useTheme } from '@fect-ui/vue';
 import { Moon, Sun } from '@fect-ui/vue-icons';
 import { useRouter } from 'vue-router';
 
-const LOGO_LINK =
-  'https://cdn.jsdelivr.net/gh/qiyuor2/blog-image/img/pixelartoc_1.png';
+const LOGO_LINK = 'https://cdn.jsdelivr.net/gh/qiyuor2/blog-image/img/pixelartoc_1.png';
 
 export default {
   components: { Moon, Sun },
@@ -115,6 +112,12 @@ export default {
         }
       }
     }
+  }
+}
+
+@media screen and (min-width: 300px) and (max-width: 650px) {
+  .nav-bar {
+    margin: 2.5rem 0 2rem 0;
   }
 }
 </style>
