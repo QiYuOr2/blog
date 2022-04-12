@@ -1,20 +1,22 @@
 <template>
   <article class="about heti">
     <p>先给自己贴点标签</p>
-    <div class="about__tags">
-      <fe-tag v-for="(tag, i) in tags" :key="i" :text="tag" />
+    <div v-if="about" class="about__tags">
+      <fe-tag v-for="(tag, i) in about.frontmatter.me" :key="i" :text="tag" />
     </div>
-    <about-content />
+    <about-content ref="about" />
   </article>
 </template>
 
 <script>
-const AboutContent = require('../components/mdx/about.mdx');
+import { ref } from 'vue';
+import AboutContent from '../components/md/about.md';
 
 export default {
-  components: { AboutContent: AboutContent.default },
+  components: { AboutContent },
   setup() {
-    return { tags: AboutContent.me };
+    const about = ref();
+    return { about };
   },
 };
 </script>

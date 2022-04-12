@@ -1,5 +1,5 @@
 import { createRouter } from 'vue-router';
-import { importAll } from './common/utils';
+import { posts } from './common/utils';
 
 import List from './pages/List.vue';
 import Article from './pages/Article.vue';
@@ -8,12 +8,7 @@ import Archives from './pages/Archives.vue';
 import Links from './pages/Links.vue';
 import Talk from './pages/Talk.vue';
 
-const posts = importAll(require.context('./_posts', true, /\.vue$/), true).map(
-  ({ module, file }) => {
-    const name = file.replace(/.\/|.vue$/g, '');
-    return { path: `/posts/${name}`, name, component: module.default };
-  }
-);
+console.log(posts)
 
 const routes = [
   { path: '/', name: 'list', component: List },
@@ -21,7 +16,7 @@ const routes = [
     path: '/posts',
     name: 'article',
     component: Article,
-    children: posts,
+    children: /* posts */ [],
   },
   {
     path: '/talk',

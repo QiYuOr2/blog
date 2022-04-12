@@ -1,13 +1,10 @@
 <template>
   <link :href="FONT_LINK" />
   <link rel="stylesheet" :href="HETI_LINK" />
-  <MDXProvider :components="customComponents">
-    <Layout />
-  </MDXProvider>
+  <Layout />
 </template>
 
 <script>
-import { MDXProvider } from '@mdx-js/vue';
 import { importPosts } from './common/utils';
 import { injectKey } from './common/constants';
 import Layout from './components/Layout.vue';
@@ -17,11 +14,10 @@ import { provide } from 'vue';
 const FONT_LINK = 'https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap';
 const HETI_LINK = '//unpkg.com/heti/umd/heti.min.css';
 
-const posts = importPosts(require.context('./posts', true, /\.mdx$/));
+const posts = [];
 
 export default {
   components: {
-    MDXProvider,
     Layout,
   },
   setup() {
@@ -127,7 +123,7 @@ ul li {
 }
 
 ul li::before {
-  display: none;
+  display: none !important;
 }
 
 /* 单行显示，超出部分显示为省略号 */
