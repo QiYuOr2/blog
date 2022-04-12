@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { importPosts } from './common/utils';
+import { posts as source } from './common/utils';
 import { injectKey } from './common/constants';
 import Layout from './components/Layout.vue';
 import Link from './components/Link.vue';
@@ -14,7 +14,9 @@ import { provide } from 'vue';
 const FONT_LINK = 'https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap';
 const HETI_LINK = '//unpkg.com/heti/umd/heti.min.css';
 
-const posts = [];
+const posts = source.sort(
+  (pre, cur) => new Date(cur.date).getTime() - new Date(pre.date).getTime()
+);
 
 export default {
   components: {
@@ -124,6 +126,10 @@ ul li {
 
 ul li::before {
   display: none !important;
+}
+
+h1 {
+  margin-bottom: 0 !important;
 }
 
 /* 单行显示，超出部分显示为省略号 */

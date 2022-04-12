@@ -77,11 +77,11 @@ export default {
       &__logo {
         width: 42px;
         height: 42px;
-        margin-right: 1rem;
         border-radius: 50%;
       }
 
       &__title {
+        padding-left: 1rem;
         font-size: 1.5rem;
       }
     }

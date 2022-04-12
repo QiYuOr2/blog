@@ -8,15 +8,13 @@ import Archives from './pages/Archives.vue';
 import Links from './pages/Links.vue';
 import Talk from './pages/Talk.vue';
 
-console.log(posts)
-
 const routes = [
   { path: '/', name: 'list', component: List },
   {
     path: '/posts',
     name: 'article',
     component: Article,
-    children: /* posts */ [],
+    children: posts,
   },
   {
     path: '/talk',

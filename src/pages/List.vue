@@ -2,15 +2,13 @@
   <div class="posts-list">
     <ul>
       <li class="posts-list__item" v-for="(post, i) in list" :key="i">
-        <h2 class="oneline" @click="toDetail(post.to)">{{ post.title }}</h2>
+        <h2 class="oneline" @click="toDetail(post.path)">{{ post.title }}</h2>
         <p>{{ post.summary }}</p>
       </li>
     </ul>
 
     <div class="posts-list__pagination">
-      <fe-button v-if="hasMore" size="large" @click="loadMore">
-        查看更多
-      </fe-button>
+      <fe-button v-if="hasMore" size="large" @click="loadMore">查看更多</fe-button>
     </div>
   </div>
 </template>
@@ -36,9 +34,7 @@ export default {
         .slice(0, page.value * PAGE_SIZE)
     );
     const hasMore = computed(
-      () =>
-        page.value * PAGE_SIZE <=
-        getPosts().filter((item) => !item.isTalk).length
+      () => page.value * PAGE_SIZE <= getPosts().filter((item) => !item.isTalk).length
     );
 
     const loadMore = () => {
