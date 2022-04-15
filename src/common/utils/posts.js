@@ -1,8 +1,8 @@
 const formatter = (modules) => {
   // console.log(modules);
   return Object.keys(modules).map((modulePath) => {
-    const page = modules[modulePath]
-    const name = modulePath.match(/[0-9]\/(.*)*.md$/)[1]
+    const page = modules[modulePath];
+    const name = modulePath.match(/[0-9]\/(.*)*.md$/)[1];
     // console.log(modulePath.match(/\.\.\/\.\.\/(.*)*.md$/)[1]);
 
     return {
@@ -13,8 +13,9 @@ const formatter = (modules) => {
       date: page.date,
       summary: page.summary,
       isTalk: page.isTalk,
-    }
-  })
-}
+      cover: page.cover,
+    };
+  });
+};
 
-export const posts = formatter(import.meta.globEager('../../posts/**/*.md'))
+export const posts = formatter(import.meta.globEager('../../posts/**/*.md'));

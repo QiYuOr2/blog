@@ -4717,7 +4717,8 @@ const formatter = (modules) => {
       component: page.default,
       date: page.date,
       summary: page.summary,
-      isTalk: page.isTalk
+      isTalk: page.isTalk,
+      cover: page.cover
     };
   });
 };
