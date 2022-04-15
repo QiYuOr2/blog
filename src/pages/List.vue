@@ -57,6 +57,9 @@ export default {
 
 <style lang="less">
 .posts-list {
+  ul {
+    margin: 0;
+  }
   &__item {
     padding: 0 0.65rem;
     margin-bottom: 4rem;

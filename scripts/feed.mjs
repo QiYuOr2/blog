@@ -1,8 +1,6 @@
 import { readdir, readFile, writeFile } from 'fs/promises';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { createProcessor } from '@mdx-js/mdx';
-import remarkFrontmatter from 'remark-frontmatter';
 import { VFile } from 'vfile';
 import { visit } from 'unist-util-visit';
 import { remove } from 'unist-util-remove';

@@ -7,9 +7,9 @@ const template = (filename) =>
   `<template><h1>{{ title }}</h1><mdx-source /><copyright filename="${filename
     .slice(4)
     .replace(
-      '.mdx',
+      '.md',
       ''
-    )}" /></template><script>import Copyright from '../components/Copyright.vue';const MdxSource = require('../posts/${filename}');export default { components: { MdxSource: MdxSource.default, Copyright }, setup() { return { title: MdxSource.title } } };</script>
+    )}" /></template><script>import Copyright from '../components/Copyright.vue';const MdxSource = require('../posts/${filename}');export default { components: { MdxSource: MdxSource, Copyright }, setup() { return { title: MdxSource.title } } };</script>
 `;
 
 const compiledDir = join(__dirname, '../src/_posts');
@@ -37,7 +37,7 @@ const compiledDir = join(__dirname, '../src/_posts');
   const willCompileFiles = files.flat();
   for await (const file of willCompileFiles) {
     await writeFile(
-      join(compiledDir, `${file.slice(4).replace('.mdx', '.vue')}`),
+      join(compiledDir, `${file.slice(4).replace('.md', '.vue')}`),
       template(file)
     );
   }

@@ -5,8 +5,13 @@
 </template>
 
 <script>
+import { onMounted } from '@vue/runtime-core';
 export default {
-  setup() {},
+  setup() {
+    onMounted(() => {
+      window.scrollTo({ top: 0 });
+    });
+  },
 };
 </script>
 
@@ -19,8 +24,22 @@ export default {
   &.custom {
     max-width: 100% !important;
     blockquote {
+      padding-top: 0;
+      padding-bottom: 0;
+      padding-left: 0;
+      padding-right: 0;
+      color: unset;
+      background-color: unset;
+      border-radius: unset;
+      margin: unset;
+      border: unset;
+
       margin-inline-start: 0;
       margin-inline-end: 0;
+      padding-block-start: 12px;
+      padding-block-end: 12px;
+      padding-inline-start: 16px;
+      padding-inline-end: 16px;
       position: relative;
       background: var(--article-blockquote-bg);
       p {
@@ -39,16 +58,19 @@ export default {
     }
     ul {
       padding: 0;
+      margin-left: 0;
+      margin-right: 0;
       li {
         list-style: none;
         position: relative;
         padding-left: 1.5rem;
         &::before {
+          display: block !important;
           background-color: #d1d5db;
           border-radius: 50%;
           content: '';
           height: 0.375em;
-          left: 0.25em;
+          left: 1em;
           position: absolute;
           top: 0.6em;
           width: 0.375em;

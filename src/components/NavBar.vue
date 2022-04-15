@@ -92,6 +92,7 @@ export default {
 
     ul {
       display: flex;
+      margin: 0;
 
       .link {
         margin-right: 0.5rem;

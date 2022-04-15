@@ -8,7 +8,7 @@ summary: 尝试模仿京东的“发现好货”模块的可用滑块滑动的�
 
 ## JS 代码
 
-```JavaScript
+```javascript
 function $(id) { return document.getElementById(id); }
 //缓动轮播图
 var fhTimer;
@@ -71,7 +71,7 @@ $("fhc_dBar").onmousedown = function(event) {
 
 ## HTML 代码
 
-```HTML
+```html
 <div class="fxhh_ctt">
     <div class="fh_c_show" id="fhcShow">
         <ul class="fh_c_under" id="fhc_ul">
@@ -155,7 +155,7 @@ $("fhc_dBar").onmousedown = function(event) {
 
 ## CSS 代码
 
-```CSS
+```css
 .fxhh .fxhh_ctt {
     width: 990px;
     background-color: #fff;

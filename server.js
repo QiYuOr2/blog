@@ -1,59 +1,70 @@
 const path = require('path');
-const express = require('express');
 const fs = require('fs');
-const { renderToString } = require('@vue/server-renderer');
-const manifest = require('./dist/server/ssr-manifest.json');
+const express = require('express');
+const { createServer: createViteServer } = require('vite');
+// const manifest = require('./dist/server/ssr-manifest.json');
 
-const server = express();
+// const appPath = path.join(__dirname, './dist', 'server', manifest['app.js']);
+// const createApp = require(appPath).default;
 
-const appPath = path.join(__dirname, './dist', 'server', manifest['app.js']);
-const createApp = require(appPath).default;
-
-server.use(
-  '/img',
-  express.static(path.join(__dirname, './dist/client', 'img'))
-);
-server.use('/js', express.static(path.join(__dirname, './dist/client', 'js')));
-server.use(
-  '/css',
-  express.static(path.join(__dirname, './dist/client', 'css'))
-);
-server.use(
-  '/favicon.ico',
-  express.static(path.join(__dirname, './dist/client', 'favicon.ico'))
-);
-server.use(
-  '/atom',
-  express.static(path.join(__dirname, './dist/client', 'atom.xml'))
-);
-server.use(
-  '/rss',
-  express.static(path.join(__dirname, './dist/client', 'rss.xml'))
-);
-
-server.get('*', async (req, res) => {
-  const { app, router } = createApp();
-
-  await router.push(req.url);
-  await router.isReady();
-
-  const appContent = await renderToString(app);
-
-  fs.readFile(path.join(__dirname, '/dist/client/index.html'), (err, html) => {
-    if (err) {
-      throw err;
-    }
-
-    html = html
-      .toString()
-      .replace('<div id="app">', `<div id="app">${appContent}`);
-    res.setHeader('Content-Type', 'text/html');
-    res.send(html);
+async function setup() {
+  const app = express();
+  const vite = await createViteServer({
+    server: { middlewareMode: 'ssr' },
   });
-});
 
-server.listen(8081, () => {
-  console.log('You can navigate to http://localhost:80');
-});
+  app.use(vite.middlewares);
+
+  // app.use('/img', express.static(path.join(__dirname, './dist/client', 'img')));
+  // app.use('/js', express.static(path.join(__dirname, './dist/client', 'js')));
+  // app.use('/css', express.static(path.join(__dirname, './dist/client', 'css')));
+  // app.use('/favicon.ico', express.static(path.join(__dirname, './dist/client', 'favicon.ico')));
+  // app.use('/atom', express.static(path.join(__dirname, './dist/client', 'atom.xml')));
+  // app.use('/rss', express.static(path.join(__dirname, './dist/client', 'rss.xml')));
+
+  app.get('*', async (req, res, next) => {
+    const url = req.originalUrl;
+
+    try {
+      // 1. 读取 index.html
+      let template = fs.readFileSync(path.resolve(__dirname, 'index.html'), 'utf-8');
+
+      // 2. 应用 Vite HTML 转换。这将会注入 Vite HMR 客户端，
+      //    同时也会从 Vite 插件应用 HTML 转换。
+      //    例如：@vitejs/plugin-react 中的 global preambles
+      template = await vite.transformIndexHtml(url, template);
+
+      // 3. 加载服务器入口。vite.ssrLoadModule 将自动转换
+      //    你的 ESM 源码使之可以在 Node.js 中运行！无需打包
+      //    并提供类似 HMR 的根据情况随时失效。
+      const { render } = await vite.ssrLoadModule('/src/entry-server.js');
+
+      // 4. 渲染应用的 HTML。这假设 entry-server.js 导出的 `render`
+      //    函数调用了适当的 SSR 框架 API。
+      //    例如 ReactDOMServer.renderToString()
+      const appHtml = await render(url, require('./dist/client/ssr-manifest.json'));
+
+      // 5. 注入渲染后的应用程序 HTML 到模板中。
+      const html = template.replace(`<!--ssr-outlet-->`, appHtml);
+
+      // 6. 返回渲染后的 HTML。
+      res.status(200).set({ 'Content-Type': 'text/html' }).end(html);
+    } catch (e) {
+      // 如果捕获到了一个错误，让 Vite 来修复该堆栈，这样它就可以映射回
+      // 你的实际源码中。
+      vite.ssrFixStacktrace(e);
+      next(e);
+    }
+  });
+
+  const port = 8081;
+  app.listen(port, () => {
+    console.log(`You can navigate to http://localhost:${port}`);
+  });
+
+  return app;
+}
+
+const server = setup();
 
 module.exports = server;

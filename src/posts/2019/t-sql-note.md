@@ -10,7 +10,7 @@ summary: 学习T-SQL时记录的笔记，记得并不全也不详细
 
 ## if 和 while 语句
 
-```SQL
+```sql
 declare @age int
 select @age = DATEDIFF(year,stuAge,getdate()) from TbStudent where stuName = '孙悟空'
 
@@ -24,7 +24,7 @@ begin
 end
 ```
 
-```SQL
+```sql
 declare @sum int
 set @sum = 0
 declare @i int
@@ -46,7 +46,7 @@ print @sum
 
 ### 标量函数：只返回一个基础类型数据的值
 
-```SQL
+```sql
 -- 语法
 create function 函数名
 ([参数列表])  可以不写参数,先写变量名再写类型
@@ -62,7 +62,7 @@ end
 
 #### 内联表值函数
 
-```SQL
+```sql
 -- 语法
 create function 函数名
 ([参数名])
@@ -75,7 +75,7 @@ return (一条select语句)
 
 多语句表值函数可以看作是标量函数和内联表值函数的结合体
 
-```SQL
+```sql
 -- 语法
 create function 函数名([参数列表])
 returns 表变量名 table
@@ -101,7 +101,7 @@ end
 
 ### 自定义存储过程
 
-```SQL
+```sql
 -- 语法
 create procedure(或proc) 存储过程名(up_)
 [参数列表] --这里的参数列表不能使用圆括号
@@ -131,7 +131,7 @@ end
 事务时并发控制的单位，他是用户定义的一个操作，这些操作要么都做要么都不做，不可分割。
 分为：SQL Server 事务和 ADO.NET 事务
 
-```SQL
+```sql
 -- 语法
 begin tran  --开始一个事务操作
 commit tran --提交
@@ -149,7 +149,7 @@ C#中使用时，通常把事务的操作封装到存储过程中
 - 只能在触发器中访问
 - 触发器是附着在一张表上的
 
-```SQL
+```sql
 -- 语法
 create trigger 触发器名字
 on 表名
@@ -162,7 +162,7 @@ end
 
 触发器的触发条件：insert，delete，update
 
-```SQL
+```sql
 create trigger tr_Bank_insert
 on Bank
 after insert

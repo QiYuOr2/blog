@@ -35,8 +35,8 @@ export default {
 </script>
 
 <style lang="less">
-@import url('./common/lib/github.less');
-@import url('./common/lib/github-dark.less');
+@import url('./common/lib/light.less');
+@import url('./common/lib/dark.less');
 
 :root {
   --color-primary-light2: #edfef9bf;
@@ -112,7 +112,8 @@ html {
 }
 
 ul {
-  margin: 0;
+  margin-left: 0;
+  margin-right: 0;
   padding: 0;
 }
 
