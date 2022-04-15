@@ -57,14 +57,13 @@ function compileMdx(code) {
         encoding: 'utf-8',
       });
 
-      const compiledFile = await compileMdx(fileContent);
-      const articleData = compiledFile.data.frontmatter;
+      const frontmatter = yaml.parse(fileContent.split('---\n')[1]);
 
       feed.addItem({
-        title: articleData.title,
-        description: articleData.summary,
-        date: new Date(articleData.date),
-        link: `${BASE_URL}${file.replace('.mdx', '')}`,
+        title: frontmatter.title,
+        description: frontmatter.summary,
+        date: new Date(frontmatter.date),
+        link: `${BASE_URL}${file.replace('.md', '')}`,
       });
     }
 
