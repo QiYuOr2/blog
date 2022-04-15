@@ -22,6 +22,7 @@
     "@vueuse/head": "^0.7.5",
     "core-js": "^3.6.5",
     "express": "^4.17.2",
+    "http-proxy-middleware": "^2.0.4",
     "markdown-it-anchor": "^8.6.2",
     "markdown-it-prism": "^2.2.3",
     "vue": "^3.0.0",

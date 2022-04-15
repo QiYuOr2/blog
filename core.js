@@ -47,7 +47,7 @@ module.exports = (async function () {
     }
   });
 
-  const port = 8081;
+  const port = 80;
   app.listen(port, () => {
     console.log(`You can navigate to http://localhost:${port}`);
   });
