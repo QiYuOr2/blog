@@ -8,8 +8,9 @@
   "scripts": {
     "create": "node scripts/create.mjs",
     "compile": "node scripts/compile.mjs",
-    "start": "node server.js",
-    "dev": "npm run compile && vite dev",
+    "start": " node server.js",
+    "server": "cross-env NODE_ENV=production node server.js",
+    "dev": "npm run compile && cross-env NODE_ENV=development node server.js",
     "build": "npm run compile && npm run build:client && npm run build:server",
     "lint": "vite lint",
     "build:client": "vite build --ssrManifest --outDir dist/client",
