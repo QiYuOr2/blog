@@ -2,25 +2,13 @@ const path = require('path');
 const fs = require('fs');
 const express = require('express');
 const { createServer: createViteServer } = require('vite');
-// const manifest = require('./dist/server/ssr-manifest.json');
 
-// const appPath = path.join(__dirname, './dist', 'server', manifest['app.js']);
-// const createApp = require(appPath).default;
+const app = express();
 
-async function setup() {
-  const app = express();
-  const vite = await createViteServer({
-    server: { middlewareMode: 'ssr' },
-  });
-
+createViteServer({
+  server: { middlewareMode: 'ssr' },
+}).then((vite) => {
   app.use(vite.middlewares);
-
-  // app.use('/img', express.static(path.join(__dirname, './dist/client', 'img')));
-  // app.use('/js', express.static(path.join(__dirname, './dist/client', 'js')));
-  // app.use('/css', express.static(path.join(__dirname, './dist/client', 'css')));
-  // app.use('/favicon.ico', express.static(path.join(__dirname, './dist/client', 'favicon.ico')));
-  // app.use('/atom', express.static(path.join(__dirname, './dist/client', 'atom.xml')));
-  // app.use('/rss', express.static(path.join(__dirname, './dist/client', 'rss.xml')));
 
   app.get('*', async (req, res, next) => {
     const url = req.originalUrl;
@@ -56,15 +44,11 @@ async function setup() {
       next(e);
     }
   });
+});
 
-  const port = 8081;
-  app.listen(port, () => {
-    console.log(`You can navigate to http://localhost:${port}`);
-  });
+const port = 8081;
+app.listen(port, () => {
+  console.log(`You can navigate to http://localhost:${port}`);
+});
 
-  return app;
-}
-
-const server = setup();
-
-module.exports = server;
+module.exports = app;
