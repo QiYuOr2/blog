@@ -8,7 +8,7 @@
           style="cursor: pointer"
           hoverable
         >
-          <div class="card__cover">
+          <div v-if="p.cover" class="card__cover">
             <fe-image :src="p.cover" />
           </div>
           <div class="card__desc">

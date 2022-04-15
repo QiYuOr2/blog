@@ -33,6 +33,9 @@ export default {
 <style lang="less">
 .archives {
   padding: 0 1rem;
+  ul {
+    margin: 0;
+  }
   &-item {
     display: flex;
     align-items: center;

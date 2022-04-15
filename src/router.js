@@ -5,7 +5,6 @@ import List from './pages/List.vue';
 import Article from './pages/Article.vue';
 import About from './pages/About.vue';
 import Archives from './pages/Archives.vue';
-import Links from './pages/Links.vue';
 import Talk from './pages/Talk.vue';
 
 const routes = [
@@ -30,11 +29,6 @@ const routes = [
     path: '/archives',
     name: 'archives',
     component: Archives,
-  },
-  {
-    path: '/links',
-    name: 'links',
-    component: Links,
   },
 ];
 

@@ -1,6 +1,8 @@
 <template>
   <article class="about heti">
-    <p>先给自己贴点标签</p>
+    <links />
+    <hr>
+    <p class="start">先给自己贴点标签</p>
     <div v-if="about" class="about__tags">
       <fe-tag v-for="(tag, i) in about.frontmatter.me" :key="i" :text="tag" />
     </div>
@@ -11,9 +13,10 @@
 <script>
 import { ref } from 'vue';
 import AboutContent from '../components/md/about.md';
+import Links from '../components/Links.vue';
 
 export default {
-  components: { AboutContent },
+  components: { AboutContent, Links },
   setup() {
     const about = ref();
     return { about };
@@ -24,6 +27,10 @@ export default {
 <style lang="less">
 .about {
   padding: 0 1rem;
+
+  .start {
+    margin-top: 24px;
+  }
 
   &__tags {
     .fect-tag {

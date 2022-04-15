@@ -24,9 +24,6 @@
           <fe-link to="/archives" block :color="isActive('archives')">归档</fe-link>
         </li>
         <li class="link">
-          <fe-link to="/links" block :color="isActive('links')">链接</fe-link>
-        </li>
-        <li class="link">
           <fe-link to="/about" block :color="isActive('about')">关于</fe-link>
         </li>
       </ul>

@@ -9,12 +9,11 @@
         </fe-card>
       </fe-grid>
     </fe-grid-group>
-    <hide class="links__hide" tips="试验区，暂未开放" />
   </div>
 </template>
 
 <script>
-import Hide from '../components/Hide.vue';
+import Hide from './Hide.vue';
 import { useNav } from '../composables';
 import linksConfig from '../links.json';
 
@@ -36,7 +35,6 @@ export default {
   flex-direction: column;
 
   flex: 1;
-  padding: 0 1rem;
 
   --fect-gap: 1.8vh 0.6vw;
 
