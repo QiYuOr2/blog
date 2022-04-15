@@ -4828,7 +4828,7 @@ const _sfc_main$a = {
     const head$1 = { "meta": [] };
     head.useHead(head$1);
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<div${serverRenderer.ssrRenderAttrs(vue.mergeProps({ class: "markdown-body" }, _attrs))}><hr><p>\u5982\u4F60\u6240\u89C1\uFF0C\u5DEE\u4E0D\u591A\u662F\u4E2A\u5783\u573E\u3002</p><p>\u5F88\u4EAB\u53D7\u5199\u4EE3\u7801\u7684\u8FC7\u7A0B\uFF0C\u5F88\u559C\u6B22\u901A\u5173\u6E38\u620F\u7684\u6210\u5C31\u611F\uFF0C\u5F88\u8BA8\u538C\u6545\u4E8B\u5B8C\u7ED3\u540E\u7684\u7A7A\u865A\u611F\u3002</p><p>\u4EBA\u751F\u603B\u4F53\u4E0A\u662F\u6CA1\u6709\u610F\u4E49\u7684\uFF0C\u6240\u4EE5\u6211\u5E0C\u671B\u80FD\u8FC7\u4E0A\u4E0D\u7528\u52AA\u529B\u4E5F\u4E0D\u6101\u5403\u559D\u8FD9\u79CD\u6CA1\u6709\u610F\u4E49\u65E5\u5B50\uFF0C\u4F46\u662F\u5728\u4E0D\u540C\u7684\u4EBA\u751F\u9636\u6BB5\u6211\u4EEC\u53EF\u4EE5\u7ED9\u81EA\u5DF1\u7684\u4EBA\u751F\u8D4B\u4E88\u4E00\u4E9B\u610F\u4E49\uFF0C\u6240\u4EE5\u6211\u8FD8\u5728\u52AA\u529B\u7740\uFF0C\u52AA\u529B\u7740\u5411\u6CA1\u6709\u610F\u4E49\u7684\u751F\u6D3B\u524D\u8FDB\u3002</p><p>\u559C\u6B22\u5F53\u4E00\u4E2A\u89C2\u4F17\uFF0C\u867D\u7136\u4E5F\u5E0C\u671B\u5F97\u5230\u522B\u4EBA\u7684\u8BA4\u53EF\uFF0C\u4F46\u81EA\u5DF1\u5E94\u8BE5\u662F\u4E0D\u9002\u5408\u7AD9\u5728\u821E\u53F0\u4E2D\u592E\u3002\u548C\u4EBA\u76F8\u5904\u65F6\u5927\u90E8\u5206\u60C5\u51B5\u4E0B\u4E5F\u90FD\u662F\u5728\u8F93\u5165\uFF0C\u56E0\u4E3A\u4E0D\u77E5\u9053\u5982\u4F55\u7EC4\u7EC7\u8BED\u8A00\u53BB\u8F93\u51FA\u3002</p><hr><p>\u8FD9\u4E2A\u535A\u5BA2\u662F\u505A\u7ED9\u81EA\u5DF1\u770B\u7684\uFF0C\u5F53\u7136\u4E5F\u5E0C\u671B\u80FD\u8BA9\u522B\u4EBA\u770B\u5230\u5E76\u4E14\u80FD\u8BA9\u5927\u5BB6\u6709\u6240\u6536\u83B7\uFF0C\u4E0D\u8FC7\u5199\u7684\u4E1C\u897F\u90FD\u6CA1\u5565\u542B\u91D1\u91CF\u3002\u5E0C\u671B\u80FD\u591F\u5728\u7F51\u7EDC\u4E0A\u7559\u4E0B\u81EA\u5DF1\u7684\u75D5\u8FF9\u5427\u3002</p></div>`);
+      _push(`<div${serverRenderer.ssrRenderAttrs(vue.mergeProps({ class: "markdown-body" }, _attrs))}><p>\u5982\u4F60\u6240\u89C1\uFF0C\u5DEE\u4E0D\u591A\u662F\u4E2A\u5783\u573E\u3002</p><p>\u5F88\u4EAB\u53D7\u5199\u4EE3\u7801\u7684\u8FC7\u7A0B\uFF0C\u5F88\u559C\u6B22\u901A\u5173\u6E38\u620F\u7684\u6210\u5C31\u611F\uFF0C\u5F88\u8BA8\u538C\u6545\u4E8B\u5B8C\u7ED3\u540E\u7684\u7A7A\u865A\u611F\u3002</p><p>\u4EBA\u751F\u603B\u4F53\u4E0A\u662F\u6CA1\u6709\u610F\u4E49\u7684\uFF0C\u6240\u4EE5\u6211\u5E0C\u671B\u80FD\u8FC7\u4E0A\u4E0D\u7528\u52AA\u529B\u4E5F\u4E0D\u6101\u5403\u559D\u8FD9\u79CD\u6CA1\u6709\u610F\u4E49\u65E5\u5B50\uFF0C\u4F46\u662F\u5728\u4E0D\u540C\u7684\u4EBA\u751F\u9636\u6BB5\u6211\u4EEC\u53EF\u4EE5\u7ED9\u81EA\u5DF1\u7684\u4EBA\u751F\u8D4B\u4E88\u4E00\u4E9B\u610F\u4E49\uFF0C\u6240\u4EE5\u6211\u8FD8\u5728\u52AA\u529B\u7740\uFF0C\u52AA\u529B\u7740\u5411\u6CA1\u6709\u610F\u4E49\u7684\u751F\u6D3B\u524D\u8FDB\u3002</p><p>\u559C\u6B22\u5F53\u4E00\u4E2A\u89C2\u4F17\uFF0C\u867D\u7136\u4E5F\u5E0C\u671B\u5F97\u5230\u522B\u4EBA\u7684\u8BA4\u53EF\uFF0C\u4F46\u81EA\u5DF1\u5E94\u8BE5\u662F\u4E0D\u9002\u5408\u7AD9\u5728\u821E\u53F0\u4E2D\u592E\u3002\u548C\u4EBA\u76F8\u5904\u65F6\u5927\u90E8\u5206\u60C5\u51B5\u4E0B\u4E5F\u90FD\u662F\u5728\u8F93\u5165\uFF0C\u56E0\u4E3A\u4E0D\u77E5\u9053\u5982\u4F55\u7EC4\u7EC7\u8BED\u8A00\u53BB\u8F93\u51FA\u3002</p><hr><p>\u8FD9\u4E2A\u535A\u5BA2\u662F\u505A\u7ED9\u81EA\u5DF1\u770B\u7684\uFF0C\u5F53\u7136\u4E5F\u5E0C\u671B\u80FD\u8BA9\u522B\u4EBA\u770B\u5230\u5E76\u4E14\u80FD\u8BA9\u5927\u5BB6\u6709\u6240\u6536\u83B7\uFF0C\u4E0D\u8FC7\u5199\u7684\u4E1C\u897F\u90FD\u6CA1\u5565\u542B\u91D1\u91CF\u3002\u5E0C\u671B\u80FD\u591F\u5728\u7F51\u7EDC\u4E0A\u7559\u4E0B\u81EA\u5DF1\u7684\u75D5\u8FF9\u5427\u3002</p></div>`);
     };
   }
 };
@@ -4838,67 +4838,8 @@ _sfc_main$a.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("src/components/md/about.md");
   return _sfc_setup$a ? _sfc_setup$a(props, ctx) : void 0;
 };
-var About_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$9 = {
-  components: { AboutContent: _sfc_main$a },
-  setup() {
-    const about = vue.ref();
-    return { about };
-  }
-};
-function _sfc_ssrRender$9(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  const _component_fe_tag = vue.resolveComponent("fe-tag");
-  const _component_about_content = vue.resolveComponent("about-content");
-  _push(`<article${serverRenderer.ssrRenderAttrs(vue.mergeProps({ class: "about heti" }, _attrs))}><p>\u5148\u7ED9\u81EA\u5DF1\u8D34\u70B9\u6807\u7B7E</p>`);
-  if ($setup.about) {
-    _push(`<div class="about__tags"><!--[-->`);
-    serverRenderer.ssrRenderList($setup.about.frontmatter.me, (tag, i) => {
-      _push(serverRenderer.ssrRenderComponent(_component_fe_tag, {
-        key: i,
-        text: tag
-      }, null, _parent));
-    });
-    _push(`<!--]--></div>`);
-  } else {
-    _push(`<!---->`);
-  }
-  _push(serverRenderer.ssrRenderComponent(_component_about_content, { ref: "about" }, null, _parent));
-  _push(`</article>`);
-}
-const _sfc_setup$9 = _sfc_main$9.setup;
-_sfc_main$9.setup = (props, ctx) => {
-  const ssrContext = vue.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("src/pages/About.vue");
-  return _sfc_setup$9 ? _sfc_setup$9(props, ctx) : void 0;
-};
-var About = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["ssrRender", _sfc_ssrRender$9]]);
-var Archives_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$8 = {
-  setup() {
-    const { toDetail } = useNav();
-    const getPosts = vue.inject(injectKey.POSTS, () => []);
-    return {
-      posts: getPosts(),
-      toDetail
-    };
-  }
-};
-function _sfc_ssrRender$8(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  _push(`<div${serverRenderer.ssrRenderAttrs(vue.mergeProps({ class: "archives" }, _attrs))}><ul><!--[-->`);
-  serverRenderer.ssrRenderList($setup.posts, (item, i) => {
-    _push(`<li class="archives-item"><span class="archives-item__date">${serverRenderer.ssrInterpolate(item.date)}</span><span class="archives-item__title oneline">${serverRenderer.ssrInterpolate(item.title)}</span></li>`);
-  });
-  _push(`<!--]--></ul></div>`);
-}
-const _sfc_setup$8 = _sfc_main$8.setup;
-_sfc_main$8.setup = (props, ctx) => {
-  const ssrContext = vue.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("src/pages/Archives.vue");
-  return _sfc_setup$8 ? _sfc_setup$8(props, ctx) : void 0;
-};
-var Archives = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["ssrRender", _sfc_ssrRender$8]]);
 var Hide_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$7 = {
+const _sfc_main$9 = {
   props: {
     tips: {
       type: String,
@@ -4906,7 +4847,7 @@ const _sfc_main$7 = {
     }
   }
 };
-function _sfc_ssrRender$7(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$9(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_fe_card = vue.resolveComponent("fe-card");
   _push(`<p${serverRenderer.ssrRenderAttrs(_attrs)}>`);
   _push(serverRenderer.ssrRenderComponent(_component_fe_card, { class: "hide" }, {
@@ -4927,13 +4868,13 @@ function _sfc_ssrRender$7(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, _parent));
   _push(`</p>`);
 }
-const _sfc_setup$7 = _sfc_main$7.setup;
-_sfc_main$7.setup = (props, ctx) => {
+const _sfc_setup$9 = _sfc_main$9.setup;
+_sfc_main$9.setup = (props, ctx) => {
   const ssrContext = vue.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("src/components/Hide.vue");
-  return _sfc_setup$7 ? _sfc_setup$7(props, ctx) : void 0;
+  return _sfc_setup$9 ? _sfc_setup$9(props, ctx) : void 0;
 };
-var Hide = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["ssrRender", _sfc_ssrRender$7]]);
+var Hide = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["ssrRender", _sfc_ssrRender$9]]);
 const friends = [
   {
     name: "Fect UI",
@@ -4952,7 +4893,7 @@ var linksConfig = {
   friends
 };
 var Links_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$6 = {
+const _sfc_main$8 = {
   components: { Hide },
   setup() {
     const { toOut } = useNav();
@@ -4962,12 +4903,11 @@ const _sfc_main$6 = {
     };
   }
 };
-function _sfc_ssrRender$6(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$8(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_fe_grid_group = vue.resolveComponent("fe-grid-group");
   const _component_fe_grid = vue.resolveComponent("fe-grid");
   const _component_fe_card = vue.resolveComponent("fe-card");
   const _component_fe_user = vue.resolveComponent("fe-user");
-  const _component_hide = vue.resolveComponent("hide");
   _push(`<div${serverRenderer.ssrRenderAttrs(vue.mergeProps({ class: "links" }, _attrs))}>`);
   _push(serverRenderer.ssrRenderComponent(_component_fe_grid_group, { gap: 2 }, {
     default: vue.withCtx((_, _push2, _parent2, _scopeId) => {
@@ -5087,19 +5027,77 @@ function _sfc_ssrRender$6(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
-  _push(serverRenderer.ssrRenderComponent(_component_hide, {
-    class: "links__hide",
-    tips: "\u8BD5\u9A8C\u533A\uFF0C\u6682\u672A\u5F00\u653E"
-  }, null, _parent));
   _push(`</div>`);
+}
+const _sfc_setup$8 = _sfc_main$8.setup;
+_sfc_main$8.setup = (props, ctx) => {
+  const ssrContext = vue.useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("src/components/Links.vue");
+  return _sfc_setup$8 ? _sfc_setup$8(props, ctx) : void 0;
+};
+var Links = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["ssrRender", _sfc_ssrRender$8]]);
+var About_vue_vue_type_style_index_0_lang = "";
+const _sfc_main$7 = {
+  components: { AboutContent: _sfc_main$a, Links },
+  setup() {
+    const about = vue.ref();
+    return { about };
+  }
+};
+function _sfc_ssrRender$7(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+  const _component_links = vue.resolveComponent("links");
+  const _component_fe_tag = vue.resolveComponent("fe-tag");
+  const _component_about_content = vue.resolveComponent("about-content");
+  _push(`<article${serverRenderer.ssrRenderAttrs(vue.mergeProps({ class: "about heti" }, _attrs))}>`);
+  _push(serverRenderer.ssrRenderComponent(_component_links, null, null, _parent));
+  _push(`<hr><p class="start">\u5148\u7ED9\u81EA\u5DF1\u8D34\u70B9\u6807\u7B7E</p>`);
+  if ($setup.about) {
+    _push(`<div class="about__tags"><!--[-->`);
+    serverRenderer.ssrRenderList($setup.about.frontmatter.me, (tag, i) => {
+      _push(serverRenderer.ssrRenderComponent(_component_fe_tag, {
+        key: i,
+        text: tag
+      }, null, _parent));
+    });
+    _push(`<!--]--></div>`);
+  } else {
+    _push(`<!---->`);
+  }
+  _push(serverRenderer.ssrRenderComponent(_component_about_content, { ref: "about" }, null, _parent));
+  _push(`</article>`);
+}
+const _sfc_setup$7 = _sfc_main$7.setup;
+_sfc_main$7.setup = (props, ctx) => {
+  const ssrContext = vue.useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("src/pages/About.vue");
+  return _sfc_setup$7 ? _sfc_setup$7(props, ctx) : void 0;
+};
+var About = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["ssrRender", _sfc_ssrRender$7]]);
+var Archives_vue_vue_type_style_index_0_lang = "";
+const _sfc_main$6 = {
+  setup() {
+    const { toDetail } = useNav();
+    const getPosts = vue.inject(injectKey.POSTS, () => []);
+    return {
+      posts: getPosts(),
+      toDetail
+    };
+  }
+};
+function _sfc_ssrRender$6(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+  _push(`<div${serverRenderer.ssrRenderAttrs(vue.mergeProps({ class: "archives" }, _attrs))}><ul><!--[-->`);
+  serverRenderer.ssrRenderList($setup.posts, (item, i) => {
+    _push(`<li class="archives-item"><span class="archives-item__date">${serverRenderer.ssrInterpolate(item.date)}</span><span class="archives-item__title oneline">${serverRenderer.ssrInterpolate(item.title)}</span></li>`);
+  });
+  _push(`<!--]--></ul></div>`);
 }
 const _sfc_setup$6 = _sfc_main$6.setup;
 _sfc_main$6.setup = (props, ctx) => {
   const ssrContext = vue.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("src/pages/Links.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("src/pages/Archives.vue");
   return _sfc_setup$6 ? _sfc_setup$6(props, ctx) : void 0;
 };
-var Links = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["ssrRender", _sfc_ssrRender$6]]);
+var Archives = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["ssrRender", _sfc_ssrRender$6]]);
 var Talk_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$5 = {
   setup() {
@@ -5116,7 +5114,7 @@ function _sfc_ssrRender$5(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   const _component_fe_grid = vue.resolveComponent("fe-grid");
   const _component_fe_card = vue.resolveComponent("fe-card");
   const _component_fe_image = vue.resolveComponent("fe-image");
-  _push(`<div${serverRenderer.ssrRenderAttrs(vue.mergeProps({ class: "talk" }, _attrs))} data-v-3cf93f48>`);
+  _push(`<div${serverRenderer.ssrRenderAttrs(vue.mergeProps({ class: "talk" }, _attrs))} data-v-1793b33c>`);
   _push(serverRenderer.ssrRenderComponent(_component_fe_grid_group, { gap: 2 }, {
     default: vue.withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
@@ -5137,18 +5135,26 @@ function _sfc_ssrRender$5(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
                 }, {
                   default: vue.withCtx((_3, _push4, _parent4, _scopeId3) => {
                     if (_push4) {
-                      _push4(`<div class="card__cover" data-v-3cf93f48${_scopeId3}>`);
-                      _push4(serverRenderer.ssrRenderComponent(_component_fe_image, {
-                        src: p.cover
-                      }, null, _parent4, _scopeId3));
-                      _push4(`</div><div class="card__desc" data-v-3cf93f48${_scopeId3}><p class="title" data-v-3cf93f48${_scopeId3}>${serverRenderer.ssrInterpolate(p.title)}</p><p class="summary" data-v-3cf93f48${_scopeId3}>${serverRenderer.ssrInterpolate(p.summary)}</p></div>`);
+                      if (p.cover) {
+                        _push4(`<div class="card__cover" data-v-1793b33c${_scopeId3}>`);
+                        _push4(serverRenderer.ssrRenderComponent(_component_fe_image, {
+                          src: p.cover
+                        }, null, _parent4, _scopeId3));
+                        _push4(`</div>`);
+                      } else {
+                        _push4(`<!---->`);
+                      }
+                      _push4(`<div class="card__desc" data-v-1793b33c${_scopeId3}><p class="title" data-v-1793b33c${_scopeId3}>${serverRenderer.ssrInterpolate(p.title)}</p><p class="summary" data-v-1793b33c${_scopeId3}>${serverRenderer.ssrInterpolate(p.summary)}</p></div>`);
                     } else {
                       return [
-                        vue.createVNode("div", { class: "card__cover" }, [
+                        p.cover ? (vue.openBlock(), vue.createBlock("div", {
+                          key: 0,
+                          class: "card__cover"
+                        }, [
                           vue.createVNode(_component_fe_image, {
                             src: p.cover
                           }, null, 8, ["src"])
-                        ]),
+                        ])) : vue.createCommentVNode("", true),
                         vue.createVNode("div", { class: "card__desc" }, [
                           vue.createVNode("p", { class: "title" }, vue.toDisplayString(p.title), 1),
                           vue.createVNode("p", { class: "summary" }, vue.toDisplayString(p.summary), 1)
@@ -5167,11 +5173,14 @@ function _sfc_ssrRender$5(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
                     hoverable: ""
                   }, {
                     default: vue.withCtx(() => [
-                      vue.createVNode("div", { class: "card__cover" }, [
+                      p.cover ? (vue.openBlock(), vue.createBlock("div", {
+                        key: 0,
+                        class: "card__cover"
+                      }, [
                         vue.createVNode(_component_fe_image, {
                           src: p.cover
                         }, null, 8, ["src"])
-                      ]),
+                      ])) : vue.createCommentVNode("", true),
                       vue.createVNode("div", { class: "card__desc" }, [
                         vue.createVNode("p", { class: "title" }, vue.toDisplayString(p.title), 1),
                         vue.createVNode("p", { class: "summary" }, vue.toDisplayString(p.summary), 1)
@@ -5203,11 +5212,14 @@ function _sfc_ssrRender$5(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
                   hoverable: ""
                 }, {
                   default: vue.withCtx(() => [
-                    vue.createVNode("div", { class: "card__cover" }, [
+                    p.cover ? (vue.openBlock(), vue.createBlock("div", {
+                      key: 0,
+                      class: "card__cover"
+                    }, [
                       vue.createVNode(_component_fe_image, {
                         src: p.cover
                       }, null, 8, ["src"])
-                    ]),
+                    ])) : vue.createCommentVNode("", true),
                     vue.createVNode("div", { class: "card__desc" }, [
                       vue.createVNode("p", { class: "title" }, vue.toDisplayString(p.title), 1),
                       vue.createVNode("p", { class: "summary" }, vue.toDisplayString(p.summary), 1)
@@ -5232,7 +5244,7 @@ _sfc_main$5.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("src/pages/Talk.vue");
   return _sfc_setup$5 ? _sfc_setup$5(props, ctx) : void 0;
 };
-var Talk = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["ssrRender", _sfc_ssrRender$5], ["__scopeId", "data-v-3cf93f48"]]);
+var Talk = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["ssrRender", _sfc_ssrRender$5], ["__scopeId", "data-v-1793b33c"]]);
 const routes = [
   { path: "/", name: "list", component: List },
   {
@@ -5255,11 +5267,6 @@ const routes = [
     path: "/archives",
     name: "archives",
     component: Archives
-  },
-  {
-    path: "/links",
-    name: "links",
-    component: Links
   }
 ];
 function createRouter(history) {
@@ -5363,23 +5370,6 @@ function _sfc_ssrRender$4(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
       } else {
         return [
           vue.createTextVNode("\u5F52\u6863")
-        ];
-      }
-    }),
-    _: 1
-  }, _parent));
-  _push(`</li><li class="link">`);
-  _push(serverRenderer.ssrRenderComponent(_component_fe_link, {
-    to: "/links",
-    block: "",
-    color: $setup.isActive("links")
-  }, {
-    default: vue.withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(`\u94FE\u63A5`);
-      } else {
-        return [
-          vue.createTextVNode("\u94FE\u63A5")
         ];
       }
     }),
