@@ -4,11 +4,11 @@
       <fe-grid v-for="(p, i) in posts" :xs="24" :sm="12" :md="8" :key="i">
         <fe-card
           class="card"
-          @click="toDetail(p.to)"
+          @click="toDetail(p.path)"
           style="cursor: pointer"
           hoverable
         >
-          <div v-if="p.cover" class="card__cover">
+          <div v-if="false" class="card__cover">
             <fe-image :src="p.cover" />
           </div>
           <div class="card__desc">

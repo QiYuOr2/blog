@@ -4618,7 +4618,7 @@ const _sfc_main$g = {
     const head$1 = { "title": "\u5C0F\u914C\u4E00\u676F\u3002", "meta": [{ "property": "og:title", "content": "\u5C0F\u914C\u4E00\u676F\u3002" }] };
     head.useHead(head$1);
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<div${serverRenderer.ssrRenderAttrs(vue.mergeProps({ class: "markdown-body" }, _attrs))}><p>\u6BCF\u5F53\u6211\u6D4F\u89C8\u4E00\u4E2A\u4E2A\u535A\u5BA2\u7F51\u7AD9\u7684\u65F6\u5019\uFF0C\u90FD\u4F1A\u6709\u79CD\u60A0\u95F2\u5730\u884C\u8D70\u5728\u4E1B\u6797\u4E2D\u7684\u611F\u89C9\uFF0C\u6BCF\u4E00\u4E2A\u7F51\u7AD9\u90FD\u662F\u535A\u4E3B\u7EC6\u5FC3\u7167\u6599\u7684\u6811\u6728\uFF0C\u6CA1\u6709\u4EBA\u613F\u610F\u5728\u81EA\u5DF1\u7684\u6811\u4E0A\u7559\u4E0B\u6C61\u57A2\u3002\u5927\u5BB6\u90FD\u5728\u81EA\u5DF1\u7684\u6811\u4E0B\u57CB\u85CF\u4E86\u5404\u79CD\u5404\u6837\u7684\u5B9D\u85CF\u5E0C\u671B\u65C5\u4EBA\u80FD\u591F\u53D1\u6398\uFF0C\u8FD9\u4EFD\u60F3\u8981\u5206\u4EAB\u7684\u60C5\u611F\u8FDE\u63A5\u4E86\u4E00\u9897\u53C8\u4E00\u9897\u5927\u6811\uFF0C\u5F62\u6210\u4E86\u8FD9\u7247\u68EE\u6797\u3002\u6216\u8BB8\u8FD9\u624D\u662F\u4E92\u8054\u7F51\u672C\u6765\u7684\u6837\u8C8C\u3002</p><p>\u6211\u4ECE\u6765\u4E0D\u66FE\u7ECF\u5386\u8FC7\u90A3\u4E2A\u4EBA\u4EBA\u90FD\u6709\u535A\u5BA2\u7684\u65F6\u4EE3\uFF0C\u4F46\u6211\u4F9D\u7136\u5BF9\u5B83\u5145\u6EE1\u7740\u5411\u5F80\uFF0C\u5C31\u50CF\u662F\u5BF9\u90A3\u5DF2\u7ECF\u8FDC\u884C\u7684\u66FE\u7ECF\u4F18\u79C0\u52A8\u753B\u9891\u51FA\u7684\u65F6\u4EE3\u4E00\u6837\u3002\u5982\u4ECA\u7684\u4E92\u8054\u7F51\u5145\u65A5\u7740\u6D6E\u8E81\u3001\u4E89\u6597\u3001\u515A\u540C\u4F10\u5F02\uFF0C\u5A92\u4F53/\u522B\u6709\u7528\u5FC3\u8005\u5C3D\u5DF1\u6240\u80FD\u5730\u64CD\u63A7\u7740\u8206\u8BBA\uFF0C\u800C\u6211\u4EEC\u53C8\u5982\u7827\u677F\u4E0A\u7684\u9C7C\u8089\u4E00\u6837\u4EFB\u7531\u4ED6\u4EEC\u5F15\u5BFC\u3002\u4E0D\u77E5\u4ECE\u4EC0\u4E48\u65F6\u5019\u8D77\uFF0C\u5728\u4E92\u8054\u7F51\u4E0A\u8BC4\u5224\u4E00\u4E2A\u4EBA\u7684\u6807\u51C6\u5DF2\u7ECF\u4E0D\u662F\u770B\u4ED6\u505A\u7684\u4E8B\u60C5\u5BF9\u4E0D\u5BF9\u4E86\uFF0C\u800C\u662F\u4ED6\u7684\u8A00\u8BBA\u662F\u5426\u5728\u6211\u7684\u5BF9\u7ACB\u9762\uFF0C\u4ED6\u7684\u300C\u6210\u5206\u300D\u662F\u5426\u8BA9\u6211\u8BA4\u540C\u3002\u6211\u4EEC\u5984\u56FE\u628A\u90A3\u4E2A\u4EBA\u90FD\u7B80\u5355\u7684\u6807\u7B7E\u5316\uFF0C\u518D\u628A\u6BCF\u4E2A\u6807\u7B7E\u90FD\u5212\u5B9A\u4E00\u4E2A\u9635\u8425\uFF0C\u6B8A\u4E0D\u77E5\u8FD9\u4E16\u4E0A\u5E76\u975E\u53EA\u6709\u9ED1\u767D\u3002</p><p>\u793E\u4EA4\u5A92\u4F53\u7684\u51FA\u73B0\u8BA9\u6211\u4EEC\u80FD\u591F\u66F4\u65B9\u4FBF\u7684\u53D1\u8868\u81EA\u5DF1\u7684\u89C2\u70B9\uFF0C\u4F46\u4E92\u8054\u7F51\u4E0A\u7684\u533F\u540D\u6027\u4E5F\u8BA9\u6211\u4EEC\u66F4\u52A0\u7684\u8086\u65E0\u5FCC\u60EE\uFF0C\u5728\u73B0\u5B9E\u4E2D\u8981\u518D\u4E09\u601D\u7D22\u624D\u4F1A\u8BF4\u51FA\u7684\u8BDD\u5728\u4E92\u8054\u7F51\u4E0A\u5374\u80FD\u8131\u53E3\u800C\u51FA\uFF0C\u6211\u4EEC\u4E0D\u518D\u5728\u610F\u81EA\u5DF1\u7684\u8A00\u8BBA\u662F\u5426\u4F1A\u4F24\u4EBA\uFF0C\u751A\u81F3\u660E\u77E5\u8FD9\u8BDD\u662F\u5728\u653B\u51FB\u4EBA\u4E5F\u65E0\u6240\u8C13\u3002\u6211\u4EEC\u4E5F\u5F88\u5C11\u518D\u53BB\u5BF9\u67D0\u4EF6\u4E8B\u3001\u67D0\u79CD\u73B0\u8C61\u53BB\u6DF1\u5165\u601D\u8003\uFF0C\u800C\u662F\u4EBA\u4E91\u4EA6\u4E91\uFF0C\u5927\u4F17\u6240\u8A00\u4FBF\u662F\u5BF9\u7684\uFF0C\u4ED6\u5148\u53D1\u58F0\u4E86\u800C\u4E14\u770B\u8D77\u6765\u5F88\u5BF9\u90A3\u6211\u5C31\u7AD9\u5728\u4ED6\u8FD9\u8FB9\u4E86\uFF0C\u751A\u81F3\u65E0\u5173\u8BC1\u636E\u3002\u5F53\u7136\u6211\u5E76\u4E0D\u80FD\u628A\u95EE\u9898\u7684\u8D77\u56E0\u6307\u5411\u793E\u4EA4\u5A92\u4F53\u7684\u51FA\u73B0\uFF0C\u4EE5\u6211\u6D45\u8584\u7684\u5B66\u8BC6\u8FD8\u65E0\u6CD5\u60F3\u660E\u767D\u51FA\u73B0\u8FD9\u79CD\u60C5\u51B5\u7684\u539F\u56E0\u7A76\u7ADF\u662F\u4EC0\u4E48\uFF0C\u51B5\u4E14\u5B83\u8BA9\u4E92\u8054\u7F51\u66F4\u52A0\u4E92\u8054\u4E86\uFF0C\u4F46\u4EBA\u591A\u4E86\u7684\u68EE\u6797\u5C31\u4E0D\u662F\u68EE\u6797\u4E86\u3002</p><p>\u73B0\u5982\u4ECA\u4ECD\u6709\u535A\u5BA2\u7684\u4EBA\u5927\u591A\u90FD\u662F\u6280\u672F\u4EBA\u4E86\u5427\uFF0C\u4E5F\u4E0D\u662F\u8BF4\u6280\u672F\u4EBA\u6709\u591A\u4E48\u9AD8\u6D01\uFF0C\u53EA\u662F\u8FD9\u4E1C\u897F\u786E\u6709\u4E00\u5B9A\u7684\u95E8\u69DB\uFF0C\u4E0D\u8FC7\u8FD9\u662F\u597D\u4E8B\uFF0C\u8D77\u7801\u80FD\u8BA9\u8FD9\u91CC\u5C11\u70B9\u6C61\u79FD\u3002</p></div>`);
+      _push(`<div${serverRenderer.ssrRenderAttrs(vue.mergeProps({ class: "markdown-body" }, _attrs))}><p><img src="https://cdn.jsdelivr.net/gh/qiyuor2/blog-image/img/20220416sky-night.JPG" alt=""></p><p>\u6BCF\u5F53\u6211\u6D4F\u89C8\u4E00\u4E2A\u4E2A\u535A\u5BA2\u7F51\u7AD9\u7684\u65F6\u5019\uFF0C\u90FD\u4F1A\u6709\u79CD\u60A0\u95F2\u5730\u884C\u8D70\u5728\u4E1B\u6797\u4E2D\u7684\u611F\u89C9\uFF0C\u6BCF\u4E00\u4E2A\u7F51\u7AD9\u90FD\u662F\u535A\u4E3B\u7EC6\u5FC3\u7167\u6599\u7684\u6811\u6728\uFF0C\u6CA1\u6709\u4EBA\u613F\u610F\u5728\u81EA\u5DF1\u7684\u6811\u4E0A\u7559\u4E0B\u6C61\u57A2\u3002\u5927\u5BB6\u90FD\u5728\u81EA\u5DF1\u7684\u6811\u4E0B\u57CB\u85CF\u4E86\u5404\u79CD\u5404\u6837\u7684\u5B9D\u85CF\u5E0C\u671B\u65C5\u4EBA\u80FD\u591F\u53D1\u6398\uFF0C\u8FD9\u4EFD\u60F3\u8981\u5206\u4EAB\u7684\u60C5\u611F\u8FDE\u63A5\u4E86\u4E00\u9897\u53C8\u4E00\u9897\u5927\u6811\uFF0C\u5F62\u6210\u4E86\u8FD9\u7247\u68EE\u6797\u3002\u6216\u8BB8\u8FD9\u624D\u662F\u4E92\u8054\u7F51\u672C\u6765\u7684\u6837\u8C8C\u3002</p><p>\u6211\u4ECE\u6765\u4E0D\u66FE\u7ECF\u5386\u8FC7\u90A3\u4E2A\u4EBA\u4EBA\u90FD\u6709\u535A\u5BA2\u7684\u65F6\u4EE3\uFF0C\u4F46\u6211\u4F9D\u7136\u5BF9\u5B83\u5145\u6EE1\u7740\u5411\u5F80\uFF0C\u5C31\u50CF\u662F\u5BF9\u90A3\u5DF2\u7ECF\u8FDC\u884C\u7684\u66FE\u7ECF\u4F18\u79C0\u52A8\u753B\u9891\u51FA\u7684\u65F6\u4EE3\u4E00\u6837\u3002\u5982\u4ECA\u7684\u4E92\u8054\u7F51\u5145\u65A5\u7740\u6D6E\u8E81\u3001\u4E89\u6597\u3001\u515A\u540C\u4F10\u5F02\uFF0C\u5A92\u4F53/\u522B\u6709\u7528\u5FC3\u8005\u5C3D\u5DF1\u6240\u80FD\u5730\u64CD\u63A7\u7740\u8206\u8BBA\uFF0C\u800C\u6211\u4EEC\u53C8\u5982\u7827\u677F\u4E0A\u7684\u9C7C\u8089\u4E00\u6837\u4EFB\u7531\u4ED6\u4EEC\u5F15\u5BFC\u3002\u4E0D\u77E5\u4ECE\u4EC0\u4E48\u65F6\u5019\u8D77\uFF0C\u5728\u4E92\u8054\u7F51\u4E0A\u8BC4\u5224\u4E00\u4E2A\u4EBA\u7684\u6807\u51C6\u5DF2\u7ECF\u4E0D\u662F\u770B\u4ED6\u505A\u7684\u4E8B\u60C5\u5BF9\u4E0D\u5BF9\u4E86\uFF0C\u800C\u662F\u4ED6\u7684\u8A00\u8BBA\u662F\u5426\u5728\u6211\u7684\u5BF9\u7ACB\u9762\uFF0C\u4ED6\u7684\u300C\u6210\u5206\u300D\u662F\u5426\u8BA9\u6211\u8BA4\u540C\u3002\u6211\u4EEC\u5984\u56FE\u628A\u90A3\u4E2A\u4EBA\u90FD\u7B80\u5355\u7684\u6807\u7B7E\u5316\uFF0C\u518D\u628A\u6BCF\u4E2A\u6807\u7B7E\u90FD\u5212\u5B9A\u4E00\u4E2A\u9635\u8425\uFF0C\u6B8A\u4E0D\u77E5\u8FD9\u4E16\u4E0A\u5E76\u975E\u53EA\u6709\u9ED1\u767D\u3002</p><p>\u793E\u4EA4\u5A92\u4F53\u7684\u51FA\u73B0\u8BA9\u6211\u4EEC\u80FD\u591F\u66F4\u65B9\u4FBF\u7684\u53D1\u8868\u81EA\u5DF1\u7684\u89C2\u70B9\uFF0C\u4F46\u4E92\u8054\u7F51\u4E0A\u7684\u533F\u540D\u6027\u4E5F\u8BA9\u6211\u4EEC\u66F4\u52A0\u7684\u8086\u65E0\u5FCC\u60EE\uFF0C\u5728\u73B0\u5B9E\u4E2D\u8981\u518D\u4E09\u601D\u7D22\u624D\u4F1A\u8BF4\u51FA\u7684\u8BDD\u5728\u4E92\u8054\u7F51\u4E0A\u5374\u80FD\u8131\u53E3\u800C\u51FA\uFF0C\u6211\u4EEC\u4E0D\u518D\u5728\u610F\u81EA\u5DF1\u7684\u8A00\u8BBA\u662F\u5426\u4F1A\u4F24\u4EBA\uFF0C\u751A\u81F3\u660E\u77E5\u8FD9\u8BDD\u662F\u5728\u653B\u51FB\u4EBA\u4E5F\u65E0\u6240\u8C13\u3002\u6211\u4EEC\u4E5F\u5F88\u5C11\u518D\u53BB\u5BF9\u67D0\u4EF6\u4E8B\u3001\u67D0\u79CD\u73B0\u8C61\u53BB\u6DF1\u5165\u601D\u8003\uFF0C\u800C\u662F\u4EBA\u4E91\u4EA6\u4E91\uFF0C\u5927\u4F17\u6240\u8A00\u4FBF\u662F\u5BF9\u7684\uFF0C\u4ED6\u5148\u53D1\u58F0\u4E86\u800C\u4E14\u770B\u8D77\u6765\u5F88\u5BF9\u90A3\u6211\u5C31\u7AD9\u5728\u4ED6\u8FD9\u8FB9\u4E86\uFF0C\u751A\u81F3\u65E0\u5173\u8BC1\u636E\u3002\u5F53\u7136\u6211\u5E76\u4E0D\u80FD\u628A\u95EE\u9898\u7684\u8D77\u56E0\u6307\u5411\u793E\u4EA4\u5A92\u4F53\u7684\u51FA\u73B0\uFF0C\u4EE5\u6211\u6D45\u8584\u7684\u5B66\u8BC6\u8FD8\u65E0\u6CD5\u60F3\u660E\u767D\u51FA\u73B0\u8FD9\u79CD\u60C5\u51B5\u7684\u539F\u56E0\u7A76\u7ADF\u662F\u4EC0\u4E48\uFF0C\u51B5\u4E14\u5B83\u8BA9\u4E92\u8054\u7F51\u66F4\u52A0\u4E92\u8054\u4E86\uFF0C\u4F46\u4EBA\u591A\u4E86\u7684\u68EE\u6797\u5C31\u4E0D\u662F\u68EE\u6797\u4E86\u3002</p><p>\u73B0\u5982\u4ECA\u4ECD\u6709\u535A\u5BA2\u7684\u4EBA\u5927\u591A\u90FD\u662F\u6280\u672F\u4EBA\u4E86\u5427\uFF0C\u4E5F\u4E0D\u662F\u8BF4\u6280\u672F\u4EBA\u6709\u591A\u4E48\u9AD8\u6D01\uFF0C\u53EA\u662F\u8FD9\u4E1C\u897F\u786E\u6709\u4E00\u5B9A\u7684\u95E8\u69DB\uFF0C\u4E0D\u8FC7\u8FD9\u662F\u597D\u4E8B\uFF0C\u8D77\u7801\u80FD\u8BA9\u8FD9\u91CC\u5C11\u70B9\u6C61\u79FD\u3002</p></div>`);
     };
   }
 };
@@ -5147,8 +5147,8 @@ function _sfc_ssrRender$5(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   const _component_fe_grid_group = vue.resolveComponent("fe-grid-group");
   const _component_fe_grid = vue.resolveComponent("fe-grid");
   const _component_fe_card = vue.resolveComponent("fe-card");
-  const _component_fe_image = vue.resolveComponent("fe-image");
-  _push(`<div${serverRenderer.ssrRenderAttrs(vue.mergeProps({ class: "talk" }, _attrs))} data-v-1793b33c>`);
+  vue.resolveComponent("fe-image");
+  _push(`<div${serverRenderer.ssrRenderAttrs(vue.mergeProps({ class: "talk" }, _attrs))} data-v-d589d108>`);
   _push(serverRenderer.ssrRenderComponent(_component_fe_grid_group, { gap: 2 }, {
     default: vue.withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
@@ -5169,26 +5169,13 @@ function _sfc_ssrRender$5(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
                 }, {
                   default: vue.withCtx((_3, _push4, _parent4, _scopeId3) => {
                     if (_push4) {
-                      if (p.cover) {
-                        _push4(`<div class="card__cover" data-v-1793b33c${_scopeId3}>`);
-                        _push4(serverRenderer.ssrRenderComponent(_component_fe_image, {
-                          src: p.cover
-                        }, null, _parent4, _scopeId3));
-                        _push4(`</div>`);
-                      } else {
+                      {
                         _push4(`<!---->`);
                       }
-                      _push4(`<div class="card__desc" data-v-1793b33c${_scopeId3}><p class="title" data-v-1793b33c${_scopeId3}>${serverRenderer.ssrInterpolate(p.title)}</p><p class="summary" data-v-1793b33c${_scopeId3}>${serverRenderer.ssrInterpolate(p.summary)}</p></div>`);
+                      _push4(`<div class="card__desc" data-v-d589d108${_scopeId3}><p class="title" data-v-d589d108${_scopeId3}>${serverRenderer.ssrInterpolate(p.title)}</p><p class="summary" data-v-d589d108${_scopeId3}>${serverRenderer.ssrInterpolate(p.summary)}</p></div>`);
                     } else {
                       return [
-                        p.cover ? (vue.openBlock(), vue.createBlock("div", {
-                          key: 0,
-                          class: "card__cover"
-                        }, [
-                          vue.createVNode(_component_fe_image, {
-                            src: p.cover
-                          }, null, 8, ["src"])
-                        ])) : vue.createCommentVNode("", true),
+                        vue.createCommentVNode("", true),
                         vue.createVNode("div", { class: "card__desc" }, [
                           vue.createVNode("p", { class: "title" }, vue.toDisplayString(p.title), 1),
                           vue.createVNode("p", { class: "summary" }, vue.toDisplayString(p.summary), 1)
@@ -5202,19 +5189,12 @@ function _sfc_ssrRender$5(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
                 return [
                   vue.createVNode(_component_fe_card, {
                     class: "card",
-                    onClick: ($event) => $setup.toDetail(p.to),
+                    onClick: ($event) => $setup.toDetail(p.path),
                     style: { "cursor": "pointer" },
                     hoverable: ""
                   }, {
                     default: vue.withCtx(() => [
-                      p.cover ? (vue.openBlock(), vue.createBlock("div", {
-                        key: 0,
-                        class: "card__cover"
-                      }, [
-                        vue.createVNode(_component_fe_image, {
-                          src: p.cover
-                        }, null, 8, ["src"])
-                      ])) : vue.createCommentVNode("", true),
+                      vue.createCommentVNode("", true),
                       vue.createVNode("div", { class: "card__desc" }, [
                         vue.createVNode("p", { class: "title" }, vue.toDisplayString(p.title), 1),
                         vue.createVNode("p", { class: "summary" }, vue.toDisplayString(p.summary), 1)
@@ -5241,19 +5221,12 @@ function _sfc_ssrRender$5(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
               default: vue.withCtx(() => [
                 vue.createVNode(_component_fe_card, {
                   class: "card",
-                  onClick: ($event) => $setup.toDetail(p.to),
+                  onClick: ($event) => $setup.toDetail(p.path),
                   style: { "cursor": "pointer" },
                   hoverable: ""
                 }, {
                   default: vue.withCtx(() => [
-                    p.cover ? (vue.openBlock(), vue.createBlock("div", {
-                      key: 0,
-                      class: "card__cover"
-                    }, [
-                      vue.createVNode(_component_fe_image, {
-                        src: p.cover
-                      }, null, 8, ["src"])
-                    ])) : vue.createCommentVNode("", true),
+                    vue.createCommentVNode("", true),
                     vue.createVNode("div", { class: "card__desc" }, [
                       vue.createVNode("p", { class: "title" }, vue.toDisplayString(p.title), 1),
                       vue.createVNode("p", { class: "summary" }, vue.toDisplayString(p.summary), 1)
@@ -5278,7 +5251,7 @@ _sfc_main$5.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("src/pages/Talk.vue");
   return _sfc_setup$5 ? _sfc_setup$5(props, ctx) : void 0;
 };
-var Talk = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["ssrRender", _sfc_ssrRender$5], ["__scopeId", "data-v-1793b33c"]]);
+var Talk = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["ssrRender", _sfc_ssrRender$5], ["__scopeId", "data-v-d589d108"]]);
 const routes = [
   { path: "/", name: "list", component: List },
   {
