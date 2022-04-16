@@ -4,7 +4,7 @@
     <ul>
       <li class="archives-item" v-for="(item, i) in posts" :key="i">
         <span class="archives-item__date">{{ item.date }}</span>
-        <span class="archives-item__title oneline" @click="toDetail(item.to)">
+        <span class="archives-item__title oneline" @click="toDetail(item.path)">
           {{ item.title }}
         </span>
       </li>
