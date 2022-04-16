@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>柒宇的博客</title>
-    <updated>2022-04-15T10:13:26.245Z</updated>
+    <updated>2022-04-16T05:42:18.037Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>柒宇</name>
@@ -229,6 +229,13 @@
         <link href="https://blog.qiyuor2.cn/posts/2021-review"/>
         <updated>2022-01-10T03:44:01.000Z</updated>
         <summary type="html"><![CDATA[2021年一转眼就过完了。感觉自从新冠疫情开始后，时间的流逝速度就变快了，仿佛昨天还在学校里上课玩手机，今天就在公司上班摸鱼。嗯，如你所见这是一篇全是废话和垃圾的年终总结]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[小酌一杯。]]></title>
+        <id>https://blog.qiyuor2.cn/posts/20220416something</id>
+        <link href="https://blog.qiyuor2.cn/posts/20220416something"/>
+        <updated>2022-04-16T04:52:15.000Z</updated>
+        <summary type="html"><![CDATA[月亮在黑暗中把光传递了下去]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[擅长捉弄的高木同学]]></title>

@@ -40,7 +40,7 @@ Hello World! :D
       __dirname,
       POSTS_DIR,
       String(new Date().getFullYear()),
-      `${filename}.mdx`
+      `${filename}.md`
     );
     await writeFile(filePath, template(filename));
     console.log(`${filePath} 创建成功`);

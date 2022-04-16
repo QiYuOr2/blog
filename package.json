@@ -7,7 +7,7 @@
   ],
   "scripts": {
     "create": "node scripts/create.mjs",
-    "compile": "node scripts/compile.mjs",
+    "compile": "node scripts/compile.js",
     "start": " node server.js",
     "server": "cross-env NODE_ENV=production node server.js",
     "dev": "npm run compile && cross-env NODE_ENV=development node server.js",
