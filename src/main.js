@@ -16,7 +16,9 @@ import '@fect-ui/themes/main.css';
  */
 export function createApp(routerType = '') {
   const app = createSSRApp(App);
-  const router = createRouter(routerType === 'memory' ? createMemoryHistory() : createWebHistory());
+  const router = createRouter(
+    routerType === 'memory' ? createMemoryHistory() : createWebHistory()
+  );
 
   const head = createHead();
 

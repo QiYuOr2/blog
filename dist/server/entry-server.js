@@ -4764,6 +4764,11 @@ function useNav() {
   const toOut = (to) => {
     open(to, "__blank");
   };
+  vue.onMounted(() => {
+    vue.watchEffect(() => {
+      ["list", "talk", "about", "archives"].includes(r.currentRoute.value.name) ? document.title = "@\u67D2\u5B87" : vue.nextTick(() => !document.title.includes("@\u67D2\u5B87") && (document.title = document.title + " | @\u67D2\u5B87"));
+    });
+  });
   return { toDetail, toOut };
 }
 const injectKey = {
