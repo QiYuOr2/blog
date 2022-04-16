@@ -55,6 +55,7 @@ export default {
       margin-right: 1rem;
       font-size: var(--size-text-remark);
       font-family: var(--font-family-monospace);
+      white-space: nowrap;
     }
 
     &__title {
