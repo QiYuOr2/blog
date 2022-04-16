@@ -1,5 +1,6 @@
 <template>
   <div class="archives">
+    <graph :list="timeList" />
     <ul>
       <li class="archives-item" v-for="(item, i) in posts" :key="i">
         <span class="archives-item__date">{{ item.date }}</span>
@@ -15,16 +16,24 @@
 import { inject } from 'vue';
 import { injectKey } from '../common/constants';
 import { useNav } from '../composables';
+import Graph from '../components/Graph.vue';
 
 export default {
+  components: { Graph },
   setup() {
     const { toDetail } = useNav();
 
     const getPosts = inject(injectKey.POSTS, () => []);
 
+    const timeList = getPosts()
+      .slice(0)
+      .reverse()
+      .map((p) => p.date.split(' ')[0]);
+
     return {
       posts: getPosts(),
       toDetail,
+      timeList,
     };
   },
 };
@@ -35,6 +44,7 @@ export default {
   padding: 0 1rem;
   ul {
     margin: 0;
+    margin-top: 2rem;
   }
   &-item {
     display: flex;

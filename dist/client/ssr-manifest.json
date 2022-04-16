@@ -58,6 +58,8 @@
   "src/components/Links.vue": [],
   "src/pages/About.vue?vue&type=style&index=0&lang.less": [],
   "src/pages/About.vue": [],
+  "src/components/Graph.vue?vue&type=style&index=0&scoped=true&lang.less": [],
+  "src/components/Graph.vue": [],
   "src/pages/Archives.vue?vue&type=style&index=0&lang.less": [],
   "src/pages/Archives.vue": [],
   "src/pages/Talk.vue?vue&type=style&index=0&scoped=true&lang.less": [],

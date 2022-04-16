@@ -5,7 +5,8 @@
 </template>
 
 <script>
-import { onMounted } from '@vue/runtime-core';
+import { onMounted } from 'vue';
+
 export default {
   setup() {
     onMounted(() => {
