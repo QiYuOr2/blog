@@ -19,8 +19,9 @@ module.exports = function (app) {
       const appHtml = await render(url, require('./dist/client/ssr-manifest.json'));
 
       const html = template.replace(`<!--ssr-outlet-->`, appHtml);
-
-      res.status(200).set({ 'Content-Type': 'text/html' }).end(html);
+      
+      res.setHeader('Content-Type', 'text/html');
+      res.send(html);
     } catch (error) {}
   });
 };

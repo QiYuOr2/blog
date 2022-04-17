@@ -30,9 +30,14 @@ export default {
           break;
         }
         const next = new Date(props.list[i + 1]).getTime();
-        const diff = (next - curr) / (1000 * 60 * 60 * 24);
+        const diff = Math.floor((next - curr) / (1000 * 60 * 60 * 24));
         result.push(dateFormatter(curr), ...new Array(diff).fill(''));
       }
+
+      const last = new Date(props.list[props.list.length - 1]).getTime();
+      const today = new Date().getTime();
+      const diff = Math.floor((today - last) / (1000 * 60 * 60 * 24));
+      result.push(...new Array(diff).fill(''));
 
       selfList.value = result.slice(
         result.length - Math.floor(graphRef.value.offsetWidth / 17) * 6

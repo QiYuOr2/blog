@@ -5136,9 +5136,13 @@ const _sfc_main$7 = {
           break;
         }
         const next = new Date(props.list[i + 1]).getTime();
-        const diff = (next - curr) / (1e3 * 60 * 60 * 24);
-        result.push(dateFormatter(curr), ...new Array(diff).fill(""));
+        const diff2 = Math.floor((next - curr) / (1e3 * 60 * 60 * 24));
+        result.push(dateFormatter(curr), ...new Array(diff2).fill(""));
       }
+      const last = new Date(props.list[props.list.length - 1]).getTime();
+      const today = new Date().getTime();
+      const diff = Math.floor((today - last) / (1e3 * 60 * 60 * 24));
+      result.push(...new Array(diff).fill(""));
       selfList.value = result.slice(result.length - Math.floor(graphRef.value.offsetWidth / 17) * 6);
     };
     vue.onMounted(() => {
@@ -5158,11 +5162,11 @@ const _sfc_main$7 = {
   }
 };
 function _sfc_ssrRender$7(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  _push(`<!--[--><div class="graph" data-v-0dbfaa63><div class="graph__container" data-v-0dbfaa63><!--[-->`);
+  _push(`<!--[--><div class="graph" data-v-f5d93120><div class="graph__container" data-v-f5d93120><!--[-->`);
   serverRenderer.ssrRenderList($setup.selfList, (i) => {
-    _push(`<div class="${serverRenderer.ssrRenderClass(["rect", { has: i }])}"${serverRenderer.ssrRenderAttr("title", i)} data-v-0dbfaa63></div>`);
+    _push(`<div class="${serverRenderer.ssrRenderClass(["rect", { has: i }])}"${serverRenderer.ssrRenderAttr("title", i)} data-v-f5d93120></div>`);
   });
-  _push(`<!--]--></div></div><p class="label" data-v-0dbfaa63>\u5B9E\u9A8C\u54C1\u2191</p><!--]-->`);
+  _push(`<!--]--></div></div><p class="label" data-v-f5d93120>\u5B9E\u9A8C\u54C1\u2191</p><!--]-->`);
 }
 const _sfc_setup$7 = _sfc_main$7.setup;
 _sfc_main$7.setup = (props, ctx) => {
@@ -5170,7 +5174,7 @@ _sfc_main$7.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("src/components/Graph.vue");
   return _sfc_setup$7 ? _sfc_setup$7(props, ctx) : void 0;
 };
-var Graph = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["ssrRender", _sfc_ssrRender$7], ["__scopeId", "data-v-0dbfaa63"]]);
+var Graph = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["ssrRender", _sfc_ssrRender$7], ["__scopeId", "data-v-f5d93120"]]);
 var Archives_vue_vue_type_style_index_0_lang = "";
 const _sfc_main$6 = {
   components: { Graph },
