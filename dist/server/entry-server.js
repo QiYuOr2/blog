@@ -4862,7 +4862,7 @@ const _sfc_main$d = {
   }
 };
 function _sfc_ssrRender$c(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  _push(`<!--[--><div class="white" data-v-25e0bff8></div><giscus-widget id="comments" repo="QiYuOr2/blog" repo-id="R_kgDOGlnN5w" category="Announcements" category-id="DIC_kwDOGlnN584COx7K" mapping="pathname" reactions-enabled="1" emit-metadata="0" input-position="top"${serverRenderer.ssrRenderAttr("theme", $setup.theme)} lang="zh-CN" data-v-25e0bff8></giscus-widget><!--]-->`);
+  _push(`<!--[--><div class="white" data-v-7492b992></div><giscus-widget id="comments" repo="QiYuOr2/blog" repoid="R_kgDOGlnN5w" category="Announcements" categoryid="DIC_kwDOGlnN584COx7K" mapping="url" reactions-enabled="1" emitmetadata="0" inputposition="top"${serverRenderer.ssrRenderAttr("theme", $setup.theme)} lang="zh-CN" data-v-7492b992></giscus-widget><!--]-->`);
 }
 const _sfc_setup$d = _sfc_main$d.setup;
 _sfc_main$d.setup = (props, ctx) => {
@@ -4870,7 +4870,7 @@ _sfc_main$d.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("src/components/Comments.vue");
   return _sfc_setup$d ? _sfc_setup$d(props, ctx) : void 0;
 };
-var Comments = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["ssrRender", _sfc_ssrRender$c], ["__scopeId", "data-v-25e0bff8"]]);
+var Comments = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["ssrRender", _sfc_ssrRender$c], ["__scopeId", "data-v-7492b992"]]);
 var Article_vue_vue_type_style_index_0_lang = "";
 const _sfc_main$c = {
   components: { Comments },
