@@ -6,7 +6,7 @@
     repo-id="R_kgDOGlnN5w"
     category="Announcements"
     category-id="DIC_kwDOGlnN584COx7K"
-    mapping="pathname"
+    mapping="url"
     reactions-enabled="1"
     emit-metadata="0"
     input-position="top"
