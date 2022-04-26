@@ -1,6 +1,4 @@
 <template>
-  <link :href="FONT_LINK" />
-  <link rel="stylesheet" :href="HETI_LINK" />
   <Layout />
 </template>
 
@@ -10,9 +8,6 @@ import { injectKey } from './common/constants';
 import Layout from './components/Layout.vue';
 import Link from './components/Link.vue';
 import { provide } from 'vue';
-
-const FONT_LINK = 'https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap';
-const HETI_LINK = '//unpkg.com/heti/umd/heti.min.css';
 
 const posts = source.sort(
   (pre, cur) => new Date(cur.date).getTime() - new Date(pre.date).getTime()
@@ -29,7 +24,7 @@ export default {
 
     provide(injectKey.POSTS, () => posts);
 
-    return { FONT_LINK, HETI_LINK, customComponents };
+    return { customComponents };
   },
 };
 </script>
@@ -71,8 +66,8 @@ export default {
 
   --shadow-hover: 0 0 10px 1px var(--color-shadow);
 
-  --font-family-monospace: 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New',
-    monospace;
+  --font-family-monospace: 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono',
+    'Courier New', monospace;
 
   --article-blockquote-bg: var(--color-primary-light2);
   --article-blockquote-mark: var(--color-primary);
@@ -105,9 +100,10 @@ export default {
 
 html {
   font-size: 16px;
-  font-family: PT Sans, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, PingFang SC,
-    Hiragino Sans GB, Noto Sans CJK SC, Microsoft YaHei, Noto Sans, Segoe UI, Roboto, Helvetica Neue,
-    Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
+  font-family: PT Sans, ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, PingFang SC, Hiragino Sans GB, Noto Sans CJK SC,
+    Microsoft YaHei, Noto Sans, Segoe UI, Roboto, Helvetica Neue, Helvetica,
+    Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
     Noto Color Emoji;
 }
 
@@ -140,6 +136,10 @@ h1 {
   width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.heti {
+  max-width: unset;
 }
 
 // 适配

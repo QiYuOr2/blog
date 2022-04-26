@@ -8,14 +8,18 @@
   "scripts": {
     "create": "node scripts/create.mjs",
     "compile": "node scripts/compile.js",
+    "compile:mac": "node scripts/compile.mjs",
     "start": " node server.js",
     "server": "cross-env NODE_ENV=production node server.js",
     "dev": "npm run compile && cross-env NODE_ENV=development node server.js",
+    "dev:mac": "npm run compile:mac && cross-env NODE_ENV=development node server.js",
     "build": "npm run compile && npm run build:client && npm run build:server && node scripts/feed.mjs",
+    "build:mac": "npm run compile:mac && npm run build:client && npm run build:server && node scripts/feed.mjs",
     "lint": "vite lint",
     "build:client": "vite build --ssrManifest --outDir dist/client",
     "build:server": "vite build --outDir dist/server --ssr src/entry-server.js",
-    "deploy": "npm run build && vc --prod"
+    "deploy": "npm run build && vc --prod",
+    "deploy:mac": "npm run build:mac && vc --prod"
   },
   "dependencies": {
     "@fect-ui/vue": "^1.4.0",

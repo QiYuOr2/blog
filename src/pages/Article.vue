@@ -1,13 +1,16 @@
 <template>
   <article class="article heti custom">
     <router-view></router-view>
+    <comments />
   </article>
 </template>
 
 <script>
+import Comments from '../components/Comments.vue';
 import { onMounted } from 'vue';
 
 export default {
+  components: { Comments },
   setup() {
     onMounted(() => {
       window.scrollTo({ top: 0 });
