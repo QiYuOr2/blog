@@ -1,4 +1,5 @@
 <template>
+  <div class="white"></div>
   <giscus-widget
     id="comments"
     repo="QiYuOr2/blog"
@@ -17,17 +18,22 @@
 <script lang="ts">
 import { useTheme } from '@fect-ui/vue';
 import { computed } from '@vue/runtime-core';
-import { watch } from 'vue';
+import { ref, watch, onMounted } from 'vue';
 export default {
   setup() {
+    const selfDoc = ref(null);
     const { theme } = useTheme();
+
+    onMounted(() => {
+      selfDoc.value = document;
+    });
 
     watch(theme, (v) => {
       console.log(v);
     });
 
     const formattedTheme = computed(() => {
-      const themeClass = document.querySelector('html').getAttribute('class');
+      const themeClass = selfDoc.value?.querySelector('html')?.getAttribute?.('class');
 
       const themeMap = {
         'light-theme': 'light',
@@ -41,4 +47,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="less" scoped>
+.white {
+  width: 100%;
+  height: 1rem;
+}
+</style>

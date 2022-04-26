@@ -320,6 +320,7 @@
   "node_modules/@fect-ui/vue/es/user/user.js": [],
   "node_modules/@fect-ui/vue/es/user/index.js": [],
   "node_modules/@fect-ui/vue/es/index.js": [],
+  "src/components/Comments.vue?vue&type=style&index=0&scoped=true&lang.less": [],
   "src/components/Comments.vue": [],
   "src/pages/Article.vue?vue&type=style&index=0&lang.less": [],
   "src/pages/Article.vue": [],

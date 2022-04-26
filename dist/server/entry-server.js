@@ -4838,14 +4838,20 @@ _sfc_main$e.setup = (props, ctx) => {
   return _sfc_setup$e ? _sfc_setup$e(props, ctx) : void 0;
 };
 var List = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["ssrRender", _sfc_ssrRender$d]]);
+var Comments_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$d = {
   setup() {
+    const selfDoc = vue.ref(null);
     const { theme } = FectUI.useTheme();
+    vue.onMounted(() => {
+      selfDoc.value = document;
+    });
     vue.watch(theme, (v) => {
       console.log(v);
     });
     const formattedTheme = runtimeCore.computed(() => {
-      const themeClass = document.querySelector("html").getAttribute("class");
+      var _a, _b, _c;
+      const themeClass = (_c = (_b = (_a = selfDoc.value) == null ? void 0 : _a.querySelector("html")) == null ? void 0 : _b.getAttribute) == null ? void 0 : _c.call(_b, "class");
       const themeMap = {
         "light-theme": "light",
         "dark-theme": "dark"
@@ -4856,20 +4862,7 @@ const _sfc_main$d = {
   }
 };
 function _sfc_ssrRender$c(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  const _component_giscus_widget = vue.resolveComponent("giscus-widget");
-  _push(serverRenderer.ssrRenderComponent(_component_giscus_widget, vue.mergeProps({
-    id: "comments",
-    repo: "QiYuOr2/blog",
-    "repo-id": "R_kgDOGlnN5w",
-    category: "Announcements",
-    "category-id": "DIC_kwDOGlnN584COx7K",
-    mapping: "pathname",
-    "reactions-enabled": "1",
-    "emit-metadata": "0",
-    "input-position": "top",
-    theme: $setup.theme,
-    lang: "zh-CN"
-  }, _attrs), null, _parent));
+  _push(`<!--[--><div class="white" data-v-25e0bff8></div><giscus-widget id="comments" repo="QiYuOr2/blog" repo-id="R_kgDOGlnN5w" category="Announcements" category-id="DIC_kwDOGlnN584COx7K" mapping="pathname" reactions-enabled="1" emit-metadata="0" input-position="top"${serverRenderer.ssrRenderAttr("theme", $setup.theme)} lang="zh-CN" data-v-25e0bff8></giscus-widget><!--]-->`);
 }
 const _sfc_setup$d = _sfc_main$d.setup;
 _sfc_main$d.setup = (props, ctx) => {
@@ -4877,7 +4870,7 @@ _sfc_main$d.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("src/components/Comments.vue");
   return _sfc_setup$d ? _sfc_setup$d(props, ctx) : void 0;
 };
-var Comments = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["ssrRender", _sfc_ssrRender$c]]);
+var Comments = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["ssrRender", _sfc_ssrRender$c], ["__scopeId", "data-v-25e0bff8"]]);
 var Article_vue_vue_type_style_index_0_lang = "";
 const _sfc_main$c = {
   components: { Comments },
