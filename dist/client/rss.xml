@@ -4,7 +4,7 @@
         <title>柒宇的博客</title>
         <link>http://qiyuor2.cn</link>
         <description>柒宇的博客</description>
-        <lastBuildDate>Tue, 26 Apr 2022 12:39:10 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 26 Apr 2022 13:40:38 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
@@ -236,6 +236,13 @@
             <guid>https://blog.qiyuor2.cn/posts/20220416something</guid>
             <pubDate>Sat, 16 Apr 2022 04:52:15 GMT</pubDate>
             <description><![CDATA[月亮在黑暗中把光传递了下去]]></description>
+        </item>
+        <item>
+            <title><![CDATA[可能是一些错误。]]></title>
+            <link>https://blog.qiyuor2.cn/posts/something-wrong-maybe</link>
+            <guid>https://blog.qiyuor2.cn/posts/something-wrong-maybe</guid>
+            <pubDate>Tue, 26 Apr 2022 13:37:24 GMT</pubDate>
+            <description><![CDATA[有人筑起城墙，从此暖阳无关，风雨难扰]]></description>
         </item>
         <item>
             <title><![CDATA[擅长捉弄的高木同学]]></title>
