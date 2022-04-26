@@ -3,13 +3,13 @@
   <giscus-widget
     id="comments"
     repo="QiYuOr2/blog"
-    repo-id="R_kgDOGlnN5w"
+    repoid="R_kgDOGlnN5w"
     category="Announcements"
-    category-id="DIC_kwDOGlnN584COx7K"
+    categoryid="DIC_kwDOGlnN584COx7K"
     mapping="url"
     reactions-enabled="1"
-    emit-metadata="0"
-    input-position="top"
+    emitmetadata="0"
+    inputposition="top"
     :theme="theme"
     lang="zh-CN"
   ></giscus-widget>
