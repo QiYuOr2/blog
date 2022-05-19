@@ -6,6 +6,8 @@ const app = express();
 
 const isDev = process.env.NODE_ENV === 'development';
 
+console.log('isDev ', isDev);
+
 isDev
   ? (async function () {
       await devServer(app);

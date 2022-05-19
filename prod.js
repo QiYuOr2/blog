@@ -11,14 +11,10 @@ module.exports = function (app) {
   const { render } = require(path.resolve(prodStaticServerPath, 'entry-server.js'));
 
 
-  console.log(prodStaticPath)
   app.use('/', express.static(prodStaticPath));
-  // app.use('/assets', express.static(path.join(__dirname, './dist/client', 'assets')));
   app.use('/atom', express.static(path.join(__dirname, './dist/client', 'atom.xml')));
   app.use('/rss', express.static(path.join(__dirname, './dist/client', 'rss.xml')));
-  // app.use('/', async (req, res) => {
-  //   console.log('/');
-  // });
+
   app.use('*', async (req, res) => {
     console.log(req.originalUrl);
     try {
