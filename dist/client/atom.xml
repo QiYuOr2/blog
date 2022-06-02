@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>柒宇的博客</title>
-    <updated>2022-06-02T03:07:16.272Z</updated>
+    <updated>2022-06-02T06:57:32.522Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>柒宇</name>
@@ -236,6 +236,13 @@
         <link href="https://blog.qiyuor2.cn/posts/20220416something"/>
         <updated>2022-04-16T04:52:15.000Z</updated>
         <summary type="html"><![CDATA[月亮在黑暗中把光传递了下去]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[日语「1」]]></title>
+        <id>https://blog.qiyuor2.cn/posts/nihongo-learn-1</id>
+        <link href="https://blog.qiyuor2.cn/posts/nihongo-learn-1"/>
+        <updated>2022-06-02T05:31:41.000Z</updated>
+        <summary type="html"><![CDATA[声调和第一课语法]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[可能是一些错误。]]></title>
