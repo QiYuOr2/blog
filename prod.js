@@ -10,8 +10,8 @@ module.exports = function (app) {
   const template = fs.readFileSync(prodStaticEntryPath, 'utf8');
   const { render } = require(path.resolve(prodStaticServerPath, 'entry-server.js'));
 
-
-  app.use('/', express.static(prodStaticPath));
+  app.use('/favicon.ico', express.static(path.join(__dirname, './dist/client', 'favicon.ico')));
+  app.use('/assets/', express.static(path.join(__dirname, './dist/client', 'assets/')));
   app.use('/atom', express.static(path.join(__dirname, './dist/client', 'atom.xml')));
   app.use('/rss', express.static(path.join(__dirname, './dist/client', 'rss.xml')));
 
