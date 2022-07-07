@@ -4,7 +4,7 @@
         <title>柒宇的博客</title>
         <link>http://qiyuor2.cn</link>
         <description>柒宇的博客</description>
-        <lastBuildDate>Thu, 02 Jun 2022 06:57:32 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 07 Jul 2022 07:53:42 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
@@ -264,6 +264,13 @@
             <guid>https://blog.qiyuor2.cn/posts/tiger-and-dragon</guid>
             <pubDate>Tue, 11 Jan 2022 03:03:33 GMT</pubDate>
             <description><![CDATA[「ホーリーナイト」]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Vue.js 源码学习 - 初始化]]></title>
+            <link>https://blog.qiyuor2.cn/posts/vue-source-code</link>
+            <guid>https://blog.qiyuor2.cn/posts/vue-source-code</guid>
+            <pubDate>Thu, 07 Jul 2022 06:44:39 GMT</pubDate>
+            <description><![CDATA[对于Vue.js 技术揭秘与Vue源码的学习笔记]]></description>
         </item>
         <item>
             <title><![CDATA[无职转生]]></title>

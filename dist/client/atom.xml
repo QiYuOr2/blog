@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>柒宇的博客</title>
-    <updated>2022-06-02T06:57:32.522Z</updated>
+    <updated>2022-07-07T07:53:42.183Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>柒宇</name>
@@ -264,6 +264,13 @@
         <link href="https://blog.qiyuor2.cn/posts/tiger-and-dragon"/>
         <updated>2022-01-11T03:03:33.000Z</updated>
         <summary type="html"><![CDATA[「ホーリーナイト」]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Vue.js 源码学习 - 初始化]]></title>
+        <id>https://blog.qiyuor2.cn/posts/vue-source-code</id>
+        <link href="https://blog.qiyuor2.cn/posts/vue-source-code"/>
+        <updated>2022-07-07T06:44:39.000Z</updated>
+        <summary type="html"><![CDATA[对于Vue.js 技术揭秘与Vue源码的学习笔记]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[无职转生]]></title>
