@@ -32,11 +32,11 @@
 </template>
 
 <script>
-import { useTheme } from '@fect-ui/vue';
-import { Moon, Sun } from '@fect-ui/vue-icons';
-import { useRouter } from 'vue-router';
+import { useTheme } from "@fect-ui/vue";
+import { Moon, Sun } from "@fect-ui/vue-icons";
+import { useRouter } from "vue-router";
 
-const LOGO_LINK = 'https://cdn.jsdelivr.net/gh/qiyuor2/blog-image/img/pixelartoc_1.png';
+const LOGO_LINK = "https://cdn.jsdelivr.net/gh/qiyuor2/blog-image/img/pixelartoc_1.png";
 
 export default {
   components: { Moon, Sun },
@@ -85,7 +85,7 @@ export default {
   }
 
   &__links {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
 
     ul {
       display: flex;
@@ -116,6 +116,9 @@ export default {
 @media screen and (min-width: 300px) and (max-width: 650px) {
   .nav-bar {
     margin: 2.5rem 0 2rem 0;
+    &__links {
+      margin-top: 1rem;
+    }
   }
 }
 </style>
