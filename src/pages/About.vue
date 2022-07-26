@@ -2,7 +2,7 @@
   <article class="about heti">
     <links />
     <hr />
-    <p class="start">先给自己贴点标签</p>
+    <p class="start">先给自己贴点标签，但我们都应该知道，标签是可以随时撕下来的</p>
     <div v-if="about" class="about__tags">
       <fe-tag v-for="(tag, i) in about.frontmatter.me" :key="i" :text="tag" />
     </div>

@@ -4,7 +4,7 @@
         <title>柒宇的博客</title>
         <link>http://qiyuor2.cn</link>
         <description>柒宇的博客</description>
-        <lastBuildDate>Tue, 26 Jul 2022 15:36:17 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 26 Jul 2022 16:44:03 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
@@ -236,6 +236,13 @@
             <guid>https://blog.qiyuor2.cn/posts/20220416something</guid>
             <pubDate>Sat, 16 Apr 2022 04:52:15 GMT</pubDate>
             <description><![CDATA[月亮在黑暗中把光传递了下去]]></description>
+        </item>
+        <item>
+            <title><![CDATA[迷茫，]]></title>
+            <link>https://blog.qiyuor2.cn/posts/mimang</link>
+            <guid>https://blog.qiyuor2.cn/posts/mimang</guid>
+            <pubDate>Tue, 26 Jul 2022 16:43:23 GMT</pubDate>
+            <description><![CDATA[看不清前路，也无处可退]]></description>
         </item>
         <item>
             <title><![CDATA[日语「1」]]></title>

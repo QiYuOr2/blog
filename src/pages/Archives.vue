@@ -35,7 +35,6 @@ export default {
   padding: 0 1rem;
   ul {
     margin: 0;
-    margin-top: 2rem;
   }
   &-item {
     display: flex;

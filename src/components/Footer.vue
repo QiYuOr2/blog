@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-    <div class="footer__copyright">QIYUOR2 © 2021</div>
+    <div class="footer__copyright">QIYUOR2 © 2022</div>
     <div class="footer__links">
       <github
         class="icon"
