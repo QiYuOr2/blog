@@ -54,7 +54,7 @@ var b = 'hello';
 var c = true;
 ```
 
-![基本类型存储](https://cdn.jsdelivr.net/gh/qiyuor2/blog-image/img/2020070702stack.png)
+![基本类型存储](https://fastly.jsdelivr.net/gh/qiyuor2/blog-image/img/2020070702stack.png)
 
 引用类型则是**同时**保存在栈和堆当中：引用类型的实际值存储在堆当中，同时它会在栈中存储一个指向堆内存中的值的地址。
 
@@ -66,7 +66,7 @@ var obj2 = function () {
 }
 ```
 
-![引用类型存储](https://cdn.jsdelivr.net/gh/qiyuor2/blog-image/img/20200707heap2.png)
+![引用类型存储](https://fastly.jsdelivr.net/gh/qiyuor2/blog-image/img/20200707heap2.png)
 
 ### 基本类型具有不可变性
 
@@ -88,7 +88,7 @@ console.log(c); // false
 
 这实际上是相当于在栈中开辟了一片新的空间用来存储`false`这个值，然后用变量`c`指向这个值，并非改变原本的`true`。
 
-![更改基本类型的值](https://cdn.jsdelivr.net/gh/qiyuor2/blog-image/img/2020070703stack.png)
+![更改基本类型的值](https://fastly.jsdelivr.net/gh/qiyuor2/blog-image/img/2020070703stack.png)
 
 引用类型就可以很轻易的改变了，它不需要使用变量本身(`obj1`)去再次接收新的值就可以改变，例如：
 
@@ -116,7 +116,7 @@ var obj2 = { name: 'obj' };
 console.log(obj1 === obj2); // false
 ```
 
-![](https://cdn.jsdelivr.net/gh/qiyuor2/blog-image/img/20200707diff.png)
+![](https://fastly.jsdelivr.net/gh/qiyuor2/blog-image/img/20200707diff.png)
 
 ### 赋值
 
@@ -197,7 +197,7 @@ Object.getOwnPropertySymbols(obj); // [Symbol(name)]
 
 ## 数据类型转换
 
-![](https://cdn.jsdelivr.net/gh/qiyuor2/blog-image/img/20200707table.png)
+![](https://fastly.jsdelivr.net/gh/qiyuor2/blog-image/img/20200707table.png)
 
 图片来源：https://juejin.im/post/5cec1bcff265da1b8f1aa08f#heading-23
 

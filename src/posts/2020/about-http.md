@@ -16,7 +16,7 @@ HTTP 协议工作于客户端-服务端模型架构上，因此我们要先来�
 
 ## 客户端-服务端模型
 
-![](https://cdn.jsdelivr.net/gh/qiyuor2/blog-image/img/httpabout.png)
+![](https://fastly.jsdelivr.net/gh/qiyuor2/blog-image/img/httpabout.png)
 
 客户端在硬件层面通常指的是电脑、手机等设备，而在软件层面则指的是浏览器等应用程序。现在我们在自己的电脑上也就是客户端电脑上打开浏览器，接着我们在地址栏里输入www.bilibili.com访问b站，这时候浏览器就会加载出来b站首页。在这段过程中，浏览器必然进行了一段十分复杂的操作，要想理解这段操作，首先我们要先认识几个概念。
 

@@ -3,10 +3,10 @@ title: 无职转生
 date: 2022/01/19 23:10:11
 summary: 若批评不再是批评
 isTalk: true
-cover: https://cdn.jsdelivr.net/gh/qiyuor2/blog-image/img/20210122wuzhizhuansheng.jpeg
+cover: https://fastly.jsdelivr.net/gh/qiyuor2/blog-image/img/20210122wuzhizhuansheng.jpeg
 ---
 
-![](https://cdn.jsdelivr.net/gh/qiyuor2/blog-image/img/20210122wuzhizhuansheng.jpeg)
+![](https://fastly.jsdelivr.net/gh/qiyuor2/blog-image/img/20210122wuzhizhuansheng.jpeg)
 
 超高的制作水准、优秀的配乐、丰满的人物形象、有足够深度的剧情，在我看来这是一部十分优秀的作品。
 

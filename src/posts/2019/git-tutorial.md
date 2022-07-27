@@ -732,7 +732,7 @@ Deleted branch feature (was e5c49d4).
 
 `hotfix`通常用来修复 bug，`release`分支通常用来测试要合并到`master`分支上的版本，`feature`分支用来开发新功能
 
-![分支管理策略](https://cdn.jsdelivr.net/gh/qiyuor2/blog-image/img/branch.png)
+![分支管理策略](https://fastly.jsdelivr.net/gh/qiyuor2/blog-image/img/branch.png)
 
 ## 参考文章
 

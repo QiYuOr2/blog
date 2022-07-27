@@ -3,10 +3,10 @@ title: 小酌一杯。
 date: 2022/04/16 12:52:15
 summary: 月亮在黑暗中把光传递了下去
 isTalk: true
-cover: https://cdn.jsdelivr.net/gh/qiyuor2/blog-image/img/20220416sky-night.JPG
+cover: https://fastly.jsdelivr.net/gh/qiyuor2/blog-image/img/20220416sky-night.JPG
 ---
 
-![](https://cdn.jsdelivr.net/gh/qiyuor2/blog-image/img/20220416sky-night.JPG)
+![](https://fastly.jsdelivr.net/gh/qiyuor2/blog-image/img/20220416sky-night.JPG)
 
 每当我浏览一个个博客网站的时候，都会有种悠闲地行走在丛林中的感觉，每一个网站都是博主细心照料的树木，没有人愿意在自己的树上留下污垢。大家都在自己的树下埋藏了各种各样的宝藏希望旅人能够发掘，这份想要分享的情感连接了一颗又一颗大树，形成了这片森林。或许这才是互联网本来的样貌。
 

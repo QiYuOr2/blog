@@ -36,7 +36,7 @@ import { useTheme } from "@fect-ui/vue";
 import { Moon, Sun } from "@fect-ui/vue-icons";
 import { useRouter } from "vue-router";
 
-const LOGO_LINK = "https://cdn.jsdelivr.net/gh/qiyuor2/blog-image/img/pixelartoc_1.png";
+const LOGO_LINK = "https://fastly.jsdelivr.net/gh/qiyuor2/blog-image/img/pixelartoc_1.png";
 
 export default {
   components: { Moon, Sun },

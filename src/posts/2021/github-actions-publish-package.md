@@ -110,7 +110,7 @@ npm i -D semantic-release @semantic-release/changelog @semantic-release/git
 
 在 npm 官网登陆后，点击头像，选择 Access Tokens，点击 Generate New Token 按钮，之后选择类型为 Publish 生成
 
-![npm授权](https://cdn.jsdelivr.net/gh/qiyuor2/blog-image/img/npmaccesstoken.png)
+![npm授权](https://fastly.jsdelivr.net/gh/qiyuor2/blog-image/img/npmaccesstoken.png)
 
 然后到仓库的`Settings/Secret`下，点击`New repository secret`将刚才保存的密钥保存，并命名为`NPM_TOKEN`
 

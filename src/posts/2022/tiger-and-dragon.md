@@ -3,10 +3,10 @@ title: 龙与虎
 date: 2022/01/11 11:03:33
 summary: 「ホーリーナイト」
 isTalk: true
-cover: https://cdn.jsdelivr.net/gh/qiyuor2/blog-image/img/20210122tiger.jpeg
+cover: https://fastly.jsdelivr.net/gh/qiyuor2/blog-image/img/20210122tiger.jpeg
 ---
 
-![](https://cdn.jsdelivr.net/gh/qiyuor2/blog-image/img/20210122tiger.jpeg)
+![](https://fastly.jsdelivr.net/gh/qiyuor2/blog-image/img/20210122tiger.jpeg)
 
 在我看来，龙与虎的青春可以说是最接近于现实的青春。没错，我认为这部动画并不是一部真正意义上的恋爱番，更像是一部讲述主角在爱情、友情、亲情中互相扶持逐渐成长的动画，青春的幼稚、迷茫、成长、美好，都一一呈现在了龙与虎两个人一步步走向相恋的旅途之中。
 
