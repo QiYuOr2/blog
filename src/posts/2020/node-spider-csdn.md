@@ -105,9 +105,9 @@ module.exports = router;
 - CSDN 的文章列表是 40 篇一页
 - 分页控件是动态生成的，所以无法直接通过 HTML 解析获得
 
-![](https://fastly.jsdelivr.net/gh/qiyuor2/blog-image/img/someoneblog.png)
+![](https://gcore.jsdelivr.net/gh/qiyuor2/blog-image/img/someoneblog.png)
 
-![](https://fastly.jsdelivr.net/gh/qiyuor2/blog-image/img/someoneblog-1.png)
+![](https://gcore.jsdelivr.net/gh/qiyuor2/blog-image/img/someoneblog-1.png)
 
 然后我们通过开发者工具查看文章列表结构，可以发现：
 
@@ -116,7 +116,7 @@ module.exports = router;
 
 还有一些其他的信息都很容易能查到，比如博主原创文章总数值等，可以在以后需要的时候再过来查看。
 
-![](https://fastly.jsdelivr.net/gh/qiyuor2/blog-image/img/someoneblog-2.png)
+![](https://gcore.jsdelivr.net/gh/qiyuor2/blog-image/img/someoneblog-2.png)
 
 #### 获取所有文章页面
 

@@ -3,10 +3,10 @@ title: 擅长捉弄的高木同学
 date: 2022/01/19 23:50:17
 summary: 擅长调情的西片太太
 isTalk: true
-cover: https://fastly.jsdelivr.net/gh/qiyuor2/blog-image/img/20210122takagai-san.jpeg
+cover: https://gcore.jsdelivr.net/gh/qiyuor2/blog-image/img/20210122takagai-san.jpeg
 ---
 
-![](https://fastly.jsdelivr.net/gh/qiyuor2/blog-image/img/20210122takagai-san.jpeg)
+![](https://gcore.jsdelivr.net/gh/qiyuor2/blog-image/img/20210122takagai-san.jpeg)
 
 对于这部番我还能说什么？！太甜了吧！倘若有人要问我什么才算双向奔赴的爱情，我一定会推荐他去看看高木同学。
 

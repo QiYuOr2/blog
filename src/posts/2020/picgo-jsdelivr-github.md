@@ -19,9 +19,9 @@ summary: 一个高速稳定的图床对于每一个写博客的人来说都很�
 
 ### 新建一个 GItHub 仓库
 
-![](https://fastly.jsdelivr.net/gh/qiyuor2/blog-image/img/newrepo.png)
+![](https://gcore.jsdelivr.net/gh/qiyuor2/blog-image/img/newrepo.png)
 
-![](https://fastly.jsdelivr.net/gh/qiyuor2/blog-image/img/nreponame.png)
+![](https://gcore.jsdelivr.net/gh/qiyuor2/blog-image/img/nreponame.png)
 
 ### 生成 Token
 
@@ -29,21 +29,21 @@ summary: 一个高速稳定的图床对于每一个写博客的人来说都很�
 
 **Note**随便填一下，在**Select scopes**中勾选**repo**（当然也可以全选
 
-![](https://fastly.jsdelivr.net/gh/qiyuor2/blog-image/img/settingnewtoken.png)
+![](https://gcore.jsdelivr.net/gh/qiyuor2/blog-image/img/settingnewtoken.png)
 
-![](https://fastly.jsdelivr.net/gh/qiyuor2/blog-image/img/newtokendevset.png)
+![](https://gcore.jsdelivr.net/gh/qiyuor2/blog-image/img/newtokendevset.png)
 
-![](https://fastly.jsdelivr.net/gh/qiyuor2/blog-image/img/settokenlist.png)
+![](https://gcore.jsdelivr.net/gh/qiyuor2/blog-image/img/settokenlist.png)
 
-![](https://fastly.jsdelivr.net/gh/qiyuor2/blog-image/img/settokenselect.png)
+![](https://gcore.jsdelivr.net/gh/qiyuor2/blog-image/img/settokenselect.png)
 
 点击**Generate token**
 
-![](https://fastly.jsdelivr.net/gh/qiyuor2/blog-image/img/finishgithubtoken.png)
+![](https://gcore.jsdelivr.net/gh/qiyuor2/blog-image/img/finishgithubtoken.png)
 
 请务必保存好生成的 Token，它只会显示这一次
 
-![](https://fastly.jsdelivr.net/gh/qiyuor2/blog-image/img/finishgithubtoken02.png)
+![](https://gcore.jsdelivr.net/gh/qiyuor2/blog-image/img/finishgithubtoken02.png)
 
 ### 配置 PicGo
 
@@ -51,11 +51,11 @@ summary: 一个高速稳定的图床对于每一个写博客的人来说都很�
 - 分支名填**master**
 - Token 就填刚刚生成的
 - 指定存储路径，如果填写**img/**就会在仓库下创建一个 img 文件夹，图片会存在其中
-- 设置自定义域名，我们这里要使用 jsDelivr 加速访问，所以要填上**https://fastly.jsdelivr.net/gh/用户名/图床仓库名**
+- 设置自定义域名，我们这里要使用 jsDelivr 加速访问，所以要填上**https://gcore.jsdelivr.net/gh/用户名/图床仓库名**
 
-![](https://fastly.jsdelivr.net/gh/qiyuor2/blog-image/img/picgoconfig.png)
+![](https://gcore.jsdelivr.net/gh/qiyuor2/blog-image/img/picgoconfig.png)
 
-配置完成后，就可以在 PicGo 上传区上传图片了，上传图片成功后就可以通过**https://fastly.jsdelivr.net/gh/用户名/图床仓库名/图片名.后缀**访问到图片了，速度很快。
+配置完成后，就可以在 PicGo 上传区上传图片了，上传图片成功后就可以通过**https://gcore.jsdelivr.net/gh/用户名/图床仓库名/图片名.后缀**访问到图片了，速度很快。
 
 在 PicGo 设置中可以开启上传提示。
 

@@ -88,9 +88,9 @@ export default function MyWeb() {
     <!-- 以下文件建议放到本地使用 -->
     <link
       rel="stylesheet"
-      href="https://fastly.jsdelivr.net/npm/vditor/dist/index.css"
+      href="https://gcore.jsdelivr.net/npm/vditor/dist/index.css"
     />
-    <script src="https://fastly.jsdelivr.net/npm/vditor/dist/index.min.js"></script>
+    <script src="https://gcore.jsdelivr.net/npm/vditor/dist/index.min.js"></script>
   </head>
   <body>
     <div id="vditor"></div>
