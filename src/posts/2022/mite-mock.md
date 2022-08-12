@@ -15,7 +15,7 @@ demo: https://github.com/QiYuOr2/mitm-mock
 
 ## 核心思路
 
-![流程](https://gcore.jsdelivr.net/gh/qiyuor2/blog-image/img/20220812mitm-mock.png)
+![流程](https://gcore.jsdelivr.net/gh/qiyuor2/blog-image/img/20220812mitm-mock1.png)
 
 ### 伪造数字证书
 
