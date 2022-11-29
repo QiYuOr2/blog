@@ -16,7 +16,7 @@ import 'nprogress/nprogress.css';
 onMounted(() => {
   (window as any).WebFont.load({
     google: {
-      families: ['Noto Serif SC']
+      families: ['Noto Serif SC:wght@300;400;600;900&display=swap']
     }
   });
 });
