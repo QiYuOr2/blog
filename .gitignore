@@ -23,3 +23,5 @@ pnpm-debug.log*
 
 .vercel
 src/_posts
+
+dist

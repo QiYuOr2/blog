@@ -1,56 +1,29 @@
 {
   "name": "blog",
-  "version": "1.0.0",
-  "files": [
-    "dist",
-    "server.js"
-  ],
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "create": "node scripts/create.mjs",
-    "compile": "node scripts/compile.js",
-    "compile:mac": "node scripts/compile.mjs",
-    "start": " node server.js",
-    "server": "cross-env NODE_ENV=production node server.js",
-    "dev": "npm run compile && cross-env NODE_ENV=development node server.js",
-    "dev:mac": "npm run compile:mac && cross-env NODE_ENV=development node server.js",
-    "build": "npm run compile && npm run build:client && npm run build:server && node scripts/feed.mjs",
-    "build:mac": "npm run compile:mac && npm run build:client && npm run build:server && node scripts/feed.mjs",
-    "lint": "vite lint",
-    "build:client": "vite build --ssrManifest --outDir dist/client",
-    "build:server": "vite build --outDir dist/server --ssr src/entry-server.js",
-    "deploy": "npm run build && vc --prod",
-    "deploy:mac": "npm run build:mac && vc --prod"
-  },
-  "dependencies": {
-    "@fect-ui/vue": "^1.4.0",
-    "@fect-ui/vue-icons": "^2.0.0",
-    "@vueuse/head": "^0.7.5",
-    "core-js": "^3.6.5",
-    "express": "^4.17.2",
-    "http-proxy-middleware": "^2.0.4",
-    "markdown-it-anchor": "^8.6.2",
-    "markdown-it-prism": "^2.2.3",
-    "vue": "^3.0.0",
-    "vue-router": "^4.0.12"
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint . --fix"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^2.3.1",
-    "@vitejs/plugin-vue-jsx": "^1.3.9",
-    "babel-loader": "^8.2.3",
-    "cross-env": "^7.0.3",
-    "feed": "^4.2.2",
-    "less": "^4.1.2",
-    "less-loader": "^10.2.0",
-    "unist-util-remove": "^3.1.0",
-    "unist-util-visit": "^4.1.0",
-    "vfile": "^5.2.1",
-    "vite": "^2.9.1",
-    "vite-plugin-md": "^0.11.9",
-    "yaml": "^2.0.0"
+    "@nuxt/content": "^2.2.2",
+    "@nuxtjs/eslint-config-typescript": "^12.0.0",
+    "eslint": "^8.28.0",
+    "nuxt": "3.0.0",
+    "unplugin-auto-import": "^0.12.0",
+    "unplugin-vue-components": "^0.22.11",
+    "vite-plugin-style-import": "^2.0.0"
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ]
+  "dependencies": {
+    "@fect-ui/vue": "^1.6.1",
+    "@fect-ui/vue-icons": "^2.1.0",
+    "@giscus/vue": "^2.2.4",
+    "less": "^4.1.3",
+    "typescript": "^4.9.3"
+  }
 }

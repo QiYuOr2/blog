@@ -1,0 +1,17 @@
+{
+  "extends": [
+    "@nuxtjs/eslint-config-typescript"
+  ],
+  "rules": {
+    "semi": ["error", "always"],
+    "@typescript-eslint/no-unused-vars": "off",
+    "no-unused-vars":"off",
+    "space-before-function-paren": ["error", {
+      "anonymous": "never",
+      "named": "never",
+      "asyncArrow": "always"
+    }],
+    "no-console": "off",
+    "vue/multi-word-component-names": "off"
+  }
+}
