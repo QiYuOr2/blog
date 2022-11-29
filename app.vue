@@ -11,6 +11,7 @@
 <script setup lang="ts">
 import '@fect-ui/themes';
 import '@fect-ui/vue/dist/cjs/main.css';
+import 'nprogress/nprogress.css';
 
 const Colors = {
   Primary: '#58b99d'
@@ -79,5 +80,9 @@ h4 {
   &--header {
     max-width: 55rem;
   }
+}
+
+#nprogress .bar {
+  background: #58b99d;
 }
 </style>

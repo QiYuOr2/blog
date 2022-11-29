@@ -4,7 +4,7 @@ const { join } = require('path');
 
 const POSTS_DIR = '../src/posts';
 
-const template = (filename) =>
+const template = filename =>
   `<template><h1>{{ title }}</h1><mdx-source /><copyright filename="${filename
     .slice(4)
     .replace(
@@ -16,14 +16,14 @@ const template = (filename) =>
 const compiledDir = join(__dirname, '../src/_posts');
 
 (async function setup() {
-  const postsDirs = (await readdir(join(__dirname, POSTS_DIR))).map((dir) =>
+  const postsDirs = (await readdir(join(__dirname, POSTS_DIR))).map(dir =>
     join(POSTS_DIR, dir)
   );
 
   const files = [];
 
   for await (const postsDir of postsDirs) {
-    const filenames = (await readdir(join(__dirname, postsDir))).map((f) =>
+    const filenames = (await readdir(join(__dirname, postsDir))).map(f =>
       join(postsDir.replace(`${POSTS_DIR}/`, ''), f)
     );
     files.push(filenames);
