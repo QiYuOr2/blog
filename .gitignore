@@ -21,7 +21,14 @@ pnpm-debug.log*
 *.sln
 *.sw?
 
-.vercel
 src/_posts
 
 dist
+
+
+.nuxt
+.nitro
+.cache
+.output
+.vercel
+.env

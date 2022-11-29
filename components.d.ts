@@ -12,7 +12,6 @@ declare module '@vue/runtime-core' {
     FeCard: typeof import('@fect-ui/vue')['Card']
     FeGrid: typeof import('@fect-ui/vue')['Grid']
     FeGridGroup: typeof import('@fect-ui/vue')['GridGroup']
-    FeInputNumber: typeof import('@fect-ui/vue')['InputNumber']
     FeLink: typeof import('@fect-ui/vue')['Link']
     FeThemeProvide: typeof import('@fect-ui/vue')['ThemeProvide']
     FeUser: typeof import('@fect-ui/vue')['User']
