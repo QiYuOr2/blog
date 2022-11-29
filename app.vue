@@ -13,6 +13,14 @@ import '@fect-ui/themes';
 import '@fect-ui/vue/dist/cjs/main.css';
 import 'nprogress/nprogress.css';
 
+onMounted(() => {
+  (window as any).WebFont.load({
+    google: {
+      families: ['Noto Serif SC']
+    }
+  });
+});
+
 const Colors = {
   Primary: '#58b99d'
 };
@@ -35,7 +43,7 @@ const cssVars = {
 
 body {
   // ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace
-  font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, 'Noto Serif SC', serif;
+  font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, 'Noto Serif SC', serif, Consolas,Liberation Mono,monospace;
 }
 
 h1,

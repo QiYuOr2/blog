@@ -20,11 +20,12 @@ function FectUiResolver(): ComponentResolver {
 export default defineNuxtConfig({
   app: {
     head: {
-      script: [
-        { type: 'module', src: 'https://unpkg.com/giscus?module' }
+      meta: [
+        { name: 'description', content: '柒宇的个人博客' }
       ],
-      link: [
-        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;900&display=swap' }
+      script: [
+        { type: 'module', src: 'https://unpkg.com/giscus?module', defer: true },
+        { src: 'https://staticfile.qnssl.com/webfont/1.6.16/webfontloader.js', defer: true }
       ]
     }
   },
