@@ -29,9 +29,9 @@ export default defineNuxtConfig({
       ]
     }
   },
-  modules: [
-    '@nuxt/content'
-  ],
+  build: {
+    transpile: ['@fect-ui/vue']
+  },
   content: {
     highlight: {
       theme: {
@@ -41,6 +41,11 @@ export default defineNuxtConfig({
       }
     }
   },
+  hooks: {
+  },
+  modules: [
+    '@nuxt/content'
+  ],
   vite: {
     plugins: [
       AutoImport({
@@ -61,8 +66,5 @@ export default defineNuxtConfig({
         ]
       })
     ]
-  },
-  build: {
-    transpile: ['@fect-ui/vue']
   }
 });
