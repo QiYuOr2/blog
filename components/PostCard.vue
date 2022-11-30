@@ -8,7 +8,7 @@
     </div>
     <div class="post-card__footer">
       <div class="date">
-        {{ date.split(' ')[0].replaceAll('/', '-') }}
+        {{ date.split(' ')[0].replace(/\//g, '-') }}
       </div>
       <template v-if="Array.isArray(tags) ? tags.length > 0 : tags">
         <div class="dot" />
