@@ -6,7 +6,7 @@ export default defineNitroPlugin((nitro) => {
     const __NUXT__ = html.bodyAppend[0].replace(/<\/?script>/g, '');
     const __NUXTPath = `/_nuxt/append.${Date.now()}.js`;
 
-    fs.writeFileSync(path.join(process.cwd(), '.vercel/output/functions/__nitro.func/chunks/app', __NUXTPath), __NUXT__);
+    fs.writeFileSync(path.join(process.cwd(), __NUXTPath), __NUXT__);
 
     html.bodyAppend[0] = `<script type="module" src="${__NUXTPath}" crossorigin></script>`;
   });
