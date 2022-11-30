@@ -2,6 +2,7 @@ import { createStyleImportPlugin } from 'vite-plugin-style-import';
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import { ComponentResolver } from 'unplugin-vue-components/types';
+import { sync } from 'glob';
 
 function FectUiResolver(): ComponentResolver {
   return {
@@ -17,7 +18,18 @@ function FectUiResolver(): ComponentResolver {
   };
 }
 
+const prerenderRoutes = sync('content/posts/**/*.md').map(item => item
+  .replace('content', '')
+  .replace('.md', '')
+);
+
 export default defineNuxtConfig({
+  ssr: true,
+  nitro: {
+    prerender: {
+      routes: [...prerenderRoutes]
+    }
+  },
   app: {
     head: {
       meta: [

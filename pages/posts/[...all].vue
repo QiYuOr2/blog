@@ -44,10 +44,6 @@ const pagination = reactive<{ prev: PageActionOptions, next: PageActionOptions }
 
 const route = useRoute();
 
-onMounted(() => {
-  getPrevAndNext(route.params.all as string[]);
-});
-
 const getPrevAndNext = async (current: string[]) => {
   const [before, after] = await queryContent('posts')
     .where({ isTalk: { $not: true } })
@@ -59,6 +55,7 @@ const getPrevAndNext = async (current: string[]) => {
 
   [pagination.prev, pagination.next] = [before, after] as any;
 };
+getPrevAndNext(route.params.all as string[]);
 
 </script>
 
