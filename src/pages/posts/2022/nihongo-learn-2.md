@@ -1,8 +1,10 @@
 ---
 title: 日语「2」
 date: 2022/07/26 11:34:41
-summary: 第2、3课语法
+pubDate: 2022/07/26 11:34:41
+description: 第2、3课语法
 layout: ../../../layouts/Post.astro
+draft: true
 ---
 
 ## <2> これは本です

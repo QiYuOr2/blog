@@ -1,9 +1,10 @@
 ---
 title: 利用JavaScript实现倒计时
 date: 2019/08/17 19:59:18
+pubDate: 2019/08/17 19:59:18
 tags: [JavaScript]
 category: 技术
-summary: 利用 JS 中的 Date 对象即可实现，创建目标时间和当前时间，利用 getTime 函数将两个时间转换成距离 1970-01-01 的秒数，相减后转化为年月日即可
+description: 利用 JS 中的 Date 对象即可实现，创建目标时间和当前时间，利用 getTime 函数将两个时间转换成距离 1970-01-01 的秒数，相减后转化为年月日即可
 layout: ../../../layouts/Post.astro
 ---
 

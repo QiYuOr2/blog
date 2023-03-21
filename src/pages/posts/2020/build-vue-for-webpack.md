@@ -1,9 +1,10 @@
 ---
 title: 使用 webpack 手动搭建 vue 项目
 date: 2020/12/07 20:30:13
+pubDate: 2020/12/07 20:30:13
 tags: [JavaScript, Vue, Webpack]
 category: 技术
-summary: webpack 是一个前端工程化打包工具，对于前端工程师来说 webpack 是一项十分重要的技能。下面我们就通过搭建一个 vue 项目来学习使用 webpack
+description: webpack 是一个前端工程化打包工具，对于前端工程师来说 webpack 是一项十分重要的技能。下面我们就通过搭建一个 vue 项目来学习使用 webpack
 layout: ../../../layouts/Post.astro
 ---
 

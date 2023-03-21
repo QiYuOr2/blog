@@ -1,9 +1,10 @@
 ---
 title: 'TypeScript实现设计模式——工厂模式'
 date: 2020/03/20 11:47:31
+pubDate: 2020/03/20 11:47:31
 tags: [TypeScript, 设计模式]
 category: 技术
-summary: 上回用typescript实现了单例模式，这回来实现工厂模式。工厂模式又分为简单工厂模式、工厂方法模式以及抽象工厂模式。
+description: 上回用typescript实现了单例模式，这回来实现工厂模式。工厂模式又分为简单工厂模式、工厂方法模式以及抽象工厂模式。
 layout: ../../../layouts/Post.astro
 ---
 

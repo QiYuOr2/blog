@@ -1,9 +1,10 @@
 ---
 title: JS实现可用滑块滑动的缓动图
 date: 2019/08/31 12:48:44
+pubDate: 2019/08/31 12:48:44
 tags: [JavaScript]
 category: 技术
-summary: 尝试模仿京东的“发现好货”模块的可用滑块滑动的缓动图
+description: 尝试模仿京东的“发现好货”模块的可用滑块滑动的缓动图
 layout: ../../../layouts/Post.astro
 ---
 

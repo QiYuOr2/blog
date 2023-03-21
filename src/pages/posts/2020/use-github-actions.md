@@ -1,9 +1,10 @@
 ---
 title: '使用Github Actions将Vue项目部署到Github Pages'
 date: 2020/11/16 21:44:13
+pubDate: 2020/11/16 21:44:13
 tags: [Github Actions, Github Pages, Github]
 category: 工具
-summary: GitHub Actions 是 GitHub 的持续集成服务，是一个非常强大的功能，用它可以实现很多自动化功能。现在我们来使用Github Actions将我们做好的Vue项目部署到Github Pages上。
+description: GitHub Actions 是 GitHub 的持续集成服务，是一个非常强大的功能，用它可以实现很多自动化功能。现在我们来使用Github Actions将我们做好的Vue项目部署到Github Pages上。
 layout: ../../../layouts/Post.astro
 ---
 
@@ -45,7 +46,7 @@ module.exports = {
 workflow 文件采用 YAML 格式，后缀为`.yml`，在项目根目录下创建`.github/workflows/`目录，Github 只要发现该目录中由 yml 文件就会自动运行该文件。
 创建`ci.yml`
 
-```yml
+```yaml
 # 该workflow的名称，可以随意填写
 name: Build And Deploy To Github Pages
 

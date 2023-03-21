@@ -1,9 +1,10 @@
 ---
 title: 'nodejs爬虫--抓取CSDN某用户全部文章'
 date: 2020/02/11 13:30:55
+pubDate: 2020/02/11 13:30:55
 tags: [JavaScript, Node.js, 爬虫, Web Crawler]
 category: 技术
-summary: 最近正在学习node.js，就像搞一些东西来玩玩，于是这个简单的爬虫就诞生了。
+description: 最近正在学习node.js，就像搞一些东西来玩玩，于是这个简单的爬虫就诞生了。
 layout: ../../../layouts/Post.astro
 ---
 

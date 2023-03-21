@@ -5,6 +5,7 @@ import Copyright from '../components/Copyright.vue';
 import GlobalStyles from './Styles.astro';
 import Scripts from './Scripts.astro';
 import { query, sortByDate } from '../utils/postsHelper';
+import Metas from './Metas.astro';
 
 const { content, url } = Astro.props;
 
@@ -34,7 +35,8 @@ const paginations = [null, null];
   <head>
     <meta charset="utf-8" />
     <title>{content.title} | @柒宇</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <Metas />
 
     <Scripts />
   </head>

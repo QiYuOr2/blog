@@ -1,9 +1,10 @@
 ---
 title: C# HtmlAgilityPack+Selenium爬取需要拉动滚动条的页面内容
 date: 2019/09/05 12:02:37
+pubDate: 2019/09/05 12:02:37
 tags: [CSharp,Web Crawler]
 category: 技术
-summary: 现在大多数网站都是随着滚动条的滑动加载页面内容的，因此单纯获得静态页面的Html是无法获得全部的页面内容的。使用Selenium就可以模拟浏览器拉动滑动条来加载所有页面内容...
+description: 现在大多数网站都是随着滚动条的滑动加载页面内容的，因此单纯获得静态页面的Html是无法获得全部的页面内容的。使用Selenium就可以模拟浏览器拉动滑动条来加载所有页面内容...
 layout: ../../../layouts/Post.astro
 ---
 
@@ -23,7 +24,7 @@ Selenium是一个WEB自动化测试工具。Selenium测试直接运行在浏览�
 
 ## 实例(获取某网站主页所有图片)
 ### 普通获取网页Html
-``` cs
+```csharp
 ChromeDriver driver = new ChromeDriver();
 driver.Navigate().GoToUrl(url);
 string title = driver.Title;//页面title
@@ -31,7 +32,7 @@ string html = driver.PageSource;//页面Html
 ```
 ### 不启动Chrome窗口及关闭Chrome控制台获取网页
 程序执行时会自动打开Chrome窗口和输出控制台中一些信息，我们不需要这些东西。
-``` cs
+```csharp
 //不启动chrome窗口
 ChromeOptions options = new ChromeOptions();
 options.AddArgument("headless");
@@ -46,7 +47,7 @@ driver.Navigate().GoToUrl(url);
 
 ### 将页面滚动到底部
 如果使用`scrollTo(0, document.body.scrollHeight)`，直接让将页面滚动到底部会导致页面中间部分读取失败，所以需要分几次滑动并且给页面足够的时间加载
-``` cs
+```csharp
 for (int i = 1; i <= 10; i++)
 {
     string jsCode = "window.scrollTo({top: document.body.scrollHeight / 10 * " + i + ", behavior: \"smooth\"});";
@@ -60,7 +61,7 @@ for (int i = 1; i <= 10; i++)
 
 ### 使用HtmlAgilityPack解析读取到的Html
 以下内容与[上一篇文章](https://qiyuor2.github.io/2019/09/04/CSharpHtmlAgilityPack/)基本相同
-``` cs
+```csharp
 string title = driver.Title;//页面title
 string html = driver.PageSource;//页面Html
 
@@ -78,7 +79,7 @@ foreach (HtmlNode node in doc.DocumentNode.SelectNodes(imgPath))
 
 <details>
 
-``` cs
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Linq;

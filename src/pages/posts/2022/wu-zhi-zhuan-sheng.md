@@ -1,10 +1,12 @@
 ---
 title: 无职转生
 date: 2022/01/19 23:10:11
-summary: 若批评不再是批评
+pubDate: 2022/01/19 23:10:11
+description: 若批评不再是批评
 isTalk: true
 cover: https://gcore.jsdelivr.net/gh/qiyuor2/blog-image/img/20210122wuzhizhuansheng.jpeg
 layout: ../../../layouts/Post.astro
+draft: true
 ---
 
 ![](https://gcore.jsdelivr.net/gh/qiyuor2/blog-image/img/20210122wuzhizhuansheng.jpeg)

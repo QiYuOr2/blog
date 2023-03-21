@@ -1,9 +1,10 @@
 ---
 title: Chrome插件开发入门
 date: 2021/04/18 17:22:37
+pubDate: 2021/04/18 17:22:37
 tags: [chrome, JavaScript, extension]
 category: 技术
-summary: 最近学习了Chrome插件的开发，总体来说上手还是很容易的，因为浏览器插件本质上依旧是网页，写几个demo基本就了解了他的开发过程。
+description: 最近学习了Chrome插件的开发，总体来说上手还是很容易的，因为浏览器插件本质上依旧是网页，写几个demo基本就了解了他的开发过程。
 layout: ../../../layouts/Post.astro
 ---
 

@@ -11,7 +11,7 @@ const posts = await Astro.glob('./posts/**/*.md');
     <PostCard
       title={post.frontmatter.title}
       path={post.url}
-      summary={post.frontmatter.summary}
+      summary={post.frontmatter.description}
       date={post.frontmatter.date}
       tags={post.frontmatter.tags}
     />

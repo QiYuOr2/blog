@@ -1,9 +1,10 @@
 ---
 title: '关于HTTP'
 date: 2020/11/27 18:22:40
+pubDate: 2020/11/27 18:22:40
 tags: [http, 计算机网络]
 category: 技术
-summary: web开发中，无论是前端还是后端，所离不开的东西就是HTTP协议和HTTP相关的东西，今天我们就来聊聊和HTTP相关的一些知识。
+description: web开发中，无论是前端还是后端，所离不开的东西就是HTTP协议和HTTP相关的东西，今天我们就来聊聊和HTTP相关的一些知识。
 layout: ../../../layouts/Post.astro
 ---
 

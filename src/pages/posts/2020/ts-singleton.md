@@ -1,9 +1,10 @@
 ---
 title: 'TypeScript实现设计模式——单例模式'
 date: 2020/03/19 21:51:43
+pubDate: 2020/03/19 21:51:43
 tags: [typescript, 设计模式]
 category: 技术
-summary: 最近在学习设计模式，又正好刚上手了typescript，就想要用ts实现一下试试。
+description: 最近在学习设计模式，又正好刚上手了typescript，就想要用ts实现一下试试。
 layout: ../../../layouts/Post.astro
 ---
 

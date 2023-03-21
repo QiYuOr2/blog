@@ -1,10 +1,12 @@
 ---
 title: 小酌一杯。
 date: 2022/04/16 12:52:15
-summary: 月亮在黑暗中把光传递了下去
+pubDate: 2022/04/16 12:52:15
+description: 月亮在黑暗中把光传递了下去
 isTalk: true
 cover: https://gcore.jsdelivr.net/gh/qiyuor2/blog-image/img/20220416sky-night.JPG
 layout: ../../../layouts/Post.astro
+draft: true
 ---
 
 ![](https://gcore.jsdelivr.net/gh/qiyuor2/blog-image/img/20220416sky-night.JPG)

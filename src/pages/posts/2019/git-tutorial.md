@@ -1,9 +1,10 @@
 ---
 title: Git学习记录
 date: 2019/11/17 15:18:05
+pubDate: 2019/11/17 15:18:05
 tags: [Git]
 category: 工具
-summary: 本篇文章介绍Git的本地使用
+description: 本篇文章介绍Git的本地使用
 layout: ../../../layouts/Post.astro
 ---
 

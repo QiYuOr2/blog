@@ -1,9 +1,10 @@
 ---
 title: C#中使用XML存储数据
 date: 2019/07/29 10:05:13
+pubDate: 2019/07/29 10:05:13
 tags: [CSharp]
 category: 技术
-summary: C#对于XML的一些增删改查的操作
+description: C#对于XML的一些增删改查的操作
 layout: ../../../layouts/Post.astro
 ---
 
@@ -13,38 +14,38 @@ layout: ../../../layouts/Post.astro
 
 ### 1.初始化一个实例
 
-```cs
+```csharp
 XmlDocument xd = new XmlDocument();
 ```
 
 ### 2.创建 XML 头文件声明
 
-```cs
+```csharp
 XmlDeclaration xdt = xd.CreateXmlDeclaration("1.0", "utf-8", null);
 xd.AppendChild(xdt);
 ```
 
 ### 3.创建唯一根节点
 
-```cs
+```csharp
 XmlElement Students = xd.CreateElement("Students");
 ```
 
 ### 4.给根节点添加属性(也可以不添加)
 
-```cs
+```csharp
 Students.SetAttribute("name", "学生信息");
 ```
 
 ### 5.将根节点加入到 XML 文件中
 
-```cs
+```csharp
 xd.AppendChild(Students);
 ```
 
 ### 6.创建二级节点
 
-```cs
+```csharp
 XmlElement student = xd.CreateElement("student");
 student.SetAttribute("stuNum", "100100100");
 Students.AppendChild(student);
@@ -52,7 +53,7 @@ Students.AppendChild(student);
 
 ### 7.给二级节点填充值
 
-```cs
+```csharp
 XmlElement name = xd.CreateElement("name");
 name.InnerText = "小明";
 XmlElement sex = xd.CreateElement("sex");
@@ -63,7 +64,7 @@ student.AppendChild(sex);
 
 ### 8.保存
 
-```cs
+```csharp
 xd.Save("StuMS.xml");
 ```
 
@@ -83,14 +84,14 @@ xd.Save("StuMS.xml");
 
 **首先要先加载 XML 文档**
 
-```cs
+```csharp
 XmlDocument xd = new XmlDocument();
 xd.Load("StuMS.xml");
 ```
 
 ### 1.利用索引器读取
 
-```cs
+```csharp
 //查找标签值
 string Name = stuNode.ChildNodes[0].InnerText;
 //查找标签属性
@@ -99,7 +100,7 @@ string StuNum = stuNode.Attributes[0].Value;
 
 ### 2.利用 Xpath 查询
 
-```cs
+```csharp
 // 常用查询方式
 //1. "根节点/父节点/子节点"
 //2. "//节点"
@@ -114,7 +115,7 @@ XmlNodeList stuNodeList = xd.SelectNodes("Students/student[sex = '男' ]");//可
 
 找到->修改->**保存**
 
-```cs
+```csharp
 //节点信息修改
 stuNode.SelectSingleNode("name").InnerText = value;
 stuNode.SelectSingleNode("name").InnerXml = value;
@@ -127,7 +128,7 @@ InnerXml 将标签一同显示出来` <name>小明</name><sex>男</sex>`
 
 ## 删除 XML 文档里的信息
 
-```cs
+```csharp
 //从当前节点获取父节点，从父节点删除当前节点
 stuNode.ParentNode.RemoveChild(studentNode);
 //从父节点直接删除子节点

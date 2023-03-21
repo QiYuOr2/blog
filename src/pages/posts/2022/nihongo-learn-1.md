@@ -1,8 +1,10 @@
 ---
 title: 日语「1」
 date: 2022/06/02 13:31:41
-summary: 声调和第一课语法
+pubDate: 2022/06/02 13:31:41
+description: 声调和第一课语法
 layout: ../../../layouts/Post.astro
+draft: true
 ---
 
 ## 五十音

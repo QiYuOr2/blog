@@ -1,9 +1,10 @@
 ---
 title: Electron踩坑记录
 date: 2020/10/21 10:00:47
+pubDate: 2020/10/21 10:00:47
 tags: [JavaScript, Electron, NodeJs]
 category: 技术
-summary: 心血来潮想做一个PC端应用，就来学学Electron，以下为学习Electron时的踩坑记录。
+description: 心血来潮想做一个PC端应用，就来学学Electron，以下为学习Electron时的踩坑记录。
 layout: ../../../layouts/Post.astro
 ---
 

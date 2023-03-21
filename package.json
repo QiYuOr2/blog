@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@astrojs/rss": "^2.3.0",
     "@astrojs/vercel": "^3.2.1",
     "@astrojs/vue": "^2.1.0",
     "@fect-ui/vue": "^1.6.1",

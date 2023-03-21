@@ -1,9 +1,10 @@
 ---
 title: React Native中使用Markdown编辑器
 date: 2021/02/17 11:31:32
+pubDate: 2021/02/17 11:31:32
 tags: [React Native, WebView]
 category: 技术
-summary: 最近在研究`React Native`，准备用它写一个笔记APP，但是并没有搜到很好用的编辑器插件，因此准备使用`WebView`和已有的Web端编辑器自己封装一个。
+description: 最近在研究`React Native`，准备用它写一个笔记APP，但是并没有搜到很好用的编辑器插件，因此准备使用`WebView`和已有的Web端编辑器自己封装一个。
 layout: ../../../layouts/Post.astro
 ---
 

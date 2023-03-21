@@ -1,7 +1,8 @@
 ---
 title: 无侵入式的接口Mock方案尝试
 date: 2022/08/12 16:03:04
-summary: 使用中间人代理进行Mock
+pubDate: 2022/08/12 16:03:04
+description: 使用中间人代理进行Mock
 layout: ../../../layouts/Post.astro
 ---
 

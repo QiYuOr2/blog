@@ -1,9 +1,10 @@
 ---
 title: 实现一个简单的静态博客生成器
 date: 2021/02/07 19:55:00
+pubDate: 2021/02/07 19:55:00
 tags: [nodejs, JavaScript, blog, website, cli]
 category: 技术
-summary: 作为一名程序员，写博客是积累知识、提升水平必不可少的一个方法。我们写博客主要有三种方法，一种是使用掘金、博客园、CSDN 等博客网站，第二种是自己搭建网站，存放自己的博客，第三种就是使用静态博客生成器，将生成的网页部署到服务器或者 github pages、gitee pages 等服务上。这...
+description: 作为一名程序员，写博客是积累知识、提升水平必不可少的一个方法。我们写博客主要有三种方法，一种是使用掘金、博客园、CSDN 等博客网站，第二种是自己搭建网站，存放自己的博客，第三种就是使用静态博客生成器，将生成的网页部署到服务器或者 github pages、gitee pages 等服务上。这...
 layout: ../../../layouts/Post.astro
 ---
 

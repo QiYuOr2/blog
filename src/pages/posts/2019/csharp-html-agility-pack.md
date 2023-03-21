@@ -1,9 +1,10 @@
 ---
 title: C# HtmlAgilityPack爬取静态页面
 date: 2019/09/04 22:10:24
+pubDate: 2019/09/04 22:10:24
 tags: [CSharp, Web Crawler]
 category: 技术
-summary: 最近对爬虫很感兴趣，稍微研究了一下，利用HtmlAgilityPack制作了一个十分简单的爬虫，这个简易爬虫只能获取静态页面的Html...
+description: 最近对爬虫很感兴趣，稍微研究了一下，利用HtmlAgilityPack制作了一个十分简单的爬虫，这个简易爬虫只能获取静态页面的Html...
 layout: ../../../layouts/Post.astro
 ---
 

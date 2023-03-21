@@ -1,9 +1,10 @@
 ---
 title: 'JavaScript实现常见的数据结构'
 date: 2020/01/29 15:26:47
+pubDate: 2020/01/29 15:26:47
 tags: [JavaScript, 数据结构]
 category: 技术
-summary: 使用JavaScript实现栈、队列、链表、集合等常见数据结构。可能会有点用？
+description: 使用JavaScript实现栈、队列、链表、集合等常见数据结构。可能会有点用？
 layout: ../../../layouts/Post.astro
 ---
 

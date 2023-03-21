@@ -1,7 +1,8 @@
 ---
 title: Vue.js 源码学习 - 初始化
 date: 2022/07/07 14:44:39
-summary: 对于Vue.js 技术揭秘与Vue源码的学习笔记
+pubDate: 2022/07/07 14:44:39
+description: 对于Vue.js 技术揭秘与Vue源码的学习笔记
 layout: ../../../layouts/Post.astro
 ---
 

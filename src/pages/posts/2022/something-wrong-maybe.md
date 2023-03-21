@@ -1,9 +1,11 @@
 ---
 title: 可能是一些错误。
 date: 2022/04/26 21:37:24
-summary: 有人筑起城墙，从此暖阳无关，风雨难扰
+pubDate: 2022/04/26 21:37:24
+description: 有人筑起城墙，从此暖阳无关，风雨难扰
 isTalk: true
 layout: ../../../layouts/Post.astro
+draft: true
 ---
 
 最近发生了一件令我很不爽的事情，不过令我不爽并不能说明这事情究竟是对是错。

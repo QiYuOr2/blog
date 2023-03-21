@@ -1,10 +1,12 @@
 ---
 title: 擅长捉弄的高木同学
 date: 2022/01/19 23:50:17
-summary: 擅长调情的西片太太
+pubDate: 2022/01/19 23:50:17
+description: 擅长调情的西片太太
 isTalk: true
 cover: https://gcore.jsdelivr.net/gh/qiyuor2/blog-image/img/20210122takagai-san.jpeg
 layout: ../../../layouts/Post.astro
+draft: true
 ---
 
 ![](https://gcore.jsdelivr.net/gh/qiyuor2/blog-image/img/20210122takagai-san.jpeg)

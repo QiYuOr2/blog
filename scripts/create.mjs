@@ -25,7 +25,7 @@ const dateFormatter = (date) => {
 const template = (name) => `---
 title: ${name}
 date: ${dateFormatter(Date.now())}
-summary: ${name}摘要
+description: ${name}摘要
 ${isTalk && 'isTalk: true'}
 ---
 

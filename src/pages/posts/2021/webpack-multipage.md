@@ -1,9 +1,10 @@
 ---
 title: 使用Webpack构建多页面程序
 date: 2021/03/15 20:32:48
+pubDate: 2021/03/15 20:32:48
 tags: [webpack, JavaScript]
 category: 技术
-summary: 使用webpack搭建单页面程序十分常见，但在实际开发中我们可能还会有开发多页面程序的需求，因此我研究了一下如何使用webpack搭建多页面程序。
+description: 使用webpack搭建单页面程序十分常见，但在实际开发中我们可能还会有开发多页面程序的需求，因此我研究了一下如何使用webpack搭建多页面程序。
 layout: ../../../layouts/Post.astro
 ---
 

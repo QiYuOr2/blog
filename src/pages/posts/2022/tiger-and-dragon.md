@@ -1,10 +1,12 @@
 ---
 title: 龙与虎
 date: 2022/01/11 11:03:33
-summary: 「ホーリーナイト」
+pubDate: 2022/01/11 11:03:33
+description: 「ホーリーナイト」
 isTalk: true
 cover: https://gcore.jsdelivr.net/gh/qiyuor2/blog-image/img/20210122tiger.jpeg
 layout: ../../../layouts/Post.astro
+draft: true
 ---
 
 ![](https://gcore.jsdelivr.net/gh/qiyuor2/blog-image/img/20210122tiger.jpeg)

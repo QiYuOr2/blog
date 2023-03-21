@@ -1,9 +1,10 @@
 ---
 title: '搭建hexo静态博客'
 date: 2019/08/31 09:13:23
+pubDate: 2019/08/31 09:13:23
 tags: [hexo]
 category: 工具
-summary: 使用hexo搭建博客，并将博客部署到github
+description: 使用hexo搭建博客，并将博客部署到github
 layout: ../../../layouts/Post.astro
 ---
 
@@ -27,7 +28,7 @@ layout: ../../../layouts/Post.astro
 8. 执行`npm install hexo-deployer-git --save`，安装 deployer-git，用来将 hexo 推送到 github
 9. 修改配置文件：在文件夹中找到并打开`_config.yml`文件，将文件末尾的 deploy 部分更改如下，repo: 后填写你新建的 github 仓库的地址。**注意: 请使用英文冒号以及冒号后要有空格**
 
-```yml
+```yaml
 deploy:
   type: git
   repo: https://github.com/qiyuor2/qiyuor2.github.io.git

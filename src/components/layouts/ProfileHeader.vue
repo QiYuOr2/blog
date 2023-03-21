@@ -1,11 +1,11 @@
 <template>
   <header class="profile-header container">
     <a class="content" href="/">
-      <fe-avatar src="https://avatars.githubusercontent.com/u/48339849" size="medium" />
+      <fe-avatar src="https://avatars.githubusercontent.com/u/48339849" size="medium" alt="avatar" />
       <h1>柒宇的博客</h1>
     </a>
 
-    <a class="about" href="/about">
+    <a class="about" href="/about" role="button" aria-label="jump to about page">
       <User />
     </a>
   </header>
