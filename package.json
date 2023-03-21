@@ -1,33 +1,24 @@
 {
-  "name": "blog",
-  "version": "0.1.0",
-  "private": true,
+  "name": "new-blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "dev": "nuxt dev",
-    "build": "nuxt build",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
-    "lint": "eslint . --fix"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
-  "devDependencies": {
-    "@nuxt/content": "^2.2.2",
-    "@nuxtjs/eslint-config-typescript": "^12.0.0",
-    "@types/nprogress": "^0.2.0",
-    "eslint": "^8.28.0",
-    "nuxt": "3.0.0",
-    "unplugin-auto-import": "^0.12.0",
-    "unplugin-vue-components": "^0.22.11",
-    "vite-plugin-style-import": "^2.0.0"
-  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
+    "@astrojs/vercel": "^3.2.1",
+    "@astrojs/vue": "^2.1.0",
     "@fect-ui/vue": "^1.6.1",
-    "@fect-ui/vue-icons": "^2.1.0",
-    "@giscus/vue": "^2.2.4",
-    "@types/glob": "^8.0.0",
-    "glob": "^8.0.3",
+    "@fect-ui/vue-icons": "^2.2.0",
+    "astro": "^2.1.3",
     "less": "^4.1.3",
-    "nprogress": "^0.2.0",
-    "typescript": "^4.9.3"
+    "vue": "^3.2.47"
   }
 }

@@ -1,0 +1,26 @@
+---
+import PageLayout from '../layouts/Page.astro'
+import PostCard from '../components/PostCard.vue';
+import { query, sortByDate } from '../utils/postsHelper'
+
+const posts = await Astro.glob('./posts/**/*.md');
+---
+
+<PageLayout>
+  {posts.filter(query).sort(sortByDate).map(post => 
+    <PostCard
+      title={post.frontmatter.title}
+      path={post.url}
+      summary={post.frontmatter.summary}
+      date={post.frontmatter.date}
+      tags={post.frontmatter.tags}
+    />
+  )}
+</PageLayout>
+
+
+<style>
+  h1 {
+    color: orange;
+  }
+</style>

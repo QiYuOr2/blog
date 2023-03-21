@@ -1,0 +1,91 @@
+---
+import Container from '../components/layouts/Container.vue';
+import Comments from '../components/Comments.vue';
+import Copyright from '../components/Copyright.vue';
+import GlobalStyles from './Styles.astro';
+import Scripts from './Scripts.astro';
+import { query, sortByDate } from '../utils/postsHelper';
+
+const { content, url } = Astro.props;
+
+const urlWrapper = (path: string) => `https://blog.qiyuor2.cn${path}`;
+
+const paginations = [null, null];
+(await Astro.glob('../pages/posts/**/*.md'))
+  .filter(query)
+  .sort(sortByDate)
+  .some((post) => {
+    if (paginations[1]) {
+      // console.log(paginations[1].url, post.url)
+      paginations[1] = post;
+      return true;
+    }
+    if (post.url === url) {
+      paginations[1] = post;
+    } else {
+      paginations[0] = post;
+    }
+
+    return false;
+  });
+---
+
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>{content.title} | @柒宇</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <Scripts />
+  </head>
+  <body>
+    <Container>
+      <slot />
+      <Copyright url={urlWrapper(url)} />
+
+      <div class="pagination">
+        {
+          paginations[1] && paginations[1].url !== url && (
+            <div class="action">
+              <div class="title">上一篇</div>
+              <a class="to" href={paginations[1].url}>
+                {paginations[1].frontmatter.title}
+              </a>
+            </div>
+          )
+        }
+
+        {
+          paginations[0] && paginations[0].url !== url && (
+            <div class="action">
+              <div class="title">下一篇</div>
+              <a class="to" href={paginations[0].url}>
+                {paginations[0].frontmatter.title}
+              </a>
+            </div>
+          )
+        }
+      </div>
+
+      <Comments />
+    </Container>
+    <GlobalStyles />
+
+    <style lang="less">
+      .pagination {
+        margin-top: 3rem;
+        text-align: center;
+        .action {
+          margin-bottom: 1.4rem;
+          .to {
+            display: inline-block;
+            margin-top: 0.5rem;
+            color: #000;
+            font-weight: bold;
+            font-size: 1.2rem;
+          }
+        }
+      }
+    </style>
+  </body>
+</html>
