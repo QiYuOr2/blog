@@ -2,11 +2,13 @@
   <div class="links">
     <fe-grid-group :gap="2">
       <fe-grid v-for="(f, i) in friends" :key="i" :xs="24" :sm="12" :md="8">
-        <fe-card style="cursor: pointer" hoverable @click="toOut(f.link)">
-          <fe-user :name="f.name" :src="f.avatar" :alt-text="f.link">
-            {{ f.desc }}
-          </fe-user>
-        </fe-card>
+        <a :href="f.link" target="_blank">
+          <fe-card style="cursor: pointer" hoverable>
+            <fe-user :name="f.name" :src="f.avatar" :alt-text="f.link">
+              {{ f.desc }}
+            </fe-user>
+          </fe-card>
+        </a>
       </fe-grid>
     </fe-grid-group>
   </div>
@@ -16,10 +18,6 @@
 import linksConfig from '../../link';
 
 const friends = linksConfig.friends;
-
-const toOut = (href: string) => {
-  open(href);
-};
 </script>
 
 <style lang="less" scoped>
