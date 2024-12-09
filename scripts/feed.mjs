@@ -9,7 +9,7 @@ import { Feed } from 'feed';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const POSTS_DIR = '../src/posts';
-const BASE_URL = 'https://blog.qiyuor2.cn/posts/';
+const BASE_URL = 'https://qiyuor2.github.io/blog/posts/';
 
 function compileFrontmatter() {
   return (tree, file) => {
@@ -40,8 +40,8 @@ function compileMdx(code) {
   const feed = new Feed({
     title: '柒宇的博客',
     description: '柒宇的博客',
-    link: 'http://qiyuor2.cn',
-    image: 'http://qiyuor2.cn/favicon.ico',
+    link: 'https://qiyuor2.github.io/blog/',
+    image: 'https://qiyuor2.github.io/blog/favicon.ico',
     copyright: 'QIYUOR2 © 2021',
     author: {
       name: '柒宇',

@@ -11,7 +11,7 @@ export async function get() {
   return rss({
     title: '@柒宇',
     description: '柒宇的个人博客',
-    site: 'https://blog.qiyuor2.cn',
+    site: 'https://qiyuor2.github.io/blog/',
     items: (await pagesGlobToRssItems(import.meta.glob('./posts/**/*.md'))).map(getContent),
     customData: `<language>zh-CN</language>`,
   });

@@ -9,7 +9,7 @@ import Metas from './Metas.astro';
 
 const { content, url } = Astro.props;
 
-const urlWrapper = (path: string) => `https://blog.qiyuor2.cn${path}`;
+const urlWrapper = (path: string) => `https://qiyuor2.github.io/blog${path}`;
 
 const paginations = [null, null];
 (await Astro.glob('../pages/posts/**/*.md'))
