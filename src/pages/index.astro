@@ -3,7 +3,7 @@ import PageLayout from '../layouts/Page.astro'
 import PostCard from '../components/PostCard.vue';
 import { query, sortByDate } from '../utils/postsHelper'
 
-const posts = await Astro.glob('./posts/**/*.md');
+const posts = await Astro.glob<Frontmatter>('./posts/**/*.md');
 ---
 
 <PageLayout>
