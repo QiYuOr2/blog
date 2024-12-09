@@ -5,14 +5,14 @@
       <h1>柒宇的博客</h1>
     </a>
 
-    <a class="about" href="/about" role="button" aria-label="jump to about page">
+    <!-- <a class="about" href="/about" role="button" aria-label="jump to about page">
       <User />
-    </a>
+    </a> -->
   </header>
 </template>
 
 <script setup lang="ts">
-import { User } from '@fect-ui/vue-icons';
+// import { User } from '@fect-ui/vue-icons';
 
 </script>
 
