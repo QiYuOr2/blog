@@ -1,6 +1,6 @@
 <template>
   <header class="profile-header container">
-    <a class="content" href="/">
+    <a class="content" href="/blog/">
       <fe-avatar src="https://avatars.githubusercontent.com/u/48339849" size="medium" alt="avatar" />
       <h1>柒宇的博客</h1>
     </a>
