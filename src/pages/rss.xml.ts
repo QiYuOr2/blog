@@ -1,18 +1,23 @@
-import rss, { pagesGlobToRssItems } from '@astrojs/rss';
+import rss, { pagesGlobToRssItems } from "@astrojs/rss";
+import { sortByDate } from "../utils/postsHelper";
 
 export async function get() {
-  const posts = Object.values(import.meta.glob('./posts/**/*.md', { eager: true }))
+  const posts = Object.values(import.meta.glob("./posts/**/*.md", { eager: true }));
 
   const getContent = (post: any) => {
-    const content = (posts.find((item: any) => item.frontmatter.title === post.title) as any).compiledContent()
-    return { ...post, content }
+    const content = (posts.find((item: any) => item.frontmatter.title === post.title) as any).compiledContent();
+    return { ...post, content };
+  };
+
+  function sortRssItemByPubDate(pre: { pubDate: Date }, current: { pubDate: Date }) {
+    return current.pubDate.getTime() - pre.pubDate.getTime();
   }
 
   return rss({
-    title: '@柒宇',
-    description: '柒宇的个人博客',
-    site: 'https://qiyuor2.github.io/blog/',
-    items: (await pagesGlobToRssItems(import.meta.glob('./posts/**/*.md'))).map(getContent),
+    title: "@柒宇",
+    description: "柒宇的个人博客",
+    site: "https://qiyuor2.github.io/blog/",
+    items: (await pagesGlobToRssItems(import.meta.glob("./posts/**/*.md"))).sort(sortRssItemByPubDate).map(getContent),
     customData: `<language>zh-CN</language>`,
   });
 }
