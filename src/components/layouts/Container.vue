@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ProfileHeader from './ProfileHeader.vue';
+import Header from './Header.vue';
 import Footer from './Footer.vue';
 
 const props = withDefaults(defineProps<{
@@ -20,7 +21,8 @@ const cssVars = {
 
 <template>
   <fe-theme-provide :vars="cssVars">
-    <ProfileHeader v-if="!props.hideProfile"/>
+    <Header />
+    <!-- <ProfileHeader v-if="!props.hideProfile"/> -->
     <main class="container">
       <slot />
     </main>

@@ -41,7 +41,9 @@ webpack 处理 ES Module 时，原本应该是 exports 入参的地方会替换�
 3. preset-env webpack 环境下不处理 import / export
 4. webpack 将模块作为 ES Module 处理
 
-### 新的报错 `Cannot assign to read only property 'exports' of object '#<Object>'`
+### 新的报错
+
+`Cannot assign to read only property 'exports' of object '#<Object>'`
 
 去掉项目依赖的 npm 包的强制编译，只保留 `依赖的内部依赖` 的强制编译，会发现报错变了
 
@@ -62,7 +64,7 @@ webpack 在处理 ES Module 时，会添加严格模式声明，严格模式下�
 ![错误的 __webpack_require__.d](https://cdn.jsdelivr.net/gh/qiyuor2/blog-image/img/2024121910.png)
 
 
-### 为什么 babel-loader 配置了 `root` 后，强制编译会失效
+### 为什么强制编译会失效
 
 babel7 新增了项目级配置文件的概念 → `.babelrc` 和 `babel.config.js` 存在差异，根配置和相对配置
 

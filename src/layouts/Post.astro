@@ -2,12 +2,13 @@
 import Container from '../components/layouts/Container.vue';
 import Comments from '../components/Comments.vue';
 import Copyright from '../components/Copyright.vue';
+import TOC from '../components/TOC.vue'
 import GlobalStyles from './Styles.astro';
 import Scripts from './Scripts.astro';
 import { query, sortByDate } from '../utils/postsHelper';
 import Metas from './Metas.astro';
 
-const { content, url } = Astro.props;
+const { content, url, headings } = Astro.props;
 
 const urlWrapper = (path: string) => `https://qiyuor2.github.io${path}`;
 
@@ -43,6 +44,7 @@ const paginations = [null, null];
 
   </head>
   <body>
+    <TOC headings={headings} />
     <Container hide-profile>
       <h1 class="title">{ content.title }</h1>
       <div class="description">
@@ -50,6 +52,7 @@ const paginations = [null, null];
       </div>
 
       <slot />
+
       <Copyright url={urlWrapper(url)} />
 
       <div class="pagination">
