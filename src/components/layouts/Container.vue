@@ -2,6 +2,10 @@
 import ProfileHeader from './ProfileHeader.vue';
 import Footer from './Footer.vue';
 
+const props = withDefaults(defineProps<{
+  hideProfile?: boolean
+}>(), { hideProfile: false })
+
 const Colors = {
   Primary: '#58b99d'
 };
@@ -16,7 +20,7 @@ const cssVars = {
 
 <template>
   <fe-theme-provide :vars="cssVars">
-    <ProfileHeader />
+    <ProfileHeader v-if="!props.hideProfile"/>
     <main class="container">
       <slot />
     </main>

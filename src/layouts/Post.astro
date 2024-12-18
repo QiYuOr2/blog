@@ -38,10 +38,17 @@ const paginations = [null, null];
     
     <Metas />
 
+    <GlobalStyles />
     <Scripts />
+
   </head>
   <body>
-    <Container>
+    <Container hide-profile>
+      <h1 class="title">{ content.title }</h1>
+      <div class="description">
+        <div class="description--date">{ content.pubDate.split(' ')[0] }</div>
+      </div>
+
       <slot />
       <Copyright url={urlWrapper(url)} />
 
@@ -71,9 +78,22 @@ const paginations = [null, null];
 
       <Comments />
     </Container>
-    <GlobalStyles />
+
 
     <style lang="less">
+      .title {
+        padding-top: 2rem;
+      }
+
+      .description {
+        padding-bottom: 1rem;
+        &--date {
+          opacity: .5;
+          font-weight: bold;
+          color: #727272;
+        }
+      }
+
       .pagination {
         margin-top: 3rem;
         text-align: center;
@@ -89,5 +109,7 @@ const paginations = [null, null];
         }
       }
     </style>
+
+        
   </body>
 </html>
