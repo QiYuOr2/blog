@@ -24,7 +24,7 @@ const props = defineProps<{
   font-size: .8rem;
 
   &--title {
-    margin-bottom: 0;
+    margin-bottom: .2rem;
   }
 
   a {
