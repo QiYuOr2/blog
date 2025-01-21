@@ -1,5 +1,4 @@
 import rss, { pagesGlobToRssItems } from "@astrojs/rss";
-import { sortByDate } from "../utils/postsHelper";
 
 export async function get() {
   const posts = Object.values(import.meta.glob("./posts/**/*.md", { eager: true }));
