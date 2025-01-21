@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "b": "zx ./cli/index.mjs",
+    "c": "zx ./cli/index.mjs",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",

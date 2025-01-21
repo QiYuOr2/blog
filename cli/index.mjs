@@ -1,4 +1,61 @@
 #!/usr/bin/env zx
 import { minimist } from "zx";
+import { writeFileSync, existsSync, mkdirSync } from "node:fs";
+import { join } from "node:path";
 
-console.log(minimist(process.argv.slice(2)));
+const dateTime = new Date().toLocaleString();
+const POST_PATH = "./src/pages/posts";
+
+setup({
+  actions: [
+    createAction("new", (args) => {
+      const fileName = args[0] ?? "new-post";
+
+      const year = new Date(dateTime).getFullYear().toString();
+
+      const frontmatter = `---
+title: "Hello"
+date: ${dateTime}
+pubDate: ${dateTime}
+description: description
+layout: ../../../layouts/Post.astro
+tags: []
+---
+`;
+
+      if (!existsSync(join(POST_PATH, year))) {
+        mkdirSync(join(POST_PATH, year));
+      }
+
+      writeFileSync(join(POST_PATH, year, `${fileName}.md`), frontmatter);
+    }),
+  ],
+});
+
+function setup({ actions }) {
+  const { action, actionArgs } = readArgv();
+  const selectedAction = actions.find((a) => a.actionName === action);
+
+  if (!selectedAction) {
+    console.log("Action not found");
+    return;
+  }
+
+  selectedAction.handler(actionArgs);
+}
+
+function createAction(actionName, handler) {
+  return {
+    actionName,
+    handler,
+  };
+}
+
+function readArgv() {
+  const argv = minimist(process.argv.slice(2));
+
+  return {
+    action: argv._[1],
+    actionArgs: argv._.slice(2),
+  };
+}
