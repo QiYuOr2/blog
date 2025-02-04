@@ -1,23 +1,35 @@
 <template>
-  <a class="post-card" :href="path">
-    <div class="post-card__title">
-      {{ title }}
-    </div>
-    <div v-if="summary" class="post-card__summary">
-      {{ summary }}
-    </div>
-    <div class="post-card__footer">
-      <div class="date">
-        {{ date.split(' ')[0].replace(/\//g, '-') }}
+  <a :class="['post-card', big ? '' : 'post-card--line']" :href="path">
+    <template v-if="big">
+      <div class="post-card__title">
+        {{ title }}
       </div>
-      <template v-if="Array.isArray(tags) ? tags.length > 0 : tags">
-        <div class="dot" />
-        <div v-for="tag, i in selfTags" :key="tag" class="tag">
-          <span>{{ tag }}</span>
-          <span v-if="i < selfTags.length - 1">&nbsp;/&nbsp;</span>
+      <div v-if="summary" class="post-card__summary">
+        {{ summary }}
+      </div>
+      <div class="post-card__footer">
+        <div class="date">
+          {{ date.split(' ')[0].replace(/\//g, '-') }}
         </div>
-      </template>
-    </div>
+        <template v-if="Array.isArray(tags) ? tags.length > 0 : tags">
+          <div class="dot" />
+          <div v-for="tag, i in selfTags" :key="tag" class="tag">
+            <span>{{ tag }}</span>
+            <span v-if="i < selfTags.length - 1">&nbsp;/&nbsp;</span>
+          </div>
+        </template>
+      </div>
+    </template>
+    <template v-else>
+      <div class="post-card__title">
+        {{ title }}
+      </div>
+      <div class="post-card__footer">
+        <div class="date">
+          {{ date.split(' ')[0].split('/').slice(1).join('/') }}
+        </div>
+      </div>
+    </template>
   </a>
 </template>
 
@@ -30,6 +42,7 @@ const props = defineProps<{
   summary?: string
   date: string,
   tags?: string | string[]
+  big?: boolean
 }>();
 
 const selfTags = computed(() => Array.isArray(props.tags) ? props.tags.slice(0, 2) : [props.tags]);
@@ -44,8 +57,12 @@ const selfTags = computed(() => Array.isArray(props.tags) ? props.tags.slice(0, 
   transition: all 0.3s;
   cursor: pointer;
 
+  --post-card-main-color: rgb(33, 41, 35);
+  --post-card-sec-color: rgba(33, 41, 35, 0.6);
+  --post-card-tag-color: rgba(33, 41, 35, 0.4);
+
   &:hover {
-    border-color: #868e96;
+    border-color: var(--post-card-tag-color);
     transition: all 0.3s;
   }
 
@@ -54,7 +71,7 @@ const selfTags = computed(() => Array.isArray(props.tags) ? props.tags.slice(0, 
     font-weight: bold;
     font-size: 1.25rem;
     line-height: 1.5;
-    color: #212529;
+    color: var(--post-card-main-color);
     text-decoration: none;
   }
 
@@ -62,7 +79,7 @@ const selfTags = computed(() => Array.isArray(props.tags) ? props.tags.slice(0, 
     margin: 0.25rem 0px;
     font-weight: 400;
     font-size: 0.9rem;
-    color: #495057;
+    color: var(--post-card-sec-color);
   }
 
   &__footer {
@@ -72,7 +89,7 @@ const selfTags = computed(() => Array.isArray(props.tags) ? props.tags.slice(0, 
     font-weight: 400;
     font-size: 0.8rem;
     line-height: 1.5;
-    color: #868e96;
+    color: var(--post-card-tag-color);
   }
 
   .dot {
@@ -80,10 +97,47 @@ const selfTags = computed(() => Array.isArray(props.tags) ? props.tags.slice(0, 
     width: 0.2rem;
     height: 0.2rem;
     border-radius: 50%;
-    background-color: #868e96;
+    background-color: var(--post-card-tag-color);
     margin: 0px 0.5rem;
     vertical-align: middle;
     text-align: center;
+  }
+
+  &--line {
+    display: flex;
+    gap: .5rem;
+    padding: .5rem 1.25rem;
+
+    .post-card__title {
+      color: var(--post-card-sec-color);
+      transition: all 0.3s;
+      font-weight: normal;
+      font-size: 1.1rem;
+    }
+
+    .post-card__footer {
+      font-size: .875rem;
+    }
+
+
+    &:hover {
+      border-color: white;
+
+      .post-card__title {
+        color: var(--post-card-main-color);
+        transition: all 0.3s;
+      }
+    }
+  }
+
+
+}
+
+@media screen and (max-width: 800px) {
+  .post-card--line {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
   }
 }
 </style>

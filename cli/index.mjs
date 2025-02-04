@@ -32,9 +32,10 @@ tags: []
   ],
 });
 
-function setup({ actions }) {
+function setup(options) {
+  const { actions } = options;
   const { action, actionArgs } = readArgv();
-  const selectedAction = actions.find((a) => a.actionName === action);
+  const selectedAction = actions.flat().find((a) => a.actionName === action);
 
   if (!selectedAction) {
     console.log("Action not found");
@@ -44,7 +45,16 @@ function setup({ actions }) {
   selectedAction.handler(actionArgs);
 }
 
+/**
+ * @param {string | string[]} actionName
+ * @param {(args: string[]) => void} handler
+ * @returns {Action | Action[]}
+ */
 function createAction(actionName, handler) {
+  if (Array.isArray(actionName)) {
+    return actionName.map((name) => createAction(name, handler));
+  }
+
   return {
     actionName,
     handler,

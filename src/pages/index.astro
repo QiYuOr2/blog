@@ -1,26 +1,41 @@
 ---
 import PageLayout from '../layouts/Page.astro'
 import PostCard from '../components/PostCard.vue';
-import { query, sortByDate } from '../utils/postsHelper'
+import { query, sortByDate, getPostCreatedYear } from '../utils/postsHelper'
+import { MarkdownInstance } from 'astro';
 
-const posts = await Astro.glob<Frontmatter>('./posts/**/*.md');
+const posts: Record<string, MarkdownInstance<Frontmatter>[]> = Object.groupBy(
+    (await Astro.glob<Frontmatter>('./posts/**/*.md')).filter(query), 
+    getPostCreatedYear
+  );
 ---
 
 <PageLayout>
-  {posts.filter(query).sort(sortByDate).map(post => 
-    <PostCard
-      title={post.frontmatter.title}
-      path={post.url}
-      summary={post.frontmatter.description}
-      date={post.frontmatter.date}
-      tags={post.frontmatter.tags}
-    />
+  {Object.keys(posts).sort((a, b) => Number(b) - Number(a)).map(year => 
+    <div class="year">
+      <div class="year__title">{year}</div>
+      <div>
+        {posts[year].sort(sortByDate).map(post => 
+          <PostCard
+            title={post.frontmatter.title}
+            path={post.url}
+            summary={post.frontmatter.description}
+            date={post.frontmatter.date}
+            tags={post.frontmatter.tags}
+          />
+        )}
+      </div>
+    </div>
   )}
 </PageLayout>
 
 
-<style>
-  h1 {
-    color: orange;
+<style lang="less" scoped>
+.year {
+  margin-bottom: 2rem;
+  &__title {
+    font-size: 1.5rem;
+    font-weight: bold;
   }
+}
 </style>
