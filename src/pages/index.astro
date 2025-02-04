@@ -4,6 +4,19 @@ import PostCard from '../components/PostCard.vue';
 import { query, sortByDate, getPostCreatedYear } from '../utils/postsHelper'
 import { MarkdownInstance } from 'astro';
 
+if (!Object.groupBy) {
+  Object.groupBy = function (arr: any[], key: any) {
+    return arr.reduce((acc, item) => {
+      const group = key(item);
+      if (!acc[group]) {
+        acc[group] = [];
+      }
+      acc[group].push(item);
+      return acc;
+    }, {});
+  };
+}
+
 const posts: Record<string, MarkdownInstance<Frontmatter>[]> = Object.groupBy(
     (await Astro.glob<Frontmatter>('./posts/**/*.md')).filter(query), 
     getPostCreatedYear
