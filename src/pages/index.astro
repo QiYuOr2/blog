@@ -1,8 +1,8 @@
 ---
 import PageLayout from '../layouts/Page.astro'
 import PostCard from '../components/PostCard.vue';
-import { query, sortByDate, getPostCreatedYear } from '../utils/postsHelper'
-import type { MarkdownInstance } from 'astro';
+import { visibleFilter, sortByDate, getPostCreatedYear } from '../collections/posts'
+import { getCollection } from 'astro:content';
 
 if (!Object.groupBy) {
   Object.groupBy = function (arr: any[], key: any) {
@@ -17,12 +17,11 @@ if (!Object.groupBy) {
   };
 }
 
-const posts = Object.groupBy(
-  Object.values(
-    import.meta.glob('./posts/**/*.{md,mdx}', { eager: true })
-  ).filter(query), 
-  getPostCreatedYear
-) as Record<string, MarkdownInstance<Frontmatter>[]> ;
+const _posts = await getCollection('posts')
+
+
+
+const posts = Object.groupBy(_posts.filter(visibleFilter), getPostCreatedYear)
 ---
 
 <PageLayout>
@@ -30,14 +29,16 @@ const posts = Object.groupBy(
     <div class="year">
       <div class="year__title">{year}</div>
       <div>
-        {posts[year].sort(sortByDate).map(post => 
+        {posts[year]?.sort(sortByDate).map(post => 
+        <>
           <PostCard
-            title={post.frontmatter.title}
-            path={post.url}
-            summary={post.frontmatter.description}
-            date={post.frontmatter.date}
-            tags={post.frontmatter.tags}
+            title={post.data.title}
+            path={`/blog/${post.id}`}
+            summary={post.data.description}
+            date={post.data.date.toString()}
+            tags={post.data.tags}
           />
+          </>
         )}
       </div>
     </div>

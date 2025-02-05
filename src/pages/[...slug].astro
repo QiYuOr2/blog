@@ -1,0 +1,109 @@
+---
+import { getCollection, render } from "astro:content";
+import Container from "../components/layouts/Container.vue";
+import Comments from "../components/Comments.vue";
+import Copyright from "../components/Copyright.vue";
+import TOC from "../components/TOC.vue";
+import GlobalStyles from "../layouts/Styles.astro";
+import Scripts from "../layouts/Scripts.astro";
+import Metas from "../layouts/Metas.astro";
+import { date, postURL } from "../collections/posts";
+import { visibleFilter } from "../collections/posts";
+import { sortByDate } from "../collections/posts";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts");
+
+  return posts
+    .filter(visibleFilter)
+    .sort(sortByDate)
+    .map((post, index, originList) => ({
+      params: { slug: `${post.id}` },
+      props: { post, paginations: [originList[index - 1], originList[index + 1]] },
+    }));
+}
+
+const { post, paginations } = Astro.props;
+const { Content, headings } = await render(post);
+---
+
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>{post.data.title} | @柒宇</title>
+
+    <Metas />
+
+    <GlobalStyles />
+    <Scripts />
+  </head>
+  <body>
+    <TOC headings={headings} />
+    <Container hide-profile>
+      <h1 class="title">{post.data.title}</h1>
+      <div class="description">
+        <div class="description--date">{date(post).split(" ")[0]}</div>
+      </div>
+
+      <Content />
+
+      <Copyright url={postURL(post)} />
+
+      <div class="pagination">
+        {
+          paginations[1] &&  (
+            <div class="action">
+              <div class="title">上一篇</div>
+              <a class="to" href={postURL(paginations[1])}>
+                {paginations[1].data.title}
+              </a>
+            </div>
+          )
+        }
+
+        {
+          paginations[0] &&  (
+            <div class="action">
+              <div class="title">下一篇</div>
+              <a class="to" href={postURL(paginations[0])})>
+                {paginations[0].data.title}
+              </a>
+            </div>
+          )
+        }
+      </div>
+
+      <Comments />
+    </Container>
+
+    <style lang="less">
+      .title {
+        padding-top: 2rem;
+      }
+
+      .description {
+        padding-bottom: 1rem;
+        &--date {
+          opacity: 0.5;
+          font-weight: bold;
+          color: #727272;
+        }
+      }
+
+      .pagination {
+        margin-top: 3rem;
+        text-align: center;
+        .action {
+          margin-bottom: 1.4rem;
+          .to {
+            display: inline-block;
+            margin-top: 0.5rem;
+            color: #000;
+            font-weight: bold;
+            font-size: 1.2rem;
+          }
+        }
+      }
+    </style>
+  </body>
+</html>

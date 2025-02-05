@@ -1,22 +1,22 @@
 import rss, { pagesGlobToRssItems } from "@astrojs/rss";
+import { sortByDate, visibleFilter } from "../collections/posts";
+import { getCollection } from "astro:content";
 
-export async function get() {
-  const posts = Object.values(import.meta.glob("./posts/**/*.md", { eager: true }));
-
-  const getContent = (post: any) => {
-    const content = (posts.find((item: any) => item.frontmatter.title === post.title) as any).compiledContent();
-    return { ...post, content };
-  };
-
-  function sortRssItemByPubDate(pre: { pubDate: Date }, current: { pubDate: Date }) {
-    return current.pubDate.getTime() - pre.pubDate.getTime();
-  }
+export async function GET(ctx) {
+  const posts = await getCollection("posts");
 
   return rss({
     title: "@柒宇",
     description: "柒宇的个人博客",
-    site: "https://qiyuor2.github.io/blog/",
-    items: (await pagesGlobToRssItems(import.meta.glob("./posts/**/*.md"))).sort(sortRssItemByPubDate).map(getContent),
+    site: ctx.site,
+    items:  posts
+      .filter(visibleFilter)
+      .sort(sortByDate)
+      .map(item => ({ 
+        ...item.data, 
+        link: `${import.meta.env.PUBLIC_BASE_URL}/${item.id}`, 
+        content: item.rendered?.html 
+      })),
     customData: `<language>zh-CN</language>`,
   });
 }

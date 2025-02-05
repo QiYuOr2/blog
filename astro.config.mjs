@@ -4,7 +4,7 @@ import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://qiyuor2.github.io",
+  site: "https://qiyuor2.github.io/blog/",
   base: "blog",
 
   integrations: [

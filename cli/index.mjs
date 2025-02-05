@@ -4,7 +4,7 @@ import { writeFileSync, existsSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
 
 const dateTime = new Date().toLocaleString();
-const POST_PATH = "./src/pages/posts";
+const POST_PATH = "./src/posts";
 
 setup({
   actions: [
@@ -18,7 +18,7 @@ title: "Hello"
 date: ${dateTime}
 pubDate: ${dateTime}
 description: description
-layout: ../../../layouts/Post.astro
+
 tags: []
 ---
 `;
