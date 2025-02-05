@@ -1,7 +1,7 @@
 ---
 import PageLayout from '../layouts/Page.astro'
 import PostCard from '../components/PostCard.vue';
-import { visibleFilter, sortByDate, getPostCreatedYear } from '../collections/posts'
+import { visibleFilter, sortByDate, getPostCreatedYear, date } from '../collections/posts'
 import { getCollection } from 'astro:content';
 
 if (!Object.groupBy) {
@@ -35,7 +35,7 @@ const posts = Object.groupBy(_posts.filter(visibleFilter), getPostCreatedYear)
             title={post.data.title}
             path={`/blog/${post.id}`}
             summary={post.data.description}
-            date={post.data.date.toString()}
+            date={date(post)}
             tags={post.data.tags}
           />
           </>
