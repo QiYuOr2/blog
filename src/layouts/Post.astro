@@ -7,13 +7,14 @@ import GlobalStyles from './Styles.astro';
 import Scripts from './Scripts.astro';
 import { query, sortByDate } from '../utils/postsHelper';
 import Metas from './Metas.astro';
+import type { MarkdownInstance } from 'astro';
 
-const { content, url, headings } = Astro.props;
+const { frontmatter, url, headings } = Astro.props;
 
 const urlWrapper = (path: string) => `https://qiyuor2.github.io${path}`;
 
 const paginations = [null, null];
-(await Astro.glob('../pages/posts/**/*.md'))
+(Object.values(import.meta.glob('../pages/posts/**/*.{md,mdx}', { eager:true })) as MarkdownInstance<Frontmatter>[])
   .filter(query)
   .sort(sortByDate)
   .some((post) => {
@@ -35,7 +36,7 @@ const paginations = [null, null];
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
-    <title>{content.title} | @柒宇</title>
+    <title>{frontmatter.title} | @柒宇</title>
     
     <Metas />
 
@@ -46,9 +47,9 @@ const paginations = [null, null];
   <body>
     <TOC headings={headings} />
     <Container hide-profile>
-      <h1 class="title">{ content.title }</h1>
+      <h1 class="title">{ frontmatter.title }</h1>
       <div class="description">
-        <div class="description--date">{ content.pubDate.split(' ')[0] }</div>
+        <div class="description--date">{ frontmatter.pubDate.split(' ')[0] }</div>
       </div>
 
       <slot />

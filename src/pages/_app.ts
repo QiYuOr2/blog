@@ -1,7 +1,7 @@
 import type { App } from 'vue';
-import { Avatar, Button, Card, Grid, GridGroup, Link, ThemeProvide, User } from '@fect-ui/vue';
+import { Avatar, Button, Card, Link, ThemeProvide, User } from '@fect-ui/vue';
 
 export default (app: App) => {
-  [Avatar, Button, Card, Grid, GridGroup, Link, ThemeProvide, User]
+  [Avatar, Button, Card, Link, ThemeProvide, User]
     .forEach(component => app.use(component));
 };

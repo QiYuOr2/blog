@@ -3,85 +3,89 @@
 ---
 
 <style is:global>
-@import '@fect-ui/themes';
-@import '@fect-ui/vue/dist/cjs/main.css';
+  @import "@fect-ui/themes";
+  @import "@fect-ui/vue/dist/cjs/main.css";
 
-@import '@fect-ui/vue/dist/cjs/link/index.css';
-@import '@fect-ui/vue/dist/cjs/user/index.css';
-@import '@fect-ui/vue/dist/cjs/grid/index.css';
-@import '@fect-ui/vue/dist/cjs/grid-group/index.css';
-@import '@fect-ui/vue/dist/cjs/avatar/index.css';
+  @import "@fect-ui/vue/dist/cjs/link/index.css";
+  @import "@fect-ui/vue/dist/cjs/user/index.css";
+  @import "@fect-ui/vue/dist/cjs/avatar/index.css";
 
-:root {
-  --h-header: 52px;
-  --h-footer: 120px;
+  :root {
+    --h-header: 52px;
+    --h-footer: 120px;
 
-  --primary-selection: #bbd6fb;
-}
-
-body {
-
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  a {
-    color: #000;
-  }
-}
-
-.container {
-  h1 {
-    font-size: 1.8rem;
+    --primary-selection: #bbd6fb;
   }
 
-  h2 {
-    font-size: 1.6rem;
+  body {
   }
 
-  h3 {
-    font-size: 1.4rem;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    a {
+      color: #000;
+    }
   }
 
-  h4 {
-    font-size: 1.2rem;
+  .container {
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+    }
+
+    h3 {
+      font-size: 1.4rem;
+    }
+
+    h4 {
+      font-size: 1.2rem;
+    }
   }
-}
 
-ol {
-  list-style-type: decimal !important;
-}
-
-ul > li, ol > li {
-  margin-bottom: 0;
-}
-
-li ul, li ol {
-  margin-top: 0.2em;
-}
-
-.h-full {
-  height: 100% !important;
-}
-
-.m-auto {
-  margin: 0 auto !important;
-}
-
-.container {
-  max-width: 45rem;
-  margin: 0 auto;
-
-  &--header {
-    max-width: 55rem;
+  ol {
+    list-style-type: decimal !important;
   }
-}
 
-#nprogress .bar {
-  background: #58b99d;
-}
+  ul > li,
+  ol > li {
+    margin-bottom: 0;
+  }
+
+  li ul,
+  li ol {
+    margin-top: 0.2em;
+  }
+
+  .h-full {
+    height: 100% !important;
+  }
+
+  .m-auto {
+    margin: 0 auto !important;
+  }
+
+  img {
+    min-width: 100%;
+    background: rgba(156, 156, 156, 0.05);
+  }
+
+  .container {
+    max-width: 45rem;
+    margin: 0 auto;
+
+    &--header {
+      max-width: 55rem;
+    }
+  }
+
+  #nprogress .bar {
+    background: #58b99d;
+  }
 </style>

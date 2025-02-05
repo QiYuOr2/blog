@@ -14,7 +14,7 @@ tags: [性能优化]
 - FID/First Input Delay/首次输入延迟：用户第一次在页面上交互的时候（点击链接、点击按钮或者自定义基于 js 的事件），到浏览器实际开始处理这个事件的时间。
   - 主线程被其他逻辑阻塞时，无法响应用户交互事件（比如执行一个较大的 js 文件）
 - CLS/Cumulative Layout Shift/累计布局偏移：测量整个页面生命周期内发生的所有意外布局偏移中最大一连串的布局偏移分数
-  ![image.png](https://cdn.jsdelivr.net/gh/qiyuor2/blog-image/img/20241124-cls.png)
+  ![CLS示例图](https://cdn.jsdelivr.net/gh/qiyuor2/blog-image/img/20241124-cls.png)
   比如在页面未加载完全时，想要点击页面某个未知，结果页面的广告刚刚加载完动态注入了页面，导致点击的地方被偏移，点到了广告，造成用户交互行为不期望的结果。
   可能会导致偏移的因素：
   - 无尺寸的图片、iframe、广告、嵌入内容

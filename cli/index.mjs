@@ -45,11 +45,6 @@ function setup(options) {
   selectedAction.handler(actionArgs);
 }
 
-/**
- * @param {string | string[]} actionName
- * @param {(args: string[]) => void} handler
- * @returns {Action | Action[]}
- */
 function createAction(actionName, handler) {
   if (Array.isArray(actionName)) {
     return actionName.map((name) => createAction(name, handler));

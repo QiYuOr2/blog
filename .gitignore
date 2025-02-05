@@ -32,3 +32,4 @@ dist
 .output
 .vercel
 .env
+.astro

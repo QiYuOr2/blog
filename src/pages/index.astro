@@ -2,7 +2,7 @@
 import PageLayout from '../layouts/Page.astro'
 import PostCard from '../components/PostCard.vue';
 import { query, sortByDate, getPostCreatedYear } from '../utils/postsHelper'
-import { MarkdownInstance } from 'astro';
+import type { MarkdownInstance } from 'astro';
 
 if (!Object.groupBy) {
   Object.groupBy = function (arr: any[], key: any) {
@@ -17,10 +17,12 @@ if (!Object.groupBy) {
   };
 }
 
-const posts: Record<string, MarkdownInstance<Frontmatter>[]> = Object.groupBy(
-    (await Astro.glob<Frontmatter>('./posts/**/*.md')).filter(query), 
-    getPostCreatedYear
-  );
+const posts = Object.groupBy(
+  Object.values(
+    import.meta.glob('./posts/**/*.{md,mdx}', { eager: true })
+  ).filter(query), 
+  getPostCreatedYear
+) as Record<string, MarkdownInstance<Frontmatter>[]> ;
 ---
 
 <PageLayout>
