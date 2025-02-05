@@ -1,6 +1,7 @@
 import rss, { pagesGlobToRssItems } from "@astrojs/rss";
 import { sortByDate, visibleFilter } from "../collections/posts";
 import { getCollection } from "astro:content";
+import { BASE_URL } from "../constants";
 
 export async function GET(ctx) {
   const posts = await getCollection("posts");
@@ -14,7 +15,7 @@ export async function GET(ctx) {
       .sort(sortByDate)
       .map(item => ({ 
         ...item.data, 
-        link: `${import.meta.env.PUBLIC_BASE_URL}/${item.id}`, 
+        link: `${BASE_URL}/${item.id}`, 
         content: item.rendered?.html 
       })),
     customData: `<language>zh-CN</language>`,

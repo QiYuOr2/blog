@@ -1,4 +1,5 @@
 import { z, type CollectionEntry } from 'astro:content';
+import { BASE_URL } from '../constants';
 
 export const postsSchema = z.object({
   title: z.string(),
@@ -26,5 +27,5 @@ export function getPostCreatedYear(post: CollectionEntry<'posts'>) {
 }
 
 export function postURL(post: CollectionEntry<'posts'>) {
-  return `${import.meta.env.PUBLIC_BASE_URL}/${post.id}`
+  return `${BASE_URL}/${post.id}`
 }
