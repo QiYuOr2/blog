@@ -3,12 +3,14 @@ import Container from '../components/layouts/Container.vue'
 import GlobalStyles from './Styles.astro'
 import Scripts from './Scripts.astro'
 import Metas from './Metas.astro'
+
+const { title = '@柒宇' } = Astro.props
 ---
 
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8">
-    <title>@柒宇</title>
+    <title>{title}</title>
 
     <Metas />
     <link rel="sitemap" href="/sitemap-index.xml" />
