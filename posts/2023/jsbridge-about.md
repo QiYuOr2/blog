@@ -1,10 +1,12 @@
 ---
-title: "Hello"
+title: 关于 JSBridge
 date: 2023/1/4 18:53:32
 pubDate: 2023/1/4 18:53:32
 description: ''
 tags: [JSBridge, 跨端]
 ---
+
+[JSBridge 的原理](https://juejin.cn/post/6844903585268891662)
 
 Bridge 表示它是一个连接层，Native 和 非 Native 之间的双向通信通道
 
