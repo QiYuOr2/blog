@@ -1,5 +1,23 @@
+<script setup lang="ts">
+import { computed } from 'vue';
+import FluentArrowUpRight20Filled from '~icons/fluent/arrow-up-right-20-filled';
+
+const props = defineProps<{
+  title: string
+  path: string
+  summary?: string
+  date: string,
+  tags?: string | string[]
+  big?: boolean
+  isExternal?: boolean
+}>();
+
+const selfTags = computed(() => Array.isArray(props.tags) ? props.tags.slice(0, 2) : [props.tags]);
+</script>
+
+
 <template>
-  <a :class="['post-card', big ? '' : 'post-card--line']" :href="path">
+  <a :class="['post-card', big ? '' : 'post-card--line']" :href="path" :target="isExternal ? '_blank' : '_self'">
     <template v-if="big">
       <div class="post-card__title">
         {{ title }}
@@ -22,7 +40,8 @@
     </template>
     <template v-else>
       <div class="post-card__title">
-        {{ title }}
+        <div>{{ title }}</div>
+        <FluentArrowUpRight20Filled v-if="isExternal" class="external-icon" />
       </div>
       <div class="post-card__footer">
         <div class="date">
@@ -33,20 +52,6 @@
   </a>
 </template>
 
-<script setup lang="ts">
-import { computed } from 'vue';
-
-const props = defineProps<{
-  title: string
-  path: string
-  summary?: string
-  date: string,
-  tags?: string | string[]
-  big?: boolean
-}>();
-
-const selfTags = computed(() => Array.isArray(props.tags) ? props.tags.slice(0, 2) : [props.tags]);
-</script>
 
 <style lang="less" scoped>
 .post-card {
@@ -109,10 +114,17 @@ const selfTags = computed(() => Array.isArray(props.tags) ? props.tags.slice(0, 
     padding: .5rem 1.25rem;
 
     .post-card__title {
+      display: flex;
       color: var(--post-card-sec-color);
       transition: all 0.3s;
       font-weight: normal;
       font-size: 1.1rem;
+
+      .external-icon {
+        margin-left: .3rem;
+        font-size: .6rem;
+        color: var(--post-card-tag-color);
+      }
     }
 
     .post-card__footer {

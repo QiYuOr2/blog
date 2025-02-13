@@ -26,6 +26,8 @@
     "vue": "^3.2.47"
   },
   "devDependencies": {
+    "@iconify-json/fluent": "^1.2.13",
+    "unplugin-icons": "^22.0.0",
     "zx": "^8.3.0"
   }
 }

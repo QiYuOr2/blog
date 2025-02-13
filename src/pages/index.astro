@@ -3,6 +3,7 @@ import PageLayout from '../layouts/Page.astro'
 import PostCard from '../components/PostCard.vue';
 import { visibleFilter, sortByDate, getPostCreatedYear, date } from '../collections/posts'
 import { getCollection } from 'astro:content';
+import { externalPosts, isExternalPost, type ExternalPost } from '../externals';
 
 if (!Object.groupBy) {
   Object.groupBy = function (arr: any[], key: any) {
@@ -19,9 +20,7 @@ if (!Object.groupBy) {
 
 const _posts = await getCollection('posts')
 
-
-
-const posts = Object.groupBy(_posts.filter(visibleFilter), getPostCreatedYear)
+const posts = Object.groupBy([..._posts.filter(visibleFilter), ...externalPosts], getPostCreatedYear)
 ---
 
 <PageLayout>
@@ -30,7 +29,16 @@ const posts = Object.groupBy(_posts.filter(visibleFilter), getPostCreatedYear)
       <div class="year__title">{year}</div>
       <div>
         {posts[year]?.sort(sortByDate).map(post => 
-        <>
+        isExternalPost(post) ?
+          <PostCard
+            title={post.data.title}
+            path={post.link}
+            summary={post.data.description}
+            date={date(post as any)}
+            tags={post.data.tags}
+            isExternal
+          />
+        :
           <PostCard
             title={post.data.title}
             path={`/blog/${post.id}`}
@@ -38,7 +46,6 @@ const posts = Object.groupBy(_posts.filter(visibleFilter), getPostCreatedYear)
             date={date(post)}
             tags={post.data.tags}
           />
-          </>
         )}
       </div>
     </div>
