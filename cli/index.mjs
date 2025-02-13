@@ -4,7 +4,7 @@ import { writeFileSync, existsSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
 
 const dateTime = new Date().toLocaleString();
-const POST_PATH = "./src/posts";
+const POST_PATH = "./posts";
 
 setup({
   actions: [
