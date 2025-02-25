@@ -13,7 +13,7 @@ export default defineConfig({
     presetWind3(),
     presetTypography({
       cssExtend: {
-        a: {
+        '.toc a, .paginations a': {
           'text-decoration': 'none',
         },
         blockquote: {
