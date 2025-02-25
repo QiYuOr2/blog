@@ -1,20 +1,20 @@
 <template>
-  <div class="copyright">
-    <fe-card>
+  <div class="copyright" mt-8 px-6 border rounded-md overflow-hidden text-zinc-8 relative>
+    <div>
       <p>
         <span>文章地址：</span>
-        <a :href="url">{{ url }}</a>
+        <a :href="url" underline>{{ url }}</a>
       </p>
       <p>
         本作品由
-        <a href="https://github.com/QiYuOr2">柒宇</a>
+        <a underline href="https://github.com/QiYuOr2">柒宇</a>
         采用
-        <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+        <a underline href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
           CC BY-NC-SA 4.0
         </a>
         进行许可，转载请注明出处。
       </p>
-    </fe-card>
+    </div>
   </div>
 </template>
 
@@ -27,9 +27,6 @@ defineProps<{
 
 <style lang="less">
 .copyright {
-  margin-top: 2rem;
-  position: relative;
-  overflow: hidden;
   a {
     transform: scale(0.5);
   }

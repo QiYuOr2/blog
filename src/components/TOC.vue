@@ -7,7 +7,7 @@ const props = defineProps<{
 <template>
   <ul class="toc">
     <p class="toc__title">目录</p>
-    <li :class="`toc__archor--${h.depth}`" v-for="h in props.headings">
+    <li :class="`toc__archor toc__archor--${h.depth}`" v-for="h in props.headings">
       <a :href="`#${h.slug}`">{{ h.text }}</a>
     </li>
   </ul>
@@ -21,13 +21,20 @@ const props = defineProps<{
 
   width: 200px;
 
-  font-size: .8rem;
+  font-size: .75rem;
 
   &__title {
     margin-bottom: .2rem;
   }
 
   &__archor {
+    list-style-type: none;
+    &::before {
+      content: "-";
+      display: inline-block;
+      position: absolute; 
+      margin-left: -.9375em;
+    }
     &--2 {
       margin-left: 0;
     }

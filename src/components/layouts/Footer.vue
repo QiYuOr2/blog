@@ -1,19 +1,19 @@
 <template>
-  <footer class="container footer">
+  <footer class="container mx-auto footer">
     <div>
-      <fe-link class="link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+      <a class="link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
         CC BY-NC-SA 4.0
-      </fe-link>
+      </a>
       <span class="author">2019-PRESENT © </span>
-      <fe-link class="link" href="https://github.com/QiYuOr2">
+      <a class="link" href="https://github.com/QiYuOr2">
         QiYuOr2
-      </fe-link>
+      </a>
     </div>
     <div>
       <span>Powered By </span>
-      <fe-link class="link" href="https://github.com/QiYuOr2/blog">
+      <a class="link" href="https://github.com/QiYuOr2/blog">
         QiYu Blog
-      </fe-link>
+      </a>
     </div>
   </footer>
 </template>

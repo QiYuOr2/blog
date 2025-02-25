@@ -1,12 +1,4 @@
 <script setup lang="ts">
-import ProfileHeader from './ProfileHeader.vue';
-import Header from './Header.vue';
-import Footer from './Footer.vue';
-
-const props = withDefaults(defineProps<{
-  hideProfile?: boolean
-}>(), { hideProfile: false })
-
 const Colors = {
   Primary: '#58b99d'
 };
@@ -20,19 +12,17 @@ const cssVars = {
 </script>
 
 <template>
-  <fe-theme-provide :vars="cssVars">
-    <Header />
-    <!-- <ProfileHeader v-if="!props.hideProfile"/> -->
-    <main class="container">
+  <Header />
+  <main container mx-auto px-7 overflow-hidden>
+    <div prose mx-auto>
       <slot />
-    </main>
-    <Footer />
-  </fe-theme-provide>
+    </div>
+  </main>
+  <Footer />
 </template>
 
 <style>
 main {
   min-height: calc(100vh - var(--h-header) - var(--h-footer));
-  padding: 0 1.4rem;
 }
 </style>

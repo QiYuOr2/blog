@@ -1,5 +1,6 @@
 ---
 import Container from '../components/layouts/Container.vue'
+import BackTop from '../components/BackTop.vue'
 import GlobalStyles from './Styles.astro'
 import Scripts from './Scripts.astro'
 import Metas from './Metas.astro'
@@ -17,9 +18,10 @@ const { title = '@柒宇' } = Astro.props
     <Scripts />
   </head>
   <body>
-   <Container>
-    <slot />
-   </Container>
+    <Container client:load>
+      <slot />
+    </Container>
+    <BackTop client:load />
   </body>
 </html>
 

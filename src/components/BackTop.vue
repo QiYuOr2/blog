@@ -1,13 +1,5 @@
-<template>
-  <fe-button class="back-top" size="mini" auto @click="backTop">
-    <template #icon>
-      <ChevronUp />
-    </template>
-  </fe-button>
-</template>
-
 <script setup lang="ts">
-import { ChevronUp } from '@fect-ui/vue-icons';
+import MdiArrowTopBold from '~icons/mdi/arrow-top-bold';
 
 const backTop = () => {
   scrollTo({
@@ -15,15 +7,39 @@ const backTop = () => {
     behavior: 'smooth'
   });
 };
+
+const isVisible = ref(false);
+
+function checkVisible() {
+  isVisible.value = window.scrollY > 300;
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', checkVisible);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', checkVisible)
+});
 </script>
 
-<style lang="less" scoped>
-.back-top {
-  position: fixed;
-  right: 1.4rem;
-  bottom: 4rem;
-  z-index: 9999;
+<template>
+  <Transition>
+    <div v-if="isVisible" fixed bottom-8 right-8 text-2xl text-stone cursor-pointer transition-all duration-300
+      hover="text-stone-9 transition-all" @click="backTop">
+      <MdiArrowTopBold />
+    </div>
+  </Transition>
+</template>
 
-  color: rgb(176, 176, 176);
+<style>
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 </style>

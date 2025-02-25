@@ -1,19 +1,20 @@
 <script lang="ts" setup>
-import { Github, Rss } from '@fect-ui/vue-icons'
+import MdiGithub from '~icons/mdi/github';
+import MdiRss from '~icons/mdi/rss';
 </script>
 
 <template>
   <header class="header">
     <a class="header--logo" href="/blog/">
-      <fe-avatar src="https://avatars.githubusercontent.com/u/48339849" size="small" alt="avatar" />
-      <div class="name">@柒宇</div>
+      <Image src="https://avatars.githubusercontent.com/u/48339849" width="32px" height="32px" alt="avatar" round />
+      <div ml-3>@柒宇</div>
     </a>
-    <nav class="header--nav">
+      <nav class="header--nav">
       <a href="/blog/rss.xml">
-        <Rss />
+        <MdiRss text-2xl />
       </a>
       <a href="https://github.com/QiYuOr2">
-        <Github />
+        <MdiGithub text-2xl />
       </a>
     </nav>
   </header>
@@ -35,9 +36,6 @@ import { Github, Rss } from '@fect-ui/vue-icons'
     left: 1.5rem;
     top: 1.5rem;
 
-    .name {
-      margin-left: .4rem;
-    }
   }
 
   &--nav {
