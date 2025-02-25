@@ -17,7 +17,7 @@ const selfTags = computed(() => Array.isArray(props.tags) ? props.tags.slice(0, 
 
 
 <template>
-  <a :class="['post-card', big ? '' : 'post-card--line']" :href="path" :target="isExternal ? '_blank' : '_self'">
+  <a :class="['post-card', big ? '' : 'post-card--line']" :href="path" :target="isExternal ? '_blank' : '_self'" no-underline>
     <template v-if="big">
       <div class="post-card__title">
         {{ title }}
