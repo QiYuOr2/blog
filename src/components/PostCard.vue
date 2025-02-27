@@ -17,38 +17,40 @@ const selfTags = computed(() => Array.isArray(props.tags) ? props.tags.slice(0, 
 
 
 <template>
-  <a :class="['post-card', big ? '' : 'post-card--line']" :href="path" :target="isExternal ? '_blank' : '_self'" no-underline>
-    <template v-if="big">
-      <div class="post-card__title">
-        {{ title }}
-      </div>
-      <div v-if="summary" class="post-card__summary">
-        {{ summary }}
-      </div>
-      <div class="post-card__footer">
-        <div class="date">
-          {{ date.split(' ')[0].replace(/\//g, '-') }}
+  <a  :href="path" :target="isExternal ? '_blank' : '_self'" no-underline>
+    <li list-none :class="['post-card', big ? '' : 'post-card--line']">
+      <template v-if="big">
+        <div class="post-card__title">
+          {{ title }}
         </div>
-        <template v-if="Array.isArray(tags) ? tags.length > 0 : tags">
-          <div class="dot" />
-          <div v-for="tag, i in selfTags" :key="tag" class="tag">
-            <span>{{ tag }}</span>
-            <span v-if="i < selfTags.length - 1">&nbsp;/&nbsp;</span>
+        <div v-if="summary" class="post-card__summary">
+          {{ summary }}
+        </div>
+        <div class="post-card__footer">
+          <div class="date">
+            {{ date.split(' ')[0].replace(/\//g, '-') }}
           </div>
-        </template>
-      </div>
-    </template>
-    <template v-else>
-      <div class="post-card__title">
-        <div>{{ title }}</div>
-        <FluentArrowUpRight20Filled v-if="isExternal" class="external-icon" />
-      </div>
-      <div class="post-card__footer">
-        <div class="date">
-          {{ date.split(' ')[0].split('/').slice(1).join('/') }}
+          <template v-if="Array.isArray(tags) ? tags.length > 0 : tags">
+            <div class="dot" />
+            <div v-for="tag, i in selfTags" :key="tag" class="tag">
+              <span>{{ tag }}</span>
+              <span v-if="i < selfTags.length - 1">&nbsp;/&nbsp;</span>
+            </div>
+          </template>
         </div>
-      </div>
-    </template>
+      </template>
+      <template v-else>
+        <div class="post-card__title">
+          <div>{{ title }}</div>
+          <FluentArrowUpRight20Filled v-if="isExternal" class="external-icon" />
+        </div>
+        <div class="post-card__footer">
+          <div class="date">
+            {{ date.split(' ')[0].split('/').slice(1).join('/') }}
+          </div>
+        </div>
+      </template>
+    </li>
   </a>
 </template>
 

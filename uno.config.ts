@@ -23,7 +23,14 @@ export default defineConfig({
         },
         pre: {
           'background-color': '#fafafa !important',
-        }
+        },
+        ':not(pre) > code::before,:not(pre) > code::after': {
+          content: 'none',
+        },
+        ':not(pre) > code': {
+          'background-color': 'var(--un-prose-bg-soft)',
+          padding: '0.1em 0.3em',
+        },
       }
     })
   ],

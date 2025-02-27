@@ -10,10 +10,10 @@ import MdiRss from '~icons/mdi/rss';
       <div ml-3>@柒宇</div>
     </a>
       <nav class="header--nav">
-      <a href="/blog/rss.xml">
+      <a href="/blog/rss.xml" aria-label="RSS">
         <MdiRss text-2xl />
       </a>
-      <a href="https://github.com/QiYuOr2">
+      <a href="https://github.com/QiYuOr2" aria-label="GitHub">
         <MdiGithub text-2xl />
       </a>
     </nav>

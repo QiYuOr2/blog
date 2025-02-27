@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "c": "zx ./cli/index.mjs",
+    "c:new": "zx ./cli/index.mjs new",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",

@@ -3,7 +3,7 @@ import PageLayout from '../layouts/Page.astro'
 import PostCard from '../components/PostCard.vue';
 import { visibleFilter, sortByDate, getPostCreatedYear, date } from '../collections/posts'
 import { getCollection } from 'astro:content';
-import { externalPosts, isExternalPost, type ExternalPost } from '../externals';
+import { externalPosts, isExternalPost } from '../externals';
 
 if (!Object.groupBy) {
   Object.groupBy = function (arr: any[], key: any) {
