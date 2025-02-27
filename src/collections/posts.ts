@@ -8,7 +8,10 @@ export const postsSchema = z.object({
   date: z.coerce.date(),
   pubDate: z.coerce.date(),
   tags: z.array(z.string()).optional(),
+  category: z.string().optional(),
 })
+
+export type Post = z.infer<typeof postsSchema>;
 
 export function date(post: CollectionEntry<'posts'>) {
   return new Date(post.data.date).toLocaleString('zh-CN');
