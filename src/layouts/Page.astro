@@ -5,7 +5,7 @@ import GlobalStyles from './Styles.astro'
 import Scripts from './Scripts.astro'
 import Metas from './Metas.astro'
 
-const { title = '@柒宇' } = Astro.props
+const { title = '@柒宇', description, tags = [] } = Astro.props
 ---
 
 <html lang="zh-CN">
@@ -13,7 +13,7 @@ const { title = '@柒宇' } = Astro.props
     <meta charset="utf-8">
     <title>{title}</title>
 
-    <Metas />
+    <Metas description={description} keywords={tags.join(',')} />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <Scripts />
   </head>

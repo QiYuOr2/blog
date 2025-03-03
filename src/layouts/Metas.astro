@@ -1,12 +1,12 @@
 ---
-
+const { description, keywords = '' } = Astro.props
 ---
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="author" content="qiyuor2" />
-<meta name="description" content="柒宇的个人博客" />
-<meta name="keywords" content="blog, frontend, 前端, 博客" />
+<meta name="description" content={description || '柒宇的个人博客'} />
+<meta name="keywords" content={'blog,frontend,前端,博客' + `,${keywords}`} />
 
 <link rel="icon" type="image/png" href="/blog/favicon-96x96.png" sizes="96x96" />
 <link rel="icon" type="image/svg+xml" href="/blog/favicon.svg" />

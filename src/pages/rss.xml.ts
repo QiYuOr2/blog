@@ -17,7 +17,8 @@ export async function GET() {
       .map(item => isExternalPost(item) ? 
           ({
             ...item.data, 
-            link: item.link
+            link: item.link,
+            content: `<a href="${item.link}">${item.data.title}</a>`
           }) 
         : 
           ({ 

@@ -5,7 +5,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <ul class="toc">
+  <ul v-if="props.headings.length" class="toc">
     <p class="toc__title">目录</p>
     <li :class="`toc__archor toc__archor--${h.depth}`" v-for="h in props.headings">
       <a :href="`#${h.slug}`">{{ h.text }}</a>

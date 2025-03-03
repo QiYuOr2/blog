@@ -23,7 +23,7 @@ export async function getStaticPaths() {
 const { post, paginations } = Astro.props;
 const { Content, headings } = await render(post);
 ---
-<PageLayout title={`${post.data.title} | @柒宇`}>
+<PageLayout title={`${post.data.title} | @柒宇`} description={post.data.description} tags={post.data.tags}>
   <TOC headings={headings} />
     <h1>{post.data.title}</h1>
     <div class="description">
