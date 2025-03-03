@@ -27,6 +27,9 @@ export async function GET() {
             content: item.rendered?.html 
           })
       ),
-    customData: `<language>zh-CN</language>`,
+    customData: `<language>zh-CN</language><follow_challenge>
+    <feedId>119466972113602560</feedId>
+    <userId>69259090597208064</userId>
+</follow_challenge>`,
   });
 }
