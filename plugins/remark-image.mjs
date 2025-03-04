@@ -5,7 +5,7 @@ export function remarkImage() {
     visit(tree, 'image', (node) => {
       const { url, alt } = node;
       node.type = 'html';
-      node.value = `<img src="${url}" alt="${alt}" data-zoomable="true" />`;
+      node.value = `<img src="${url}" alt="${alt}" style="width: 100%" data-zoomable="true" />`;
     });
   };
 }
