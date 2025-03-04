@@ -32,7 +32,8 @@ export default defineConfig({
     ],
   },
   markdown: {
-    remarkPlugins: [remarkReadingTime/*, remarkImage*/],
+    lazyLoad: false,
+    remarkPlugins: [remarkReadingTime, remarkImage],
     shikiConfig: {
       theme: "vitesse-light",
     },

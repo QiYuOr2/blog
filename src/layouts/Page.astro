@@ -18,7 +18,7 @@ const { title = '@柒宇', description, tags = [] } = Astro.props
     <Scripts />
   </head>
   <body>
-    <Container client:load>
+    <Container>
       <slot />
     </Container>
     <BackTop client:load />
