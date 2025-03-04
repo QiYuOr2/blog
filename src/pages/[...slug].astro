@@ -7,6 +7,7 @@ import { date, postURL } from "../collections/posts";
 import { visibleFilter } from "../collections/posts";
 import { sortByDate } from "../collections/posts";
 import PageLayout from '../layouts/Page.astro'
+import Image from "../components/Image.vue";
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
@@ -21,13 +22,19 @@ export async function getStaticPaths() {
 }
 
 const { post, paginations } = Astro.props;
-const { Content, headings } = await render(post);
+const { Content, headings, remarkPluginFrontmatter } = await render(post);
 ---
 <PageLayout title={`${post.data.title} | @柒宇`} description={post.data.description} tags={post.data.tags}>
   <TOC headings={headings} />
     <h1>{post.data.title}</h1>
-    <div class="description">
+    <div class="flex items-center gap-2">
       <div font-bold text-stone>{date(post).split(" ")[0]}</div>
+
+      {Number(remarkPluginFrontmatter.minutesRead) > 1 && (
+        <div bg-stone-3 w-1 h-1 rounded-full></div>
+        <div font-bold text-stone>{`${Math.ceil(remarkPluginFrontmatter.minutesRead)} mins`}</div>
+      )}
+      
     </div>
 
     <article class="prose-stone">

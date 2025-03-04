@@ -6,6 +6,8 @@ import Icons from 'unplugin-icons/vite'
 import UnoCSS from 'unocss/astro'
 import AutoImport from 'unplugin-auto-import/astro'
 import Components from 'unplugin-vue-components/vite'
+import { remarkReadingTime } from './plugins/remark-reading-time.mjs';
+import { remarkImage } from './plugins/remark-image.mjs'
 
 // https://astro.build/config
 export default defineConfig({
@@ -30,6 +32,7 @@ export default defineConfig({
     ],
   },
   markdown: {
+    remarkPlugins: [remarkReadingTime/*, remarkImage*/],
     shikiConfig: {
       theme: "vitesse-light",
     },
