@@ -38,4 +38,4 @@ DeepSeek R1/V3，GPT3/4o 这些都是 LLM
 
 同样还是 Cursor，如果我想在写代码的时候偶尔摸一下鱼，可以给 Cursor 添加一个今日热榜的 MCP 服务（分为 SSE 和 本地跑命令 两种模式），这样 Cursor 就可以轻松的告诉你当前热点信息。当然这种功能通过编辑器的插件也能实现，关键在于这个 MCP 可以扩展 LLM 能力边界，将自然语言转换为工具链的调用（比如直接读取数据库文件，通过自然语言拿到你想要的数据进行数据分析）。
 
-![Cursor 添加 MCP 示例](https://cdn.jsdelivr.net/gh/qiyuor2/blog-image/img/20250313_cursor_mcp.png)
+![Cursor 添加 MCP 示例](https://cdn.jsdelivr.net/gh/qiyuor2/blog-image/img/20250313_cursor_mcp2.png)
