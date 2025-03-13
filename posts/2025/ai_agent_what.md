@@ -1,5 +1,5 @@
 ---
-title: "「什么是 AI Agent」AI 技术名词笔记"
+title: "「什么是 Agent」AI 技术名词笔记"
 date: 2025/3/13 17:53:35
 pubDate: 2025/3/13 17:53:35
 description: "当我还在感叹 Github Copilot 辅助写代码有多方便的时候、思考普通人能用 GPT 做什么事的时候，AI 就已经突然发展到了一个我看不懂的地步，突然冒出了诸如 Agent、RAG、MCP 这类陌生的名词。本篇文章梳理一下这些名词究竟是什么。"
