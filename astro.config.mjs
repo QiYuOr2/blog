@@ -11,8 +11,7 @@ import { remarkImage } from './plugins/remark-image.mjs'
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://qiyuor2.github.io/blog/",
-  base: "blog",
+  site: "https://blog.qiyuor2.me/",
 
   integrations: [
     AutoImport({ imports: ['vue'], dts: true }),

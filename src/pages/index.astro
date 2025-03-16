@@ -41,7 +41,7 @@ const posts = Object.groupBy([..._posts.filter(visibleFilter), ...externalPosts]
         :
           <PostCard
             title={post.data.title}
-            path={`/blog/${post.id}`}
+            path={`/${post.id}`}
             summary={post.data.description}
             date={date(post)}
             tags={post.data.tags}

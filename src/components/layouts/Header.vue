@@ -5,12 +5,12 @@ import MdiRss from '~icons/mdi/rss';
 
 <template>
   <header class="header">
-    <a class="header--logo" href="/blog/">
+    <a class="header--logo" href="/">
       <Image src="https://avatars.githubusercontent.com/u/48339849" width="32px" height="32px" alt="avatar" round />
       <div ml-3>@柒宇</div>
     </a>
       <nav class="header--nav">
-      <a href="/blog/rss.xml" aria-label="RSS">
+      <a href="/rss.xml" aria-label="RSS">
         <MdiRss text-2xl />
       </a>
       <a href="https://github.com/QiYuOr2" aria-label="GitHub">
