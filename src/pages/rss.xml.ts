@@ -28,7 +28,7 @@ export async function GET() {
           })
       ),
     customData: `<language>zh-CN</language><follow_challenge>
-    <feedId>119466972113602560</feedId>
+    <feedId>124099030538126336</feedId>
     <userId>69259090597208064</userId>
 </follow_challenge>`,
   });
