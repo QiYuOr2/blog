@@ -14,6 +14,13 @@ const { description, keywords = '' } = Astro.props
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
 
+<script>
+  // qiyuor2.github.io/blog/ 跳转 blog.qiyuor2.me/
+  if (location.hostname === 'qiyuor2.github.io') {
+    location.href = 'https://blog.qiyuor2.me' + location.pathname.replace(/^\/blog/, '')
+  }
+</script>
+
 
 <!-- <link href="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/style.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js"></script> -->
