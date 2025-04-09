@@ -10,7 +10,7 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "postinstall": "pnpm exec playwright install"
+    "postinstall": "pnpm exec playwright install && pnpm exec playwright install-deps"
   },
   "keywords": [],
   "author": "",
