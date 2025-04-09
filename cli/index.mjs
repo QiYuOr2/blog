@@ -2,8 +2,9 @@
 import { minimist } from "zx";
 import { writeFileSync, existsSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
+import dayjs from 'dayjs';
 
-const dateTime = new Date().toLocaleString();
+const dateTime = dayjs().format("YYYY/MM/DD HH:mm:ss");
 const POST_PATH = "./posts";
 
 setup({
@@ -11,10 +12,10 @@ setup({
     createAction("new", (args) => {
       const fileName = args[0] ?? "new-post";
 
-      const year = new Date(dateTime).getFullYear().toString();
+      const year = dayjs().format("YYYY");
 
       const frontmatter = `---
-title: "Hello"
+title: "${fileName}"
 date: ${dateTime}
 pubDate: ${dateTime}
 description: description
