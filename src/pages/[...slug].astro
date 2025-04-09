@@ -69,6 +69,11 @@ const { Content, headings, remarkPluginFrontmatter } = await render(post);
     import mediumZoom from "medium-zoom";
 
     mediumZoom('[data-zoomable]')
+    if (typeof window !== 'undefined') {
+      import("mermaid").then(({ default: mermaid }) => {
+        mermaid.initialize({ startOnLoad: true });
+      });
+    }
   </script>
 
   <style lang="less">

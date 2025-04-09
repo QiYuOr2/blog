@@ -8,8 +8,7 @@ import AutoImport from 'unplugin-auto-import/astro'
 import Components from 'unplugin-vue-components/vite'
 import { remarkReadingTime } from './plugins/remark-reading-time.mjs';
 import { remarkImage } from './plugins/remark-image.mjs'
-import rehypeMermaid from 'rehype-mermaid';
-import { rehypeShiki } from '@astrojs/markdown-remark'
+import { remarkMermaid } from './plugins/remark-mermaid.mjs'
 
 // https://astro.build/config
 export default defineConfig({
@@ -34,8 +33,7 @@ export default defineConfig({
   },
   markdown: {
     lazyLoad: false,
-    remarkPlugins: [remarkReadingTime, remarkImage],
-    rehypePlugins: [rehypeMermaid],
+    remarkPlugins: [remarkReadingTime, remarkImage, remarkMermaid],
     shikiConfig: {
       theme: "vitesse-light",
     },

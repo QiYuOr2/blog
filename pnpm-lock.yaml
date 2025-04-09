@@ -35,6 +35,9 @@ importers:
       medium-zoom:
         specifier: ^1.1.0
         version: 1.1.0
+      mermaid:
+        specifier: ^11.6.0
+        version: 11.6.0
       reading-time:
         specifier: ^1.5.0
         version: 1.5.0
@@ -60,9 +63,6 @@ importers:
       playwright:
         specifier: ^1.51.1
         version: 1.51.1
-      rehype-mermaid:
-        specifier: ^3.0.0
-        version: 3.0.0(playwright@1.51.1)
       unocss:
         specifier: ^66.0.0
         version: 66.0.0(postcss@8.5.3)(vite@6.2.5(@types/node@22.13.1)(jiti@2.4.2)(less@4.2.2))(vue@3.5.13(typescript@5.7.3))
@@ -439,10 +439,6 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
-
-  '@fortawesome/fontawesome-free@6.7.2':
-    resolution: {integrity: sha512-JUOtgFW6k9u4Y+xeIaEiLr3+cjoUPiAuLXoyKOJSia6Duzb7pq+A76P9ZdPDoAoxHdHzq6gE9/jKBGXlZT8FbA==}
-    engines: {node: '>=6'}
 
   '@iconify-json/fluent@1.2.13':
     resolution: {integrity: sha512-U9GxkYqxav7A5ie7ityRpILrMA1uSZebYLuV757+lWrSJDTergU5tKHAO5haQd7+sbFNIRPhfUyq1ORvPOowmw==}
@@ -1666,12 +1662,6 @@ packages:
   hachure-fill@0.5.2:
     resolution: {integrity: sha512-3GKBOn+m2LX9iq+JC1064cSFprJY4jL1jCXTcpnfER5HYE2l/4EfWSGzkPa/ZDBmYI0ZOEj5VHV/eKnPGkHuOg==}
 
-  hast-util-from-dom@5.0.1:
-    resolution: {integrity: sha512-N+LqofjR2zuzTjCPzyDUdSshy4Ma6li7p/c3pA78uTwzFgENbgbUrm2ugwsOdcjI1muO+o6Dgzp9p8WHtn/39Q==}
-
-  hast-util-from-html-isomorphic@2.0.0:
-    resolution: {integrity: sha512-zJfpXq44yff2hmE0XmwEOzdWin5xwH+QIhMLOScpX91e/NSGPsAzNCvLQDIEPyO2TXi+lBmU6hjLIhV8MwP2kw==}
-
   hast-util-from-html@2.0.3:
     resolution: {integrity: sha512-CUSRHXyKjzHov8yKsQjGOElXy/3EKpyX56ELnkHH34vDVw1N1XSQ1ZcAvTyAPtGqLTuKP/uxM+aLkSPqF/EtMw==}
 
@@ -1986,14 +1976,6 @@ packages:
   medium-zoom@1.1.0:
     resolution: {integrity: sha512-ewyDsp7k4InCUp3jRmwHBRFGyjBimKps/AJLjRSox+2q/2H4p/PNpQf+pwONWlJiOudkBXtbdmVbFjqyybfTmQ==}
 
-  mermaid-isomorphic@3.0.4:
-    resolution: {integrity: sha512-XQTy7H1XwHK3DPEHf+ZNWiqUEd9BwX3Xws38R9Fj2gx718srmgjlZoUzHr+Tca+O+dqJOJsAJaKzCoP65QDfDg==}
-    peerDependencies:
-      playwright: '1'
-    peerDependenciesMeta:
-      playwright:
-        optional: true
-
   mermaid@11.6.0:
     resolution: {integrity: sha512-PE8hGUy1LDlWIHWBP05SFdqUHGmRcCcK4IzpOKPE35eOw+G9zZgcnMpyunJVUEOgb//KBORPjysKndw8bFLuRg==}
 
@@ -2105,10 +2087,6 @@ packages:
   mime@1.6.0:
     resolution: {integrity: sha512-x0Vn8spI+wuJ1O6S7gnbaQg8Pxh4NNHb7KSINmEWKiPE4RKOplvijn+NkmYmmRgP68mc70j2EbeTFRsrswaQeg==}
     engines: {node: '>=4'}
-    hasBin: true
-
-  mini-svg-data-uri@1.4.4:
-    resolution: {integrity: sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==}
     hasBin: true
 
   mitt@3.0.1:
@@ -2332,14 +2310,6 @@ packages:
 
   regex@6.0.1:
     resolution: {integrity: sha512-uorlqlzAKjKQZ5P+kTJr3eeJGSVroLKoHmquUj4zHWuR+hEyNqlXsSKlYYF5F4NI6nl7tWCs0apKJ0lmfsXAPA==}
-
-  rehype-mermaid@3.0.0:
-    resolution: {integrity: sha512-fxrD5E4Fa1WXUjmjNDvLOMT4XB1WaxcfycFIWiYU0yEMQhcTDElc9aDFnbDFRLxG1Cfo1I3mfD5kg4sjlWaB+Q==}
-    peerDependencies:
-      playwright: '1'
-    peerDependenciesMeta:
-      playwright:
-        optional: true
 
   rehype-parse@9.0.1:
     resolution: {integrity: sha512-ksCzCD0Fgfh7trPDxr2rSylbwq9iYDkSn8TCDmEJ49ljEUBxDVCzCHv7QNzZOfODanX4+bWQ4WZqLCRWYLfhag==}
@@ -3371,8 +3341,6 @@ snapshots:
 
   '@esbuild/win32-x64@0.25.2':
     optional: true
-
-  '@fortawesome/fontawesome-free@6.7.2': {}
 
   '@iconify-json/fluent@1.2.13':
     dependencies:
@@ -4801,19 +4769,6 @@ snapshots:
 
   hachure-fill@0.5.2: {}
 
-  hast-util-from-dom@5.0.1:
-    dependencies:
-      '@types/hast': 3.0.4
-      hastscript: 9.0.0
-      web-namespaces: 2.0.1
-
-  hast-util-from-html-isomorphic@2.0.0:
-    dependencies:
-      '@types/hast': 3.0.4
-      hast-util-from-dom: 5.0.1
-      hast-util-from-html: 2.0.3
-      unist-util-remove-position: 5.0.0
-
   hast-util-from-html@2.0.3:
     dependencies:
       '@types/hast': 3.0.4
@@ -5304,15 +5259,6 @@ snapshots:
 
   medium-zoom@1.1.0: {}
 
-  mermaid-isomorphic@3.0.4(playwright@1.51.1):
-    dependencies:
-      '@fortawesome/fontawesome-free': 6.7.2
-      mermaid: 11.6.0
-    optionalDependencies:
-      playwright: 1.51.1
-    transitivePeerDependencies:
-      - supports-color
-
   mermaid@11.6.0:
     dependencies:
       '@braintree/sanitize-url': 7.1.1
@@ -5607,8 +5553,6 @@ snapshots:
   mime@1.6.0:
     optional: true
 
-  mini-svg-data-uri@1.4.4: {}
-
   mitt@3.0.1: {}
 
   mlly@1.7.4:
@@ -5838,22 +5782,6 @@ snapshots:
   regex@6.0.1:
     dependencies:
       regex-utilities: 2.3.0
-
-  rehype-mermaid@3.0.0(playwright@1.51.1):
-    dependencies:
-      '@types/hast': 3.0.4
-      hast-util-from-html-isomorphic: 2.0.0
-      hast-util-to-text: 4.0.2
-      mermaid-isomorphic: 3.0.4(playwright@1.51.1)
-      mini-svg-data-uri: 1.4.4
-      space-separated-tokens: 2.0.2
-      unified: 11.0.5
-      unist-util-visit-parents: 6.0.1
-      vfile: 6.0.3
-    optionalDependencies:
-      playwright: 1.51.1
-    transitivePeerDependencies:
-      - supports-color
 
   rehype-parse@9.0.1:
     dependencies:
