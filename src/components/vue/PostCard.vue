@@ -1,55 +1,29 @@
 <script setup lang="ts">
-import { computed } from 'vue';
 import FluentArrowUpRight20Filled from '~icons/fluent/arrow-up-right-20-filled';
 
-const props = defineProps<{
+defineProps<{
   title: string
   path: string
   summary?: string
   date: string,
   tags?: string | string[]
-  big?: boolean
   isExternal?: boolean
 }>();
-
-const selfTags = computed(() => Array.isArray(props.tags) ? props.tags.slice(0, 2) : [props.tags]);
 </script>
 
 
 <template>
   <a  :href="path" :target="isExternal ? '_blank' : '_self'" no-underline>
-    <li list-none :class="['post-card', big ? '' : 'post-card--line']">
-      <template v-if="big">
-        <div class="post-card__title">
-          {{ title }}
+    <li list-none :class="['post-card', 'post-card--line']">
+      <div class="post-card__title">
+        <div>{{ title }}</div>
+        <FluentArrowUpRight20Filled v-if="isExternal" class="external-icon" />
+      </div>
+      <div class="post-card__footer">
+        <div class="date">
+          {{ date.split(' ')[0].split('/').slice(1).join('/') }}
         </div>
-        <div v-if="summary" class="post-card__summary">
-          {{ summary }}
-        </div>
-        <div class="post-card__footer">
-          <div class="date">
-            {{ date.split(' ')[0].replace(/\//g, '-') }}
-          </div>
-          <template v-if="Array.isArray(tags) ? tags.length > 0 : tags">
-            <div class="dot" />
-            <div v-for="tag, i in selfTags" :key="tag" class="tag">
-              <span>{{ tag }}</span>
-              <span v-if="i < selfTags.length - 1">&nbsp;/&nbsp;</span>
-            </div>
-          </template>
-        </div>
-      </template>
-      <template v-else>
-        <div class="post-card__title">
-          <div>{{ title }}</div>
-          <FluentArrowUpRight20Filled v-if="isExternal" class="external-icon" />
-        </div>
-        <div class="post-card__footer">
-          <div class="date">
-            {{ date.split(' ')[0].split('/').slice(1).join('/') }}
-          </div>
-        </div>
-      </template>
+      </div>
     </li>
   </a>
 </template>

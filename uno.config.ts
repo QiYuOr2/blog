@@ -8,6 +8,11 @@ import {
 } from 'unocss'
 
 export default defineConfig({
+  shortcuts:[
+    { 
+      'footer-link': "relative after:content-[''] after:absolute after:-bottom-[1px] after:left-0 after:right-0 after:h-[1px] after:bg-[#ececec]" 
+    }
+  ],
   presets: [
     presetAttributify(),
     presetWind3(),

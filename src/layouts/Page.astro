@@ -1,11 +1,11 @@
 ---
-import Container from '../components/layouts/Container.vue'
-import BackTop from '../components/BackTop.vue'
+import BackTop from '../components/vue/BackTop.vue'
+import Header from '../components/vue/Header.vue'
 import GlobalStyles from './Styles.astro'
 import Scripts from './Scripts.astro'
 import Metas from './Metas.astro'
 
-const { title = '@柒宇', description, tags = [] } = Astro.props
+const { title = '@柒宇', description, tags = [], post = false } = Astro.props
 ---
 
 <html lang="zh-CN">
@@ -14,13 +14,40 @@ const { title = '@柒宇', description, tags = [] } = Astro.props
     <title>{title}</title>
 
     <Metas description={description} keywords={tags.join(',')} />
+
     <link rel="sitemap" href="/sitemap-index.xml" />
     <Scripts />
   </head>
   <body>
-    <Container>
-      <slot />
-    </Container>
+    <Header />
+
+    {post 
+      ? <main class="container mx-auto px-7 overflow-hidden">
+          <div class="prose mx-auto">
+            <slot />
+          </div>
+        </main>
+      : <main><slot /></main>
+    }
+    <footer class="box-border container mx-auto pt-5 h-[var(--h-footer)] text-[0.8rem] text-neutral-400 footer">
+      <div class="mx-auto mb-2 text-center">
+        <a class="footer-link"  href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+          CC BY-NC-SA 4.0
+        </a>
+        <span class="ml-1.5">2019-PRESENT © </span>
+        <a class="footer-link" href="https://github.com/QiYuOr2">
+          QiYuOr2
+        </a>
+      </div>
+      <div class="mx-auto mb-2 text-center">
+        <span>Powered By </span>
+        <a class="footer-link" href="https://github.com/QiYuOr2/blog">
+          QiYu Blog
+        </a>
+      </div>
+    </footer>
+
+
     <BackTop client:load />
   </body>
 </html>

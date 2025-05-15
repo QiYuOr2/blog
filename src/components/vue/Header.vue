@@ -24,7 +24,9 @@ import MdiRss from '~icons/mdi/rss';
 .header {
   display: flex;
   align-items: center;
-  padding: 1.5rem 2rem 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  height: 80px;
 
   &--logo {
     display: flex;

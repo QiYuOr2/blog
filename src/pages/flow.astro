@@ -1,0 +1,10 @@
+---
+import PageLayout from '../layouts/Page.astro'
+import ReactFlow from '../components/react/Flow.tsx'
+
+const title = '画布'
+---
+
+<PageLayout title={`${title} | @柒宇`}>
+  <ReactFlow client:load />
+</PageLayout>

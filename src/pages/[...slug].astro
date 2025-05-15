@@ -1,8 +1,8 @@
 ---
 import { getCollection, render } from "astro:content";
-import Comments from "../components/Comments.vue";
-import Copyright from "../components/Copyright.vue";
-import TOC from "../components/TOC.vue";
+import Comments from "../components/vue/Comments.vue";
+import Copyright from "../components/vue/Copyright.vue";
+import TOC from "../components/vue/TOC.vue";
 import { date, postURL } from "../collections/posts";
 import { visibleFilter } from "../collections/posts";
 import { sortByDate } from "../collections/posts";
@@ -24,7 +24,7 @@ const { post, paginations } = Astro.props;
 const { Content, headings, remarkPluginFrontmatter } = await render(post);
 
 ---
-<PageLayout title={`${post.data.title} | @柒宇`} description={post.data.description} tags={post.data.tags}>
+<PageLayout title={`${post.data.title} | @柒宇`} description={post.data.description} tags={post.data.tags} post>
   <TOC headings={headings} />
     <h1>{post.data.title}</h1>
     <div class="flex items-center gap-2">

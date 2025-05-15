@@ -8,16 +8,16 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    BackTop: typeof import('./src/components/BackTop.vue')['default']
-    Comments: typeof import('./src/components/Comments.vue')['default']
-    Container: typeof import('./src/components/layouts/Container.vue')['default']
-    Copyright: typeof import('./src/components/Copyright.vue')['default']
-    Footer: typeof import('./src/components/layouts/Footer.vue')['default']
-    Header: typeof import('./src/components/layouts/Header.vue')['default']
-    Image: typeof import('./src/components/Image.vue')['default']
-    PostCard: typeof import('./src/components/PostCard.vue')['default']
-    PostFilter: typeof import('./src/components/PostFilter.vue')['default']
-    PostList: typeof import('./src/components/PostList.vue')['default']
-    TOC: typeof import('./src/components/TOC.vue')['default']
+    BackTop: typeof import('./src/components/vue/BackTop.vue')['default']
+    Comments: typeof import('./src/components/vue/Comments.vue')['default']
+    Container: typeof import('./src/components/vue/layouts/Container.vue')['default']
+    Copyright: typeof import('./src/components/vue/Copyright.vue')['default']
+    Footer: typeof import('./src/components/vue/layouts/Footer.vue')['default']
+    Header: typeof import('./src/components/vue/Header.vue')['default']
+    Image: typeof import('./src/components/vue/Image.vue')['default']
+    PostCard: typeof import('./src/components/vue/PostCard.vue')['default']
+    PostFilter: typeof import('./src/components/vue/PostFilter.vue')['default']
+    PostList: typeof import('./src/components/vue/PostList.vue')['default']
+    TOC: typeof import('./src/components/vue/TOC.vue')['default']
   }
 }

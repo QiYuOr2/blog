@@ -4,6 +4,8 @@
     "strictNullChecks": true,
     "types": [
       "unplugin-icons/types/vue"
-    ]
+    ],
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   }
 }

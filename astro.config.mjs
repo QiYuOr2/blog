@@ -10,6 +10,8 @@ import { remarkReadingTime } from './plugins/remark-reading-time.mjs';
 import { remarkImage } from './plugins/remark-image.mjs'
 import { remarkMermaid } from './plugins/remark-mermaid.mjs'
 
+import react from '@astrojs/react';
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://blog.qiyuor2.me/",
@@ -22,6 +24,9 @@ export default defineConfig({
     }),
     mdx(),
     sitemap(),
+    react({
+      include: ['**/react/*'],
+    }),
   ],
   vite: {
     plugins: [
