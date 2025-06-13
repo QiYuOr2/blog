@@ -59,7 +59,11 @@ const props = defineProps<{
 
 @media screen and (max-width: 1200px) {
   .toc {
-    display: none;
+    position: unset;
+    font-size: unset;
+    width: unset;
+
+    padding-left: 0;
   }
 }
 </style>

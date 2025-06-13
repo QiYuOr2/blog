@@ -25,7 +25,6 @@ const { Content, headings, remarkPluginFrontmatter } = await render(post);
 
 ---
 <PageLayout title={`${post.data.title} | @柒宇`} description={post.data.description} tags={post.data.tags} post>
-  <TOC headings={headings} />
     <h1>{post.data.title}</h1>
     <div class="flex items-center gap-2">
       <div font-bold text-stone>{date(post).split(" ")[0]}</div>
@@ -38,6 +37,7 @@ const { Content, headings, remarkPluginFrontmatter } = await render(post);
     </div>
 
     <article class="prose-stone">
+      <TOC headings={headings} />
       <Content />
     </article>
 
