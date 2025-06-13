@@ -3,7 +3,7 @@ import BackTop from '../components/vue/BackTop.vue'
 import Header from '../components/vue/Header.vue'
 import GlobalStyles from './Styles.astro'
 import Scripts from './Scripts.astro'
-import Metas from './Metas.astro'
+import Head from './Head.astro'
 
 const { title = '@柒宇', description, tags = [], post = false } = Astro.props
 ---
@@ -13,7 +13,7 @@ const { title = '@柒宇', description, tags = [], post = false } = Astro.props
     <meta charset="utf-8">
     <title>{title}</title>
 
-    <Metas description={description} keywords={tags.join(',')} />
+    <Head description={description} keywords={tags.join(',')} />
 
     <link rel="sitemap" href="/sitemap-index.xml" />
     <Scripts />

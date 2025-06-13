@@ -1,4 +1,6 @@
 ---
+import { ClientRouter } from "astro:transitions";
+
 const { description, keywords = '' } = Astro.props
 ---
 
@@ -20,6 +22,8 @@ const { description, keywords = '' } = Astro.props
     location.href = 'https://blog.qiyuor2.me' + location.pathname.replace(/^\/blog/, '')
   }
 </script>
+
+<ClientRouter />
 
 
 <!-- <link href="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/style.min.css" rel="stylesheet">
