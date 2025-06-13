@@ -56,3 +56,11 @@
 .react-flow__node-text .react-flow__handle {
   opacity: 0;
 }
+
+.react-flow__node-common {
+  width: 150px;
+}
+
+.react-flow__node-common .common-node--right-close .react-flow__handle-right {
+  display: none;
+}

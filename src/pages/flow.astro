@@ -1,11 +1,13 @@
 ---
 import PageLayout from '../layouts/Page.astro'
 import ReactFlow from '../components/react/Flow.tsx'
-import '../xy-theme.css'
+import { nodes, edges } from '../common/flowData/fromUrlToRender'
 
 const title = '画布'
 ---
 
-<PageLayout title={`${title} | @柒宇`}>
-  <ReactFlow client:load />
+<PageLayout title={`${title} | @柒宇`} >
+  <div class="w-full h-[calc(100vh-var(--h-footer)-80px)]" >
+    <ReactFlow nodes={nodes} edges={edges}  client:load />
+  </div>
 </PageLayout>
