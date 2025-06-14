@@ -18,19 +18,15 @@ export function colorModeEffect() {
 
     document.documentElement.classList.remove('light', 'dark')
 
-    if (value !== Mode.System) {
-      document.documentElement.classList.add(value)
-      document.documentElement.style.colorScheme = value
-      events.forEach(event => event(value))
-    } else {
+    save && localStorage.setItem(storgeKey, value)
+    if (value === Mode.System) {
       const media = globalThis.matchMedia('(prefers-color-scheme: dark)')
-      const value = media.matches ? Mode.Dark : Mode.Light
-      document.documentElement.style.colorScheme = value
-      appendToDocument(value, false)
-      events.forEach(event => event(value))
+      value = media.matches ? Mode.Dark : Mode.Light
     }
 
-    save && localStorage.setItem(storgeKey, value)
+    document.documentElement.classList.add(value)
+    document.documentElement.style.colorScheme = value
+    events.forEach(event => event(value as Mode.Dark | Mode.Light))
   }
 
   function onFollowSystem() {

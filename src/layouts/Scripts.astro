@@ -3,16 +3,13 @@
 ---
 
 <script>
-const color = localStorage.getItem(import.meta.env.PUBLIC_COLOR_MODE) ?? ''
-if (['dark', 'light'].includes(color)) {
-  document.documentElement.classList.add(color)
-  document.documentElement.style.colorScheme = color
-} else {
+let color = localStorage.getItem(import.meta.env.PUBLIC_COLOR_MODE) ?? ''
+if (!['dark', 'light'].includes(color)) {
   const media = window.matchMedia('(prefers-color-scheme: dark)')
-  const color = media.matches ? 'dark' : 'light'
-  document.documentElement.style.colorScheme = color
-  document.documentElement.classList.add(color)
+  color = media.matches ? 'dark' : 'light'
 }
+document.documentElement.style.colorScheme = color
+document.documentElement.classList.add(color)
 </script>
 
 
