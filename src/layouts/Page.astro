@@ -26,7 +26,6 @@ const { title = '@柒宇', description, tags = [], post = false } = Astro.props
       <ColorModeSwitch client:load />
     </Header>
 
-
     <main class={post ? "prose dark:prose-invert mx-auto px-7 xl:px-0 overflow-hidden" : ''}>
       <slot />
     </main>

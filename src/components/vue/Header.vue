@@ -5,7 +5,7 @@ import MingcuteBilibiliFill from '~icons/mingcute/bilibili-fill';
 </script>
 
 <template>
-  <header class="flex my-10 mx-auto text-true-gray-800 dark:text-white relative">
+  <header class="flex py-10 mx-auto text-true-gray-800 dark:text-white relative">
     <a href="/">
       <Image src="https://avatars.githubusercontent.com/u/48339849" width="88px" height="88px" alt="avatar" round />
     </a>
