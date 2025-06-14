@@ -3,7 +3,7 @@ title: "[Webpack & babel] exports is not defined 问题记录"
 date: 2024/06/28 11:44:01
 pubDate: 2024/06/28 11:44:01
 description: 一次 Webpack 与 Babel 共同作用导致的白屏故障
-
+category: 技术
 tags: [Webpack, 工程化]
 ---
 

@@ -3,6 +3,7 @@ title: "Promise 作用、方法、新语法等"
 date: 2025/2/23 22:00:57
 pubDate: 2025/2/23 22:00:57
 description: Promise 相关
+category: 技术
 tags: [JavaScript]
 ---
 

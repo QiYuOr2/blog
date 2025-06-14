@@ -1,66 +1,40 @@
 <script lang="ts" setup>
 import MdiGithub from '~icons/mdi/github';
 import MdiRss from '~icons/mdi/rss';
+import MingcuteBilibiliFill from '~icons/mingcute/bilibili-fill';
 </script>
 
 <template>
-  <header class="header">
-    <a class="header--logo" href="/">
-      <Image src="https://avatars.githubusercontent.com/u/48339849" width="32px" height="32px" alt="avatar" round />
-      <div ml-3>@柒宇</div>
+  <header class="flex my-10 mx-auto text-true-gray-800 dark:text-white relative">
+    <a href="/">
+      <Image src="https://avatars.githubusercontent.com/u/48339849" width="88px" height="88px" alt="avatar" round />
     </a>
-      <nav class="header--nav">
-      <a href="/rss.xml" aria-label="RSS">
-        <MdiRss text-2xl />
-      </a>
-      <a href="https://github.com/QiYuOr2" aria-label="GitHub">
-        <MdiGithub text-2xl />
-      </a>
-    </nav>
+    <div class="ml-6 flex-1 flex flex-col gap-1">
+      <div class="flex items-center">
+        <a href="/">
+            <div class="text-xl font-bold">柒宇</div>
+        </a>
+        <div class="flex items-center ml-auto">
+          <a class="sm:static absolute bottom-0 right-7 h-7" href="/rss.xml" aria-label="RSS">
+            <MdiRss text-xl />
+          </a>
+        </div>
+      </div>
+      <div class="text-true-gray-500 text-sm">前端开发 / 动画 / 日语初心者</div>
+
+      <div class="text-xl mt-auto flex items-center gap-2">
+        <a  href="https://github.com/QiYuOr2" aria-label="GitHub">
+          <MdiGithub  />
+        </a>
+        <a href="https://space.bilibili.com/10980643" aria-label="Bilibili">
+          <MingcuteBilibiliFill  />
+        </a>
+
+        <div class="ml-0 sm:ml-auto">
+          <slot></slot>
+        </div>
+      </div>
+    </div>
+
   </header>
 </template>
-
-<style lang="less" scoped>
-.header {
-  display: flex;
-  align-items: center;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  height: 80px;
-
-  &--logo {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    color: #000000d1;
-
-    position: fixed;
-    left: 1.5rem;
-    top: 1.5rem;
-
-  }
-
-  &--nav {
-    display: flex;
-    gap: 1.4rem;
-    margin-left: auto;
-
-    a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #000000d1;
-    }
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .header {
-    &--logo {
-      position: relative;
-      left: 0;
-      top: 0;
-    }
-  }
-}
-</style>

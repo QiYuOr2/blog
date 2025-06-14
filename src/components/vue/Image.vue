@@ -3,7 +3,7 @@ import MdiImageOff from '~icons/mdi/image-off';
 
 defineProps<{
   src: string
-  width: string
+  width?: string
   height?: string
   alt?: string
   round?: boolean

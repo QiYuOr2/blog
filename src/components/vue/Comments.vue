@@ -1,3 +1,20 @@
+<script lang="ts" setup>
+import { colorModeEffect, Mode } from '../../common/colorMode';
+
+
+const colorMode = colorModeEffect()
+const mode = ref(colorMode.initial)
+
+function commentColorModeChange(value: Mode) {
+  mode.value = value
+  console.log(value)
+}
+
+colorMode.addEventListener(commentColorModeChange)
+onUnmounted(() => colorMode.removeEventLister(commentColorModeChange))
+
+</script>
+
 <template>
   <div class="comments">
     <component
@@ -11,7 +28,7 @@
       reactions-enabled="1"
       emitmetadata="0"
       inputposition="top"
-      theme="light"
+      :theme="mode"
       lang="zh-CN"
     />
   </div>

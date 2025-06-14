@@ -25,8 +25,8 @@ const posts = Object.groupBy([..._posts.filter(visibleFilter), ...externalPosts]
 
 <PageLayout post>
   {Object.keys(posts).sort((a, b) => Number(b) - Number(a)).map(year => 
-    <div class="year">
-      <div class="year__title">{year}</div>
+    <div class="mb-8">
+      <div class="text-2xl font-bold">{year}</div>
       <div>
         {posts[year]?.sort(sortByDate).map(post => 
         isExternalPost(post) 
@@ -52,14 +52,3 @@ const posts = Object.groupBy([..._posts.filter(visibleFilter), ...externalPosts]
     </div>
   )}
 </PageLayout>
-
-
-<style lang="less" scoped>
-.year {
-  margin-bottom: 2rem;
-  &__title {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-}
-</style>

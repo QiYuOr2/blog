@@ -24,10 +24,10 @@ export default defineConfig({
         blockquote: {
           'font-style': 'unset',
           padding: '0.4em 1.75em',
-          'background-color': '#f9f9f9',
+          'background-color': 'var(--blockquote-bg)',
         },
         pre: {
-          'background-color': '#fafafa !important',
+          'background-color': 'var(--pre-bg) !important',
         },
         ':not(pre) > code::before,:not(pre) > code::after': {
           content: 'none',

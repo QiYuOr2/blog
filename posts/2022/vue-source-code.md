@@ -3,7 +3,7 @@ title: Vue.js 源码学习 - 初始化
 date: 2022/07/07 14:44:39
 pubDate: 2022/07/07 14:44:39
 description: 对于Vue.js 技术揭秘与Vue源码的学习笔记
-
+category: 技术
 ---
 
 对于[Vue.js 技术揭秘](https://ustbhuangyi.github.io/vue-analysis/v2/prepare/)与 Vue 源码的学习笔记

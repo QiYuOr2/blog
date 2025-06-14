@@ -15,7 +15,7 @@ setup({
       const year = dayjs().format("YYYY");
 
       const frontmatter = `---
-title: "${fileName}"
+title: ${fileName}
 date: ${dateTime}
 pubDate: ${dateTime}
 description: description

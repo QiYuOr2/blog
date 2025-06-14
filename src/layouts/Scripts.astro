@@ -2,12 +2,17 @@
 
 ---
 
+<script>
+const color = localStorage.getItem(import.meta.env.PUBLIC_COLOR_MODE) ?? ''
+if (['dark', 'light'].includes(color)) {
+  document.documentElement.classList.add(color)
+  document.documentElement.style.colorScheme = color
+} else {
+  const media = window.matchMedia('(prefers-color-scheme: dark)')
+  document.documentElement.classList.add(media.matches ? 'dark' : 'light')
+}
+</script>
+
+
 <script type="module" src="https://cdn.jsdelivr.net/npm/giscus@1.2.8/+esm" defer></script>
 <!-- <script src="https://staticfile.qnssl.com/webfont/1.6.16/webfontloader.js" defer></script> -->
-<script>
-  // (window as any).WebFont.load({
-  //   google: {
-  //     families: ['Noto Serif SC:wght@300;400;600;900&display=swap']
-  //   }
-  // });
-</script>

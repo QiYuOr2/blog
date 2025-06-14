@@ -4,31 +4,33 @@ import Header from '../components/vue/Header.vue'
 import GlobalStyles from './Styles.astro'
 import Scripts from './Scripts.astro'
 import Head from './Head.astro'
+import ColorModeSwitch from '../components/vue/ColorModeSwitch.vue'
+
 
 const { title = '@柒宇', description, tags = [], post = false } = Astro.props
 ---
 
 <html lang="zh-CN">
   <head>
+    <Scripts />
+    
     <meta charset="utf-8">
     <title>{title}</title>
 
     <Head description={description} keywords={tags.join(',')} />
 
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <Scripts />
   </head>
-  <body>
-    <Header />
+  <body class="dark:bg-dark-900">
+    <Header class="max-w-[65ch] px-7 xl:px-0">
+      <ColorModeSwitch client:load />
+    </Header>
 
-    {post 
-      ? <main class="container mx-auto px-7 overflow-hidden">
-          <div class="prose mx-auto">
-            <slot />
-          </div>
-        </main>
-      : <main><slot /></main>
-    }
+
+    <main class={post ? "prose dark:prose-invert mx-auto px-7 xl:px-0 overflow-hidden" : ''}>
+      <slot />
+    </main>
+
     <footer class="box-border container mx-auto pt-5 h-[var(--h-footer)] text-[0.8rem] text-neutral-400 footer">
       <div class="mx-auto mb-2 text-center">
         <a class="footer-link"  href="https://creativecommons.org/licenses/by-nc-sa/4.0/">

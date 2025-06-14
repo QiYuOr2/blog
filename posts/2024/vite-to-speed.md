@@ -3,6 +3,7 @@ title: "Vite 为了开发体验做出的努力"
 date: 2024/5/27 16:32:30
 pubDate: 2024/5/27 16:32:30
 description: 主要内容为开发环境下 Vite 的各类机制
+category: 技术
 tags: [Vite, 工程化]
 ---
 ### 开发模式下的策略

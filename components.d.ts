@@ -9,6 +9,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     BackTop: typeof import('./src/components/vue/BackTop.vue')['default']
+    ColorModeSwitch: typeof import('./src/components/vue/ColorModeSwitch.vue')['default']
     Comments: typeof import('./src/components/vue/Comments.vue')['default']
     Container: typeof import('./src/components/vue/layouts/Container.vue')['default']
     Copyright: typeof import('./src/components/vue/Copyright.vue')['default']

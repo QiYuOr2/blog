@@ -3,7 +3,7 @@ title: 图片颜色替换研究记录
 date: 2023/05/19 19:44:01
 pubDate: 2023/05/19 19:44:01
 description: 关于如何将带有颜色的图片直接修改为我们想要的颜色
-
+category: 技术
 tags: [Canvas, 图像处理]
 ---
 

@@ -3,7 +3,7 @@ title: 无侵入式的接口Mock方案尝试
 date: 2022/08/12 16:03:04
 pubDate: 2022/08/12 16:03:04
 description: 使用中间人代理进行Mock
-
+category: 技术
 ---
 
 通过中间人拦截并模拟接口，可以实现对项目无侵入的 mock 数据

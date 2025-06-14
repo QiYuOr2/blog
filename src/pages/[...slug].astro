@@ -36,12 +36,12 @@ const { Content, headings, remarkPluginFrontmatter } = await render(post);
       
     </div>
 
-    <article class="prose-stone">
+    <article class="prose-stone dark:prose-invert">
       <TOC headings={headings} />
       <Content />
+      <Copyright url={postURL(post)} />
     </article>
 
-    <Copyright url={postURL(post)} />
 
     <div class="paginations" text-center mt-12>
       {
@@ -63,7 +63,7 @@ const { Content, headings, remarkPluginFrontmatter } = await render(post);
       }
     </div>
 
-  <Comments />
+  <Comments client:load />
 
   <script>
     import mediumZoom from "medium-zoom";

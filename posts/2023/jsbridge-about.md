@@ -4,6 +4,7 @@ date: 2023/1/4 18:53:32
 pubDate: 2023/1/4 18:53:32
 description: ''
 tags: [JSBridge, 跨端]
+category: 技术
 ---
 
 [JSBridge 的原理](https://juejin.cn/post/6844903585268891662)
