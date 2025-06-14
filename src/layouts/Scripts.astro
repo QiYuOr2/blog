@@ -9,7 +9,9 @@ if (['dark', 'light'].includes(color)) {
   document.documentElement.style.colorScheme = color
 } else {
   const media = window.matchMedia('(prefers-color-scheme: dark)')
-  document.documentElement.classList.add(media.matches ? 'dark' : 'light')
+  const color = media.matches ? 'dark' : 'light'
+  document.documentElement.style.colorScheme = color
+  document.documentElement.classList.add(color)
 }
 </script>
 

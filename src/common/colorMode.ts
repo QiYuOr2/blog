@@ -25,6 +25,7 @@ export function colorModeEffect() {
     } else {
       const media = globalThis.matchMedia('(prefers-color-scheme: dark)')
       const value = media.matches ? Mode.Dark : Mode.Light
+      document.documentElement.style.colorScheme = value
       appendToDocument(value, false)
       events.forEach(event => event(value))
     }
