@@ -3,11 +3,10 @@ import { colorModeEffect, Mode } from '../../common/colorMode';
 
 
 const colorMode = colorModeEffect()
-const mode = ref(colorMode.initial)
+const mode = ref(colorMode.getCurrentMode())
 
 function commentColorModeChange(value: Mode) {
   mode.value = value
-  console.log(value)
 }
 
 colorMode.addEventListener(commentColorModeChange)
@@ -16,7 +15,7 @@ onUnmounted(() => colorMode.removeEventLister(commentColorModeChange))
 </script>
 
 <template>
-  <div class="comments">
+  <div class="py-7 sm:w-[95%]">
     <component
       :is="'giscus-widget'"
       id="comments"
@@ -33,9 +32,3 @@ onUnmounted(() => colorMode.removeEventLister(commentColorModeChange))
     />
   </div>
 </template>
-
-<style lang="less" scoped>
-.comments {
-  padding: 1.8rem 0;
-}
-</style>

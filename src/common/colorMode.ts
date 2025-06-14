@@ -52,5 +52,13 @@ export function colorModeEffect() {
     events.delete(action)
   }
 
-  return { initial, appendToDocument, onFollowSystem, addEventListener, removeEventLister }
+  function getCurrentMode() {
+    if (initial === Mode.System) {
+      const media = globalThis.matchMedia('(prefers-color-scheme: dark)')
+      return media.matches ? Mode.Dark : Mode.Light
+    }
+    return initial
+  }
+
+  return { initial, appendToDocument, onFollowSystem, addEventListener, removeEventLister, getCurrentMode }
 }
