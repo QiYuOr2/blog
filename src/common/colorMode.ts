@@ -53,7 +53,7 @@ export function colorModeEffect() {
   }
 
   function getCurrentMode() {
-    if (initial === Mode.System) {
+    if (initial === Mode.System && globalThis.matchMedia) {
       const media = globalThis.matchMedia('(prefers-color-scheme: dark)')
       return media.matches ? Mode.Dark : Mode.Light
     }
