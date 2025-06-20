@@ -6,7 +6,7 @@ const colorMode = colorModeEffect()
 const mode = ref(colorMode.getCurrentMode())
 
 function commentColorModeChange(value: Mode) {
-  mode.value = value
+  mode.value = value === Mode.System ? Mode.Light : value
 }
 
 colorMode.addEventListener(commentColorModeChange)
