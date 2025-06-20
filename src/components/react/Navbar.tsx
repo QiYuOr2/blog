@@ -22,7 +22,7 @@ interface NavbarProps {
 export default function Navbar({ currentPath }: NavbarProps) {
 
   return (
-    <nav className="mx-auto max-w-[65ch] px-7 mb-6 h-9 xl:(px-0)">
+    <nav className="mx-auto max-w-[65ch] px-7 mb-6 h-9 xl:(px-0)" data-current-path={currentPath}>
       <div className="flex shadow-inner bg-cool-gray-100 dark:bg-true-gray-700 rounded-full">
         <ul className="flex gap-1 px-2 py-1 bg-cool-gray-100 dark:bg-true-gray-700 rounded-full text-sm text-true-gray-400 relative">
           {routes.map(route => (
