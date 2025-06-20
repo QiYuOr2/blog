@@ -3,10 +3,15 @@ import { colorModeEffect, Mode } from '../../common/colorMode';
 
 
 const colorMode = colorModeEffect()
-const mode = ref(colorMode.getCurrentMode())
+
+function format(value: Mode) {
+  return value === Mode.System ? Mode.Light : value
+}
+
+const mode = ref(format(colorMode.getCurrentMode()))
 
 function commentColorModeChange(value: Mode) {
-  mode.value = value === Mode.System ? Mode.Light : value
+  mode.value = format(value)
 }
 
 colorMode.addEventListener(commentColorModeChange)

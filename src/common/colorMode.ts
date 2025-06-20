@@ -42,7 +42,7 @@ export function colorModeEffect() {
     })
   }
 
-  const initial = globalThis.localStorage?.getItem?.(storgeKey) ?? Mode.System
+  const initial = (globalThis.localStorage?.getItem?.(storgeKey) ?? Mode.System) as Mode
 
   function addEventListener(action: ModeChangeEvent) {
     events.add(action)
@@ -52,7 +52,7 @@ export function colorModeEffect() {
     events.delete(action)
   }
 
-  function getCurrentMode() {
+  function getCurrentMode(): Mode {
     if (initial === Mode.System && globalThis.matchMedia) {
       const media = globalThis.matchMedia('(prefers-color-scheme: dark)')
       return media.matches ? Mode.Dark : Mode.Light
