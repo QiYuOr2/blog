@@ -9,6 +9,7 @@ import Navbar from '../components/react/Navbar'
 
 
 const { title = '@柒宇', description, tags = [], post = false } = Astro.props
+const { pathname } = Astro.url
 ---
 
 <html lang="zh-CN">
@@ -27,7 +28,7 @@ const { title = '@柒宇', description, tags = [], post = false } = Astro.props
       <ColorModeSwitch client:load />
     </Header>
 
-    <Navbar />
+    <Navbar currentPath={pathname} />
 
     <main class={post ? "prose dark:prose-invert mx-auto px-7 xl:px-0 overflow-hidden sm:overflow-visible" : ''}>
       <slot />

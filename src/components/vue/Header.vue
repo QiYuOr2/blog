@@ -15,7 +15,7 @@ import MingcuteBilibiliFill from '~icons/mingcute/bilibili-fill';
             <div class="text-xl font-bold">柒宇</div>
         </a>
         <div class="flex items-center ml-auto">
-          <a class="sm:static absolute bottom-10 right-7 h-7" href="/rss.xml" aria-label="RSS">
+          <a class="sm:(static h-unset) absolute bottom-7 right-7 h-8" href="/rss.xml" aria-label="RSS">
             <MdiRss text-xl />
           </a>
         </div>

@@ -10,8 +10,11 @@ import {
 export default defineConfig({
   shortcuts:[
     { 
-      'footer-link': "relative after:content-[''] after:absolute after:-bottom-[1px] after:left-0 after:right-0 after:h-[1px] after:bg-[#ececec]" 
+      'footer-link': "relative after:content-[''] after:absolute after:-bottom-[1px] after:left-0 after:right-0 after:h-[1px] after:bg-[#ececec]" ,
     }
+  ],
+  rules: [
+    ['custom-bg-radial', { 'background': 'radial-gradient(19px at 0%, var(--un-gradient-from) 100%, var(--un-gradient-to) 100%)'}]
   ],
   presets: [
     presetAttributify(),
