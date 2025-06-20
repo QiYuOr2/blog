@@ -19,6 +19,18 @@ interface NavbarProps {
   currentPath: string
 }
 
+function isEqPath(path1: string, path2: string) {
+  if (path1 === path2) {
+    return true
+  }
+  if (path1.at(-1) === '/') {
+    return path1.slice(0, path1.length - 1) === path2
+  }
+  if (path2.at(-1) === '/') {
+    return path2.slice(0, path1.length - 1) === path1
+  }
+}
+
 export default function Navbar({ currentPath }: NavbarProps) {
 
   return (
@@ -26,7 +38,7 @@ export default function Navbar({ currentPath }: NavbarProps) {
       <div className="flex shadow-inner bg-cool-gray-100 dark:bg-true-gray-700 rounded-full">
         <ul className="flex gap-1 px-2 py-1 bg-cool-gray-100 dark:bg-true-gray-700 rounded-full text-sm text-true-gray-400 relative">
           {routes.map(route => (
-            <li className={`px-2 py-1 relative ${currentPath === route.path ? `text-black dark:text-light-50 before:(content-[""] absolute z-10 top-0 bottom-0 left--1 right--1 bg-light-50 dark:bg-dark rounded-full shadow)` : ''}`}><a className="relative z-20" href={route.path}>{route.label}</a></li>
+            <li key={route.path} className={`px-2 py-1 relative ${isEqPath(currentPath, route.path) ? `text-black dark:text-light-50 before:(content-[""] absolute z-10 top-0 bottom-0 left--1 right--1 bg-light-50 dark:bg-dark rounded-full shadow)` : ''}`}><a className="relative z-20" href={route.path}>{route.label}</a></li>
           ))}
         </ul>
         <div className="flex-1 m-1 relative">
