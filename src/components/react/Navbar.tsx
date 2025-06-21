@@ -33,12 +33,21 @@ function isEqPath(path1: string, path2: string) {
 
 export default function Navbar({ currentPath }: NavbarProps) {
 
+  const isActive = (path: string) => {
+    if (currentPath.match(/\/\d+\//)) {
+      currentPath = '/'
+    }
+    if (isEqPath(currentPath, path)) {
+      return true
+    }
+  }
+
   return (
     <nav className="mx-auto max-w-[65ch] px-7 mb-6 h-9 xl:(px-0)" data-current-path={currentPath}>
       <div className="flex shadow-inner bg-cool-gray-100 dark:bg-true-gray-700 rounded-full">
         <ul className="flex gap-1 px-2 py-1 bg-cool-gray-100 dark:bg-true-gray-700 rounded-full text-sm text-true-gray-400 relative">
           {routes.map(route => (
-            <li key={route.path} className={`px-2 py-1 relative ${isEqPath(currentPath, route.path) ? `text-black dark:text-light-50 before:(content-[""] absolute z-10 top-0 bottom-0 left--1 right--1 bg-light-50 dark:bg-dark rounded-full shadow)` : ''}`}><a className="relative z-20" href={route.path}>{route.label}</a></li>
+            <li key={route.path} className={`px-2 py-1 relative ${isActive(route.path) ? `text-black dark:text-light-50 before:(content-[""] absolute z-10 top-0 bottom-0 left--1 right--1 bg-light-50 dark:bg-dark rounded-full shadow)` : ''}`}><a className="relative z-20" href={route.path}>{route.label}</a></li>
           ))}
         </ul>
         <div className="flex-1 m-1 relative">
