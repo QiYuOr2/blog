@@ -8,11 +8,11 @@ export function isExternalPost(post: unknown): post is ExternalPost {
 
 const posts: Array<ExternalPost> = [
   {
-    title: 'Live与动画与日本之旅',
+    title: 'Live与巡礼与日本旅行流水账',
     description:'',
     date: new Date('2024/09/10 18:36:01'),
     pubDate: new Date('2024/09/10 18:36:01'),
-    link: 'https://qiyuro2.notion.site/Live-b37b96eab2034f7d9932b718bac6012b?pvs=4',
+    link: 'https://qiyuro2.notion.site/Live-b37b96eab2034f7d9932b718bac6012b',
     category: '生活',
   }
 ]
