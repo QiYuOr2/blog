@@ -16,6 +16,7 @@ declare module 'vue' {
     Footer: typeof import('./src/components/vue/layouts/Footer.vue')['default']
     Header: typeof import('./src/components/vue/Header.vue')['default']
     Image: typeof import('./src/components/vue/Image.vue')['default']
+    Post: typeof import('./src/components/vue/Post.vue')['default']
     PostCard: typeof import('./src/components/vue/PostCard.vue')['default']
     PostFilter: typeof import('./src/components/vue/PostFilter.vue')['default']
     PostList: typeof import('./src/components/vue/PostList.vue')['default']

@@ -39,6 +39,7 @@
     "@iconify-json/fluent": "^1.2.13",
     "@iconify-json/mdi": "^1.2.3",
     "@iconify-json/mingcute": "^1.2.3",
+    "@rollup/plugin-yaml": "^4.1.2",
     "@unocss/preset-typography": "^66.0.0",
     "@unocss/reset": "^66.0.0",
     "playwright": "^1.51.1",

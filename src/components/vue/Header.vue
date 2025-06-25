@@ -1,9 +1,3 @@
-<script lang="ts" setup>
-import MdiGithub from '~icons/mdi/github';
-import MdiRss from '~icons/mdi/rss';
-import MingcuteBilibiliFill from '~icons/mingcute/bilibili-fill';
-</script>
-
 <template>
   <header class="flex pt-10 py-8 mx-auto text-true-gray-800 dark:text-white relative">
     <a href="/">
@@ -16,7 +10,7 @@ import MingcuteBilibiliFill from '~icons/mingcute/bilibili-fill';
         </a>
         <div class="flex items-center ml-auto">
           <a class="sm:(static h-unset) absolute bottom-7 right-7 h-8" href="/rss.xml" aria-label="RSS">
-            <MdiRss text-xl />
+            <div class="i-mdi:rss w-6 h-6 text-xl" />
           </a>
         </div>
       </div>
@@ -24,10 +18,10 @@ import MingcuteBilibiliFill from '~icons/mingcute/bilibili-fill';
 
       <div class="text-xl mt-auto flex items-center gap-2">
         <a  href="https://github.com/QiYuOr2" aria-label="GitHub">
-          <MdiGithub  />
+          <div class="i-mdi:github w-6 h-6"  />
         </a>
         <a href="https://space.bilibili.com/10980643" aria-label="Bilibili">
-          <MingcuteBilibiliFill  />
+          <div class="i-mingcute:bilibili-fill w-6 h-6"  />
         </a>
 
         <div class="ml-0 sm:ml-auto">

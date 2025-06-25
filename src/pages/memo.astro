@@ -1,9 +1,15 @@
 ---
-import PageLayout from '../layouts/Page.astro'
+import MemoCard, { type MemoVO } from "../components/react/MemoCard";
+import PageLayout from "../layouts/Page.astro";
+const memosFile: Record<string,{ default: MemoVO[] }> = import.meta.glob("../../memos/**/*.yaml", { eager: true });
 
-
+const memos = Object.values(memosFile).map((module) => module.default).flat();
 ---
 
 <PageLayout post>
-  <div class="flex items-center justify-center text-dark-50 h-100">这里是空的</div>
+  <div class="text-dark-50 pt-4 min-h-100">
+    <ul class="p-0 m-0">
+      {memos.map((memo) => <li class="list-none"><MemoCard {...memo} /></li>)}
+    </ul>
+  </div>
 </PageLayout>

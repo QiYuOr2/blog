@@ -11,7 +11,7 @@ const routes = [
   // },
   {
     path: '/memo',
-    label: '动态'
+    label: '碎碎念'
   }
 ]
 

@@ -4,13 +4,17 @@ import {
   transformerVariantGroup, 
   transformerDirectives,
   presetTypography,
-  presetWind3
+  presetWind3,
+  presetIcons
 } from 'unocss'
 
 export default defineConfig({
   shortcuts:[
     { 
       'footer-link': "relative after:content-[''] after:absolute after:-bottom-[1px] after:left-0 after:right-0 after:h-[1px] after:bg-[#ececec]" ,
+    },
+    {
+      'time': "font-normal text-[0.8rem] leading-normal text-warm-gray-400 text-opacity-80"
     }
   ],
   rules: [
@@ -19,6 +23,7 @@ export default defineConfig({
   presets: [
     presetAttributify(),
     presetWind3(),
+    presetIcons(),
     presetTypography({
       cssExtend: {
         '.toc a, .paginations a': {

@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import MdiArrowTopBold from '~icons/mdi/arrow-top-bold';
-
 const backTop = () => {
   scrollTo({
     top: 0,
@@ -27,7 +25,7 @@ onUnmounted(() => {
   <Transition>
     <div v-if="isVisible" fixed bottom-8 right-8 text-2xl text-stone cursor-pointer transition-all duration-300
       hover="text-stone-9 transition-all" @click="backTop">
-      <MdiArrowTopBold />
+      <div class="i-mdi:arrow-top-bold w-7 h-7" />
     </div>
   </Transition>
 </template>

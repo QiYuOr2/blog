@@ -19,7 +19,7 @@ defineProps<{
         <div>{{ title }}</div>
         <FluentArrowUpRight20Filled v-if="isExternal" class="text-[0.6rem] ml-[0.3rem] text-true-gray-500 dark:text-true-gray-400 text-opacity-80" />
       </div>
-      <div class="flex items-center font-normal text-[0.8rem] leading-normal text-true-gray-500 dark:text-true-gray-400 text-opacity-80">
+      <div class="flex items-center time">
         <div>
           {{ date.split(' ')[0].split('/').slice(1).join('/') }}
         </div>

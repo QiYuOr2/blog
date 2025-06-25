@@ -9,6 +9,7 @@ import Components from 'unplugin-vue-components/vite'
 import { remarkReadingTime } from './plugins/remark-reading-time.mjs';
 import { remarkImage } from './plugins/remark-image.mjs'
 import { remarkMermaid } from './plugins/remark-mermaid.mjs'
+import yaml from '@rollup/plugin-yaml';
 
 import react from '@astrojs/react';
 
@@ -34,6 +35,7 @@ export default defineConfig({
       Icons({
         compiler: 'vue3'
       }),
+      yaml()
     ],
   },
   markdown: {

@@ -11,7 +11,7 @@ description: 现在大多数网站都是随着滚动条的滑动加载页面内�
 现在大多数网站都是随着滚动条的滑动加载页面内容的，因此单纯获得静态页面的Html是无法获得全部的页面内容的。使用Selenium就可以模拟浏览器拉动滑动条来加载所有页面内容。
 
 ## 前情提要
-- [C#HtmlAgilityPack爬取静态页面](https://qiyuor2.github.io/2019/09/04/CSharpHtmlAgilityPack/)
+- [C#HtmlAgilityPack爬取静态页面](/2019/csharp-html-agility-pack)
 
 ## Selenium简介
 Selenium是一个WEB自动化测试工具。Selenium测试直接运行在浏览器中，就像真正的用户在操作一样。支持的浏览器包括IE（7, 8, 9, 10, 11），Mozilla Firefox，Safari，Google Chrome，Opera等。主要功能包括：测试与浏览器的兼容性——测试你的应用程序看是否能够很好得工作在不同浏览器和操作系统之上。测试系统功能——创建回归测试检验软件功能和用户需求。支持自动录制动作和自动生成 .Net、Java、Perl等不同语言的测试脚本。Selenium也是一款同样使用Apache License 2.0协议发布的开源框架。
@@ -60,7 +60,7 @@ for (int i = 1; i <= 10; i++)
 ```
 
 ### 使用HtmlAgilityPack解析读取到的Html
-以下内容与[上一篇文章](https://qiyuor2.github.io/2019/09/04/CSharpHtmlAgilityPack/)基本相同
+以下内容与上一篇文章基本相同
 ```csharp
 string title = driver.Title;//页面title
 string html = driver.PageSource;//页面Html
