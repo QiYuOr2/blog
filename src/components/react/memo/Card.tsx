@@ -22,7 +22,7 @@ export default function MemoCard({ type, link, ...rest }: MemoVO) {
 
   return (
     <div className="mb-8">
-      <div className='inline-block bg-cool-gray-100 dark:(bg-true-gray-700 text-light-50) px-3.5 py-3 rounded-3'>
+      <div className='inline-block bg-cool-gray-100 dark:(bg-true-gray-700 text-light-50) px-3.5 py-3 rounded-2xl'>
         {ContentCard}
         {link && Link(link)}
       </div>

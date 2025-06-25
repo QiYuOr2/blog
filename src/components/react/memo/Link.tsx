@@ -18,9 +18,9 @@ export default function Link(linkInfo: string | PreviewLink) {
 
   if (linkInfo.cover) {
     return (
-      <a className="mt-[0.5em] flex p-2 bg-white dark:bg-black rounded-3 no-underline" href={linkInfo.href}>
+      <a className="mt-[0.5em] mb-0.5 flex p-2 bg-white dark:bg-black rounded-xl no-underline" href={linkInfo.href}>
         <div>
-          {linkInfo.cover && <img className="w-16 h-22 object-cover rounded-2" src={linkInfo.cover} />}
+          {linkInfo.cover && <img className="w-16 h-22 object-cover rounded-lg" src={linkInfo.cover} />}
         </div>
         <div className="flex-1 ml-3">
           <p className="font-bold m-0">{linkInfo.title}</p>
