@@ -60,7 +60,7 @@ export default function MemoCard({ type, ...rest }: MemoVO) {
 
   return (
     <div className="mb-8">
-      <div className='inline-block bg-cool-gray-100 px-3.5 py-2 rounded-3'>
+      <div className='inline-block bg-cool-gray-100 dark:(bg-true-gray-700 text-light-50) px-3.5 py-2 rounded-3'>
         {ContentCard}
       </div>
       <div className='time px-1 py-1'>- {dayjs(rest.create_at).format('YYYY 年 MM 月 DD 日 dddd')}</div>
