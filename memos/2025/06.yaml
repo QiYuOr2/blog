@@ -1,3 +1,8 @@
+# memo type
+#   text 文本
+#   image 图片
+#   text_image 图文都有
+
 -
   timestamp: 1750868292000
   type: text
@@ -6,6 +11,30 @@
     title: Live与巡礼与日本旅行流水账 
     href: https://qiyuro2.notion.site/Live-b37b96eab2034f7d9932b718bac6012b
   create_at: 2025-06-25T16:18:12.000Z
+
+-
+  timestamp: 1750537992000
+  type: text_image
+  content:
+    - 冬季篇是小市民系列中非常奇妙的一篇，明明大半的篇幅中没有男女主之间直接的互动，却总能在细节角落中找到属于这两个人的甜蜜感。
+    - 「为你设下迷宫。」对于小鸠来说，在「迷宫」中「破解迷题」是他最大的爱好。于是这句话就可以解读为「为你设下名为迷宫的居所。」
+    - 「わたしはね、いまだと思う。」这三年间，最令小佐内无法忘怀的瞬间是现在。不是在天台上「复仇」完成的瞬间，而是两人独处的现在。
+    - 想与你再度品味四季。在小佐内问及小鸠病好后想去哪时，小鸠的回答是「春季的草莓挞」、「夏季的水果巴菲」、「秋季的栗金饨」，而最后冬季的巧克力小佐内会在小鸠找她时还给他。
+    - 名为次善的最善。就像小佐内明白他们无法成为「小市民」一样，「最善」也是同样的精神追求，而「次善」才是触手可及的幸福。
+    - ---
+    - 小市民系列对于男女主的成长以及他们之间关系性的刻画非常值得细细品味，从结成互惠关系到自我审视、自我认知，以及他们所追求的到底是什么。
+    - 缺少了男主心理描写的动画，在有些地方会显得女主过于主动了。于是到了最后，还是要说一句，很遗憾，冬季篇的改编在我看来依旧很难让人满意。
+  link:
+    title: 小市民系列 第二季
+    href: https://bgm.tv/subject/513018
+    cover: https://cdn.jsdelivr.net/gh/qiyuor2/blog-image/img/shoushimin/cover.jpg
+    description: 我想知道，所谓的恋爱究竟是什么。解除了互相帮助的「互惠关系」后，高二的小鸠和小佐内各自展开了新的生活。小佐内开始和新闻社一年级的瓜野交往。瓜野为了留下在学的证明，并向小佐内展现自己的优点，努力地想在校园报纸上报导市内发生的纵火事件。另一方面，小鸠也开始和同班仲丸交往。在平静地度过每一天时，小鸠在河边遭遇了纵火现场……。小鸠和小佐内作为小市民的重新出发，究竟会如何发展呢？
+  # image:
+  #   - https://cdn.jsdelivr.net/gh/qiyuor2/blog-image/img/shoushimin/20250626_1.png
+  #   - https://cdn.jsdelivr.net/gh/qiyuor2/blog-image/img/shoushimin/20250626_2.png
+  #   - https://cdn.jsdelivr.net/gh/qiyuor2/blog-image/img/shoushimin/20250626_3.png
+  create_at: 2025-06-21T20:33:12.000Z
+
 -
   timestamp: 1750410603000
   type: text

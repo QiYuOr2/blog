@@ -1,5 +1,5 @@
 ---
-import MemoCard, { type MemoVO } from "../components/react/MemoCard";
+import MemoCard, { type MemoVO } from "../components/react/memo/Card";
 import PageLayout from "../layouts/Page.astro";
 const memosFile: Record<string,{ default: MemoVO[] }> = import.meta.glob("../../memos/**/*.yaml", { eager: true });
 
