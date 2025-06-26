@@ -15,6 +15,11 @@ category: 技术
 
 在前端业务开发中，尤其是移动端（H5 / 小程序）环境下，大概率会遇到根据不同条件触发多个阻断式弹窗的业务场景，这些弹窗需要按照优先级依次展示，只有前一个弹窗关闭后才会展示下一个。
 
+类似下面动图的效果：
+
+<img src="https://cdn.jsdelivr.net/gh/qiyuor2/blog-image/img/20250627modal.gif" alt="示例动图" style="width: 100%; min-height: 500px; background-color: #eee" data-zoomable="true" />
+
+
 ### 常用的方案及其存在的问题
 
 在前期业务不是特别复杂的情况下，常用的解决方案是为**每个弹窗设置一个状态值**或使用**弹窗索引**来控制弹窗的展示。
@@ -59,33 +64,35 @@ function modalify<T extends DefineComponent>(WrappedComponent: T) {
     setup(props, { expose, attrs, slots }) {
       const localVisible = ref(false)
 
-      const toggle = () => {
-        if (!hasVisibleProp) {
-          localVisible.value = !localVisible.value
+      const toggle = (value?: boolean) => {
+        if (value !== undefined) {
+          localVisible.value = value
+          return
         }
+        localVisible.value = !localVisible.value
       }
 
-      expose({ toggle })
+      expose({
+        toggle,
+        visible: localVisible,
+      })
 
-      const renderModal = () => {
-        if (hasVisibleProp) {
-          return () => h(WrappedComponent, {
-            ...props,
-            ...attrs,
-            visible: localVisible.value,
-          }, slots)
-        }
-  
-        return () => h(
-          Transition,
-          { name: 'fade' },
-          () => localVisible.value
-            ? h(WrappedComponent, { ...props, ...attrs }, slots)
-            : null,
-        )
+      if (hasVisibleProp) {
+        return () => h(WrappedComponent, {
+          ...props,
+          ...attrs,
+          'visible': localVisible.value,
+          'onUpdate:visible': (value: boolean) => { localVisible.value = value },
+        }, slots)
       }
-      
-      return () => h(Teleport, { to: 'body' }, renderModal())
+
+      return () => h(
+        Transition,
+        { name: 'fade' },
+        () => localVisible.value
+          ? h(WrappedComponent, { ...props, ...attrs }, slots)
+          : null,
+      )
     },
   })
 
@@ -129,30 +136,49 @@ enqueue(modal3) // 默认 priority = 0，无优先级
 function useModalQueue(initialModals) {
   const queue = []
   let isRunning = false
-  
+
   const enqueue = (modal, priority = 0) => {
-    if (queue.find(item => item.ref === modal)
+    if (queue.find(item => item.ref === modal))
       return
+
     queue.push({ ref: modal, priority })
     sortQueue()
     run()
   }
-  
+
   const sortQueue = () => queue.sort((a, b) => a.priority - b.priority)
-  
+
+  const waitForClose = (modal) => {
+    return new Promise((resolve) => {
+      const checkClosed = () => {
+        !modal.value.visible
+          ? resolve(true)
+          : setTimeout(checkClosed, 50)
+      }
+      checkClosed()
+    })
+  }
+
   const run = async () => {
     if (isRunning)
       return
-      
+
     isRunning = true
+
     while (queue.length > 0) {
       const current = queue.shift()
-      current.ref.toggle(false)
+      current.ref.value.toggle(true)
       await waitForClose(current.ref) // 等待关闭后继续循环
     }
-    
+
     isRunning = false
   }
+
+  initialModals.forEach((modal) => {
+    if (modal?.value) {
+      enqueue(modal.value, 0)
+    }
+  })
 
   return { enqueue }
 }
