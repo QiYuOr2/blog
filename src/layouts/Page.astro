@@ -6,7 +6,8 @@ import Scripts from './Scripts.astro'
 import Head from './Head.astro'
 import ColorModeSwitch from '../components/vue/ColorModeSwitch.vue'
 import Navbar from '../components/react/Navbar'
-
+import Analytics from '@vercel/analytics/astro'
+import SpeedInsights from '@vercel/speed-insights/astro';
 
 const { title = '@柒宇', description, tags = [], post = false } = Astro.props
 const { pathname } = Astro.url
@@ -22,6 +23,10 @@ const { pathname } = Astro.url
     <Head description={description} keywords={tags.join(',')} />
 
     <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <Analytics />
+    <SpeedInsights />
+
   </head>
   <body class="dark:bg-dark-900">
     <Header class="max-w-[65ch] px-7 xl:px-0">
