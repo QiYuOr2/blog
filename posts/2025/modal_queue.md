@@ -137,15 +137,6 @@ function useModalQueue(initialModals) {
   const queue = []
   let isRunning = false
 
-  const enqueue = (modal, priority = 0) => {
-    if (queue.find(item => item.ref === modal))
-      return
-
-    queue.push({ ref: modal, priority })
-    sortQueue()
-    run()
-  }
-
   const sortQueue = () => queue.sort((a, b) => a.priority - b.priority)
 
   const waitForClose = (modal) => {
@@ -174,6 +165,16 @@ function useModalQueue(initialModals) {
     isRunning = false
   }
 
+  
+  const enqueue = (modal, priority = 0) => {
+    if (queue.find(item => item.ref === modal))
+      return
+
+    queue.push({ ref: modal, priority })
+    sortQueue()
+    run()
+  }
+
   initialModals.forEach((modal) => {
     if (modal?.value) {
       enqueue(modal.value, 0)
@@ -183,3 +184,9 @@ function useModalQueue(initialModals) {
   return { enqueue }
 }
 ```
+
+现在这种管理弹窗的方式，已经可以满足大部分的业务需求了，如果还有更复杂的弹窗状态和管理需求，可以考虑引入状态机模型进行处理。
+
+-- 
+
+顺便吐槽一下，Vue 的 `DefineComponent` 类型定义太复杂了，高阶组件写起来有些难受，不知道是不是我的用法有问题。
