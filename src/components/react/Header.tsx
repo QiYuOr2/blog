@@ -22,11 +22,14 @@ export default function Header({ children }: PropsWithChildren) {
         <div className="text-true-gray-500 text-sm">前端开发 / 动画 / 日语初心者</div>
 
         <div className="text-xl mt-auto flex items-center gap-2">
-          <a  href="https://github.com/QiYuOr2" aria-label="GitHub">
+          <a  href="https://github.com/QiYuOr2" aria-label="GitHub" title="GitHub">
             <div className="i-mdi:github w-6 h-6"  />
           </a>
-          <a href="https://space.bilibili.com/10980643" aria-label="Bilibili">
+          <a href="https://space.bilibili.com/10980643" aria-label="Bilibili" title="Bilibili">
             <div className="i-mingcute:bilibili-fill w-6 h-6"  />
+          </a>
+          <a href="https://www.travellings.cn/go.html" aria-label="Travelling" title="Travelling">
+            <div className="i-mdi:train w-6 h-6"></div>
           </a>
 
           <div className="ml-0 sm:ml-auto">
