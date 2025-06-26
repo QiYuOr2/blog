@@ -19,7 +19,7 @@ title: ${fileName}
 date: ${dateTime}
 pubDate: ${dateTime}
 description: description
-
+category: 技术
 tags: []
 ---
 `;
