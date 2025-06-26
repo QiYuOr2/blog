@@ -6,7 +6,7 @@
     <div class="ml-6 flex-1 flex flex-col gap-1">
       <div class="flex items-center">
         <a href="/">
-            <div class="text-xl font-bold">柒宇</div>
+            <h1 class="text-xl font-bold">柒宇</h1>
         </a>
         <div class="flex items-center ml-auto">
           <a class="sm:(static h-unset) absolute bottom-7 right-7 h-8" href="/rss.xml" aria-label="RSS">
