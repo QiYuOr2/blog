@@ -23,6 +23,10 @@
         <a href="https://space.bilibili.com/10980643" aria-label="Bilibili">
           <div class="i-mingcute:bilibili-fill w-6 h-6"  />
         </a>
+        <a href="https://www.travellings.cn/go.html">
+          <div class="i-mdi:train w-6 h-6"></div>
+        </a>
+
 
         <div class="ml-0 sm:ml-auto">
           <slot></slot>
