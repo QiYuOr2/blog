@@ -1,11 +1,11 @@
 ---
-import BackTop from '../components/vue/BackTop.vue'
-import Header from '../components/vue/Header.vue'
+import BackTop from '../components/backTop'
+import Header from '../components/header'
 import GlobalStyles from './Styles.astro'
 import Scripts from './Scripts.astro'
 import Head from './Head.astro'
-import ColorModeSwitch from '../components/vue/ColorModeSwitch.vue'
-import Navbar from '../components/react/Navbar'
+import ColorModeSwitch from '../components/colorModeSwitch'
+import Navbar from '../components/navbar'
 import Analytics from '@vercel/analytics/astro'
 import SpeedInsights from '@vercel/speed-insights/astro';
 
@@ -29,8 +29,8 @@ const { pathname } = Astro.url
 
   </head>
   <body class="dark:bg-dark-900">
-    <Header class="max-w-[65ch] px-7 xl:px-0">
-      <ColorModeSwitch client:load />
+    <Header className="max-w-[65ch] px-7 xl:px-0">
+      <ColorModeSwitch client:only="react" />
     </Header>
 
     <Navbar currentPath={pathname} />

@@ -1,7 +1,7 @@
-import Image from "./Image"
-import Link from "./Link"
-import Text from "./Text"
-import TextImage from "./TextImage"
+import Image from "./image"
+import Link from "./link"
+import Text from "./text"
+import TextImage from "./textImage"
 import { MemoType, type MemoVO } from "./types"
 import dayjs from 'dayjs'
 import 'dayjs/locale/zh-cn'

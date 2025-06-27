@@ -11,7 +11,6 @@ type ModeChangeEvent = (mode: Mode.Dark | Mode.Light) => void
 const events: Set<ModeChangeEvent> = new Set()
 export function colorModeEffect() {
   function appendToDocument(value: Mode, save = true) {
-    console.log(events)
     if (!globalThis?.document) {
       return
     }

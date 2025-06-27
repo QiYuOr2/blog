@@ -1,0 +1,26 @@
+.toc__archor {
+  list-style-type: none;
+}
+
+.toc__archor::before {
+  content: "-";
+  display: inline-block;
+  position: absolute; 
+  margin-left: -.9375em;
+}
+.toc__archor--0 {
+  margin-left: 1em;
+}
+.toc__archor--1 {
+  margin-left: 2em;
+}
+
+@media screen and (max-width: 1200px) {
+  .toc {
+    position: unset;
+    font-size: unset;
+    width: unset;
+
+    padding-left: 0;
+  }
+}

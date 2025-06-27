@@ -1,11 +1,9 @@
 ---
 import { getCollection, render } from "astro:content";
-import Comments from "../components/vue/Comments.vue";
-import Copyright from "../components/vue/Copyright.vue";
-import TOC from "../components/vue/TOC.vue";
-import { date, postURL } from "../collections/posts";
-import { visibleFilter } from "../collections/posts";
-import { sortByDate } from "../collections/posts";
+import Comments from "../components/comments";
+import Copyright from "../components/copyright.astro";
+import TOC from "../components/toc";
+import { visibleFilter, date, postURL, sortByDate } from "../collections/posts";
 import PageLayout from '../layouts/Page.astro'
 
 export async function getStaticPaths() {

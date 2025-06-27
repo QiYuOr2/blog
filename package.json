@@ -19,7 +19,7 @@
     "@astrojs/react": "^4.2.7",
     "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.3.0",
-    "@astrojs/vue": "^5.0.9",
+    "@giscus/react": "^3.1.0",
     "@types/react": "^19.1.4",
     "@types/react-dom": "^19.1.5",
     "@vercel/analytics": "^1.5.0",
@@ -34,8 +34,7 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "reading-time": "^1.5.0",
-    "remark-toc": "^9.0.0",
-    "vue": "^3.2.47"
+    "remark-toc": "^9.0.0"
   },
   "devDependencies": {
     "@iconify-json/fluent": "^1.2.13",
@@ -46,9 +45,6 @@
     "@unocss/reset": "^66.0.0",
     "playwright": "^1.51.1",
     "unocss": "^66.0.0",
-    "unplugin-auto-import": "^19.1.0",
-    "unplugin-icons": "^22.0.0",
-    "unplugin-vue-components": "^28.4.0",
     "zx": "^8.3.0"
   }
 }
