@@ -7,6 +7,9 @@ interface TOCProps {
 
 export default function TOC({ headings }: TOCProps) {
   const basicDepth = useMemo<number>(() => {
+    if (headings.length === 0) 
+      return 0
+    
     let result = headings[0].depth
     for (let i = 1; i < headings.length; i++) {
       const item = headings[i]
