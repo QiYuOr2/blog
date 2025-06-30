@@ -1,0 +1,56 @@
+---
+
+---
+<div id="loading" class="fixed left-50% transform translate-x--50% shadow-md rounded-full w-52 h-8 text-center overflow-hidden bg-white dark:bg-dark hidden animate-float-in">
+  <div class="w-full h-full bg-[rgb(59,105,61)] animate-border"></div>
+  <div class="absolute top-1/2 left-1/2 transform translate--1/2 rounded-full flex w-51 h-7 items-center justify-center px-4 bg-white dark:bg-dark">
+    <p class="min-w-16">正在前往</p>
+    <p id="nextPathname" class="flex-1 text-sm ml-1.5 bg-true-gray-100 dark:bg-dark-100 overflow-hidden text-ellipsis whitespace-nowrap rounded">
+      <code class="px-1">unknown</code>
+    </p>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('astro:before-preparation', (event) => {
+    document.querySelector('#nextPathname')!.textContent = event.to.pathname;
+  })
+</script>
+
+<style>
+  .animate-border {
+    animation: clip-path 1.5s linear infinite;
+  }
+
+  .animate-float-in {
+    animation: float-in 0.5s ease-out forwards;
+  }
+
+  @keyframes float-in {
+    0% {
+      top: 0;
+      opacity: 0;
+    }
+    100% {
+      top: 5rem;
+      opacity: 1;
+    }
+  }
+
+  @keyframes clip-path {
+    0%,
+    100% {
+      clip-path: inset(0 0 90% 0);
+    }
+
+    25% {
+      clip-path: inset(0 90% 0 0);
+    }
+    50% {
+      clip-path: inset(90% 0 0 0);
+    }
+    75% {
+      clip-path: inset(0 0 0 90%);
+    }
+  }
+</style>

@@ -7,6 +7,7 @@ import ColorModeSwitch from '../components/colorModeSwitch'
 import Navbar from '../components/navbar'
 import Analytics from '@vercel/analytics/astro'
 import SpeedInsights from '@vercel/speed-insights/astro';
+import Loading from '../components/loading.astro'
 
 const { title = '@柒宇', description, tags = [], post = false } = Astro.props
 const { pathname } = Astro.url
@@ -55,6 +56,7 @@ const { pathname } = Astro.url
     </footer>
 
 
+    <Loading />
     <BackTop client:load />
   </body>
 </html>
