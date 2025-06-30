@@ -23,7 +23,7 @@ const { description, keywords = '' } = Astro.props
 <meta property="og:type" content="website">
 
 <script is:inline>
-  document.addEventListener('astro:page-load', () => {
+  function applyTheme() {
     let color = localStorage.getItem(/* import.meta.env.PUBLIC_COLOR_MODE */ '@qiyuor2/color-mode') ?? ''
     if (!['dark', 'light'].includes(color)) {
       const media = window.matchMedia('(prefers-color-scheme: dark)')
@@ -31,7 +31,9 @@ const { description, keywords = '' } = Astro.props
     }
     document.documentElement.style.colorScheme = color
     document.documentElement.classList.add(color)
-  })
+  }
+  document.addEventListener('astro:page-load', applyTheme)
+  document.addEventListener('astro:after-swap', applyTheme)
 </script>
 
 <script>
