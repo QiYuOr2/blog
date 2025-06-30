@@ -1,11 +1,13 @@
 {
-  "name": "new-blog",
+  "name": "blog",
   "version": "1.0.0",
+  "private": true,
   "description": "",
   "main": "index.js",
   "scripts": {
     "c": "zx ./cli/index.mjs",
-    "c:new": "zx ./cli/index.mjs new",
+    "c:post": "zx ./cli/index.mjs post",
+    "c:memo": "zx ./cli/index.mjs memo",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
@@ -43,6 +45,7 @@
     "@rollup/plugin-yaml": "^4.1.2",
     "@unocss/preset-typography": "^66.0.0",
     "@unocss/reset": "^66.0.0",
+    "js-yaml": "^4.1.0",
     "playwright": "^1.51.1",
     "unocss": "^66.0.0",
     "zx": "^8.3.0"
