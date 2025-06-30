@@ -1,7 +1,8 @@
 ---
-// import { ClientRouter } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 
 const { description, keywords = '' } = Astro.props
+
 ---
 
 <meta charset="utf-8">
@@ -21,11 +22,17 @@ const { description, keywords = '' } = Astro.props
 <meta property="og:image:height" content="454">
 <meta property="og:type" content="website">
 
-<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="shortcut icon" href="/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<link rel="manifest" href="/site.webmanifest" />
+<script is:inline>
+  document.addEventListener('astro:page-load', () => {
+    let color = localStorage.getItem(/* import.meta.env.PUBLIC_COLOR_MODE */ '@qiyuor2/color-mode') ?? ''
+    if (!['dark', 'light'].includes(color)) {
+      const media = window.matchMedia('(prefers-color-scheme: dark)')
+      color = media.matches ? 'dark' : 'light'
+    }
+    document.documentElement.style.colorScheme = color
+    document.documentElement.classList.add(color)
+  })
+</script>
 
 <script>
   // qiyuor2.github.io/blog/ 跳转 blog.qiyuor2.me/
@@ -34,7 +41,14 @@ const { description, keywords = '' } = Astro.props
   }
 </script>
 
-<!-- <ClientRouter /> -->
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<script type="module" src="https://cdn.jsdelivr.net/npm/giscus@1.2.8/+esm" defer></script>
+
+<ClientRouter />
 
 
 <!-- <link href="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/style.min.css" rel="stylesheet">

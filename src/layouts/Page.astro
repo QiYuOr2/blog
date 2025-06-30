@@ -2,7 +2,6 @@
 import BackTop from '../components/backTop'
 import Header from '../components/header'
 import GlobalStyles from './Styles.astro'
-import Scripts from './Scripts.astro'
 import Head from './Head.astro'
 import ColorModeSwitch from '../components/colorModeSwitch'
 import Navbar from '../components/navbar'
@@ -15,8 +14,6 @@ const { pathname } = Astro.url
 
 <html lang="zh-CN">
   <head>
-    <Scripts />
-    
     <meta charset="utf-8">
     <title>{title}</title>
 
@@ -30,7 +27,7 @@ const { pathname } = Astro.url
   </head>
   <body class="dark:bg-dark-900">
     <Header className="max-w-[65ch] px-7 xl:px-0">
-      <ColorModeSwitch client:only="react" />
+      <ColorModeSwitch client:only="react" transition:persist />
     </Header>
 
     <Navbar currentPath={pathname} />

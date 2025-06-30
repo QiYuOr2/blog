@@ -3,15 +3,8 @@
 ---
 
 <script>
-let color = localStorage.getItem(import.meta.env.PUBLIC_COLOR_MODE) ?? ''
-if (!['dark', 'light'].includes(color)) {
-  const media = window.matchMedia('(prefers-color-scheme: dark)')
-  color = media.matches ? 'dark' : 'light'
-}
-document.documentElement.style.colorScheme = color
-document.documentElement.classList.add(color)
+
 </script>
 
 
-<script type="module" src="https://cdn.jsdelivr.net/npm/giscus@1.2.8/+esm" defer></script>
 <!-- <script src="https://staticfile.qnssl.com/webfont/1.6.16/webfontloader.js" defer></script> -->
