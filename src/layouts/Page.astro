@@ -32,7 +32,7 @@ const { pathname } = Astro.url
 
     <Navbar currentPath={pathname} />
 
-    <main class={post ? "prose dark:prose-invert mx-auto px-7 xl:px-0 overflow-hidden sm:overflow-visible" : ''}>
+    <main class={post ? "prose dark:prose-invert mx-auto px-7 xl:px-0 overflow-hidden sm:overflow-visible" : ''} transition:animate="slide">
       <slot />
     </main>
 
