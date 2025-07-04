@@ -32,12 +32,11 @@ function isEqPath(path1: string, path2: string) {
 export default function Navbar({ currentPath }: NavbarProps) {
 
   const isActive = (path: string) => {
-    if (currentPath.match(/\/\d+\//)) {
-      currentPath = '/'
-    }
-
     if (currentPath.includes('/memo/')) {
       currentPath = '/memo'
+    }
+    else if (currentPath.match(/\/\d+\//)) {
+      currentPath = '/'
     }
 
     if (isEqPath(currentPath, path)) {
