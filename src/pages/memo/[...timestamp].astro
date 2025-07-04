@@ -1,0 +1,26 @@
+---
+import { flattenMemo } from '@/collections/memo';
+import { getCollection } from 'astro:content';
+import PageLayout from '@/layouts/Page.astro'
+import MemoCard from '@/components/memo/card';
+import Comments from '@/components/comments'
+
+export async function getStaticPaths() {
+  const all = flattenMemo(await getCollection("memos"));
+
+  return all.map((memo) => ({
+    params: { timestamp: memo.timestamp },
+  }));
+}
+
+const { timestamp } = Astro.params
+
+const memos = flattenMemo(await getCollection("memos"));
+const memo = memos.find(m => m.timestamp === Number(timestamp))
+---
+
+<PageLayout post>
+  {memo && <MemoCard {...memo} hideTime className="pt-4" />}
+
+  <Comments client:load />
+</PageLayout>

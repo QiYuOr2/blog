@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import '../styles/toc.css'
+import '@/styles/toc.css'
 
 interface TOCProps {
   headings: { depth: number; slug: string; text: string }[]

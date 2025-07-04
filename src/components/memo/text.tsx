@@ -1,6 +1,6 @@
-import type { MemoVO } from "./types";
+import type { Memo } from "@/collections/memo";
 
-export default function Text(memo: Omit<MemoVO, 'type' | 'link' | 'image'>) {
+export default function Text(memo: Omit<Memo, 'type' | 'link' | 'image'>) {
   return (
     <div>
       {

@@ -1,13 +1,13 @@
 ---
-import BackTop from '../components/backTop'
-import Header from '../components/header'
+import BackTop from '@/components/backTop'
+import Header from '@/components/header'
 import GlobalStyles from './Styles.astro'
 import Head from './Head.astro'
-import ColorModeSwitch from '../components/colorModeSwitch'
-import Navbar from '../components/navbar'
+import ColorModeSwitch from '@/components/colorModeSwitch'
+import Navbar from '@/components/navbar'
 import Analytics from '@vercel/analytics/astro'
 import SpeedInsights from '@vercel/speed-insights/astro';
-import Loading from '../components/loading.astro'
+import Loading from '@/components/loading.astro'
 
 const { title = '@柒宇', description, tags = [], post = false } = Astro.props
 const { pathname } = Astro.url

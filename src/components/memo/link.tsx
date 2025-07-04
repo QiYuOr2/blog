@@ -1,10 +1,6 @@
-import type { PreviewLink } from "./types"
+import type { MemoLink } from "@/collections/memo"
 
-/**
- * TODO 带图片的链接; 带详情的链接
- */
-
-export default function Link(linkInfo: string | PreviewLink) {
+export default function Link(linkInfo: string | NonNullable<MemoLink>) {
   const linkContent = (title: string, href: string) => (
     <a className='inline-flex items-center' href={href}>
       <i className="i-mdi:link-variant"></i>

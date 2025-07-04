@@ -1,10 +1,10 @@
 ---
 import { getCollection, render } from "astro:content";
-import Comments from "../components/comments";
-import Copyright from "../components/copyright.astro";
-import TOC from "../components/toc";
-import { visibleFilter, date, postURL, sortByDate } from "../collections/posts";
-import PageLayout from '../layouts/Page.astro'
+import Comments from "@/components/comments";
+import Copyright from "@/components/copyright.astro";
+import TOC from "@/components/toc";
+import { visibleFilter, date, postURL, sortByDate } from "@/collections/posts";
+import PageLayout from '@/layouts/Page.astro'
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");

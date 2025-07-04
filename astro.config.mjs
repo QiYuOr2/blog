@@ -6,8 +6,8 @@ import { remarkReadingTime } from './plugins/remark-reading-time.mjs';
 import { remarkImage } from './plugins/remark-image.mjs'
 import { remarkMermaid } from './plugins/remark-mermaid.mjs'
 import yaml from '@rollup/plugin-yaml';
-
 import react from '@astrojs/react';
+import { resolve } from 'node:path'
 
 // https://astro.build/config
 export default defineConfig({
@@ -25,6 +25,11 @@ export default defineConfig({
     plugins: [
       yaml()
     ],
+    resolve: {
+      alias: {
+        '@': resolve('./src'),
+      },
+    },
   },
   markdown: {
     lazyLoad: false,

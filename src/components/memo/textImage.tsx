@@ -1,7 +1,7 @@
+import type { Memo } from "@/collections/memo";
 import Text from "./text";
-import type { MemoVO } from "./types";
 
-export default function TextImage(memo: Omit<MemoVO, 'type'>) {
+export default function TextImage(memo: Omit<Memo, 'type'>) {
 
   const TextContent = Text(memo)
 

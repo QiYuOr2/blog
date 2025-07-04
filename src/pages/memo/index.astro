@@ -1,0 +1,17 @@
+---
+import { getCollection } from "astro:content";
+import { flattenMemo } from '@/collections/memo'
+import MemoCard from "@/components/memo/card";
+import PageLayout from "@/layouts/Page.astro";
+
+const memos = flattenMemo(await getCollection('memos'))
+  .sort((a, b) => b.timestamp - a.timestamp);
+---
+
+<PageLayout post>
+  <div class="text-dark-50 pt-4 min-h-100">
+    <ul class="p-0 m-0">
+      {memos.map((memo) => <li class="list-none"><MemoCard {...memo} /></li>)}
+    </ul>
+  </div>
+</PageLayout>

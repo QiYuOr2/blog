@@ -1,8 +1,8 @@
 import rss, { pagesGlobToRssItems } from "@astrojs/rss";
-import { sortByDate, visibleFilter } from "../collections/posts";
+import { sortByDate, visibleFilter } from "@/collections/posts";
 import { getCollection } from "astro:content";
-import { BASE_URL } from "../constants";
-import { externalPosts, isExternalPost } from "../externals";
+import { BASE_URL } from "@/constants";
+import { externalPosts, isExternalPost } from "@/externals";
 
 export async function GET() {
   const posts = await getCollection("posts");

@@ -35,6 +35,11 @@ export default function Navbar({ currentPath }: NavbarProps) {
     if (currentPath.match(/\/\d+\//)) {
       currentPath = '/'
     }
+
+    if (currentPath.includes('/memo/')) {
+      currentPath = '/memo'
+    }
+
     if (isEqPath(currentPath, path)) {
       return true
     }
