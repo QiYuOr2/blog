@@ -1,3 +1,10 @@
+- timestamp: 1751829804411
+  type: text
+  content: 做了一个某人的事件簿，是时候想办法提升一下自己的审美了。
+  link:
+    title: 点击查看〇〇事件簿
+    href: https://youmiya.vercel.app/
+  create_at: '2025-07-06T19:23:24.411Z'
 - timestamp: 1751490741953
   type: text
   content: 在没有绝对实力的情况下，人生的一切是否都取决于运气？
