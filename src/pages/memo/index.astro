@@ -2,7 +2,7 @@
 import { getCollection } from "astro:content";
 import { flattenMemo } from '@/collections/memo'
 import MemoCard from "@/components/memo/card";
-import PageLayout from "@/layouts/Page.astro";
+import PageLayout from "@/layouts/page.astro";
 
 const memos = flattenMemo(await getCollection('memos'))
   .sort((a, b) => b.timestamp - a.timestamp);

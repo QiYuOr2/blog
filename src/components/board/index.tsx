@@ -7,10 +7,10 @@ import {
   type Node,
   type Edge,
 } from '@xyflow/react';
-import Point from './nodes/Point';
-import FloatingStraight from './edges/FloatingStraight';
-import Text from './nodes/Text';
-import Common from './nodes/Common';
+import Point from './nodes/point';
+import FloatingStraight from './edges/floating-straight';
+import Text from './nodes/text';
+import Common from './nodes/common';
 import '../../xy-theme.css'
 
 const nodeTypes = {
