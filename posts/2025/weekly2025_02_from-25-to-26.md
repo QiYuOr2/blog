@@ -2,7 +2,7 @@
 title: 七天之后#02・迈入二十六岁的夏天
 date: 2025/07/19 10:46:34
 pubDate: 2025/07/19 10:46:34
-description: description
+description: 迈入二十六岁的夏天，回顾了过去一年的生活与工作状态。经历了失业、旅行、朋友的婚礼、漫展等事件，感受到了生活的变化与成长。同时也记录了对 Gemini CLI 的初步使用体验，以及对「课题分离」理论的思考。最后提及了参加 Bilibili World 的经历，感受到了人际交流的重要性。
 category: 周记
 tags: [Weekly, 年中总结]
 ---
