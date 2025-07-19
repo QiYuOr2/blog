@@ -44,6 +44,16 @@ export default defineConfig({
           'background-color': 'var(--un-prose-bg-soft)',
           padding: '0.1em 0.3em',
         },
+        'a:not(.toc__archor a)': {
+          'background-color': 'var(--un-prose-bg-soft)',
+          opacity: '0.7',
+          transition: 'all 0.3s ease',
+        },
+        'a:not(.toc__archor a):hover': {
+          'background-color': 'var(--un-prose-borders)',
+          opacity: '1',
+          transition: 'all 0.3s ease',
+        },
       }
     })
   ],
