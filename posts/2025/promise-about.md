@@ -4,7 +4,7 @@ date: 2025/2/23 22:00:57
 pubDate: 2025/2/23 22:00:57
 description: Promise 相关
 category: 技术
-tags: [JavaScript]
+tags: [JavaScript,笔记]
 ---
 
 ## 概述

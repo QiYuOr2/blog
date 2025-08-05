@@ -2,7 +2,7 @@
 title: '利用PicGo、GitHub和jsDelivr搭建图床'
 date: 2020/01/28 23:24:12
 pubDate: 2020/01/28 23:24:12
-tags: [GitHub, jsDelivr, PicGo, CDN]
+tags: [GitHub, jsDelivr, PicGo, CDN,笔记]
 category: 工具
 description: 一个高速稳定的图床对于每一个写博客的人来说都很重要，之前大部分人的选择可能都是利用微博搭建图床，但是从2019年4月开始微博开启了防盗链，导致所有依赖微博图床的图片全部无法显示。利用PicGo将图片上传到GitHub仓库，再使用jsDelivr优化对于我们来说会是一个不错的选择。
 

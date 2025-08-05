@@ -2,7 +2,7 @@
 title: JavaScript的事件循环机制（Event Loop）
 date: 2021/05/17 17:12:32
 pubDate: 2021/05/17 17:12:32
-tags: [JavaScript]
+tags: [JavaScript,笔记]
 category: 技术
 description: 事件循环机制是JavaScript运行的核心，因此要想写出bug少的js代码就必须要了解这个机制是如何运作的，以及为什么会有这个机制。本篇文章是我对Event Loop的理解
 

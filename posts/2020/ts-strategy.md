@@ -2,7 +2,7 @@
 title: 'TypeScript实现设计模式——策略模式'
 date: 2020/03/21 17:29:07
 pubDate: 2020/03/21 17:29:07
-tags: [TypeScript, 设计模式]
+tags: [TypeScript, 设计模式,笔记]
 category: 技术
 description: 策略模式（Strategy）：它定义了算法家族，分别封装起来，让它们之间可以互相替换，此模式让算法的变化不会影响到使用算法的客户。——《大话设计模式》
 

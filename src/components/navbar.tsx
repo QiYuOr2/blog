@@ -4,8 +4,8 @@ const routes = [
     label: '文章'
   },
   // {
-  //   path: '/lab',
-  //   label: '实验室'
+  //   path: '/note',
+  //   label: '笔记'
   // },
   {
     path: '/memo',

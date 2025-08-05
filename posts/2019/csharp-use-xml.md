@@ -2,7 +2,7 @@
 title: C#中使用XML存储数据
 date: 2019/07/29 10:05:13
 pubDate: 2019/07/29 10:05:13
-tags: [CSharp]
+tags: [CSharp,笔记]
 category: 技术
 description: C#对于XML的一些增删改查的操作
 

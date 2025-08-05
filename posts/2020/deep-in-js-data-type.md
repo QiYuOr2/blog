@@ -2,7 +2,7 @@
 title: 深入学习JavaScript数据类型
 date: 2020/07/06 19:44:50
 pubDate: 2020/07/06 19:44:50
-tags: [JavaScript]
+tags: [JavaScript,笔记]
 category: 技术
 description: 数据类型是我们学习`JavaScript`时最先接触的东西，它是`JavaScript`中最基础的知识，这些知识看似简单，但实则有着许多初学者甚至是部分学习了多年`JavaScript`的老手所不了解的知识。
 

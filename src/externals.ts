@@ -14,6 +14,7 @@ const posts: Array<ExternalPost> = [
     pubDate: new Date('2024/09/10 18:36:01'),
     link: 'https://qiyuro2.notion.site/Live-b37b96eab2034f7d9932b718bac6012b',
     category: '生活',
+    tags: ['旅行']
   }
 ]
 

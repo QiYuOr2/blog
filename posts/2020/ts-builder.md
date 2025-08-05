@@ -2,7 +2,7 @@
 title: 'TypeScript实现设计模式——生成器模式'
 date: 2020/09/28 13:47:16
 pubDate: 2020/09/28 13:47:16
-tags: [TypeScript, 设计模式]
+tags: [TypeScript, 设计模式,笔记]
 category: 技术
 description: 生成器模式是一种在TypeScript/JavaScript中非常常见的创建型设计模式，它使你能够分步骤创建复杂对象。当你需要创建一个可能有许多配置选项的对象时， 该模式会特别有用。
 

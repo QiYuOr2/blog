@@ -2,7 +2,7 @@
 title: 'JavaScript闭包'
 date: 2019/10/18 22:00:04
 pubDate: 2019/10/18 22:00:04
-tags: [JavaScript]
+tags: [JavaScript,笔记]
 category: 技术
 description: 闭包是JavaScript中的一个难点，同时也是它的特色，JavaScript的很多高级应用都要依靠闭包来实现。以下是我学习闭包的记录，希望对你有些帮助。
 

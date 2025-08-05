@@ -2,7 +2,7 @@
 title: '搭建hexo静态博客'
 date: 2019/08/31 09:13:23
 pubDate: 2019/08/31 09:13:23
-tags: [hexo]
+tags: [hexo,笔记]
 category: 工具
 description: 使用hexo搭建博客，并将博客部署到github
 

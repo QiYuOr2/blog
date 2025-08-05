@@ -2,7 +2,7 @@
 title: 'T-SQL学习笔记'
 date: 2019/09/09 20:47:19
 pubDate: 2019/09/09 20:47:19
-tags: [T-SQL, SQL Server]
+tags: [T-SQL, SQL Server,笔记]
 category: 技术
 description: 学习T-SQL时记录的笔记，记得并不全也不详细
 

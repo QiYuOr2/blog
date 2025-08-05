@@ -1,9 +1,9 @@
 ---
 import PageLayout from '@/layouts/page.astro'
-import Post from '@/components/post';
-import { visibleFilter, sortByDate, getPostCreatedYear, date } from '@/collections/posts'
+import { PostList } from '@/components/post-list.tsx'
+import { visibleFilter, getPostCreatedYear } from '@/collections/posts';
+import { externalPosts } from '@/externals';
 import { getCollection } from 'astro:content';
-import { externalPosts, isExternalPost } from '@/externals';
 
 if (!Object.groupBy) {
   Object.groupBy = function (arr: any[], key: any) {
@@ -21,34 +21,9 @@ if (!Object.groupBy) {
 const _posts = await getCollection('posts')
 
 const posts = Object.groupBy([..._posts.filter(visibleFilter), ...externalPosts], getPostCreatedYear)
+
 ---
 
 <PageLayout post>
-  {Object.keys(posts).sort((a, b) => Number(b) - Number(a)).map(year => 
-    <div class="mb-8">
-      <div class="text-2xl font-bold">{year}</div>
-      <div>
-        {posts[year]?.sort(sortByDate).map(post => 
-        isExternalPost(post) 
-          ?
-            <Post
-              title={post.data.title}
-              path={post.link}
-              summary={post.data.description}
-              date={date(post as any)}
-              tags={post.data.tags}
-              isExternal
-            />
-          :
-            <Post
-              title={post.data.title}
-              path={`/${post.id}`}
-              summary={post.data.description}
-              date={date(post)}
-              tags={post.data.tags}
-            />
-        )}
-      </div>
-    </div>
-  )}
+  <PostList posts={posts} />
 </PageLayout>

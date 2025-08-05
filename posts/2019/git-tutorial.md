@@ -2,7 +2,7 @@
 title: Git学习记录
 date: 2019/11/17 15:18:05
 pubDate: 2019/11/17 15:18:05
-tags: [Git]
+tags: [Git,笔记]
 category: 工具
 description: 本篇文章介绍Git的本地使用
 
