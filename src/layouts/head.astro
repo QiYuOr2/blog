@@ -32,7 +32,22 @@ const { description, keywords = '' } = Astro.props
     document.documentElement.style.colorScheme = color
     document.documentElement.classList.add(color)
   }
+
+  function initBack() {
+    document.querySelectorAll('.back').forEach(back => {
+      back.addEventListener('click', (e) => {
+        e.preventDefault()
+        if (window.history.length > 1) {
+          history.back();
+        } else {
+          location.href = '/';
+        }
+      })
+    })
+  }
+
   document.addEventListener('astro:page-load', applyTheme)
+  document.addEventListener('astro:page-load', initBack)
   document.addEventListener('astro:after-swap', applyTheme)
 
   document.addEventListener("astro:before-preparation", () => {
@@ -41,6 +56,9 @@ const { description, keywords = '' } = Astro.props
   document.addEventListener("astro:after-preparation", () => {
     document.querySelector("#loading").classList.add("hidden");
   });
+
+
+
 </script>
 
 <script>

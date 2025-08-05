@@ -14,6 +14,7 @@ export function PostList({ posts, ...rest }: PostListProps) {
     isExternalPost(post) 
     ?
       <Post
+        key={post.link}
         title={post.title}
         path={post.link}
         summary={post.description}
@@ -23,6 +24,7 @@ export function PostList({ posts, ...rest }: PostListProps) {
       />
     :
       <Post
+        key={post.id}
         title={post.data.title}
         path={`/${post.id}`}
         summary={post.data.description}

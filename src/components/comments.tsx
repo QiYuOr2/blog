@@ -50,22 +50,24 @@ export default function Comments() {
   }, [])
 
   return (
-    <div ref={commentsContainer} className="py-7 sm:w-[95%]">
-      {!loaded && <div className='w-full text-center'>评论组件加载中...</div>}
-      <Giscus
-        id="comments"
-        repo="QiYuOr2/blog"
-        repoId="R_kgDOGlnN5w"
-        category="Announcements"
-        categoryId="DIC_kwDOGlnN584COx7K"
-        mapping="url"
-        reactions-enabled="1"
-        emitMetadata="0"
-        inputPosition="top"
-        theme={mode}
-        lang="zh-CN"
-      />
-    
+    <div className='flex justify-center'>
+      <div ref={commentsContainer} className="py-7 sm:w-[95%]">
+        {!loaded && <div className='w-full text-center'>评论组件加载中...</div>}
+        <Giscus
+          id="comments"
+          repo="QiYuOr2/blog"
+          repoId="R_kgDOGlnN5w"
+          category="Announcements"
+          categoryId="DIC_kwDOGlnN584COx7K"
+          mapping="url"
+          reactions-enabled="1"
+          emitMetadata="0"
+          inputPosition="top"
+          theme={mode}
+          lang="zh-CN"
+        />
+      
+      </div>
     </div>
   )
 }
