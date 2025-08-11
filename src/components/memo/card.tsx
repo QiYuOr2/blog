@@ -30,10 +30,12 @@ export default function MemoCard({ type, link, create_at, ...rest }: MemoCardPro
   const ContentCard = typeToCard[type](rest)
 
   const createdAt = dayjs(create_at)
-  const isWithinWeek = dayjs().diff(createdAt, 'day') < 7
-  const displayTime = isWithinWeek
-    ? createdAt.fromNow()
-    : createdAt.format('YYYY 年 MM 月 DD 日 dddd')
+  // const isWithinWeek = dayjs().diff(createdAt, 'day') < 7
+  // const displayTime = isWithinWeek
+  //   ? createdAt.fromNow()
+  //   : createdAt.format('YYYY 年 MM 月 DD 日 dddd')
+
+  const displayTime = createdAt.format('YYYY 年 MM 月 DD 日 dddd')
 
   
   const icon = 'ml-2 cursor-pointer hover:(text-dark scale-180 transition-all dark:text-light) duration-150'
