@@ -11,7 +11,13 @@ interface PostProps {
 
 function NoteTag() {
   return (
-    <div className="absolute -left-8 top-1/2 transform -translate-y-1/2 px-1 py-0.5 rounded text-[0.6rem] font-bold opacity-65 bg-true-gray-300 dark:bg-true-gray-600 text-true-gray-800 dark:text-true-gray-200">
+    <div className={cn(
+      'md:(absolute -left-8 top-1/2 transform -translate-y-1/2)',
+      '',
+      'px-1 py-0.5 rounded',
+      'text-[0.6rem] font-bold opacity-65 bg-true-gray-300  text-true-gray-800',
+      'dark:bg-true-gray-600 dark:text-true-gray-200'
+    )}>
       笔记
     </div>
   )
@@ -23,7 +29,6 @@ export default function Post({ title, path, date, isExternal, tags }: PostProps)
 
   return (
     <a href={path} target={isExternal ? '_blank' : '_self'} className="no-underline relative">
-      {tags?.includes('笔记') && <NoteTag />}
       <li className={cn(
         "flex flex-col sm:flex-row gap-2 py-2 px-8 my-2 mx--8",
         "list-none cursor-pointer"
@@ -32,10 +37,11 @@ export default function Post({ title, path, date, isExternal, tags }: PostProps)
           <div>{ title }</div>
           {isExternal && <div className="i-fluent:arrow-up-right-20-filled text-[0.6rem] ml-[0.3rem] text-true-gray-500 dark:text-true-gray-400 text-opacity-80" />}
         </div>
-        <div className="flex items-center time">
+        <div className="flex items-center time gap-2">
           <div>
             { date.split(' ')[0].split('/').slice(1).join('/') }
           </div>
+          {tags?.includes('笔记') && <NoteTag />}
         </div>
       </li>
     </a>
