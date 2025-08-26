@@ -54,6 +54,9 @@ export default defineConfig({
           opacity: '1',
           transition: 'all 0.3s ease',
         },
+        'ruby > rt': {
+          opacity: '0.6',
+        }
       }
     })
   ],

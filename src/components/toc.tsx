@@ -20,7 +20,8 @@ export default function TOC({ headings }: TOCProps) {
     return result
   }, [headings])
 
-  return headings.length && (
+  return headings.length 
+  ? (
     <ul className="pl-0">
       <p className="mb-[0.2rem]">目录</p>
       {headings.map(h => (
@@ -30,4 +31,5 @@ export default function TOC({ headings }: TOCProps) {
       ))}
     </ul>
   )
+  : null
 }
