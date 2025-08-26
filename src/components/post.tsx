@@ -9,10 +9,21 @@ interface PostProps {
   isExternal?: boolean
 }
 
-export default function Post({ title, path, date, isExternal }: PostProps) {
+function NoteTag() {
+  return (
+    <div className="absolute -left-8 top-1/2 transform -translate-y-1/2 px-1 py-0.5 rounded text-[0.6rem] font-bold opacity-65 bg-true-gray-300 dark:bg-true-gray-600 text-true-gray-800 dark:text-true-gray-200">
+      笔记
+    </div>
+  )
+}
+
+export default function Post({ title, path, date, isExternal, tags }: PostProps) {
+
+  
 
   return (
-    <a href={path} target={isExternal ? '_blank' : '_self'} className="no-underline">
+    <a href={path} target={isExternal ? '_blank' : '_self'} className="no-underline relative">
+      {tags?.includes('笔记') && <NoteTag />}
       <li className={cn(
         "flex flex-col sm:flex-row gap-2 py-2 px-8 my-2 mx--8",
         "list-none cursor-pointer"
