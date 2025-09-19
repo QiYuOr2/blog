@@ -3,13 +3,13 @@ const routes = [
     path: '/',
     label: '文章'
   },
-  // {
-  //   path: '/note',
-  //   label: '笔记'
-  // },
   {
     path: '/memo',
     label: '碎碎念'
+  },
+  {
+    path: '/about',
+    label: '关于'
   }
 ]
 
