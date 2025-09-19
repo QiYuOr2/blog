@@ -8,34 +8,20 @@ export function useDeviceOrientation(maxRotate = 20, sensitivity = 3) {
   const animationRef = useRef<number | null>(null);
 
   const handleOrientation = (e: DeviceOrientationEvent) => {
-    if (!enabled) {
-      if (animationRef.current) cancelAnimationFrame(animationRef.current);
-      setRotate({ x: 0, y: 0 });
-      betaOffset.current = null;
-      gammaOffset.current = null;
-      return;
-    }
+    if (!enabled) return;
 
     if (e.beta == null || e.gamma == null) return;
 
-    const deltaBeta = e.beta - (betaOffset.current ?? e.beta);
-    const deltaGamma = e.gamma - (gammaOffset.current ?? e.gamma);
+    if (betaOffset.current === null) betaOffset.current = e.beta;
+    if (gammaOffset.current === null) gammaOffset.current = e.gamma;
+
+    const deltaBeta = e.beta - betaOffset.current;
+    const deltaGamma = e.gamma - gammaOffset.current;
 
     const rotateX = (-deltaBeta / 90) * maxRotate * sensitivity;
     const rotateY = (deltaGamma / 90) * maxRotate * sensitivity;
 
     animationRef.current = requestAnimationFrame(() => setRotate({ x: rotateX, y: rotateY }));
-  };
-
-  // 设置零位 + 添加事件监听
-  const initListener = () => {
-    const setZero = (e: DeviceOrientationEvent) => {
-      betaOffset.current = e.beta ?? 0;
-      gammaOffset.current = e.gamma ?? 0;
-    };
-    setEnabled(true);
-    window.addEventListener("deviceorientation", setZero, { once: true });
-    window.addEventListener("deviceorientation", handleOrientation, true);
   };
 
   const requestPermission = async () => {
@@ -53,28 +39,34 @@ export function useDeviceOrientation(maxRotate = 20, sensitivity = 3) {
     }
     return true;
   };
-
-  const toggleOrientation = (value?: boolean) => {
-    if (typeof value === 'undefined') {
-      value = !enabled
-    }
-
-    if (enabled) {
-      setEnabled(false)
-      return
-    }
-    
-    requestPermission()
-      .then(hasPermission => hasPermission && initListener())
+  
+  const clear = () => {
+    betaOffset.current = null;
+    gammaOffset.current = null;
+    setRotate({ x: 0, y: 0 });
+    window.removeEventListener("deviceorientation", handleOrientation);
+    if (animationRef.current) cancelAnimationFrame(animationRef.current);
   }
 
-  // Android / 非iOS自动初始化
-  useEffect(() => {
-    toggleOrientation(true)
+  const toggleOrientation = async (value?: boolean) => {
+    if (typeof value === "undefined") value = !enabled;
 
+    if (!value) {
+      setEnabled(false);
+      clear();
+      return;
+    }
+
+    const hasPermission = await requestPermission();
+    if (hasPermission) {
+      setEnabled(true);
+      window.addEventListener("deviceorientation", handleOrientation, true);
+    }
+  };
+
+  useEffect(() => {
     return () => {
-      window.removeEventListener("deviceorientation", handleOrientation);
-      if (animationRef.current) cancelAnimationFrame(animationRef.current);
+      clear()
     };
   }, []);
 
