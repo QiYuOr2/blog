@@ -1,42 +1,65 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
-export function useDeviceOrientation(maxRotate = 20, sensitivity = 2) {
+export function useDeviceOrientation(maxRotate = 20, sensitivity = 3) {
   const [rotate, setRotate] = useState({ x: 0, y: 0 });
+  const [enabled, setEnabled] = useState(false);
+  const betaOffset = useRef<number | null>(null);
+  const gammaOffset = useRef<number | null>(null);
+  const animationRef = useRef<number | null>(null);
 
-  useEffect(() => {
-    let animation: number;
-    let betaOffset: number | null = null;   // 前后零位
-    let gammaOffset: number | null = null;  // 左右零位
+  const handleOrientation = (e: DeviceOrientationEvent) => {
+    if (e.beta == null || e.gamma == null) return;
 
-    const handleOrientation = (e: DeviceOrientationEvent) => {
-      if (e.gamma == null || e.beta == null) return;
+    const deltaBeta = e.beta - (betaOffset.current ?? e.beta);
+    const deltaGamma = e.gamma - (gammaOffset.current ?? e.gamma);
 
-      // 初始化零位
-      if (betaOffset === null) betaOffset = e.beta;
-      if (gammaOffset === null) gammaOffset = e.gamma;
+    const rotateX = (-deltaBeta / 90) * maxRotate * sensitivity;
+    const rotateY = (deltaGamma / 90) * maxRotate * sensitivity;
 
-      const deltaBeta = e.beta - betaOffset;   // 前后偏移
-      const deltaGamma = e.gamma - gammaOffset; // 左右偏移
+    animationRef.current = requestAnimationFrame(() => setRotate({ x: rotateX, y: rotateY }));
+  };
 
-      const rotateX = (-deltaBeta / 90) * maxRotate * sensitivity;
-      const rotateY = (deltaGamma / 90) * maxRotate * sensitivity;
-
-      animation = requestAnimationFrame(() => {
-        setRotate({ x: rotateX, y: rotateY });
-      });
+  // 设置零位 + 添加事件监听
+  const initListener = () => {
+    const setZero = (e: DeviceOrientationEvent) => {
+      betaOffset.current = e.beta ?? 0;
+      gammaOffset.current = e.gamma ?? 0;
+      setEnabled(true);
     };
+    window.addEventListener("deviceorientation", setZero, { once: true });
+    window.addEventListener("deviceorientation", handleOrientation, true);
+  };
 
-    if (window.DeviceOrientationEvent) {
-      window.addEventListener("deviceorientation", handleOrientation, true);
+  const requestPermission = async () => {
+    if (
+      typeof DeviceOrientationEvent !== "undefined" &&
+      typeof (DeviceOrientationEvent as any).requestPermission === "function"
+    ) {
+      try {
+        const state = await (DeviceOrientationEvent as any).requestPermission();
+        return state === "granted";
+      } catch (error) {
+        console.error(error);
+        return false;
+      }
     }
+    return true;
+  };
+
+  const setOrientationHandler = () => {
+    requestPermission()
+      .then(hasPermission => hasPermission && initListener())
+  }
+
+  // Android / 非iOS自动初始化
+  useEffect(() => {
+    setOrientationHandler()
 
     return () => {
-      if (window.DeviceOrientationEvent) {
-        window.removeEventListener("deviceorientation", handleOrientation);
-      }
-      cancelAnimationFrame(animation);
+      window.removeEventListener("deviceorientation", handleOrientation);
+      if (animationRef.current) cancelAnimationFrame(animationRef.current);
     };
-  }, [maxRotate, sensitivity]);
+  }, []);
 
-  return rotate;
+  return { rotate, enabled, setOrientationHandler };
 }
