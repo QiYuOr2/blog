@@ -6,7 +6,7 @@ const MAX_ROTATE = 20;
 export function Gakuen() {
   const parallaxRef = useRef<HTMLDivElement>(null);
   const [rotateMouse, setRotateMouse] = useState({ x: 0, y: 0 });
-  const { rotate: rotateDevice, enabled, setOrientationHandler } = useDeviceOrientation(MAX_ROTATE);
+  const { rotate: rotateDevice, enabled, toggleOrientation } = useDeviceOrientation(MAX_ROTATE);
 
   const rotate = useMemo(() => {
     if (rotateMouse.x !== 0 || rotateMouse.y !== 0) {
@@ -103,7 +103,11 @@ export function Gakuen() {
           <img className="absolute bottom-[6%] w-[40%]" src="/assets/misuzu_hataya.svg" alt="Misuzu Hataya" />
         </div>
       </div>
-      {!enabled && <button className={`mt-15 px-3 py-1 text-black dark:text-light-50  bg-light-50 dark:bg-dark rounded-full shadow`} onClick={setOrientationHandler}>启用陀螺仪</button>}
+      <label className="inline-flex items-center cursor-pointer mt-5">
+        <input type="checkbox" value="" className="sr-only peer" checked={enabled} onChange={() => toggleOrientation()} />
+        <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none  dark:peer-focus:ring-[rgb(59,105,61)] rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-[rgb(59,105,61)] dark:peer-checked:bg-[rgb(59,105,61)]"></div>
+        <span className="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">陀螺仪</span>
+      </label>
     </>
   )
 }
