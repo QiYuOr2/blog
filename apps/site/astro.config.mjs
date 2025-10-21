@@ -2,9 +2,7 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import UnoCSS from 'unocss/astro'
-import { remarkReadingTime } from './plugins/remark-reading-time.mjs';
-import { remarkImage } from './plugins/remark-image.mjs'
-import { remarkMermaid } from './plugins/remark-mermaid.mjs'
+import { remarkReadingTime, remarkImage, remarkMermaid } from '@tabi/plugins/remark/index.mjs';
 import yaml from '@rollup/plugin-yaml';
 import react from '@astrojs/react';
 import { resolve } from 'node:path'
