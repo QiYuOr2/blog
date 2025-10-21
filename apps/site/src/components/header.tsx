@@ -24,7 +24,7 @@ export default function Header({ children, ...rest }: HeaderProps) {
             </a>
           </div>
         </div>
-        <div className="text-true-gray-500 text-sm">前端开发 / 动画 / 日语初心者</div>
+        <div className="text-true-gray-500 text-sm">その日々は夢のように</div>
 
         <div className="text-xl mt-auto flex items-center gap-2">
           <a  href="https://github.com/QiYuOr2" aria-label="GitHub" title="GitHub">

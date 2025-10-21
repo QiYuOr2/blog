@@ -3,14 +3,17 @@ import Comments from '@/components/comments'
 import { Gakuen } from '@/components/gakuen'
 import PageLayout from '@/layouts/page.astro'
 
-
 ---
 
 <PageLayout post>
     <article class="prose-stone dark:prose-invert">
       <p>你好，我是 <span>柒宇</span>。</p>
       <p>=== 这里还在施工 ===</p>
-      <Gakuen client:load />
+
+      <details>
+        <summary>自己尝试设计的学mas名片</summary>
+        <Gakuen client:load />
+      </details>
     </article>
   <Comments client:load />
 </PageLayout>
