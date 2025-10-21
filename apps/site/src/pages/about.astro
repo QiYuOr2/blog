@@ -1,19 +1,35 @@
 ---
-import Comments from '@/components/comments'
-import { Gakuen } from '@/components/gakuen'
-import PageLayout from '@/layouts/page.astro'
-
+import Comments from "@/components/comments";
+import { Gakuen } from "@/components/gakuen";
+import PageLayout from "@/layouts/page.astro";
 ---
 
 <PageLayout post>
-    <article class="prose-stone dark:prose-invert">
-      <p>你好，我是 <span>柒宇</span>。</p>
-      <p>=== 这里还在施工 ===</p>
+  <article class="prose-stone dark:prose-invert">
+    <p>你好，我是 <span>柒宇</span>。</p>
 
-      <details>
-        <summary>自己尝试设计的学mas名片</summary>
-        <Gakuen client:load />
-      </details>
-    </article>
+    <p>每次自我介绍都会让我很为难，自己擅长什么、爱好是什么、优缺点是什么……认识自己好像还挺难的。但总之接下来是我想展示的自己。</p>
+
+    <p>
+      喜欢偶尔搞点乱七八糟的项目，但大多都是挖坑不填的状态。常用的技术栈：
+      <span class="flex gap-2 flex-wrap">
+        <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white&labelColor=3178C6&borderRadius=50" />
+        <img src="https://img.shields.io/badge/Vue-4FC08D?style=flat&logo=vue.js&logoColor=white&labelColor=4FC08D&borderRadius=50" />
+        <img src="https://img.shields.io/badge/TailwindCSS-1572B6?style=flat&logo=tailwindcss&logoColor=white&labelColor=1572B6&borderRadius=50" />
+        <img src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=nodedotjs&logoColor=white&labelColor=339933&borderRadius=50" />
+        <img src="https://img.shields.io/badge/Go-00ADD8?style=flat&logo=go&logoColor=white&labelColor=00ADD8&borderRadius=50" />
+      </span>
+      其他技术多少也会一点，不过如果自己做项目的话会更倾向上面这些。
+    </p>
+
+    <p></p>
+
+    <p>=== 这里还在施工 ===</p>
+
+    <details>
+      <summary>自己尝试设计的学mas名片</summary>
+      <Gakuen client:load />
+    </details>
+  </article>
   <Comments client:load />
 </PageLayout>
