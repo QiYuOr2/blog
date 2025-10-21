@@ -3,6 +3,8 @@
   "scripts": {
     "dev": "pnpm --filter @tabi/site dev",
     "build": "pnpm --filter @tabi/site build",
-    "preview": "pnpm --filter @tabi/site preview"
+    "preview": "pnpm --filter @tabi/site preview",
+
+    "build:cli": "pnpm --filter @tabi/cli build"
   }
 }

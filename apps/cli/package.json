@@ -1,0 +1,22 @@
+{
+  "name": "@tabi/cli",
+  "version": "0.0.1",
+  "bin": {
+    "tabi": "./bin/index.mjs"
+  },
+  "scripts": {
+    "build": "tsdown"
+  },
+  "dependencies": {
+    "@clack/prompts": "^0.11.0",
+    "@tabi/config": "workspace:^",
+    "cac": "^6.7.14",
+    "dayjs": "^1.11.13",
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "tsdown": "^0.15.9",
+    "typescript": "^5.9.3"
+  }
+}

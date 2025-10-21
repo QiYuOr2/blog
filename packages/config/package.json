@@ -1,3 +1,6 @@
 {
-  "name": "@tabi/config"
+  "name": "@tabi/config",
+  "dependencies": {
+    "@tabi/utils": "workspace:^"
+  }
 }
