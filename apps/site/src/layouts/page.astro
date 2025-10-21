@@ -8,9 +8,12 @@ import Navbar from '@/components/navbar'
 import Analytics from '@vercel/analytics/astro'
 import SpeedInsights from '@vercel/speed-insights/astro';
 import Loading from '@/components/loading.astro'
+import dayjs from 'dayjs'
 
 const { title = '@柒宇', description, tags = [], post = false } = Astro.props
 const { pathname } = Astro.url
+
+const buildTime = dayjs(Number(__BUILD_TIME__)).format('YYYY-MM-DD HH:mm:ss')
 ---
 
 <html lang="zh-CN">
@@ -47,6 +50,7 @@ const { pathname } = Astro.url
           QiYuOr2
         </a>
       </div>
+      <div class="mx-auto mb-1 text-center">网站最后更新时间：{buildTime}</div>
       <div class="mx-auto mb-2 text-center">
         <span>Powered By </span>
         <a class="footer-link" href="https://github.com/QiYuOr2/blog">

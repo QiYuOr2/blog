@@ -28,6 +28,9 @@ export default defineConfig({
         '@': resolve('./src'),
       },
     },
+    define: {
+      __BUILD_TIME__: Date.now().toString(),
+    },
   },
   markdown: {
     lazyLoad: false,
