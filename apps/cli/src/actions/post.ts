@@ -13,15 +13,16 @@ export const createPost = async (fileName = 'new-post') => {
   log.info(`Posts 目录: ${POST_PATH}`);
   const year = dayjs().format("YYYY");
 
-  const frontmatter = `---
-title: ${fileName}
-date: ${dateTime}
-pubDate: ${dateTime}
-description: _description_
-category: 技术
-tags: []
----
-`;
+  const frontmatter = [
+    `---`,
+    `title: ${fileName}`,
+    `date: ${dateTime}`,
+    `pubDate: ${dateTime}`,
+    `description: _description_`,
+    `category: 技术`,
+    `tags: []`,
+    `---`
+  ].join("\n");
 
   if (!existsSync(join(POST_PATH, year))) {
     mkdirSync(join(POST_PATH, year));
