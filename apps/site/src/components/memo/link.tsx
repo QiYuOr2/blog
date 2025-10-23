@@ -19,7 +19,7 @@ export default function Link(linkInfo: string | NonNullable<MemoLink>) {
           {linkInfo.cover && <img className="w-16 h-22 object-cover rounded-lg" src={linkInfo.cover} />}
         </div>
         <div className="flex-1 ml-3">
-          <p className="font-bold m-0">{linkInfo.title}</p>
+          <p className="font-bold m-0 dark:(text-[var(--un-prose-invert-headings)])">{linkInfo.title}</p>
           <p className="text-sm m-0 line-clamp-3 text-true-gray-500">{linkInfo.description ?? linkInfo.href}</p>
         </div>
       </a>

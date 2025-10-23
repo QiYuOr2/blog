@@ -20,7 +20,7 @@ const memo = memos.find(m => m.timestamp === Number(timestamp))
 ---
 
 <PageLayout post>
-  {memo && <MemoCard {...memo} back className="pt-4" />}
+  {memo && <MemoCard {...memo} back className="pt-4 prose-stone" />}
 
   <Comments client:load />
 </PageLayout>

@@ -51,7 +51,7 @@ export default function MemoCard({ type, link, create_at, ...rest }: MemoCardPro
               <div className={`i-mingcute:large-arrow-left-fill ${icon}`}></div>
             </div>
       
-          : <a title="查看" href={`/memo/${rest.timestamp}`}>
+          : <a title="查看" href={`/memo/${rest.timestamp}`} className="bg-transparent hover:bg-transparent dark:(bg-[var(--un-prose-invert-bg-soft)] text-[var(--un-prose-invert-body)])">
               <div className={`i-mingcute:chat-1-line ${icon}`}></div>
             </a>
       }
@@ -59,10 +59,10 @@ export default function MemoCard({ type, link, create_at, ...rest }: MemoCardPro
   )
 
   return (
-    <div key={rest.timestamp} className={`mb-2 ${rest.className}`}>
+    <div key={rest.timestamp} className={`mb-2 ${rest.className ?? ''}`}>
       <Time />
       <div className="border-l-neutral-200 border-solid border-l-1 ml-2">
-        <div className='inline-block bg-cool-gray-100 dark:(bg-true-gray-700 text-light-50) px-3.5 py-3 ml-4 my-2 rounded-2xl'>
+        <div className='inline-block bg-[var(--un-prose-bg-soft)] text-[var(--un-prose-body)] dark:(bg-[var(--un-prose-invert-bg-soft)] text-[var(--un-prose-invert-body)]) px-3.5 py-3 ml-4 my-2 rounded-2xl'>
           {ContentCard}
           {link && Link(link)}
         </div>

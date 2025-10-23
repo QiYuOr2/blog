@@ -9,7 +9,7 @@ const memos = flattenMemo(await getCollection('memos'))
 ---
 
 <PageLayout post>
-  <div class="text-dark-50 pt-4 min-h-100">
+  <div class="text-dark-50 pt-4 min-h-100 prose-stone">
     <ul class="p-0 m-0">
       {memos.map((memo) => 
         <li class="list-none"><MemoCard {...memo} /></li>
