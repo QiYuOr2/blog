@@ -1,4 +1,5 @@
 import type { postsSchema } from "./collections/posts";
+import { z as Zod } from "zod";
 
 export type ExternalPost = Zod.infer<typeof postsSchema> & { link: string };
 
