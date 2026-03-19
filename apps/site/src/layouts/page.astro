@@ -9,11 +9,18 @@ import Analytics from '@vercel/analytics/astro'
 import SpeedInsights from '@vercel/speed-insights/astro';
 import Loading from '@/components/loading.astro'
 import dayjs from 'dayjs'
+import timezone from 'dayjs/plugin/timezone'
+import utc from 'dayjs/plugin/utc'
+
+dayjs.extend(utc)
+dayjs.extend(timezone)
 
 const { title = '@柒宇', description, tags = [], post = false } = Astro.props
 const { pathname } = Astro.url
 
-const buildTime = dayjs(Number(__BUILD_TIME__)).format('YYYY-MM-DD HH:mm:ss')
+const buildTime = dayjs(Number(__BUILD_TIME__))
+  .tz("Asia/Shanghai")
+  .format('YYYY-MM-DD HH:mm:ss')
 ---
 
 <html lang="zh-CN">
