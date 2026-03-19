@@ -9,7 +9,7 @@ export async function getStaticPaths() {
   const all = flattenMemo(await getCollection("memos"));
 
   return all.map((memo) => ({
-    params: { timestamp: memo.timestamp },
+    params: { timestamp: memo.timestamp.toString() },
   }));
 }
 
