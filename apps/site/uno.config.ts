@@ -21,10 +21,14 @@ export default defineConfig({
     },
     {
       'parallax-items': '[transform:translate3d(calc(var(--parallax-offset)_*_var(--parallax-rotateY)_/_var(--max-rotate)_*_1%),calc(var(--parallax-offset)_*_var(--parallax-rotateX)_/_var(--max-rotate)_*_-1%),0)]'
+    },
+    {
+      'skeleton': 'bg-stone-1 dark:bg-true-gray-700 rounded'
     }
   ],
   rules: [
-    ['custom-bg-radial', { 'background': 'radial-gradient(19px at 0%, var(--un-gradient-from) 100%, var(--un-gradient-to) 100%)'}]
+    ['custom-bg-radial', { 'background': 'radial-gradient(19px at 0%, var(--un-gradient-from) 100%, var(--un-gradient-to) 100%)'}],
+    ['animate-fade-in', { 'animation': 'fadeIn 0.5s ease-in-out' }]
   ],
   presets: [
     presetAttributify(),

@@ -1,0 +1,14 @@
+---
+import { Bangumi } from "@/components/bangumi/index.tsx";
+import Comments from "@/components/comments";
+import PageLayout from "@/layouts/page.astro";
+
+
+
+---
+
+<PageLayout post>
+  <article class="prose-stone dark:prose-invert">
+    <Bangumi  client:load />
+  <Comments client:load />
+</PageLayout>

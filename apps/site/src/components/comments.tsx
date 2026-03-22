@@ -15,13 +15,11 @@ export default function Comments() {
     setMode(format(value))
   }
 
-
   const commentsContainer = useRef<HTMLDivElement>(null)
   const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
     colorMode.addEventListener(commentColorModeChange)
-
 
     return () => {
       colorMode.removeEventLister(commentColorModeChange)
@@ -52,7 +50,12 @@ export default function Comments() {
   return (
     <div className='flex justify-center'>
       <div ref={commentsContainer} className="py-7 sm:w-[95%]">
-        {!loaded && <div className='w-full text-center'>评论组件加载中...</div>}
+        {!loaded && (
+          <div className='w-full flex flex-col items-center'>
+            <div className='w-12 h-12 rounded mb-3 skeleton'></div>
+            <div className='w-48 h-6 rounded skeleton'></div>
+          </div>
+        )}
         <Giscus
           id="comments"
           repo="QiYuOr2/blog"
