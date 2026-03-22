@@ -20,7 +20,7 @@ export function Card({ image, name, score, id }: BangumiCardProps) {
       <img
         src={image}
         alt={name}
-        className="h-full object-cover"
+        className="h-36 md:h-48 lg:h-48 w-full object-cover"
       />
       <div className="absolute top-10 left-0 right-0 bottom-0 bg-gradient-to-t from-[rgba(0,0,0,0.8)] to-transparent"></div>
       <div className="px-2 py-2 absolute bottom-0 text-white text-xs">{name}</div>
