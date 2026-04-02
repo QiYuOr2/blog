@@ -14,7 +14,7 @@ function toBangumi (id: number) {
 export function Card({ image, name, score, id }: BangumiCardProps) {
   return (
     <div
-      className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden relative cursor-pointer hover:(shadow-xl translate-y-[-2px]) transition-all transition-duration-150"
+      className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden relative cursor-pointer hover:(shadow-lg) transition-all transition-duration-150"
       onClick={() => toBangumi(id)}
     >
       <img
