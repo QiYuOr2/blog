@@ -88,7 +88,7 @@ export function PostList({ posts, ...rest }: PostListProps) {
             <div className="text-2xl font-bold">{year}</div>
             <div>
               {
-                posts[year]
+                (posts[year] as CollectionEntry<'posts'>[])
                   ?.sort(sortByDate)
                   .map(PostRender)
               }
