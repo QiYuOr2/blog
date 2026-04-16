@@ -18,23 +18,17 @@ interface NavbarProps {
 
 export function Navbar({ currentPath, routes }: NavbarProps) {
   const normalizedCurrentPath = useMemo(() => normalizePath(currentPath), [currentPath]);
+  const nonRootRoutes = routes.filter(route => route.path !== '/')
 
+  function isRouteActive(path: string, route: Route): boolean {
+    if (route.path === '/') {
+      return !nonRootRoutes.some(candidate =>
+        path === candidate.path || path.startsWith(`${candidate.path}/`)
+      )
+    }
 
-function isRouteActive(path: string, route: Route): boolean {
-  if (path === route.path) {
-    return true;
+    return path === route.path || path.startsWith(`${route.path}/`)
   }
-
-  if (path.startsWith(`${route.path}/`)) {
-    return true
-  }
-
-  if (route.path === '/' && !routes.map(r => r.path).includes(path)) {
-    return true
-  }
-  
-  return false
-}
 
   return (
     <nav className="mx-auto max-w-[65ch] px-7 mb-6 h-9 xl:(px-0)" data-current-path={currentPath}>
