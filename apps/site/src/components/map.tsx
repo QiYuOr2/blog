@@ -18,7 +18,7 @@ export function MapBox() {
     })
 
     return () => map.remove()
-  })
+  }, [])
 
   return (
     <div ref={mapRef}></div>

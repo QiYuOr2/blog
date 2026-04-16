@@ -35,16 +35,19 @@ const { description, keywords = '' } = Astro.props
     document.documentElement.classList.add(color)
   }
 
+  function backAction(event) {
+    event.preventDefault();
+    if (window.history.length > 1) {
+      history.back();
+    } else {
+      location.href = '/';
+    }
+  }
+
   function initBack() {
     document.querySelectorAll('.back').forEach(back => {
-      back.addEventListener('click', (e) => {
-        e.preventDefault()
-        if (window.history.length > 1) {
-          history.back();
-        } else {
-          location.href = '/';
-        }
-      })
+      back.removeEventListener('click', backAction)
+      back.addEventListener('click', backAction)
     })
   }
 
@@ -78,7 +81,6 @@ const { description, keywords = '' } = Astro.props
 <link rel="shortcut icon" href="/favicon.ico" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
-<script type="module" src="https://cdn.jsdelivr.net/npm/giscus@1.2.8/+esm" defer></script>
 
 <ClientRouter />
 

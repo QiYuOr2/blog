@@ -1,3 +1,4 @@
+import type { CollectionEntry } from "astro:content";
 import type { postsSchema } from "./collections/posts";
 import { z as Zod } from "zod";
 
@@ -19,8 +20,8 @@ const posts: Array<ExternalPost> = [
   }
 ]
 
-function withData(posts: Array<ExternalPost>) {
-  return posts.map(post => ({ ...post, data: { ...post } }));
+function withData(posts: Array<ExternalPost>): Array<CollectionEntry<'posts'>> {
+  return posts.map(post => ({ ...post, data: { ...post }, collection: 'posts', id: post.link }));
 
 }
 
