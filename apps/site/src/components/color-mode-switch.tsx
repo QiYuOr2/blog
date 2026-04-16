@@ -1,5 +1,5 @@
 import { useRef, useState } from "react"
-import { colorModeEffect, Mode } from "@/common/color-mode"
+import { colorModeEffect, Mode } from "@/features/theme/color-mode"
 
 const modes = [
   {

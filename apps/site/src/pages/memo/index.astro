@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
-import { flattenMemo } from '@/collections/memo'
-import MemoCard from "@/components/memo/card";
+import { flattenMemo } from '@/features/memo/content'
+import MemoCard from "@/features/memo/components/card";
 import PageLayout from "@/layouts/page.astro";
 
 const memos = flattenMemo(await getCollection('memos'))

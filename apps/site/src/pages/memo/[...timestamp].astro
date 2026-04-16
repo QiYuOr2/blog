@@ -1,8 +1,8 @@
 ---
-import { flattenMemo } from '@/collections/memo';
+import { flattenMemo } from '@/features/memo/content';
 import { getCollection } from 'astro:content';
 import PageLayout from '@/layouts/page.astro'
-import MemoCard from '@/components/memo/card';
+import MemoCard from '@/features/memo/components/card';
 import Comments from '@/components/comments'
 
 export async function getStaticPaths() {

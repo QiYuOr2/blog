@@ -1,4 +1,4 @@
-import type { Memo } from "@/collections/memo";
+import type { Memo } from "@/features/memo/content";
 
 export default function Text(memo: Omit<Memo, 'type' | 'link' | 'image'>) {
   return (

@@ -1,6 +1,6 @@
 import { type CollectionEntry } from 'astro:content';
 import { z } from 'astro/zod';
-import { BASE_URL } from '../constants';
+import { BASE_URL } from '@/constants';
 
 export const postsSchema = z.object({
   title: z.string(),

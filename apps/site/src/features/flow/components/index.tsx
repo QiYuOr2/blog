@@ -11,7 +11,7 @@ import Point from './nodes/point';
 import FloatingStraight from './edges/floating-straight';
 import Text from './nodes/text';
 import Common from './nodes/common';
-import '../../xy-theme.css'
+import '@/xy-theme.css'
 
 const nodeTypes = {
   point: Point,

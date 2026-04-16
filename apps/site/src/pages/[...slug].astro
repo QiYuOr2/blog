@@ -1,8 +1,8 @@
 ---
 import { getCollection, render } from "astro:content";
 import Comments from "@/components/comments";
-import TOC from "@/components/toc";
-import { visibleFilter, date, postURL, sortByDate } from "@/collections/posts";
+import TOC from "@/features/posts/components/toc";
+import { visibleFilter, date, postURL, sortByDate } from "@/features/posts/content";
 import PageLayout from '@/layouts/page.astro'
 
 export async function getStaticPaths() {

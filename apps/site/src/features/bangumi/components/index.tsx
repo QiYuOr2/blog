@@ -1,6 +1,6 @@
 import { useEffect, useState, type JSX } from 'react'
 import { Card, CardSkeleton } from './card'
-import { CollectionType, type CollectionItem, type CollectionsDTO } from './types'
+import { CollectionType, type CollectionItem, type CollectionsDTO } from '../types'
 
 /**
  * @summary https://api.bgm.tv/v0/users/qiyuor2/collections?subject_type=2&limit=50&offset=0

@@ -1,7 +1,7 @@
 ---
 import PageLayout from '@/layouts/page.astro'
-import { PostList } from '@/components/posts.tsx'
-import { visibleFilter, getPostCreatedYear } from '@/collections/posts';
+import { PostList } from '@/features/posts/components/post-list'
+import { visibleFilter, getPostCreatedYear } from '@/features/posts/content';
 import { externalPosts } from '@/externals';
 import { getCollection } from 'astro:content';
 

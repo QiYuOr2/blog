@@ -1,5 +1,5 @@
 import Giscus from '@giscus/react'
-import { colorModeEffect, Mode } from '@/common/color-mode'
+import { colorModeEffect, Mode } from '@/features/theme/color-mode'
 import { useEffect, useRef, useState } from 'react'
 
 export default function Comments() {

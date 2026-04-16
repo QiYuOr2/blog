@@ -1,4 +1,4 @@
-import type { Memo } from "@/collections/memo";
+import type { Memo } from "@/features/memo/content";
 import Text from "./text";
 
 export default function TextImage(memo: Omit<Memo, 'type'>) {
