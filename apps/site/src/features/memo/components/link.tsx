@@ -1,4 +1,4 @@
-import type { MemoLink } from "@/features/memo/content"
+import type { MemoLink } from "@/features/memo/schema"
 
 export default function Link(linkInfo: string | NonNullable<MemoLink>) {
   const linkContent = (title: string, href: string) => (

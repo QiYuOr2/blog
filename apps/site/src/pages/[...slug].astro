@@ -2,7 +2,7 @@
 import { getCollection, render } from "astro:content";
 import Comments from "@/components/comments";
 import TOC from "@/features/posts/components/toc";
-import { visibleFilter, date, postURL, sortByDate } from "@/features/posts/content";
+import { visibleFilter, date, postURL, sortByDate } from "@/features/posts/model";
 import PageLayout from '@/layouts/page.astro'
 
 export async function getStaticPaths() {

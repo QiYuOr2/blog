@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils'
-import { date, sortByDate } from "@/features/posts/content"
+import { date, sortByDate } from "@/features/posts/model"
 import { isExternalPost, type ExternalPost } from "@/externals"
 import type { CollectionEntry } from "astro:content"
 import type { ComponentProps } from "react"

@@ -2,7 +2,7 @@ import Image from "./image"
 import Link from "./link"
 import Text from "./text"
 import TextImage from "./textImage"
-import { type Memo } from "@/features/memo/content"
+import { type Memo } from "@/features/memo/schema"
 import dayjs from 'dayjs'
 import 'dayjs/locale/zh-cn'
 import type { JSX } from "react"

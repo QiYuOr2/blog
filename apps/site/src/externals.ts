@@ -1,8 +1,8 @@
 import type { CollectionEntry } from "astro:content";
-import type { postsSchema } from "./collections/posts";
-import { z as Zod } from "zod";
+import type { postsSchema } from "./features/posts/schema";
+import { z } from 'astro/zod';
 
-export type ExternalPost = Zod.infer<typeof postsSchema> & { link: string };
+export type ExternalPost = z.infer<typeof postsSchema> & { link: string };
 
 export function isExternalPost(post: unknown): post is ExternalPost {
   return (post as any).link !== undefined;

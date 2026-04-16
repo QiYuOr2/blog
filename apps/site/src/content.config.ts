@@ -1,7 +1,7 @@
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
-import { postsSchema } from './features/posts/content';
-import { memosSchema } from './features/memo/content';
+import { postsSchema } from './features/posts/schema';
+import { memosSchema } from './features/memo/schema';
 import { POSTS_DIR, MEMOS_DIR } from '@tabi/config/paths'
 
 const posts = defineCollection({

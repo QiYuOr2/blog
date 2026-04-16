@@ -1,5 +1,5 @@
-import rss, { pagesGlobToRssItems } from "@astrojs/rss";
-import { sortByDate, visibleFilter } from "@/features/posts/content";
+import rss from "@astrojs/rss";
+import { sortByDate, visibleFilter } from "@/features/posts/model";
 import { getCollection } from "astro:content";
 import { BASE_URL } from "@/constants";
 import { externalPosts, isExternalPost } from "@/externals";
