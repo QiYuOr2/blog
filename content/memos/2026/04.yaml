@@ -1,4 +1,11 @@
+- timestamp: 1776686613096
+  type: text
+  content: '试着搞了个 Agent 的 Demo，才发现 Agent 的原理原来这么简单'
+  link:
+    title: labs/agent-go
+    href: https://github.com/QiYuOr2/labs/tree/main/experiments/agent-go
+  create_at: '2026-04-20T12:03:33.096Z'
 - timestamp: 1776299694195
   type: text
-  content: '人人都可以是程序员，人人都可以面向 AI 编程，有点怀念过去古法编程的、大家都在追求代码质量的时代了。'
+  content: 人人都可以是程序员，人人都可以面向 AI 编程，有点怀念过去古法编程的、大家都在追求代码质量的时代了。
   create_at: '2026-04-16T00:34:54.195Z'
