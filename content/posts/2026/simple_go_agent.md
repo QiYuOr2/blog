@@ -6,8 +6,8 @@ description: 本文以 Go 语言实现的智能旅行助手 Agent Demo 为核心
 category: 技术
 tags: 
   - 从零搭建 Go 语言智能旅行 Agent
-	- 智能旅行助手 Agent 实现步骤
-	- Go 语言 Agent Demo 开发教程
+  - 智能旅行助手 Agent 实现步骤
+  - Go 语言 Agent Demo 开发教程
 ---
 
 - 项目地址：[`labs/agent-go`](https://github.com/QiYuOr2/labs/tree/main/experiments/agent-go)
