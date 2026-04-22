@@ -2,10 +2,12 @@
 title: 通过一个 Agent Demo 了解其原理
 date: 2026/04/20 12:03:33
 pubDate: 2026/04/20 12:03:33
-description: _description_
+description: 本文以 Go 语言实现的智能旅行助手 Agent Demo 为核心，拆解 AI Agent 核心的 Thought-Action-Observation 交互范式，详细讲解环境搭建、LLM 接入、工具封装、主循环实现全流程，帮助开发者快速理解基础 Agent 的工作原理与开发逻辑，轻松上手 Agent 开发。
 category: 技术
 tags: 
-  - Agent
+  - 从零搭建 Go 语言智能旅行 Agent
+	- 智能旅行助手 Agent 实现步骤
+	- Go 语言 Agent Demo 开发教程
 ---
 
 - 项目地址：[`labs/agent-go`](https://github.com/QiYuOr2/labs/tree/main/experiments/agent-go)
@@ -341,7 +343,7 @@ func main() {
 }
 ```
 
-这样我们就完成了一个最基础的 AI Agent，可以运行程序看一下输出结果：
+可以运行程序看一下输出结果：
 
 ```
 用户输入：你好，请帮我查询一下今天东京的天气，然后根据天气推荐一个合适的旅游景点。
