@@ -6,3 +6,4 @@ const PROJECT_ROOT = pathToFileURL(findMonorepoRoot(process.cwd()) + sep)
 
 export const POSTS_DIR = new URL("./content/posts/", PROJECT_ROOT);
 export const MEMOS_DIR = new URL("./content/memos/", PROJECT_ROOT);
+export const WEREAD_DIR = new URL("./content/weread/", PROJECT_ROOT);

@@ -1,0 +1,8 @@
+{
+  "name": "@tabi/scripts",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "fetch-weread": "node ./fetch-weread.mjs"
+  }
+}

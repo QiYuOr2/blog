@@ -31,3 +31,6 @@ dist
 .output
 .vercel
 .astro
+
+.agents
+skills-lock.json

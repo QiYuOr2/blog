@@ -1,0 +1,41 @@
+---
+import PageLayout from "@/layouts/page.astro";
+import { WereadProgress } from "@/features/weread/components/index.tsx";
+import { getCollection } from "astro:content";
+import { getWereadStaticData } from "@/features/weread/model.ts";
+import Comments from "@/components/comments";
+
+
+const wereadData = getWereadStaticData(await getCollection("weread"));
+
+function formatUpdatedAt(timestamp: string) {
+  const date = new Date(timestamp);
+  return date.toLocaleString("zh-CN", {
+    hour12: false,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  });
+}
+---
+
+<PageLayout title="微信读书阅读进度 | @柒宇" description="展示微信读书当前已读书籍与完成状态" post>
+  <article class="mx-auto w-full max-w-[min(62ch,100%)]">
+    <div class="space-y-5">
+      <div class="pb-4 text-xs">
+        数据统计自
+        <a href="https://weread.qq.com/" target="_blank" rel="noopener noreferrer">
+          微信读书
+        </a>
+        最后更新时间：{formatUpdatedAt(wereadData.updatedAt)}
+      </div>
+
+      <WereadProgress data={wereadData} client:load />
+    </div>
+
+    <Comments client:load />
+  </article>
+</PageLayout>

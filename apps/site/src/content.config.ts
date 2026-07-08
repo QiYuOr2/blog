@@ -2,7 +2,8 @@ import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { postsSchema } from './features/posts/schema';
 import { memosSchema } from './features/memo/schema';
-import { POSTS_DIR, MEMOS_DIR } from '@tabi/config/paths'
+import { wereadSchema } from './features/weread/schema';
+import { POSTS_DIR, MEMOS_DIR, WEREAD_DIR } from '@tabi/config/paths'
 
 const posts = defineCollection({
   loader: glob({ pattern:"**/*.{md,mdx}", base: POSTS_DIR }),
@@ -14,4 +15,9 @@ const memos = defineCollection({
   schema: memosSchema
 })
 
-export const collections = { posts, memos };
+const weread = defineCollection({
+  loader: glob({ pattern: "**/*.json", base: WEREAD_DIR }),
+  schema: wereadSchema,
+})
+
+export const collections = { posts, memos, weread };
