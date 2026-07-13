@@ -15,7 +15,7 @@ export function useWereadProgress(data: WereadStaticData, pageSize = DEFAULT_PAG
   }, [data, progressMap])
 
   const [currentPage, setCurrentPage] = useState(1)
-  const [sortKey, setSortKey] = useState<SortKey>('shelfTime')
+  const [sortKey, setSortKey] = useState<SortKey>('publishTime')
 
   useEffect(() => {
     setCurrentPage(1)

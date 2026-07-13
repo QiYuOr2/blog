@@ -8,12 +8,12 @@ export type ReadProgress = {
   finishTime?: number
 }
 
-export type SortKey = 'readTime' | 'progress' | 'shelfTime'
+export type SortKey = 'readTime' | 'progress' | 'publishTime'
 
 export const sortOptions = [
   { value: 'readTime', label: '阅读时长' },
   { value: 'progress', label: '阅读进度' },
-  { value: 'shelfTime', label: '加入书架时间' },
+  { value: 'publishTime', label: '出版时间' },
 ] as const
 
 export function formatDuration(seconds?: number) {
@@ -51,6 +51,13 @@ export function getProgressLabel(item: WereadShelfBook, progress?: ReadProgress)
   return '未知'
 }
 
+function getPublishTimeValue(publishTime?: string) {
+  if (!publishTime) return 0
+
+  const timestamp = Date.parse(publishTime)
+  return Number.isNaN(timestamp) ? 0 : timestamp
+}
+
 export function getSortValue(
   item: WereadShelfBook,
   sortKey: SortKey,
@@ -66,5 +73,5 @@ export function getSortValue(
     return progress?.progress ?? 0
   }
 
-  return item.readUpdateTime ?? 0
+  return getPublishTimeValue(item.publishTime)
 }

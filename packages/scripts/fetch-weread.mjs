@@ -49,6 +49,14 @@ async function fetchShelf() {
   })
 }
 
+async function fetchBookInfo(bookId) {
+  return postApi({
+    api_name: '/book/info',
+    bookId,
+    skill_version: SKILL_VERSION,
+  })
+}
+
 async function fetchBookProgress(bookId) {
   return postApi({
     api_name: '/book/getprogress',
@@ -76,11 +84,25 @@ async function main() {
 
   process.stdout.write('Fetching shelf data... ')
   const shelfData = await fetchShelf()
-  result.shelf = shelfData
   process.stdout.write('done\n')
 
   const books = Array.isArray(shelfData.books) ? shelfData.books : []
+  const enrichedBooks = []
   for (const book of books) {
+    if (!book?.bookId) continue
+    process.stdout.write(`Fetching book info for bookId=${book.bookId}... `)
+    const bookInfo = await fetchBookInfo(book.bookId)
+    const bookDetail = bookInfo.book ?? bookInfo
+    enrichedBooks.push({ ...book, ...bookDetail })
+    process.stdout.write('done\n')
+  }
+
+  result.shelf = {
+    ...shelfData,
+    books: enrichedBooks,
+  }
+
+  for (const book of enrichedBooks) {
     if (!book?.bookId) continue
     process.stdout.write(`Fetching progress for bookId=${book.bookId}... `)
     const bookProgress = await fetchBookProgress(book.bookId)

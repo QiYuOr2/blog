@@ -74,6 +74,7 @@ const wereadShelfBookSchema = z.object({
   deepLink: z.string().optional(),
   finishReading: z.number().optional(),
   readUpdateTime: z.number().optional(),
+  publishTime: z.string().optional(),
 }).passthrough()
 
 const wereadShelfAlbumSchema = z.object({
