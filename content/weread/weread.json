@@ -1,14 +1,64 @@
 {
-  "updatedAt": "2026-07-08T09:58:28.937Z",
+  "updatedAt": "2026-07-13T09:51:08.997Z",
   "modes": {
     "weekly": {
       "readTimes": {
-        "1783267200": 888,
-        "1783353600": 5698,
-        "1783440000": 66
+        "1783872000": 8748
       },
-      "readDays": 3,
+      "readDays": 1,
       "readLongest": [
+        {
+          "book": {
+            "bookId": "27423355",
+            "title": "山",
+            "author": "刘慈欣",
+            "intro": "本书是刘慈欣中短篇科幻小说合集，收录了《山》《朝闻道》《欢乐颂》等众多优秀作品，让我们走进刘慈欣的科幻世界，感受科幻文学的无穷魅力！",
+            "cover": "https://cdn.weread.qq.com/weread/cover/43/yuewen_27423355/s_yuewen_274233551713267903.jpg",
+            "version": 1514111295,
+            "format": "epub",
+            "type": 0,
+            "soldout": 0,
+            "bookStatus": 1,
+            "payType": 4097,
+            "finished": 1,
+            "maxFreeChapter": 3,
+            "maxFreeInfo": {
+              "maxfreeChapterIdx": 3,
+              "maxfreeChapterUid": 40,
+              "maxfreeChapterRatio": 100
+            },
+            "free": 0,
+            "mcardDiscount": 0,
+            "ispub": 1,
+            "extra_type": 5,
+            "cpid": 6701554,
+            "publishTime": "2024-04-01 00:00:00",
+            "lastChapterIdx": 13,
+            "paperBook": {
+              "skuId": ""
+            },
+            "centPrice": 1899,
+            "copyrightChapterUids": [
+              39
+            ],
+            "inStoreBookId": "",
+            "blockSaveImg": 0,
+            "language": "zh",
+            "isTraditionalChinese": false,
+            "hideUpdateTime": false,
+            "isEPUBComics": 0,
+            "isVerticalLayout": 0,
+            "isShowTTS": 1,
+            "selfProduceIncentive": false,
+            "webBookControl": 0,
+            "isAutoDownload": 1
+          },
+          "readTime": 5569,
+          "tags": [
+            "笔记最多",
+            "单日阅读最久"
+          ]
+        },
         {
           "book": {
             "bookId": "856134",
@@ -56,11 +106,8 @@
             "webBookControl": 0,
             "isAutoDownload": 1
           },
-          "readTime": 6598,
-          "tags": [
-            "笔记最多",
-            "单日阅读最久"
-          ]
+          "readTime": 3029,
+          "tags": []
         }
       ],
       "rank": {
@@ -68,10 +115,10 @@
         "scheme": "weread://fRank"
       },
       "registTime": 1574756874,
-      "compare": 1.045510455104551,
-      "dayAverageReadTime": 2217,
-      "baseTime": 1783267200,
-      "totalReadTime": 6652,
+      "compare": 3.5396990140114166,
+      "dayAverageReadTime": 8748,
+      "baseTime": 1783872000,
+      "totalReadTime": 8748,
       "readDistributionWord": "点评分布",
       "preferBooks": [
         {
@@ -90,38 +137,37 @@
           "type": 5,
           "title": "思考最多",
           "bookInfo": {
-            "bookId": "856134",
-            "title": "我是猫（经典译林）",
-            "author": "夏目漱石",
-            "translator": "于雷",
-            "intro": "本书是日本文学大师夏目漱石的代表作，一向被奉为世界名著之一。小说通过猫的视觉观察明治维新后的日本社会，以幽默辛辣的语言，嘲笑和鞭挞了人类固有的弱点和金钱世界的社会时弊，还大量引用了古今东西哲人达士的名言，处处闪射着机智和文采，喜笑怒骂皆成文章。作品语言则典俚合炉，雅俗共赏，读来令人在笑声中抑制不住惊叹。",
-            "cover": "https://wfqqreader-1252317822.image.myqcloud.com/cover/134/856134/s_856134.jpg",
-            "version": 1021348803,
+            "bookId": "27423355",
+            "title": "山",
+            "author": "刘慈欣",
+            "intro": "本书是刘慈欣中短篇科幻小说合集，收录了《山》《朝闻道》《欢乐颂》等众多优秀作品，让我们走进刘慈欣的科幻世界，感受科幻文学的无穷魅力！",
+            "cover": "https://cdn.weread.qq.com/weread/cover/43/yuewen_27423355/s_yuewen_274233551713267903.jpg",
+            "version": 1514111295,
             "format": "epub",
             "type": 0,
             "soldout": 0,
             "bookStatus": 1,
             "payType": 4097,
             "finished": 1,
-            "maxFreeChapter": 6,
+            "maxFreeChapter": 3,
             "maxFreeInfo": {
-              "maxfreeChapterIdx": 6,
-              "maxfreeChapterUid": 6,
-              "maxfreeChapterRatio": 30
+              "maxfreeChapterIdx": 3,
+              "maxfreeChapterUid": 40,
+              "maxfreeChapterRatio": 100
             },
             "free": 0,
             "mcardDiscount": 0,
             "ispub": 1,
             "extra_type": 5,
-            "cpid": 13583905,
-            "publishTime": "2017-06-01 00:00:00",
-            "lastChapterIdx": 15,
+            "cpid": 6701554,
+            "publishTime": "2024-04-01 00:00:00",
+            "lastChapterIdx": 13,
             "paperBook": {
               "skuId": ""
             },
-            "centPrice": 1999,
+            "centPrice": 1899,
             "copyrightChapterUids": [
-              2
+              39
             ],
             "inStoreBookId": "",
             "blockSaveImg": 0,
@@ -181,9 +227,14 @@
         "1783180800": 731,
         "1783267200": 888,
         "1783353600": 5698,
-        "1783440000": 66
+        "1783440000": 82,
+        "1783526400": 3655,
+        "1783612800": 2748,
+        "1783699200": 77,
+        "1783785600": 341,
+        "1783872000": 8748
       },
-      "readDays": 8,
+      "readDays": 13,
       "readLongest": [
         {
           "book": {
@@ -232,11 +283,60 @@
             "webBookControl": 0,
             "isAutoDownload": 1
           },
-          "readTime": 13182,
+          "readTime": 22037,
           "tags": [
             "笔记最多",
             "单日阅读最久"
           ]
+        },
+        {
+          "book": {
+            "bookId": "27423355",
+            "title": "山",
+            "author": "刘慈欣",
+            "intro": "本书是刘慈欣中短篇科幻小说合集，收录了《山》《朝闻道》《欢乐颂》等众多优秀作品，让我们走进刘慈欣的科幻世界，感受科幻文学的无穷魅力！",
+            "cover": "https://cdn.weread.qq.com/weread/cover/43/yuewen_27423355/s_yuewen_274233551713267903.jpg",
+            "version": 1514111295,
+            "format": "epub",
+            "type": 0,
+            "soldout": 0,
+            "bookStatus": 1,
+            "payType": 4097,
+            "finished": 1,
+            "maxFreeChapter": 3,
+            "maxFreeInfo": {
+              "maxfreeChapterIdx": 3,
+              "maxfreeChapterUid": 40,
+              "maxfreeChapterRatio": 100
+            },
+            "free": 0,
+            "mcardDiscount": 0,
+            "ispub": 1,
+            "extra_type": 5,
+            "cpid": 6701554,
+            "publishTime": "2024-04-01 00:00:00",
+            "lastChapterIdx": 13,
+            "paperBook": {
+              "skuId": ""
+            },
+            "centPrice": 1899,
+            "copyrightChapterUids": [
+              39
+            ],
+            "inStoreBookId": "",
+            "blockSaveImg": 0,
+            "language": "zh",
+            "isTraditionalChinese": false,
+            "hideUpdateTime": false,
+            "isEPUBComics": 0,
+            "isVerticalLayout": 0,
+            "isShowTTS": 1,
+            "selfProduceIncentive": false,
+            "webBookControl": 0,
+            "isAutoDownload": 1
+          },
+          "readTime": 6494,
+          "tags": []
         }
       ],
       "preferCategory": [
@@ -246,7 +346,7 @@
           "parentCategoryId": 300000,
           "parentCategoryTitle": "文学",
           "readingCount": 1,
-          "readingTime": 13116
+          "readingTime": 19008
         },
         {
           "categoryId": 100001,
@@ -254,7 +354,15 @@
           "parentCategoryId": 100000,
           "parentCategoryTitle": "精品小说",
           "readingCount": 1,
-          "readingTime": 13116
+          "readingTime": 19008
+        },
+        {
+          "categoryId": 100004,
+          "categoryTitle": "科幻小说",
+          "parentCategoryId": 100000,
+          "parentCategoryTitle": "精品小说",
+          "readingCount": 1,
+          "readingTime": 925
         },
         {
           "categoryId": 1000000,
@@ -295,40 +403,32 @@
           "parentCategoryTitle": "哲学宗教",
           "readingCount": 0,
           "readingTime": 0
-        },
-        {
-          "categoryId": 800000,
-          "categoryTitle": "心理",
-          "parentCategoryId": 800000,
-          "parentCategoryTitle": "心理",
-          "readingCount": 0,
-          "readingTime": 0
         }
       ],
       "preferCategoryWord": "偏好阅读文学",
       "readStat": [
         {
           "stat": "读过",
-          "counts": "1本"
+          "counts": "3本"
         },
         {
           "stat": "读完",
-          "counts": "0本"
+          "counts": "1本"
         },
         {
           "stat": "阅读",
-          "counts": "8天"
+          "counts": "13天"
         },
         {
           "stat": "笔记",
-          "counts": "19条"
+          "counts": "44条"
         }
       ],
       "registTime": 1574756874,
-      "compare": -0.1987189829305282,
-      "dayAverageReadTime": 1655,
+      "compare": 0.07335132035851609,
+      "dayAverageReadTime": 2217,
       "baseTime": 1782835200,
-      "totalReadTime": 13244,
+      "totalReadTime": 28829,
       "readDistributionWord": "点评分布",
       "preferBooks": [
         {
@@ -455,7 +555,7 @@
             "webBookControl": 0,
             "isAutoDownload": 1
           },
-          "reason": "阅读了4小时"
+          "reason": "阅读了6小时"
         },
         {
           "type": 2,
@@ -484,14 +584,14 @@
         "1774972800": 37152,
         "1777564800": 20570,
         "1780243200": 61982,
-        "1782835200": 13244,
+        "1782835200": 28829,
         "1785513600": 0,
         "1788192000": 0,
         "1790784000": 0,
         "1793462400": 0,
         "1796054400": 0
       },
-      "readDays": 88,
+      "readDays": 93,
       "readRecordsWord": "书籍分布",
       "readLongest": [
         {
@@ -694,7 +794,7 @@
             "webBookControl": 0,
             "isAutoDownload": 1
           },
-          "readTime": 15880,
+          "readTime": 24735,
           "tags": []
         },
         {
@@ -735,6 +835,55 @@
             "isAutoDownload": 1
           },
           "readTime": 9488,
+          "tags": []
+        },
+        {
+          "book": {
+            "bookId": "27423355",
+            "title": "山",
+            "author": "刘慈欣",
+            "intro": "本书是刘慈欣中短篇科幻小说合集，收录了《山》《朝闻道》《欢乐颂》等众多优秀作品，让我们走进刘慈欣的科幻世界，感受科幻文学的无穷魅力！",
+            "cover": "https://cdn.weread.qq.com/weread/cover/43/yuewen_27423355/s_yuewen_274233551713267903.jpg",
+            "version": 1514111295,
+            "format": "epub",
+            "type": 0,
+            "soldout": 0,
+            "bookStatus": 1,
+            "payType": 4097,
+            "finished": 1,
+            "maxFreeChapter": 3,
+            "maxFreeInfo": {
+              "maxfreeChapterIdx": 3,
+              "maxfreeChapterUid": 40,
+              "maxfreeChapterRatio": 100
+            },
+            "free": 0,
+            "mcardDiscount": 0,
+            "ispub": 1,
+            "extra_type": 5,
+            "cpid": 6701554,
+            "publishTime": "2024-04-01 00:00:00",
+            "lastChapterIdx": 13,
+            "paperBook": {
+              "skuId": ""
+            },
+            "centPrice": 1899,
+            "copyrightChapterUids": [
+              39
+            ],
+            "inStoreBookId": "",
+            "blockSaveImg": 0,
+            "language": "zh",
+            "isTraditionalChinese": false,
+            "hideUpdateTime": false,
+            "isEPUBComics": 0,
+            "isVerticalLayout": 0,
+            "isShowTTS": 1,
+            "selfProduceIncentive": false,
+            "webBookControl": 0,
+            "isAutoDownload": 1
+          },
+          "readTime": 7947,
           "tags": []
         },
         {
@@ -906,46 +1055,6 @@
           },
           "readTime": 3513,
           "tags": []
-        },
-        {
-          "book": {
-            "bookId": "CB_Alq6uM6rm6gL70z71YFqjDkm",
-            "title": "我们不可能成为恋人！绝对不行。(※似乎可行？) 第八卷",
-            "author": "竹嶋えく",
-            "cover": "https://res.weread.qq.com/wrepub/CB_Fiu6CS6C24Fl6z36xE9VJ0Fa_parsecover",
-            "version": 1671041678,
-            "format": "epub",
-            "type": 0,
-            "soldout": 0,
-            "bookStatus": 1,
-            "payType": 134217761,
-            "finished": 1,
-            "free": 1,
-            "mcardDiscount": 0,
-            "ispub": 0,
-            "cpid": 0,
-            "publishTime": "",
-            "lastChapterIdx": 12,
-            "paperBook": {
-              "skuId": ""
-            },
-            "centPrice": 0,
-            "copyrightChapterUids": [],
-            "limitShareChat": 0,
-            "inStoreBookId": "",
-            "blockSaveImg": 0,
-            "language": "zh-wr",
-            "isTraditionalChinese": false,
-            "hideUpdateTime": false,
-            "isEPUBComics": 0,
-            "isVerticalLayout": 0,
-            "isShowTTS": 1,
-            "selfProduceIncentive": false,
-            "webBookControl": 0,
-            "isAutoDownload": 1
-          },
-          "readTime": 3311,
-          "tags": []
         }
       ],
       "preferCategory": [
@@ -955,7 +1064,7 @@
           "parentCategoryId": 300000,
           "parentCategoryTitle": "文学",
           "readingCount": 6,
-          "readingTime": 137591
+          "readingTime": 143483
         },
         {
           "categoryId": 100001,
@@ -963,7 +1072,7 @@
           "parentCategoryId": 100000,
           "parentCategoryTitle": "精品小说",
           "readingCount": 4,
-          "readingTime": 130245
+          "readingTime": 136137
         },
         {
           "categoryId": 100021,
@@ -995,7 +1104,7 @@
           "parentCategoryId": 100000,
           "parentCategoryTitle": "精品小说",
           "readingCount": 1,
-          "readingTime": 1453
+          "readingTime": 2378
         },
         {
           "categoryId": 900000,
@@ -1018,26 +1127,26 @@
       "readStat": [
         {
           "stat": "读过",
-          "counts": "21本"
+          "counts": "22本"
         },
         {
           "stat": "读完",
-          "counts": "8本"
+          "counts": "9本"
         },
         {
           "stat": "阅读",
-          "counts": "88天"
+          "counts": "93天"
         },
         {
           "stat": "笔记",
-          "counts": "552条"
+          "counts": "577条"
         }
       ],
       "registTime": 1574756874,
-      "compare": 1.627568023438296,
-      "dayAverageReadTime": 1546,
+      "compare": 1.6963054880963364,
+      "dayAverageReadTime": 1587,
       "baseTime": 1767196800,
-      "totalReadTime": 292362,
+      "totalReadTime": 307947,
       "readDistributionWord": "点评分布",
       "preferBooks": [
         {
@@ -1240,9 +1349,9 @@
         "1672502400": 121252,
         "1704038400": 289086,
         "1735660800": 214881,
-        "1767196800": 292362
+        "1767196800": 307947
       },
-      "readDays": 823,
+      "readDays": 828,
       "readLongest": [
         {
           "book": {
@@ -1746,7 +1855,7 @@
           "parentCategoryId": 300000,
           "parentCategoryTitle": "文学",
           "readingCount": 26,
-          "readingTime": 570644
+          "readingTime": 576536
         },
         {
           "categoryId": 100001,
@@ -1754,7 +1863,7 @@
           "parentCategoryId": 100000,
           "parentCategoryTitle": "精品小说",
           "readingCount": 12,
-          "readingTime": 340931
+          "readingTime": 346823
         },
         {
           "categoryId": 100012,
@@ -1765,14 +1874,6 @@
           "readingTime": 149678
         },
         {
-          "categoryId": 100021,
-          "categoryTitle": "年代小说",
-          "parentCategoryId": 100000,
-          "parentCategoryTitle": "精品小说",
-          "readingCount": 1,
-          "readingTime": 74887
-        },
-        {
           "categoryId": 800000,
           "categoryTitle": "心理",
           "parentCategoryId": 800000,
@@ -1781,12 +1882,20 @@
           "readingTime": 76433
         },
         {
+          "categoryId": 100021,
+          "categoryTitle": "年代小说",
+          "parentCategoryId": 100000,
+          "parentCategoryTitle": "精品小说",
+          "readingCount": 1,
+          "readingTime": 74887
+        },
+        {
           "categoryId": 100004,
           "categoryTitle": "科幻小说",
           "parentCategoryId": 100000,
           "parentCategoryTitle": "精品小说",
           "readingCount": 5,
-          "readingTime": 68664
+          "readingTime": 69589
         },
         {
           "categoryId": 100006,
@@ -1808,30 +1917,30 @@
       "preferCategoryWord": "偏好阅读文学",
       "preferTimeWord": "偏好深夜阅读",
       "preferTime": [
-        49880,
+        50328,
         40839,
         42674,
         24473,
         29209,
         36785,
         38711,
-        38211,
+        38272,
         29065,
-        38700,
+        38990,
         43250,
-        42816,
-        24680,
-        27059,
+        42893,
+        24718,
+        27075,
         22301,
         24166,
         26741,
         30594,
-        50933,
-        46973,
-        48457,
-        66091,
-        65185,
-        59448
+        51129,
+        48667,
+        49759,
+        67861,
+        65824,
+        59820
       ],
       "preferAuthor": [
         {
@@ -1920,20 +2029,20 @@
         {
           "count": 4,
           "copyrightInfo": {
-            "name": "果麦文化",
-            "userVid": 290625916,
+            "name": "人民文学出版社有限公司",
+            "userVid": 136179393,
             "role": 2,
-            "avatar": "https://res.weread.qq.com/wravatar/WV0002-ewckDJVkN2UQIDFW8MxCdf1/0",
+            "avatar": "https://res.weread.qq.com/wravatar/WV0022-gEHgWLbrU04n1d2CYWnjua9/0",
             "cpType": 0
           }
         },
         {
           "count": 4,
           "copyrightInfo": {
-            "name": "人民文学出版社有限公司",
-            "userVid": 136179393,
+            "name": "果麦文化",
+            "userVid": 290625916,
             "role": 2,
-            "avatar": "https://res.weread.qq.com/wravatar/WV0022-gEHgWLbrU04n1d2CYWnjua9/0",
+            "avatar": "https://res.weread.qq.com/wravatar/WV0002-ewckDJVkN2UQIDFW8MxCdf1/0",
             "cpType": 0
           }
         },
@@ -1970,17 +2079,17 @@
         {
           "count": 1,
           "copyrightInfo": {
-            "name": "微信读书出品",
-            "userVid": 438541605,
+            "name": "磨铁数盟",
+            "userVid": 351681843,
             "role": 2,
-            "avatar": "https://res.weread.qq.com/wravatar/WV0021-Lwot73JgkLO_EghtiM3Cyd9/0",
-            "cpType": 1
+            "avatar": "https://res.weread.qq.com/wravatar/WV0017-cUI0kK2KX6ntOCxNQl7Jnb9/0",
+            "cpType": 0
           }
         },
         {
           "count": 1,
           "copyrightInfo": {
-            "name": "机械工业出版社",
+            "name": "中文在线",
             "userVid": 0,
             "role": 0,
             "avatar": "",
@@ -1990,10 +2099,10 @@
         {
           "count": 1,
           "copyrightInfo": {
-            "name": "上海译文出版社",
-            "userVid": 331381138,
+            "name": "中信出版集团",
+            "userVid": 168010251,
             "role": 2,
-            "avatar": "https://wx.qlogo.cn/mmhead/AbruuZ3ILCltXXeXfuNnO0WxpcibFJCvM6T7tgzbZXQszHnahNxBtYQ/0",
+            "avatar": "https://res.weread.qq.com/wravatar/WV0024-U1iMC6kMGhnrmZPNpypE~a6/0",
             "cpType": 0
           }
         }
@@ -2004,11 +2113,11 @@
           "count": 6
         },
         {
-          "name": "译林出版社",
+          "name": "江苏凤凰文艺出版社",
           "count": 3
         },
         {
-          "name": "江苏凤凰文艺出版社",
+          "name": "译林出版社",
           "count": 3
         },
         {
@@ -2020,11 +2129,15 @@
           "count": 2
         },
         {
-          "name": "云南人民出版社",
+          "name": "中信出版集团",
           "count": 1
         },
         {
-          "name": "上海译文出版社",
+          "name": "北京出版集团北京十月文艺出版社",
+          "count": 1
+        },
+        {
+          "name": "云南人民出版社",
           "count": 1
         },
         {
@@ -2032,11 +2145,7 @@
           "count": 1
         },
         {
-          "name": "机械工业出版社",
-          "count": 1
-        },
-        {
-          "name": "湖南文艺出版社",
+          "name": "上海译文出版社",
           "count": 1
         }
       ],
@@ -2047,15 +2156,15 @@
         },
         {
           "stat": "读完",
-          "counts": "60本"
+          "counts": "61本"
         },
         {
           "stat": "阅读",
-          "counts": "823天"
+          "counts": "828天"
         },
         {
           "stat": "笔记",
-          "counts": "1921条"
+          "counts": "1946条"
         }
       ],
       "medals": [
@@ -2067,7 +2176,7 @@
           "ctime": 1783353970,
           "atime": 1783353970,
           "rank": 1435177,
-          "users": 1436879,
+          "users": 1442757,
           "hint": "21天阅读挑战",
           "renderItem": "07 / 07",
           "name": "21天阅读挑战",
@@ -2108,7 +2217,7 @@
           "ctime": 1767644601,
           "atime": 1767644840,
           "rank": 592433,
-          "users": 643531,
+          "users": 644784,
           "hint": "想法发布 200 条",
           "renderItem": "01 / 06",
           "name": "想法发布",
@@ -2127,7 +2236,7 @@
           "ctime": 1766688692,
           "atime": 1766690180,
           "rank": 1100067,
-          "users": 1145365,
+          "users": 1146339,
           "hint": "发布 10 个点评",
           "renderItem": "12 / 26",
           "name": "点评书籍",
@@ -2146,7 +2255,7 @@
           "ctime": 1751926209,
           "atime": 1751926349,
           "rank": 1242967,
-          "users": 1415297,
+          "users": 1417650,
           "hint": "读完 50 本书籍",
           "renderItem": "07 / 08",
           "name": "读完书籍",
@@ -2231,7 +2340,7 @@
           "ctime": 1737908796,
           "atime": 1737912795,
           "rank": 918216,
-          "users": 1159823,
+          "users": 1161827,
           "hint": "想法发布 100 条",
           "renderItem": "01 / 27",
           "name": "想法发布",
@@ -2250,7 +2359,7 @@
           "ctime": 1737520044,
           "atime": 1737520200,
           "rank": 3271605,
-          "users": 4139062,
+          "users": 4145387,
           "hint": "阅读 10 本神作",
           "renderItem": "01 / 22",
           "name": "阅读神作",
@@ -2269,7 +2378,7 @@
           "ctime": 1727953574,
           "atime": 1727954028,
           "rank": 1462784,
-          "users": 1928199,
+          "users": 1931196,
           "hint": "想法发布 50 条",
           "renderItem": "10 / 03",
           "name": "想法发布",
@@ -2288,7 +2397,7 @@
           "ctime": 1726147758,
           "atime": 1726147820,
           "rank": 5113740,
-          "users": 6393252,
+          "users": 6399893,
           "hint": "阅读 50 本书籍",
           "renderItem": "09 / 12",
           "name": "阅读书籍",
@@ -2307,7 +2416,7 @@
           "ctime": 1714278927,
           "atime": 1714278937,
           "rank": 3594205,
-          "users": 4904961,
+          "users": 4911798,
           "hint": "想法发布 10 条",
           "renderItem": "04 / 28",
           "name": "想法发布",
@@ -2326,7 +2435,7 @@
           "ctime": 1705220132,
           "atime": 1705620888,
           "rank": 3444812,
-          "users": 4588817,
+          "users": 4592398,
           "hint": "阅读 500 天",
           "renderItem": "01 / 19",
           "name": "阅读天数",
@@ -2345,7 +2454,7 @@
           "ctime": 1695932077,
           "atime": 1695932380,
           "rank": 1058414,
-          "users": 2067441,
+          "users": 2069146,
           "hint": "发布 5 个点评",
           "renderItem": "09 / 29",
           "name": "点评书籍",
@@ -2364,7 +2473,7 @@
           "ctime": 1691953841,
           "atime": 1691955308,
           "rank": 2919097,
-          "users": 7390257,
+          "users": 7399553,
           "hint": "阅读 5 本神作",
           "renderItem": "08 / 14",
           "name": "阅读神作",
@@ -2383,7 +2492,7 @@
           "ctime": 1690498622,
           "atime": 1691419694,
           "rank": 3909699,
-          "users": 6079990,
+          "users": 6086115,
           "hint": "读完 10 本书籍",
           "renderItem": "08 / 07",
           "name": "读完书籍",
@@ -2402,13 +2511,13 @@
           "ctime": 1651686655,
           "atime": 1652424203,
           "rank": 112730,
-          "users": 315882,
+          "users": 316334,
           "hint": "连续阅读 365 天",
           "renderItem": "05 / 13",
           "name": "连续阅读",
           "index": 17,
           "availableCond": "累积达到365天",
-          "tip": "再连续阅读 343 天可得",
+          "tip": "再连续阅读 338 天可得",
           "title": "连续阅读",
           "rankText": "第112730位获得此勋章的书友",
           "displayText": "连续阅读 365 天"
@@ -2421,7 +2530,7 @@
           "ctime": 1645056630,
           "atime": 1645395930,
           "rank": 2235359,
-          "users": 6002599,
+          "users": 6006974,
           "hint": "阅读 365 天",
           "renderItem": "02 / 21",
           "name": "阅读天数",
@@ -2440,7 +2549,7 @@
           "ctime": 1644379106,
           "atime": 1644449986,
           "rank": 3107020,
-          "users": 9180081,
+          "users": 9187473,
           "hint": "阅读 100 小时",
           "renderItem": "02 / 10",
           "name": "阅读时长",
@@ -2459,7 +2568,7 @@
           "ctime": 1632847954,
           "atime": 1636090698,
           "rank": 1409195,
-          "users": 8767943,
+          "users": 8773914,
           "hint": "阅读 200 天",
           "renderItem": "11 / 05",
           "name": "阅读天数",
@@ -2478,7 +2587,7 @@
           "ctime": 1632847954,
           "atime": 1636090698,
           "rank": 1700007,
-          "users": 11809540,
+          "users": 11817550,
           "hint": "阅读 100 天",
           "renderItem": "11 / 05",
           "name": "阅读天数",
@@ -2497,13 +2606,13 @@
           "ctime": 1635702892,
           "atime": 1636090698,
           "rank": 164249,
-          "users": 859766,
+          "users": 860770,
           "hint": "连续阅读 180 天",
           "renderItem": "11 / 05",
           "name": "连续阅读",
           "index": 22,
           "availableCond": "累积达到180天",
-          "tip": "再连续阅读 158 天可得",
+          "tip": "再连续阅读 153 天可得",
           "title": "连续阅读",
           "rankText": "第164249位获得此勋章的书友",
           "displayText": "连续阅读 180 天"
@@ -2516,13 +2625,13 @@
           "ctime": 1632847954,
           "atime": 1636090698,
           "rank": 395670,
-          "users": 1921040,
+          "users": 1923126,
           "hint": "连续阅读 90 天",
           "renderItem": "11 / 05",
           "name": "连续阅读",
           "index": 23,
           "availableCond": "累积达到90天",
-          "tip": "再连续阅读 68 天可得",
+          "tip": "再连续阅读 63 天可得",
           "title": "连续阅读",
           "rankText": "第395670位获得此勋章的书友",
           "displayText": "连续阅读 90 天"
@@ -2535,13 +2644,13 @@
           "ctime": 1632847954,
           "atime": 1636090698,
           "rank": 988203,
-          "users": 5355406,
+          "users": 5359949,
           "hint": "连续阅读 30 天",
           "renderItem": "11 / 05",
           "name": "连续阅读",
           "index": 24,
           "availableCond": "累积达到30天",
-          "tip": "再连续阅读 8 天可得",
+          "tip": "再连续阅读 3 天可得",
           "title": "连续阅读",
           "rankText": "第988203位获得此勋章的书友",
           "displayText": "连续阅读 30 天"
@@ -2550,7 +2659,7 @@
       "registTime": 1574756874,
       "readDistributionWord": "点评分布",
       "baseTime": 0,
-      "totalReadTime": 1374631,
+      "totalReadTime": 1390216,
       "readRecordsWord": "书籍分布",
       "preferBooks": [
         {
@@ -3520,8 +3629,8 @@
         "cover": "https://weread-1258476243.file.myqcloud.com/app/assets/bookcover/book_cover_default_imported_03.png",
         "updateTime": 1744521176,
         "secret": 1,
-        "finishReading": 0,
-        "readUpdateTime": 1746605982
+        "finishReading": 1,
+        "readUpdateTime": 1783508702
       },
       {
         "bookId": "CB_CQf5y95w05ge6oq6p16WME18",
@@ -3777,7 +3886,7 @@
         "updateTime": 1712033491,
         "cover": "https://cdn.weread.qq.com/weread/cover/58/cpplatform_a5njcwfpnft1sqfphpo5tb/t6_cpplatform_a5njcwfpnft1sqfphpo5tb1679464085.jpg",
         "finishReading": 0,
-        "readUpdateTime": 1783421404,
+        "readUpdateTime": 1783936169,
         "secret": 0,
         "category": "文学-外国文学"
       },
@@ -3804,6 +3913,18 @@
         "readUpdateTime": 1781679774,
         "secret": 0,
         "category": "精品小说-社会小说"
+      },
+      {
+        "bookId": "3300024943",
+        "deepLink": "https://weread.qq.com/book-detail?type=1&v=3de32670813ab703eg013597",
+        "title": "一句顶一万句（2022新版）",
+        "author": "刘震云",
+        "cover": "https://cdn.weread.qq.com/weread/cover/43/3300024943/t6_3300024943.jpg",
+        "category": "精品小说-年代小说",
+        "finishReading": 0,
+        "readUpdateTime": 1783888170,
+        "secret": 0,
+        "updateTime": 1760174409
       },
       {
         "bookId": "853107",
@@ -3860,7 +3981,7 @@
         "cover": "https://cdn.weread.qq.com/weread/cover/67/YueWen_31418044/t6_YueWen_31418044.jpg",
         "category": "文学-语言文字",
         "finishReading": 0,
-        "readUpdateTime": 1783321990,
+        "readUpdateTime": 1783888308,
         "secret": 0,
         "updateTime": 1760166860
       },
@@ -3896,7 +4017,7 @@
         "cover": "https://cdn.weread.qq.com/weread/cover/43/yuewen_27423355/t6_yuewen_274233551713267903.jpg",
         "category": "精品小说-科幻小说",
         "finishReading": 0,
-        "readUpdateTime": 1775172107,
+        "readUpdateTime": 1783936142,
         "secret": 0,
         "updateTime": 1760168949
       },
@@ -3920,7 +4041,7 @@
         "updateTime": 1760166846,
         "cover": "https://wfqqreader-1252317822.image.myqcloud.com/cover/385/25615385/t6_25615385.jpg",
         "finishReading": 1,
-        "readUpdateTime": 1714461701,
+        "readUpdateTime": 1783887840,
         "secret": 0,
         "category": "心理-积极心理学"
       },
@@ -4285,6 +4406,18 @@
         "updateTime": 1749612837
       },
       {
+        "bookId": "33820335",
+        "deepLink": "https://weread.qq.com/book-detail?type=1&v=66f3293072040eaf66fa576",
+        "title": "喧哗与骚动（人文社外国文学名著经典·网格本）",
+        "author": "威廉·福克纳",
+        "updateTime": 1779091263,
+        "cover": "https://cdn.weread.qq.com/weread/cover/87/YueWen_33820335/t6_YueWen_33820335.jpg",
+        "finishReading": 0,
+        "readUpdateTime": 1783890018,
+        "secret": 0,
+        "category": "精品小说-社会小说"
+      },
+      {
         "bookId": "927220",
         "deepLink": "https://weread.qq.com/book-detail?type=1&v=43c323205e25f443c9d4868",
         "title": "心",
@@ -4450,7 +4583,7 @@
         "finishReading": 0,
         "readUpdateTime": 1756965198,
         "secret": 0,
-        "updateTime": 1782288078
+        "updateTime": 1783509099
       },
       {
         "bookId": "3300020527",
@@ -4484,7 +4617,7 @@
         "updateTime": 1760176053,
         "cover": "https://wfqqreader-1252317822.image.myqcloud.com/cover/134/856134/t6_856134.jpg",
         "finishReading": 0,
-        "readUpdateTime": 1783494645,
+        "readUpdateTime": 1783889571,
         "secret": 0,
         "category": "文学-外国文学"
       },
@@ -5253,15 +5386,15 @@
       "appId": "239270826",
       "bookVersion": 1021348803,
       "reviewId": "",
-      "chapterUid": 7,
-      "chapterOffset": 22892,
-      "chapterIdx": 7,
-      "updateTime": 1783494645,
-      "synckey": 1601852051,
-      "summary": "“哈哈哈……”\n二人不约而同地笑得前仰后合。那位鼻子夫人有点",
+      "chapterUid": 10,
+      "chapterOffset": 0,
+      "chapterIdx": 10,
+      "updateTime": 1783889571,
+      "synckey": 2033994582,
+      "summary": "如此溽暑，纵然是猫也受不住的。听说英国有个叫什么西德尼[插图",
       "repairOffsetTime": 0,
-      "readingTime": 15880,
-      "progress": 24,
+      "readingTime": 24735,
+      "progress": 43,
       "isStartReading": 1,
       "ttsTime": 0,
       "startReadingTime": 1782581082,
@@ -5587,17 +5720,17 @@
       "recordReadingTime": 0
     },
     "25615385": {
-      "appId": "12224398",
-      "bookVersion": 1867503969,
+      "appId": "239270826",
+      "bookVersion": 0,
       "reviewId": "",
       "chapterUid": 178,
-      "chapterOffset": 414,
-      "chapterIdx": 15,
-      "updateTime": 1714461711,
-      "synckey": 60117775,
-      "summary": "作译者简介岸见一郎哲学家。1956年生于",
+      "chapterOffset": 0,
+      "chapterIdx": 21,
+      "updateTime": 1783887840,
+      "synckey": 180391453,
+      "summary": "岸见一郎\n哲学家。1956年生于京都，现居京都。高中时便以哲",
       "repairOffsetTime": 1714461711,
-      "readingTime": 15791,
+      "readingTime": 15794,
       "progress": 100,
       "isStartReading": 1,
       "ttsTime": 0,
@@ -5755,15 +5888,15 @@
       "appId": "239270826",
       "bookVersion": 1514111295,
       "reviewId": "",
-      "chapterUid": 40,
-      "chapterOffset": 10994,
-      "chapterIdx": 3,
-      "updateTime": 1775172107,
-      "synckey": 1815971864,
-      "summary": "巨井的井口就是外星飞船，它像太空中的一盏大灯，将蓝色的光芒投",
+      "chapterUid": 42,
+      "chapterOffset": 1337,
+      "chapterIdx": 5,
+      "updateTime": 1783936142,
+      "synckey": 551987257,
+      "summary": "礼物\n事情是从十年前开始的，当时，吞食帝国刚刚完成了对太阳系",
       "repairOffsetTime": 0,
-      "readingTime": 1453,
-      "progress": 4,
+      "readingTime": 7947,
+      "progress": 23,
       "isStartReading": 1,
       "ttsTime": 0,
       "startReadingTime": 1775170604,
@@ -5803,14 +5936,17 @@
       "recordReadingTime": 0
     },
     "31418044": {
-      "appId": "",
+      "appId": "239270826",
       "bookVersion": 0,
       "reviewId": "",
-      "chapterUid": 0,
+      "chapterUid": 4,
       "chapterOffset": 0,
-      "updateTime": 1783321990,
+      "chapterIdx": 4,
+      "updateTime": 1783888308,
+      "synckey": 884413531,
+      "summary": "2019年4月9日，中国心理学权威期刊《心理学报》发布“中国",
       "repairOffsetTime": 0,
-      "readingTime": 0,
+      "readingTime": 169,
       "progress": 0,
       "isStartReading": 0,
       "ttsTime": 0,
@@ -5941,6 +6077,24 @@
       "synckey": 1368887611,
       "repairOffsetTime": 0,
       "readingTime": 0,
+      "progress": 0,
+      "isStartReading": 0,
+      "ttsTime": 0,
+      "startReadingTime": 0,
+      "installId": "",
+      "recordReadingTime": 0
+    },
+    "33820335": {
+      "appId": "239270826",
+      "bookVersion": 1627584286,
+      "reviewId": "",
+      "chapterUid": 1,
+      "chapterOffset": 0,
+      "chapterIdx": 1,
+      "updateTime": 1783890018,
+      "synckey": 884362048,
+      "repairOffsetTime": 0,
+      "readingTime": 2,
       "progress": 0,
       "isStartReading": 0,
       "ttsTime": 0,
@@ -6366,6 +6520,22 @@
       "installId": "",
       "recordReadingTime": 0
     },
+    "3300024943": {
+      "appId": "",
+      "bookVersion": 0,
+      "reviewId": "",
+      "chapterUid": 0,
+      "chapterOffset": 0,
+      "updateTime": 1783888170,
+      "repairOffsetTime": 0,
+      "readingTime": 0,
+      "progress": 0,
+      "isStartReading": 0,
+      "ttsTime": 0,
+      "startReadingTime": 0,
+      "installId": "",
+      "recordReadingTime": 0
+    },
     "3300030519": {
       "appId": "",
       "bookVersion": 0,
@@ -6401,14 +6571,17 @@
       "recordReadingTime": 0
     },
     "3300053214": {
-      "appId": "",
+      "appId": "239270826",
       "bookVersion": 0,
       "reviewId": "",
-      "chapterUid": 0,
+      "chapterUid": 1,
       "chapterOffset": 0,
-      "updateTime": 1783421404,
+      "chapterIdx": 1,
+      "updateTime": 1783936169,
+      "synckey": 884362048,
+      "summary": "“穿过县境上长长的隧道，便是雪国。夜空下，大地赫然一片莹白…",
       "repairOffsetTime": 0,
-      "readingTime": 0,
+      "readingTime": 46,
       "progress": 0,
       "isStartReading": 0,
       "ttsTime": 0,
@@ -7286,23 +7459,24 @@
       "recordReadingTime": 0
     },
     "CB_7Dn1QZ1QSCDq6pO6p10guCQ6": {
-      "appId": "12224395",
-      "bookVersion": 0,
+      "appId": "239270826",
+      "bookVersion": 448244286,
       "reviewId": "",
       "chapterUid": 21,
       "chapterOffset": 0,
       "chapterIdx": 21,
-      "updateTime": 1746605982,
-      "synckey": 291544159,
-      "summary": "短篇集 巴黎马卡龙之谜 巴黎马卡龙之谜\n网译版 转自 百度贴",
+      "updateTime": 1783508702,
+      "synckey": 2036259834,
+      "summary": "网译版 转自 百度贴吧\n翻译：809449116\n1\n第二学",
       "repairOffsetTime": 0,
-      "readingTime": 24930,
+      "readingTime": 24946,
       "progress": 85,
-      "isStartReading": 0,
+      "isStartReading": 1,
       "ttsTime": 0,
-      "startReadingTime": 0,
+      "startReadingTime": 1720325502,
       "installId": "3188983251405878201791014314",
-      "recordReadingTime": 0
+      "recordReadingTime": 0,
+      "finishTime": 1783508695
     },
     "CB_CQf5y95w05ge6oq6p16WME18": {
       "appId": "35444432248460877567509777980973187361",
