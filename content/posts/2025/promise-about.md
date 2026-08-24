@@ -4,7 +4,7 @@ date: 2025/2/23 22:00:57
 pubDate: 2025/2/23 22:00:57
 description: Promise 相关
 category: 技术
-tags: [JavaScript,笔记]
+tags: [JavaScript, 笔记]
 ---
 
 ## 概述
@@ -25,7 +25,7 @@ Promise 通过控制自身的状态来控制异步操作。
 - 操作成功 `Fulfilled`
 - 操作失败 `Rejected`
 
-`Fulfilled` 和 `Rejected` 合在一起为 `Resolved` 
+`Fulfilled` 和 `Rejected` 合在一起为 `Resolved`
 
 这三种状态的变化途径只有两种，一旦 `Pending` 状态发生变化，就不会再有新的变化。
 
@@ -78,8 +78,8 @@ Promise 作为构造函数，接收一个回调函数作为参数，回调函数
 返回的 Promise 实例状态由入参的 Promise 实例状态决定：
 
 - 入参所有的实例状态都变成 `Fulfilled` ，返回的 Promise 实例状态才会变成 `Fulfilled` ，此时入参实例的返回值组成一个数组传递到 `Promise.all()` 返回的 Promise 实例中
-- 入参的 Promise 实例，只要有一个状态变为 `Rejected` ，返回的 Promise 实例状态就会变成 `Rejected` ，第一个 `Rejected`  的实例的返回值会传递到 `Promise.all()` 返回的 Promise 实例中
-    - 不会中断其他 Promise 的执行
+- 入参的 Promise 实例，只要有一个状态变为 `Rejected` ，返回的 Promise 实例状态就会变成 `Rejected` ，第一个 `Rejected` 的实例的返回值会传递到 `Promise.all()` 返回的 Promise 实例中
+  - 不会中断其他 Promise 的执行
 
 ### Promise.race([p1, p2, p3]) => Promise
 
@@ -102,13 +102,13 @@ Promise 作为构造函数，接收一个回调函数作为参数，回调函数
 
 ### Promise.any([p1, p2, p3]) => Promise
 
-与 `Promise.all()` 完全相反，只要有一个入参实例变为 `Fulfilled` ，返回的实例就会变成 `Fulfilled` ；所有入参实例变为 `Rejected` ，返回实例才会变成 `Rejected` 
+与 `Promise.all()` 完全相反，只要有一个入参实例变为 `Fulfilled` ，返回的实例就会变成 `Fulfilled` ；所有入参实例变为 `Rejected` ，返回实例才会变成 `Rejected`
 
 `Rejected` 时，抛出的错误包含了所有入参实例的报错。
 
 ### Promise.resolve(value?) => Promise
 
-相当于 `new Promise(resolve => resolve(value))` 
+相当于 `new Promise(resolve => resolve(value))`
 
 - 入参为 Promise 实例，不做任何更改，直接返回该实例
 - 入参为 `thenable` （包含 `.then`），会将对象转为 Promise 对象，立即执行 `thenable` 的 `.then`
@@ -116,7 +116,7 @@ Promise 作为构造函数，接收一个回调函数作为参数，回调函数
 
 ### Promise.reject(reason?) => Promise
 
-相当于 `new Promise((_resolve, reject) => reject(reason))` 
+相当于 `new Promise((_resolve, reject) => reject(reason))`
 
 会将入参原封不动的作为错误传递下去。
 
@@ -127,7 +127,7 @@ https://github.com/tc39/proposal-promise-with-resolvers 类似一个工厂函数
 ```js
 const returnAfterTwoSeconds = (func, ...args) => {
   const { promise, resolve, reject } = Promise.withResolvers();
- 
+
   setTimeout(() => {
     try {
       resolve(func(...args));
@@ -135,7 +135,7 @@ const returnAfterTwoSeconds = (func, ...args) => {
       reject(e);
     }
   }, 2000);
- 
+
   return promise;
 };
 ```

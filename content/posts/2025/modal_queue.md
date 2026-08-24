@@ -3,13 +3,7 @@ title: 基于队列的多弹窗调度中心
 date: 2025/06/27 04:46:29
 pubDate: 2025/06/27 04:46:29
 description: 本文介绍了一种基于队列的多弹窗调度中心的实现方式，解决了传统弹窗管理方法中的耦合、复用性差和扩展性差等问题。
-tags: [
-  '前端',
-  'Vue',
-  '弹窗',
-  '队列',
-  '调度中心'
-]
+tags: ["前端", "Vue", "弹窗", "队列", "调度中心"]
 category: 技术
 ---
 
@@ -18,7 +12,6 @@ category: 技术
 类似下面动图的效果：
 
 <img src="https://cdn.jsdelivr.net/gh/qiyuor2/blog-image/img/20250627modal.gif" alt="示例动图" style="width: 100%; min-height: 500px; background-color: #eee" data-zoomable="true" />
-
 
 ### 常用的方案及其存在的问题
 
@@ -111,14 +104,14 @@ const WrappedModal = modalify(Modal)
 // 方案 1
 useModalQueue([
   { ref: modal1, condition1, priority1 },
-  { ref: modal2, condition2, priority2 }
-])
+  { ref: modal2, condition2, priority2 },
+]);
 
 // 方案 2
-const { enqueue } = useModalQueue([{ ref: initialModal1, priority: 99 }, initialModal2])
-enqueue(modal1, 1)
-enqueue(modal2, 2)
-enqueue(modal3) // 默认 priority = 0，无优先级
+const { enqueue } = useModalQueue([{ ref: initialModal1, priority: 99 }, initialModal2]);
+enqueue(modal1, 1);
+enqueue(modal2, 2);
+enqueue(modal3); // 默认 priority = 0，无优先级
 ```
 
 - 方案 1 是将弹窗的实例、弹出条件、优先级全部传入 `useModalQueue` ，所有逻辑统一在函数内部计算；
@@ -132,59 +125,54 @@ enqueue(modal3) // 默认 priority = 0，无优先级
 
 ```jsx
 function useModalQueue(initialModals) {
-  const queue = []
-  let isRunning = false
+  const queue = [];
+  let isRunning = false;
 
-  const sortQueue = () => queue.sort((a, b) => a.priority - b.priority)
+  const sortQueue = () => queue.sort((a, b) => a.priority - b.priority);
 
   const waitForClose = (modal) => {
     return new Promise((resolve) => {
       const checkClosed = () => {
-        !modal.value.visible
-          ? resolve(true)
-          : setTimeout(checkClosed, 50)
-      }
-      checkClosed()
-    })
-  }
+        !modal.value.visible ? resolve(true) : setTimeout(checkClosed, 50);
+      };
+      checkClosed();
+    });
+  };
 
   const run = async () => {
-    if (isRunning)
-      return
+    if (isRunning) return;
 
-    isRunning = true
+    isRunning = true;
 
     while (queue.length > 0) {
-      const current = queue.shift()
-      current.ref.value.toggle(true)
-      await waitForClose(current.ref) // 等待关闭后继续循环
+      const current = queue.shift();
+      current.ref.value.toggle(true);
+      await waitForClose(current.ref); // 等待关闭后继续循环
     }
 
-    isRunning = false
-  }
+    isRunning = false;
+  };
 
-  
   const enqueue = (modal, priority = 0) => {
-    if (queue.find(item => item.ref === modal))
-      return
+    if (queue.find((item) => item.ref === modal)) return;
 
-    queue.push({ ref: modal, priority })
-    sortQueue()
-    run()
-  }
+    queue.push({ ref: modal, priority });
+    sortQueue();
+    run();
+  };
 
   initialModals.forEach((modal) => {
     if (modal?.value) {
-      enqueue(modal.value, 0)
+      enqueue(modal.value, 0);
     }
-  })
+  });
 
-  return { enqueue }
+  return { enqueue };
 }
 ```
 
 现在这种管理弹窗的方式，已经可以满足大部分的业务需求了，如果还有更复杂的弹窗状态和管理需求，可以考虑引入状态机模型进行处理。
 
--- 
+--
 
 顺便吐槽一下，Vue 的 `DefineComponent` 类型定义太复杂了，高阶组件写起来有些难受，不知道是不是我的用法有问题。

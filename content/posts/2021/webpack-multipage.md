@@ -5,7 +5,6 @@ pubDate: 2021/03/15 20:32:48
 tags: [webpack, JavaScript]
 category: 技术
 description: 使用webpack搭建单页面程序十分常见，但在实际开发中我们可能还会有开发多页面程序的需求，因此我研究了一下如何使用webpack搭建多页面程序。
-
 ---
 
 使用 webpack 搭建单页面程序十分常见，但在实际开发中我们可能还会有开发多页面程序的需求，因此我研究了一下如何使用 webpack 搭建多页面程序。
@@ -36,19 +35,19 @@ description: 使用webpack搭建单页面程序十分常见，但在实际开发
 首先我们来看一下单页面程序的 webpack 基础配置
 
 ```js
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: './src/index.js',
+  entry: "./src/index.js",
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html',
-      filename: 'index.html',
+      template: "./src/index.html",
+      filename: "index.html",
     }),
   ],
   output: {
-    path: path.resolve(__dirname, './dist'),
-    filename: 'bundle.js',
+    path: path.resolve(__dirname, "./dist"),
+    filename: "bundle.js",
   },
 };
 ```
@@ -169,15 +168,15 @@ module.exports = {
 ```js
 // webpack.config.js
 
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const glob = require('glob');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const glob = require("glob");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 // 多页入口
 function getEntry() {
   const entry = {};
-  glob.sync('./src/pages/**/index.js').forEach((file) => {
+  glob.sync("./src/pages/**/index.js").forEach((file) => {
     const name = file.match(/\/pages\/(.+)\/index.js/)[1];
     entry[name] = file;
   });
@@ -187,7 +186,7 @@ function getEntry() {
 // 多页模板
 function getHtmlTemplate() {
   return glob
-    .sync('./src/pages/**/index.html')
+    .sync("./src/pages/**/index.html")
     .map((file) => {
       return { name: file.match(/\/pages\/(.+)\/index.html/)[1], path: file };
     })
@@ -197,28 +196,28 @@ function getHtmlTemplate() {
           template: template.path,
           chunks: [template.name.toString()],
           filename: `${template.name}.html`,
-        })
+        }),
     );
 }
 
 const config = {
-  mode: 'production',
+  mode: "production",
   entry: getEntry(),
   output: {
-    path: path.resolve(__dirname, './dist'),
-    filename: 'js/[name].[contenthash].js',
+    path: path.resolve(__dirname, "./dist"),
+    filename: "js/[name].[contenthash].js",
   },
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: ["style-loader", "css-loader"],
       },
     ],
   },
   plugins: [new CleanWebpackPlugin(), ...getHtmlTemplate()],
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    contentBase: path.join(__dirname, "dist"),
     compress: true,
     port: 3000,
     hot: true,

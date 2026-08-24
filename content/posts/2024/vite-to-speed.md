@@ -6,6 +6,7 @@ description: 主要内容为开发环境下 Vite 的各类机制
 category: 技术
 tags: [Vite, 工程化]
 ---
+
 ### 开发模式下的策略
 
 **与 Webpack 的差异**
@@ -37,7 +38,7 @@ Vite 提倡 `no-bundle` ，但对于 `node_modules` 中各种各样的依赖而�
 
 - 开发环境下依赖预构建 （Pre-Bundling）
 - 开发环境下TypeScript、JSX 等语法的编译；生产环境下如果设置了特殊配置，也会通过 esbuild 处理 [Vite 文档 | build.target](https://cn.vite.dev/config/build-options.html#build-target)
-- 代码最小化混淆，无论是 JavaScript 代码还是 CSS 代码，Vite 的默认混淆转换器都是 esbuild  [Vite 文档 | build.minify](https://cn.vite.dev/config/build-options.html#build-minify)
+- 代码最小化混淆，无论是 JavaScript 代码还是 CSS 代码，Vite 的默认混淆转换器都是 esbuild [Vite 文档 | build.minify](https://cn.vite.dev/config/build-options.html#build-minify)
 
 **更优秀的性能**
 

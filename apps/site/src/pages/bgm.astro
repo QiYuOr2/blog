@@ -1,6 +1,6 @@
 ---
-import { Bangumi } from "@/features/bangumi/components/index.tsx";
-import Comments from "@/components/comments";
+import Bangumi from "@/features/bangumi/components/index.vue";
+import Comments from "@/components/comments.vue";
 import PageLayout from "@/layouts/page.astro";
 
 
@@ -9,6 +9,7 @@ import PageLayout from "@/layouts/page.astro";
 
 <PageLayout post>
   <article class="prose-stone dark:prose-invert">
-    <Bangumi  client:load />
-  <Comments client:load />
+    <Bangumi client:load />
+  </article>
+  <Comments client:visible />
 </PageLayout>

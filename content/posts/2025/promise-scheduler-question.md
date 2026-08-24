@@ -4,7 +4,15 @@ date: 2025/10/20 10:21:53
 pubDate: 2025/10/20 10:21:53
 description: 解析 JavaScript 中同步循环与异步任务的陷阱，结合 EventLoop 深入理解 Promise.finally 的执行时机与正确实现方法。
 category: 技术
-tags: [EventLoop, Promise, 面试题, JavaScript Promise 并发控制, Promise 调度器实现, JavaScript 异步循环陷阱]
+tags:
+  [
+    EventLoop,
+    Promise,
+    面试题,
+    JavaScript Promise 并发控制,
+    Promise 调度器实现,
+    JavaScript 异步循环陷阱,
+  ]
 ---
 
 最近遇到了一道涉及 EventLoop 的面试题，本身题目并不难，但写出来后不论如何都得不到想要的结果，于是记录一下出问题的地方。
@@ -28,7 +36,7 @@ class Scheduler {
   add(promiseCreator) {
     this.queue.push(promiseCreator);
   }
-  
+
   start() {
     // 实现 start
   }
@@ -55,7 +63,6 @@ scheduler.start();
 // 3
 // 1
 // 4
-
 ```
 
 ## 我的错误
@@ -97,7 +104,7 @@ start() {
       next();
     });
   }
-  
+
   for (let i = 0; i < this.limit; i++) {
     next();
   }

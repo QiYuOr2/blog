@@ -210,7 +210,8 @@ Vue.prototype.$mount = function (el?: string | Element, hydrating?: boolean): Co
 
 ```js
 if (el === document.body || el === document.documentElement) {
-  process.env.NODE_ENV !== "production" && warn(`Do not mount Vue to <html> or <body> - mount to normal elements instead.`);
+  process.env.NODE_ENV !== "production" &&
+    warn(`Do not mount Vue to <html> or <body> - mount to normal elements instead.`);
   return this;
 }
 ```
@@ -255,7 +256,7 @@ if (!options.render) {
         delimiters: options.delimiters,
         comments: options.comments,
       },
-      this
+      this,
     );
     options.render = render;
     options.staticRenderFns = staticRenderFns;
@@ -314,7 +315,7 @@ new Vue({
           id: "app",
         },
       },
-      this.message
+      this.message,
     );
   },
   data: {
@@ -360,7 +361,7 @@ createElm(
   // leaving transition. Only happens when combining transition +
   // keep-alive + HOCs. (#4590)
   oldElm._leaveCb ? null : parentElm,
-  nodeOps.nextSibling(oldElm)
+  nodeOps.nextSibling(oldElm),
 );
 // ...
 ```
@@ -384,7 +385,7 @@ if (isDef(tag)) {
           "> - did you " +
           "register the component correctly? For recursive components, " +
           'make sure to provide the "name" option.',
-        vnode.context
+        vnode.context,
       );
     }
   }

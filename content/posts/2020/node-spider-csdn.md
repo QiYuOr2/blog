@@ -1,11 +1,10 @@
 ---
-title: 'nodejs爬虫--抓取CSDN某用户全部文章'
+title: "nodejs爬虫--抓取CSDN某用户全部文章"
 date: 2020/02/11 13:30:55
 pubDate: 2020/02/11 13:30:55
 tags: [JavaScript, Node.js, 爬虫, Web Crawler]
 category: 技术
 description: 最近正在学习node.js，就像搞一些东西来玩玩，于是这个简单的爬虫就诞生了。
-
 ---
 
 最近正在学习 node.js，就像搞一些东西来玩玩，于是这个简单的爬虫就诞生了。
@@ -46,12 +45,12 @@ node-spider-csdn
 在`index.js`文件中，实例化一个`express`对象，启动一个 Http 服务
 
 ```js
-const express = require('express');
+const express = require("express");
 
 const app = express();
 
 app.listen(3000, function () {
-  console.log('running in http://127.0.0.1:3000');
+  console.log("running in http://127.0.0.1:3000");
 });
 ```
 
@@ -62,15 +61,15 @@ app.listen(3000, function () {
 先引入`csdn.js`文件并且添加路由
 
 ```js
-const express = require('express');
-const csdn = require('./routes/csdn.js');
+const express = require("express");
+const csdn = require("./routes/csdn.js");
 
 const app = express();
 
 app.use(csdn);
 
 app.listen(3000, function () {
-  console.log('running in http://127.0.0.1:3000');
+  console.log("running in http://127.0.0.1:3000");
 });
 ```
 
@@ -80,15 +79,15 @@ app.listen(3000, function () {
 
 ```js
 // 引入需要的第三方包
-const cheerio = require('cheerio');
-const superagent = require('superagent');
-const express = require('express');
-const eventproxy = require('eventproxy');
+const cheerio = require("cheerio");
+const superagent = require("superagent");
+const express = require("express");
+const eventproxy = require("eventproxy");
 
 const router = express.Router(); // 挂载路由
 const ep = new eventproxy();
 
-router.get('/csdn/:name', function (req, res) {
+router.get("/csdn/:name", function (req, res) {
   const name = req.params.name; // 用户id
   // 具体实现...
 });
@@ -138,7 +137,7 @@ let getArticleNum = function (url, callback) {
       console.log(`err = ${err}`);
     }
     let $ = cheerio.load(html.text);
-    let num = parseInt($('.data-info dl').first().attr('title'));
+    let num = parseInt($(".data-info dl").first().attr("title"));
 
     callback(num);
   });
@@ -149,7 +148,7 @@ let getArticleNum = function (url, callback) {
 
 ```js
 // ...
-router.get('/csdn/:name', function (req, res) {
+router.get("/csdn/:name", function (req, res) {
   const name = req.params.name;
   getArticleNum(`https://blog.csdn.net/${name}`, function (num) {
     let pages = []; // 保存要抓取的页面
@@ -171,7 +170,7 @@ router.get('/csdn/:name', function (req, res) {
 
 ```js
 // ...
-router.get('/csdn/:name', function (req, res) {
+router.get("/csdn/:name", function (req, res) {
   const name = req.params.name;
 
   getArticleNum(`https://blog.csdn.net/${name}`, function (num) {
@@ -193,7 +192,7 @@ router.get('/csdn/:name', function (req, res) {
         let $ = cheerio.load(html.text);
 
         // 当前页面的文章列表
-        let articlesHtml = $('.article-list .article-item-box');
+        let articlesHtml = $(".article-list .article-item-box");
 
         // 遍历当前页的文章列表
         for (let i = 0; i < articlesHtml.length; i++) {
@@ -222,27 +221,13 @@ router.get('/csdn/:name', function (req, res) {
  */
 let analysisHtml = function (html, index) {
   return {
-    id: html.eq(index).attr('data-articleid'),
-    title: html.eq(index).find('h4 a').text().replace(/\s+/g, '').slice(2),
-    link: html.eq(index).find('a').attr('href'),
-    abstract: html.eq(index).find('.content a').text().replace(/\s+/g, ''),
-    shared_time: html
-      .eq(index)
-      .find('.info-box .date')
-      .text()
-      .replace(/\s+/, ''),
-    read_count: html
-      .eq(index)
-      .find('.info-box .read-num .num')
-      .first()
-      .text()
-      .replace(/\s+/, ''),
-    comment_count: html
-      .eq(index)
-      .find('.info-box .read-num .num')
-      .last()
-      .text()
-      .replace(/\s+/, ''),
+    id: html.eq(index).attr("data-articleid"),
+    title: html.eq(index).find("h4 a").text().replace(/\s+/g, "").slice(2),
+    link: html.eq(index).find("a").attr("href"),
+    abstract: html.eq(index).find(".content a").text().replace(/\s+/g, ""),
+    shared_time: html.eq(index).find(".info-box .date").text().replace(/\s+/, ""),
+    read_count: html.eq(index).find(".info-box .read-num .num").first().text().replace(/\s+/, ""),
+    comment_count: html.eq(index).find(".info-box .read-num .num").last().text().replace(/\s+/, ""),
   };
 };
 ```
@@ -273,19 +258,19 @@ pages.forEach(function (targetUrl) {
     }
     let $ = cheerio.load(html.text);
 
-    let articlesHtml = $('.article-list .article-item-box');
+    let articlesHtml = $(".article-list .article-item-box");
 
     for (let i = 0; i < articlesHtml.length; i++) {
       let article = analysisHtml(articlesHtml, i);
       articleData.push(article);
 
-      ep.emit('blogArtc', article); // 计数器
+      ep.emit("blogArtc", article); // 计数器
     }
   });
 });
 
 // 当所有'blogArtc'完成后，触发回调
-ep.after('blogArtc', num, function (data) {
+ep.after("blogArtc", num, function (data) {
   res.json({
     status_code: 0,
     data: data,

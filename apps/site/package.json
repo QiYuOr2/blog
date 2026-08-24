@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "author": "",
   "main": "index.js",
   "scripts": {
     "dev": "astro dev",
@@ -10,22 +13,16 @@
     "build": "astro build",
     "preview": "astro preview"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "@astrojs/mdx": "^5.0.2",
-    "@astrojs/react": "^5.0.1",
     "@astrojs/rss": "^4.0.17",
     "@astrojs/sitemap": "^3.7.1",
-    "@giscus/react": "^3.1.0",
+    "@astrojs/vue": "^5.1.0",
+    "@giscus/vue": "^3.1.1",
     "@tabi/config": "workspace:^",
     "@tabi/plugins": "workspace:^",
-    "@types/react": "^19.1.4",
-    "@types/react-dom": "^19.1.5",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
-    "@xyflow/react": "^12.6.3",
     "astro": "^6.0.7",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.13",
@@ -33,9 +30,8 @@
     "mapbox-gl": "^3.15.0",
     "medium-zoom": "^1.1.0",
     "mermaid": "^11.6.0",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "remark-toc": "^9.0.0"
+    "remark-toc": "^9.0.0",
+    "vue": "^3.5.18"
   },
   "devDependencies": {
     "@iconify-json/fluent": "^1.2.13",

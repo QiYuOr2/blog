@@ -5,7 +5,6 @@ pubDate: 2021/02/07 19:55:00
 tags: [nodejs, JavaScript, blog, website, cli]
 category: 技术
 description: 作为一名程序员，写博客是积累知识、提升水平必不可少的一个方法。我们写博客主要有三种方法，一种是使用掘金、博客园、CSDN 等博客网站，第二种是自己搭建网站，存放自己的博客，第三种就是使用静态博客生成器，将生成的网页部署到服务器或者 github pages、gitee pages 等服务上。这...
-
 ---
 
 作为一名程序员，写博客是积累知识、提升水平必不可少的一个方法。我们写博客主要有三种方法，一种是使用掘金、博客园、CSDN 等博客网站，第二种是自己搭建网站，存放自己的博客，第三种就是使用静态博客生成器，将生成的网页部署到服务器或者 github pages、gitee pages 等服务上。
@@ -88,37 +87,34 @@ description: 作为一名程序员，写博客是积累知识、提升水平必�
 ```js
 #! /usr/bin/env node
 
-const program = require('commander');
-const version = require('../package.json').version;
+const program = require("commander");
+const version = require("../package.json").version;
 
 program
   .version(version)
-  .command('init [dir]')
-  .description('初始化博客')
-  .action(require('../lib/init'));
+  .command("init [dir]")
+  .description("初始化博客")
+  .action(require("../lib/init"));
+
+program.command("new <name>").description("创建新的文章").action(require("../lib/new.js"));
 
 program
-  .command('new <name>')
-  .description('创建新的文章')
-  .action(require('../lib/new.js'));
+  .command("server [dir]")
+  .description("本地预览网站")
+  .option("-d, --dir <dir>", "build时输出的目录")
+  .action(require("../lib/preview.js"));
 
 program
-  .command('server [dir]')
-  .description('本地预览网站')
-  .option('-d, --dir <dir>', 'build时输出的目录')
-  .action(require('../lib/preview.js'));
+  .command("build [dir]")
+  .description("将文章渲染为html")
+  .option("-o, --output <dir>", "输出目录")
+  .action(require("../lib/build"));
 
 program
-  .command('build [dir]')
-  .description('将文章渲染为html')
-  .option('-o, --output <dir>', '输出目录')
-  .action(require('../lib/build'));
-
-program
-  .command('clean')
-  .description('清空build出来的静态文件')
-  .option('-d, --dir <dir>', 'build时输出的目录')
-  .action(require('../lib/clean.js'));
+  .command("clean")
+  .description("清空build出来的静态文件")
+  .option("-d, --dir <dir>", "build时输出的目录")
+  .action(require("../lib/clean.js"));
 
 program.parse(process.argv);
 ```
@@ -149,34 +145,34 @@ Blog
 关于`dayjs`可以查看[dayjs 文档](https://dayjs.gitee.io/zh-CN/)
 
 ```js
-const path = require('path');
-const fs = require('fs-extra');
-const dayjs = require('dayjs');
+const path = require("path");
+const fs = require("fs-extra");
+const dayjs = require("dayjs");
 
 module.exports = (dir) => {
-  dir = dir ?? '.';
+  dir = dir ?? ".";
 
-  const templateDir = path.resolve(__dirname, '..', 'template');
+  const templateDir = path.resolve(__dirname, "..", "template");
   fs.copySync(templateDir, path.resolve(dir));
-  fs.ensureDirSync(path.resolve(dir, 'source'));
+  fs.ensureDirSync(path.resolve(dir, "source"));
 
   newPost(dir);
 };
 
 function newPost(dir) {
   const firstPost = [
-    '---',
-    'title: Hello World',
-    'date: ' + dayjs().format('YYYY/MM/DD HH:mm:ss'),
-    'tags: ' + '[blog,CoinRailgunn]',
-    'category: ' + 'welcome',
-    '---',
-    '',
-    'Welcome to my blog, this is my first post',
-    '<!-- more -->',
-  ].join('\n');
+    "---",
+    "title: Hello World",
+    "date: " + dayjs().format("YYYY/MM/DD HH:mm:ss"),
+    "tags: " + "[blog,CoinRailgunn]",
+    "category: " + "welcome",
+    "---",
+    "",
+    "Welcome to my blog, this is my first post",
+    "<!-- more -->",
+  ].join("\n");
 
-  const file = path.resolve(dir, 'source', '_posts', 'hello.md');
+  const file = path.resolve(dir, "source", "_posts", "hello.md");
   fs.outputFileSync(file, firstPost);
 
   console.log("博客初始化完成，键入'crn new <postName>'即可创建新的文章");
@@ -188,22 +184,22 @@ function newPost(dir) {
 创建新文章的函数和初始化函数有部分的逻辑是相同的，这里我没有将他们封装起来，如果感兴趣的话你们可以试试。创建文章需要传入一个 name，为创建的文章名，然后将其保存至`source/_post`下
 
 ```js
-const fs = require('fs-extra');
-const path = require('path');
-const dayjs = require('dayjs');
+const fs = require("fs-extra");
+const path = require("path");
+const dayjs = require("dayjs");
 
 module.exports = (name) => {
   const post = [
-    '---',
+    "---",
     `title: ${name}`,
-    'date: ' + dayjs().format('YYYY/MM/DD HH:mm:ss'),
-    'tags: ' + '[blog]',
-    'category: ' + 'code',
-    '---',
-    '',
-  ].join('\n');
+    "date: " + dayjs().format("YYYY/MM/DD HH:mm:ss"),
+    "tags: " + "[blog]",
+    "category: " + "code",
+    "---",
+    "",
+  ].join("\n");
 
-  const file = path.resolve('source', '_posts', `${name}.md`);
+  const file = path.resolve("source", "_posts", `${name}.md`);
   fs.outputFileSync(file, post);
 
   console.log(`source/_posts/${name}.md 创建成功！`);
@@ -324,9 +320,9 @@ module.exports = (name) => {
 明确了以上内容后，我们就需要获取这些参数然后传递给模板渲染出来
 
 ```js
-const template = fs.readFileSync(postTemplate, 'utf-8');
-const content = fs.readFileSync(fullPath, 'utf-8');
-const fm = require('front-matter');
+const template = fs.readFileSync(postTemplate, "utf-8");
+const content = fs.readFileSync(fullPath, "utf-8");
+const fm = require("front-matter");
 
 function renderAbstracts() {
   // ....
@@ -347,23 +343,21 @@ const postItem = art.render(template, {
 生成所有页面后，就可以开启本地预览了，这里我使用的是`koa`，使用`express`或者其他的框架都是大差不差的。直接将 build 目录设置为静态资源即可访问。
 
 ```js
-const Koa = require('koa');
-const staticServe = require('koa-static');
-const path = require('path');
+const Koa = require("koa");
+const staticServe = require("koa-static");
+const path = require("path");
 
 module.exports = (dir, options) => {
-  dir = dir ?? '.';
+  dir = dir ?? ".";
   const app = new Koa();
 
-  const siteConfig = require(path.resolve(dir, 'site.config.json'));
+  const siteConfig = require(path.resolve(dir, "site.config.json"));
 
-  const outputDir = path.resolve(dir, options.dir ?? 'build');
+  const outputDir = path.resolve(dir, options.dir ?? "build");
   app.use(staticServe(outputDir));
 
   app.listen(siteConfig.dev_server.port, () => {
-    console.log(
-      `在浏览器中打开 http://localhost:${siteConfig.dev_server.port} 以预览网页`
-    );
+    console.log(`在浏览器中打开 http://localhost:${siteConfig.dev_server.port} 以预览网页`);
   });
 };
 ```

@@ -2,8 +2,8 @@
 import { flattenMemo } from '@/features/memo/model';
 import { getCollection } from 'astro:content';
 import PageLayout from '@/layouts/page.astro'
-import MemoCard from '@/features/memo/components/card';
-import Comments from '@/components/comments'
+import MemoCard from '@/features/memo/components/card.vue';
+import Comments from '@/components/comments.vue'
 
 export async function getStaticPaths() {
   const all = flattenMemo(await getCollection("memos"));
@@ -22,5 +22,5 @@ const memo = memos.find(m => m.timestamp === Number(timestamp))
 <PageLayout post>
   {memo && <MemoCard {...memo} back className="pt-4 prose-stone" />}
 
-  <Comments client:load />
+  <Comments client:visible />
 </PageLayout>

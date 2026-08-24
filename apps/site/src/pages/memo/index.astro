@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import { flattenMemo } from '@/features/memo/model'
-import MemoCard from "@/features/memo/components/card";
+import MemoCard from "@/features/memo/components/card.vue";
 import PageLayout from "@/layouts/page.astro";
 
 const memos = flattenMemo(await getCollection('memos'))

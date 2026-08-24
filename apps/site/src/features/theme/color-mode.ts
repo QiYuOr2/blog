@@ -1,63 +1,70 @@
 export enum Mode {
-  Light = 'light',
-  System = 'system',
-  Dark = 'dark'
+  Light = "light",
+  System = "system",
+  Dark = "dark",
 }
 
-const storgeKey = import.meta.env.PUBLIC_COLOR_MODE
+const storgeKey = import.meta.env.PUBLIC_COLOR_MODE;
 
-type ModeChangeEvent = (mode: Mode.Dark | Mode.Light) => void
+type ModeChangeEvent = (mode: Mode.Dark | Mode.Light) => void;
 
-const events: Set<ModeChangeEvent> = new Set()
+const events: Set<ModeChangeEvent> = new Set();
 export function colorModeEffect() {
   function appendToDocument(value: Mode, save = true) {
     if (!globalThis?.document) {
-      return
+      return;
     }
 
-    document.documentElement.classList.remove('light', 'dark')
+    document.documentElement.classList.remove("light", "dark");
 
-    save && localStorage.setItem(storgeKey, value)
+    save && localStorage.setItem(storgeKey, value);
     if (value === Mode.System) {
-      const media = globalThis.matchMedia('(prefers-color-scheme: dark)')
-      value = media.matches ? Mode.Dark : Mode.Light
+      const media = globalThis.matchMedia("(prefers-color-scheme: dark)");
+      value = media.matches ? Mode.Dark : Mode.Light;
     }
 
-    document.documentElement.classList.add(value)
-    document.documentElement.style.colorScheme = value
-    events.forEach(event => event(value as Mode.Dark | Mode.Light))
+    document.documentElement.classList.add(value);
+    document.documentElement.style.colorScheme = value;
+    events.forEach((event) => event(value as Mode.Dark | Mode.Light));
   }
 
   function onFollowSystem() {
     if (!globalThis?.matchMedia) {
-      return
+      return;
     }
-    
-    const media = globalThis.matchMedia('(prefers-color-scheme: dark)')
-    media.addEventListener('change', () => {
+
+    const media = globalThis.matchMedia("(prefers-color-scheme: dark)");
+    media.addEventListener("change", () => {
       if (localStorage.getItem(storgeKey) === Mode.System) {
-        appendToDocument(media.matches ? Mode.Dark : Mode.Light, false)
+        appendToDocument(media.matches ? Mode.Dark : Mode.Light, false);
       }
-    })
+    });
   }
 
-  const initial = (globalThis.localStorage?.getItem?.(storgeKey) ?? Mode.System) as Mode
+  const initial = (globalThis.localStorage?.getItem?.(storgeKey) ?? Mode.System) as Mode;
 
   function addEventListener(action: ModeChangeEvent) {
-    events.add(action)
+    events.add(action);
   }
 
   function removeEventLister(action: ModeChangeEvent) {
-    events.delete(action)
+    events.delete(action);
   }
 
   function getCurrentMode(): Mode {
     if (initial === Mode.System && globalThis.matchMedia) {
-      const media = globalThis.matchMedia('(prefers-color-scheme: dark)')
-      return media.matches ? Mode.Dark : Mode.Light
+      const media = globalThis.matchMedia("(prefers-color-scheme: dark)");
+      return media.matches ? Mode.Dark : Mode.Light;
     }
-    return initial
+    return initial;
   }
 
-  return { initial, appendToDocument, onFollowSystem, addEventListener, removeEventLister, getCurrentMode }
+  return {
+    initial,
+    appendToDocument,
+    onFollowSystem,
+    addEventListener,
+    removeEventLister,
+    getCurrentMode,
+  };
 }

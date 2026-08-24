@@ -5,7 +5,6 @@ pubDate: 2020/12/07 20:30:13
 tags: [JavaScript, Vue, Webpack]
 category: 技术
 description: webpack 是一个前端工程化打包工具，对于前端工程师来说 webpack 是一项十分重要的技能。下面我们就通过搭建一个 vue 项目来学习使用 webpack
-
 ---
 
 webpack 是一个前端工程化打包工具，对于前端工程师来说 webpack 是一项十分重要的技能。下面我们就通过搭建一个 vue 项目来学习使用 webpack
@@ -60,19 +59,19 @@ demo
 新建`src/main.js`，并写入：
 
 ```javascript
-console.log('Hello Webpack');
+console.log("Hello Webpack");
 ```
 
 根目录下新建`webpack.config.js`，并写入：
 
 ```javascript
-const path = require('path');
+const path = require("path");
 
 const config = {
-  entry: './src/main.js', // 定义入口文件
+  entry: "./src/main.js", // 定义入口文件
   output: {
-    path: path.resolve(__dirname + '/dist'), // 打包生成文件地址，必须是绝对路径
-    filename: '[name].build.js', // 生成的文件名
+    path: path.resolve(__dirname + "/dist"), // 打包生成文件地址，必须是绝对路径
+    filename: "[name].build.js", // 生成的文件名
   },
 };
 module.exports = config;
@@ -108,8 +107,8 @@ js 文件打包成功后，需要一个 html 文件来引入这个 js 文件，�
     <!-- 如果浏览器禁止加载js脚本 -->
     <noscript>
       <strong>
-        We're sorry but this site doesn't work properly without JavaScript
-        enabled. Please enable it to continue.
+        We're sorry but this site doesn't work properly without JavaScript enabled. Please enable it
+        to continue.
       </strong>
     </noscript>
 
@@ -230,7 +229,7 @@ const config = {
   export default {
     data() {
       return {
-        msg: 'Hello Webpack',
+        msg: "Hello Webpack",
       };
     },
   };
@@ -246,11 +245,11 @@ const config = {
 修改`src/main.js`:
 
 ```javascript
-import Vue from 'vue';
-import App from './App.vue';
+import Vue from "vue";
+import App from "./App.vue";
 
 new Vue({
-  el: '#app',
+  el: "#app",
   render: (h) => h(App),
 });
 ```
@@ -299,12 +298,12 @@ const config = {
 </template>
 
 <script>
-  import logo from './assets/logo.png';
+  import logo from "./assets/logo.png";
 
   export default {
     data() {
       return {
-        msg: 'Hello Vue1',
+        msg: "Hello Vue1",
         url: logo,
       };
     },
@@ -367,7 +366,7 @@ const config = {
 ```javascript
 export default function getData() {
   return new Promise((resolve, reject) => {
-    resolve('ok');
+    resolve("ok");
   });
 }
 ```
@@ -383,13 +382,13 @@ export default function getData() {
 </template>
 
 <script>
-  import logo from './assets/logo.png';
-  import getData from './utils/getData';
+  import logo from "./assets/logo.png";
+  import getData from "./utils/getData";
 
   export default {
     data() {
       return {
-        msg: 'Hello Vue1',
+        msg: "Hello Vue1",
         url: logo,
       };
     },
@@ -440,9 +439,9 @@ const config = {
 
 ```javascript
 // 导入App.vue
-import App from '@/App';
+import App from "@/App";
 // 导入getData
-import getData from '@/utils/getData';
+import getData from "@/utils/getData";
 ```
 
 至此，我们已经简单的搭建出了 vue 项目，在项目中我们可能还会需要用到`less`,`sass`,字体图标等工具，针对这类工具 webpack 都有与其对应的`loader`或`plugin`，需要时搜索他们的文档即可。

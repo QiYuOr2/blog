@@ -4,7 +4,7 @@ date: 2026/04/20 12:03:33
 pubDate: 2026/04/20 12:03:33
 description: 本文以 Go 语言实现的智能旅行助手 Agent Demo 为核心，拆解 AI Agent 核心的 Thought-Action-Observation 交互范式，详细讲解环境搭建、LLM 接入、工具封装、主循环实现全流程，帮助开发者快速理解基础 Agent 的工作原理与开发逻辑，轻松上手 Agent 开发。
 category: 技术
-tags: 
+tags:
   - 从零搭建 Go 语言智能旅行 Agent
   - 智能旅行助手 Agent 实现步骤
   - Go 语言 Agent Demo 开发教程
@@ -12,11 +12,9 @@ tags:
 
 - 项目地址：[`labs/agent-go`](https://github.com/QiYuOr2/labs/tree/main/experiments/agent-go)
 
-
 AI Agent 的核心是 `Thought-Action-Observation` 交互范式，在持续不断的循环中，将每次思考后调用工具执行的结果传递给下次循环，以此来达到我们想要的目标。现在市面上的 Agent 都是在此基础上增加了例如记忆存储这类辅助 Agent 达到目标的手段，不过本文的讨论范围仅限于一个基础的 Agent Loop。
 
 ### 准备工作
-
 
 #### 环境搭建
 
@@ -24,7 +22,6 @@ AI Agent 的核心是 `Thought-Action-Observation` 交互范式，在持续不�
 
 - [`agent-go/weather.go`](https://github.com/QiYuOr2/labs/blob/main/experiments/agent-go/weather.go)
 - [`agent-go/tavily.go`](https://github.com/QiYuOr2/labs/blob/main/experiments/agent-go/tavily.go)
-
 
 其中 `weather.go` 封装了 [wttr.in](https://wttr.in) 的格式化输入输出，用来获取指定地区的天气情况；`tavily.go` 封装了 [tavily](https://www.tavily.com/) 的格式化输入输出，用来获取指定地区的旅行地点推荐，使用前需要提前去官网申请免费的 `apiKey`。这些内容不是本文的重点，所以不对这部分代码进行解释。
 
@@ -44,20 +41,24 @@ go get github.com/fatih/color
 你是一个智能旅行助手。你的任务是分析用户的请求，并使用可用工具一步步地解决问题。
 
 # 可用工具:
+
 - "get_weather(city: str)": 查询指定城市的实时天气。
 - "get_attraction(city: str, weather: str)": 根据城市和天气搜索推荐的旅游景点。
 
 # 输出格式要求:
+
 你的每次回复必须严格遵循以下格式，包含一对Thought和Action：
 
 Thought: [你的思考过程和下一步计划]
 Action: [你要执行的具体行动]
 
 Action的格式必须是以下之一：
+
 1. 调用工具：function_name(arg_name="arg_value")
 2. 结束任务：Finish[最终答案]
 
 # 重要提示:
+
 - 每次只输出一对Thought-Action
 - Action必须在同一行，不要换行
 - 当收集到足够信息可以回答用户问题时，必须使用 Action: Finish[最终答案] 格式结束
@@ -66,7 +67,6 @@ Action的格式必须是以下之一：
 ```
 
 格式不必完全相同，重点在于程序能够将输出结果解析并得到我们需要的内容。
-
 
 ### 主循环
 
@@ -129,7 +129,7 @@ func (l *LLM) Generate(prompt, sysPrompt string) string {
 
 deepseek 的 `model` 和 `baseURL` 如下：
 
-``` go
+```go
 const (
 	BASE_URL = "https://api.deepseek.com"
 	MODEL_ID = "deepseek-chat"

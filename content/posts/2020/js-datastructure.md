@@ -1,11 +1,10 @@
 ---
-title: 'JavaScript实现常见的数据结构'
+title: "JavaScript实现常见的数据结构"
 date: 2020/01/29 15:26:47
 pubDate: 2020/01/29 15:26:47
-tags: [JavaScript, 数据结构,笔记]
+tags: [JavaScript, 数据结构, 笔记]
 category: 技术
 description: 使用JavaScript实现栈、队列、链表、集合等常见数据结构。可能会有点用？
-
 ---
 
 使用 JavaScript 实现栈、队列、链表、集合等常见数据结构。可能会有点用？
@@ -75,9 +74,7 @@ class PriorityQueue extends Queue {
     if (this.isEmpty) {
       super.enqueue(queueElement);
     } else {
-      const preIndex = this.items.findIndex(
-        (items) => queueElement.priority < items.priority
-      );
+      const preIndex = this.items.findIndex((items) => queueElement.priority < items.priority);
       if (preIndex > -1) {
         this.items.splice(preIndex, 0, queueElement);
       } else {
@@ -234,12 +231,12 @@ class LinkedList {
   }
   toString() {
     let current = this.head;
-    let string = '';
+    let string = "";
     while (current) {
       string += `${current.element} -- `;
       current = current.next;
     }
-    string += '*';
+    string += "*";
 
     return string;
   }
@@ -536,15 +533,15 @@ class Graph {
   }
   // 转化成邻接表的形式的字符串
   toString() {
-    let str = '\n';
+    let str = "\n";
     for (let i = 0; i < this.vertices.length; i++) {
       const v = this.vertices[i];
-      str += v + ' => ';
+      str += v + " => ";
       const e = this.adjList[v];
       for (let j = 0; j < e.length; j++) {
-        str += ' ' + e[j] + ' ';
+        str += " " + e[j] + " ";
       }
-      str += '\n';
+      str += "\n";
     }
     return str;
   }

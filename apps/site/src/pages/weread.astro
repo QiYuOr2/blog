@@ -1,9 +1,9 @@
 ---
 import PageLayout from "@/layouts/page.astro";
-import { WereadProgress } from "@/features/weread/components/index.tsx";
+import WereadProgress from "@/features/weread/components/index.vue";
 import { getCollection } from "astro:content";
 import { getWereadStaticData } from "@/features/weread/model.ts";
-import Comments from "@/components/comments";
+import Comments from "@/components/comments.vue";
 import dayjs from 'dayjs'
 import timezone from 'dayjs/plugin/timezone'
 import utc from 'dayjs/plugin/utc'
@@ -21,7 +21,7 @@ function formatUpdatedAt(timestamp: string) {
 ---
 
 <PageLayout title="微信读书阅读进度 | @柒宇" description="展示微信读书当前已读书籍与完成状态" post>
-  <article class="mx-auto w-full max-w-[min(62ch,100%)]">
+  <article class="mx-auto w-full max-w-[min(62ch,100%)] prose-stone dark:prose-invert">
     <div class="space-y-5">
       <div class="pb-4 text-xs">
         数据统计自
@@ -34,6 +34,6 @@ function formatUpdatedAt(timestamp: string) {
       <WereadProgress data={wereadData} client:load />
     </div>
 
-    <Comments client:load />
+    <Comments client:visible />
   </article>
 </PageLayout>

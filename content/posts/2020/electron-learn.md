@@ -5,7 +5,6 @@ pubDate: 2020/10/21 10:00:47
 tags: [JavaScript, Electron, NodeJs]
 category: 技术
 description: 心血来潮想做一个PC端应用，就来学学Electron，以下为学习Electron时的踩坑记录。
-
 ---
 
 ## 安装
@@ -74,10 +73,10 @@ win = new BrowerWindow({
     nodeIntegration: true,
   },
   show: false,
-  background: '#2e2c29',
+  background: "#2e2c29",
 });
 
-win.on('ready-to-show', () => {
+win.on("ready-to-show", () => {
   win.show();
 });
 ```

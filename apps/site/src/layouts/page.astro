@@ -1,13 +1,12 @@
 ---
-import BackTop from '@/components/back-top'
-import Header from '@/components/header'
+import BackTop from '@/components/back-top.vue'
+import Header from '@/components/header.vue'
 import GlobalStyles from './styles.astro'
 import Head from './head.astro'
-import ColorModeSwitch from '@/components/color-mode-switch'
-import {Navbar, type Route} from '@/components/navbar'
+import ColorModeSwitch from '@/components/color-mode-switch.vue'
+import Navbar, { type Route } from '@/components/navbar.vue'
 import Analytics from '@vercel/analytics/astro'
 import SpeedInsights from '@vercel/speed-insights/astro';
-import Loading from '@/components/loading.astro'
 import dayjs from 'dayjs'
 import timezone from 'dayjs/plugin/timezone'
 import utc from 'dayjs/plugin/utc'
@@ -61,7 +60,7 @@ const buildTime = dayjs(Number(__BUILD_TIME__))
   </head>
   <body class="dark:bg-dark-900">
     <Header className="max-w-[65ch] px-7 xl:px-0">
-      <ColorModeSwitch client:only="react" transition:persist />
+      <ColorModeSwitch client:load transition:persist />
     </Header>
 
     <Navbar currentPath={pathname} routes={routes} />
@@ -89,11 +88,8 @@ const buildTime = dayjs(Number(__BUILD_TIME__))
       </div>
     </footer>
 
-
-    <Loading />
     <BackTop client:load />
   </body>
 </html>
 
 <GlobalStyles></GlobalStyles>
-

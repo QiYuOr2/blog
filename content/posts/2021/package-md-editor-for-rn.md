@@ -5,7 +5,6 @@ pubDate: 2021/02/17 11:31:32
 tags: [React Native, WebView]
 category: 技术
 description: 最近在研究`React Native`，准备用它写一个笔记APP，但是并没有搜到很好用的编辑器插件，因此准备使用`WebView`和已有的Web端编辑器自己封装一个。
-
 ---
 
 最近在研究`React Native`，准备用它写一个笔记 APP，但是并没有搜到很好用的编辑器插件，因此准备使用`WebView`和已有的 Web 端编辑器自己封装一个。
@@ -30,29 +29,27 @@ npm install react-native-webview
 #### 引入 URL
 
 ```jsx
-import React, { Component } from 'react';
-import { WebView } from 'react-native';
+import React, { Component } from "react";
+import { WebView } from "react-native";
 
 export default function MyWeb() {
-  return (
-    <WebView source={{ uri: 'https://github.com/facebook/react-native' }} />
-  );
+  return <WebView source={{ uri: "https://github.com/facebook/react-native" }} />;
 }
 ```
 
 #### 引入本地文件
 
 ```jsx
-import React, { Component } from 'react';
-import { WebView, Platform } from 'react-native';
+import React, { Component } from "react";
+import { WebView, Platform } from "react-native";
 
 export default function MyWeb() {
   return (
     <WebView
       source={
-        Platform.OS === 'ios'
-          ? require('../../../assets/vditor.html')
-          : { uri: 'file:///android_asset/vditor.html' }
+        Platform.OS === "ios"
+          ? require("../../../assets/vditor.html")
+          : { uri: "file:///android_asset/vditor.html" }
       }
     />
   );
@@ -83,34 +80,28 @@ export default function MyWeb() {
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <!-- 以下文件建议放到本地使用 -->
-    <link
-      rel="stylesheet"
-      href="https://gcore.jsdelivr.net/npm/vditor/dist/index.css"
-    />
+    <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/vditor/dist/index.css" />
     <script src="https://gcore.jsdelivr.net/npm/vditor/dist/index.min.js"></script>
   </head>
   <body>
     <div id="vditor"></div>
     <script>
       // window.options 会在React Native中通过injectedJavaScriptBeforeContentLoaded注入
-      const vditor = new Vditor('vditor', {
+      const vditor = new Vditor("vditor", {
         ...window.options,
         // 向编辑器输入时，通过postMessage向React Native发送消息，触发onMessage
         input: (value) => {
           const message = {
-            type: 'onChange',
+            type: "onChange",
             message: value,
           };
           window.ReactNativeWebView.postMessage(JSON.stringify(message));
         },
       });
       // 监听React Native发送来的消息
-      window.document.addEventListener('message', (e) => {
+      window.document.addEventListener("message", (e) => {
         vditor.setValue(e.data);
       });
     </script>

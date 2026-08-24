@@ -11,21 +11,21 @@ export async function GET() {
     title: "@柒宇",
     description: "柒宇的个人博客",
     site: BASE_URL,
-    items:  [...posts, ...externalPosts]
+    items: [...posts, ...externalPosts]
       .filter(visibleFilter)
       .sort(sortByDate)
-      .map(item => isExternalPost(item) ? 
-          ({
-            ...item.data, 
-            link: item.link,
-            content: `<a href="${item.link}">${item.data.title}</a>`
-          }) 
-        : 
-          ({ 
-            ...item.data, 
-            link: `${BASE_URL}/${item.id}`, 
-            content: item.rendered?.html 
-          })
+      .map((item) =>
+        isExternalPost(item)
+          ? {
+              ...item.data,
+              link: item.link,
+              content: `<a href="${item.link}">${item.data.title}</a>`,
+            }
+          : {
+              ...item.data,
+              link: `${BASE_URL}/${item.id}`,
+              content: item.rendered?.html,
+            },
       ),
     customData: `<language>zh-CN</language><follow_challenge>
     <feedId>124099030538126336</feedId>

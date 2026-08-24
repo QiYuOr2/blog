@@ -64,7 +64,6 @@ webpack 在处理 ES Module 时，会添加严格模式声明，严格模式下�
 
 ![错误的 __webpack_require__.d](https://cdn.jsdelivr.net/gh/qiyuor2/blog-image/img/2024121910.png)
 
-
 ### 为什么强制编译会失效
 
 babel7 新增了项目级配置文件的概念 → `.babelrc` 和 `babel.config.js` 存在差异，根配置和相对配置
@@ -84,9 +83,7 @@ babel7 中 .babelrc 只会作用到最近一个含有 package.json 的目录，�
 
 ![vue-loader 配置](https://cdn.jsdelivr.net/gh/qiyuor2/blog-image/img/2024121912.png)
 
-
 ## 什么情况下可能会导致该问题
-
 
 **babel7 满足以下几个条件**
 
@@ -96,7 +93,7 @@ babel7 中 .babelrc 只会作用到最近一个含有 package.json 的目录，�
 - 使用了 `@babel/plugin-transform-runtime`
 - 没有配置 `sourceType: unambiguous`
 
-**babel6** 
+**babel6**
 
 如果使用了 babel-plugin-transform-runtime 也有同样的问题，没找到比较好的解决方案，可以移除该插件
 

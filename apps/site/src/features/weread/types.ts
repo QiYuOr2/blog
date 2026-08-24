@@ -1,1 +1,1 @@
-export type { WereadStaticData, ReadLongestItem, ReadMode, WereadShelfBook } from './schema'
+export type { WereadStaticData, ReadLongestItem, ReadMode, WereadShelfBook } from "./schema";

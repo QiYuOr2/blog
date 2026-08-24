@@ -2,36 +2,44 @@
 title: C# HtmlAgilityPack+Selenium爬取需要拉动滚动条的页面内容
 date: 2019/09/05 12:02:37
 pubDate: 2019/09/05 12:02:37
-tags: [CSharp,Web Crawler,笔记]
+tags: [CSharp, Web Crawler, 笔记]
 category: 技术
 description: 现在大多数网站都是随着滚动条的滑动加载页面内容的，因此单纯获得静态页面的Html是无法获得全部的页面内容的。使用Selenium就可以模拟浏览器拉动滑动条来加载所有页面内容...
-
 ---
 
 现在大多数网站都是随着滚动条的滑动加载页面内容的，因此单纯获得静态页面的Html是无法获得全部的页面内容的。使用Selenium就可以模拟浏览器拉动滑动条来加载所有页面内容。
 
 ## 前情提要
+
 - [C#HtmlAgilityPack爬取静态页面](/2019/csharp-html-agility-pack)
 
 ## Selenium简介
+
 Selenium是一个WEB自动化测试工具。Selenium测试直接运行在浏览器中，就像真正的用户在操作一样。支持的浏览器包括IE（7, 8, 9, 10, 11），Mozilla Firefox，Safari，Google Chrome，Opera等。主要功能包括：测试与浏览器的兼容性——测试你的应用程序看是否能够很好得工作在不同浏览器和操作系统之上。测试系统功能——创建回归测试检验软件功能和用户需求。支持自动录制动作和自动生成 .Net、Java、Perl等不同语言的测试脚本。Selenium也是一款同样使用Apache License 2.0协议发布的开源框架。
 
 ## C#安装Selenium
+
 本文仅仅是使用Selenium实现拉动滚动条的功能，所以不对Selenium进行过多的介绍。
 通过Nuget包管理器搜索"Selenium"，分别安装:
+
 - Selenium.WebDriver
 - Selenium.Chrome.WebDriver
 
 ## 实例(获取某网站主页所有图片)
+
 ### 普通获取网页Html
+
 ```csharp
 ChromeDriver driver = new ChromeDriver();
 driver.Navigate().GoToUrl(url);
 string title = driver.Title;//页面title
 string html = driver.PageSource;//页面Html
 ```
+
 ### 不启动Chrome窗口及关闭Chrome控制台获取网页
+
 程序执行时会自动打开Chrome窗口和输出控制台中一些信息，我们不需要这些东西。
+
 ```csharp
 //不启动chrome窗口
 ChromeOptions options = new ChromeOptions();
@@ -46,7 +54,9 @@ driver.Navigate().GoToUrl(url);
 ```
 
 ### 将页面滚动到底部
+
 如果使用`scrollTo(0, document.body.scrollHeight)`，直接让将页面滚动到底部会导致页面中间部分读取失败，所以需要分几次滑动并且给页面足够的时间加载
+
 ```csharp
 for (int i = 1; i <= 10; i++)
 {
@@ -60,7 +70,9 @@ for (int i = 1; i <= 10; i++)
 ```
 
 ### 使用HtmlAgilityPack解析读取到的Html
+
 以下内容与上一篇文章基本相同
+
 ```csharp
 string title = driver.Title;//页面title
 string html = driver.PageSource;//页面Html
@@ -263,4 +275,5 @@ namespace WebCrawlerDemo
 </details>
 
 ## 参考文章
+
 - [Selenium爬取网页实战](http://finisky.azurewebsites.net/2019/07/20/selenium/)

@@ -1,1 +1,1 @@
-export const BASE_URL = import.meta.env.PUBLIC_BASE_URL || 'https://blog.qiyuor2.me';
+export const BASE_URL = import.meta.env.PUBLIC_BASE_URL || "https://blog.qiyuor2.me";

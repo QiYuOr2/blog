@@ -1,9 +1,9 @@
 import dayjs from "dayjs";
 import { join } from "node:path";
-import { log } from '@clack/prompts';
+import { log } from "@clack/prompts";
 import { writeFileSync, readFileSync, existsSync, mkdirSync } from "node:fs";
-import yaml from 'js-yaml';
-import { MEMOS_DIR } from '@tabi/config/paths'
+import yaml from "js-yaml";
+import { MEMOS_DIR } from "@tabi/config/paths";
 import { fileURLToPath } from "node:url";
 
 const MEMO_PATH = fileURLToPath(MEMOS_DIR);
@@ -15,7 +15,7 @@ const currentPath = `${year}/${month}.yaml`;
 
 const currentTime = new Date();
 
-export const createMemo = async (content = '') => {
+export const createMemo = async (content = "") => {
   log.info(`Memos 目录: ${MEMO_PATH}`);
   if (!existsSync(join(MEMO_PATH, year))) {
     mkdirSync(join(MEMO_PATH, year));
@@ -26,11 +26,11 @@ export const createMemo = async (content = '') => {
     writeFileSync(filePath, yaml.dump([]));
   }
 
-  const memos = yaml.load(readFileSync(filePath, 'utf-8')) as Array<any> || [];
+  const memos = (yaml.load(readFileSync(filePath, "utf-8")) as Array<any>) || [];
 
   memos.unshift({
     timestamp: currentTime.getTime(),
-    type: 'text',
+    type: "text",
     content: content || "",
     create_at: currentTime.toISOString(),
   });

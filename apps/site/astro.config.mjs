@@ -1,31 +1,30 @@
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
-import UnoCSS from 'unocss/astro'
-import { remarkReadingTime, remarkImage, remarkMermaid } from '@tabi/plugins/remark/index.mjs';
-import yaml from '@rollup/plugin-yaml';
-import react from '@astrojs/react';
-import { resolve } from 'node:path'
+import UnoCSS from "unocss/astro";
+import { remarkReadingTime, remarkImage, remarkMermaid } from "@tabi/plugins/remark/index.mjs";
+import yaml from "@rollup/plugin-yaml";
+import vue from "@astrojs/vue";
+import { resolve } from "node:path";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://blog.qiyuor2.me/",
+  prefetch: true,
 
   integrations: [
     UnoCSS({
-      injectReset: true
+      injectReset: true,
     }),
     mdx(),
     sitemap(),
-    react(),
+    vue(),
   ],
   vite: {
-    plugins: [
-      yaml()
-    ],
+    plugins: [yaml()],
     resolve: {
       alias: {
-        '@': resolve('./src'),
+        "@": resolve("./src"),
       },
     },
     define: {
@@ -39,8 +38,8 @@ export default defineConfig({
       theme: "vitesse-light",
     },
     syntaxHighlight: {
-      type: 'shiki',
-      excludeLangs: ["mermaid"]
-    }
+      type: "shiki",
+      excludeLangs: ["mermaid"],
+    },
   },
 });

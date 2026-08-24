@@ -1,11 +1,10 @@
 ---
-title: 'TypeScript实现设计模式——工厂模式'
+title: "TypeScript实现设计模式——工厂模式"
 date: 2020/03/20 11:47:31
 pubDate: 2020/03/20 11:47:31
-tags: [TypeScript, 设计模式,笔记]
+tags: [TypeScript, 设计模式, 笔记]
 category: 技术
 description: 上回用typescript实现了单例模式，这回来实现工厂模式。工厂模式又分为简单工厂模式、工厂方法模式以及抽象工厂模式。
-
 ---
 
 上回用 typescript 实现了单例模式，这回来实现工厂模式。工厂模式又分为简单工厂模式、工厂方法模式以及抽象工厂模式。
@@ -28,19 +27,19 @@ abstract class Pizza {
 ```typescript
 class KFCPizza extends Pizza {
   public show(): void {
-    console.log('This is KFCPizza!');
+    console.log("This is KFCPizza!");
   }
   public cut(): void {
-    console.log('Cut KFCPizza!');
+    console.log("Cut KFCPizza!");
   }
 }
 
 class MCPizza extends Pizza {
   public show(): void {
-    console.log('This is MCPizza!');
+    console.log("This is MCPizza!");
   }
   public cut(): void {
-    console.log('Cut MCPizza!');
+    console.log("Cut MCPizza!");
   }
 }
 ```
@@ -59,7 +58,7 @@ class PizzaFactory {
     try {
       pizza = new pizzaType();
     } catch (e) {
-      console.error('Create failed!');
+      console.error("Create failed!");
     }
 
     return pizza;
@@ -97,19 +96,19 @@ abstract class Pizza {
 ```typescript
 class KFCPizza extends Pizza {
   public show(): void {
-    console.log('This is KFCPizza!');
+    console.log("This is KFCPizza!");
   }
   public cut(): void {
-    console.log('Cut KFCPizza!');
+    console.log("Cut KFCPizza!");
   }
 }
 
 class MCPizza extends Pizza {
   public show(): void {
-    console.log('This is MCPizza!');
+    console.log("This is MCPizza!");
   }
   public cut(): void {
-    console.log('Cut MCPizza!');
+    console.log("Cut MCPizza!");
   }
 }
 ```
@@ -192,38 +191,38 @@ abstract class MCPizza {
 // 具体KFCPizza类
 class KFCFruitPizza extends KFCPizza {
   public show(): void {
-    console.log('This is KFCFruitPizza!');
+    console.log("This is KFCFruitPizza!");
   }
   public cut(): void {
-    console.log('Cut KFCFruitPizza!');
+    console.log("Cut KFCFruitPizza!");
   }
 }
 
 class KFCCheesePizza extends KFCPizza {
   public show(): void {
-    console.log('This is KFCCheesePizza!');
+    console.log("This is KFCCheesePizza!");
   }
   public cut(): void {
-    console.log('Cut KFCCheesePizza!');
+    console.log("Cut KFCCheesePizza!");
   }
 }
 
 // 具体KFCPizza类
 class MCFruitPizza extends MCPizza {
   public show(): void {
-    console.log('This is MCFruitPizza!');
+    console.log("This is MCFruitPizza!");
   }
   public cut(): void {
-    console.log('Cut MCFruitPizza!');
+    console.log("Cut MCFruitPizza!");
   }
 }
 
 class MCCheesePizza extends MCPizza {
   public show(): void {
-    console.log('This is MCCheesePizza!');
+    console.log("This is MCCheesePizza!");
   }
   public cut(): void {
-    console.log('Cut MCCheesePizza!');
+    console.log("Cut MCCheesePizza!");
   }
 }
 ```

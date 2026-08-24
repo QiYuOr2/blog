@@ -5,7 +5,6 @@ pubDate: 2021/05/28 16:31:54
 tags: [Github Actions, CI]
 category: 技术
 description: 最近编写了一个封装了前端存储 API 的工具库，准备将它发布在 npm 上方便以后使用，不过如果每次都手动从本地打包发布的话就会非常麻烦，因此这次尝试一下自动化发布。
-
 ---
 
 最近编写了一个封装了前端存储 API 的工具库[symstorage](https://www.npmjs.com/package/symstorage)，准备将它发布在 npm 上方便以后使用，不过如果每次都手动从本地打包发布的话就会非常麻烦，因此这次尝试一下自动化发布。

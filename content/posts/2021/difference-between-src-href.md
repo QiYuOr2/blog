@@ -5,7 +5,6 @@ pubDate: 2021/05/09 16:04:33
 tags: [html]
 category: 技术
 description: src 和 href 都是用来引入外部资源的属性，例如：图片、视频、CSS 文件、JavaScript 文件等。那么它们两者之间究竟有什么样的区别呢？
-
 ---
 
 src 和 href 都是用来引入外部资源的属性，例如：图片、视频、CSS 文件、JavaScript 文件等。

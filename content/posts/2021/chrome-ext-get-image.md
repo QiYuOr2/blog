@@ -5,7 +5,6 @@ pubDate: 2021/04/18 17:22:37
 tags: [chrome, JavaScript, extension]
 category: 技术
 description: 最近学习了Chrome插件的开发，总体来说上手还是很容易的，因为浏览器插件本质上依旧是网页，写几个demo基本就了解了他的开发过程。
-
 ---
 
 最近学习了 Chrome 插件的开发，总体来说上手还是很容易的，因为浏览器插件本质上依旧是网页，写几个 demo 基本就了解了他的开发过程。
@@ -156,7 +155,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   const { start } = message;
 
   if (start) {
-    const images = document.getElementsByTagName('img');
+    const images = document.getElementsByTagName("img");
     const imgSrcList = Array.from(images).map((img) => img.src);
     sendResponse(imgSrcList);
   }
@@ -187,9 +186,9 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
 ```javascript
 let srcList;
-const getImageBtn = document.getElementById('get');
+const getImageBtn = document.getElementById("get");
 
-getImageBtn.addEventListener('click', async () => {
+getImageBtn.addEventListener("click", async () => {
   // 获取当前活动页
   chrome.tabs.query({ active: true, currentWindow: true }, ([tab]) => {
     let message = { start: true };
@@ -197,16 +196,16 @@ getImageBtn.addEventListener('click', async () => {
     chrome.tabs.sendMessage(tab.id, message, (res) => {
       srcList = Array.from(new Set(res));
       // popup中展示图片
-      const imgList = srcList.map((src) => `<img src="${src}" />`).join('');
+      const imgList = srcList.map((src) => `<img src="${src}" />`).join("");
 
-      document.getElementById('app').innerHTML = imgList;
+      document.getElementById("app").innerHTML = imgList;
     });
   });
 });
 
-const saveImageBtn = document.getElementById('save');
+const saveImageBtn = document.getElementById("save");
 
-saveImageBtn.addEventListener('click', () => {
+saveImageBtn.addEventListener("click", () => {
   // 保存图片
 });
 ```

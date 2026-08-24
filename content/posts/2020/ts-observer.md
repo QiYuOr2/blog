@@ -1,11 +1,10 @@
 ---
-title: 'TypeScript实现设计模式——观察者模式'
+title: "TypeScript实现设计模式——观察者模式"
 date: 2020/04/16 17:55:55
 pubDate: 2020/04/16 17:55:55
-tags: [TypeScript, 设计模式,笔记]
+tags: [TypeScript, 设计模式, 笔记]
 category: 技术
 description: 观察者模式是一种行为设计模式，允许一个对象将其状态的改变通知其他对象。观察者模式提供了一种作用于任何实现了订阅者接口的对象的机制， 可对其事件进行订阅和取消订阅。
-
 ---
 
 **观察者模式**是一种行为设计模式，允许一个对象将其状态的改变通知其他对象。
@@ -51,25 +50,25 @@ class ConcreteSubject implements Subject {
   public attach(observer: Observer): void {
     const observerIndex = this.observers.indexOf(observer);
     if (observerIndex !== -1) {
-      return console.log('已订阅');
+      return console.log("已订阅");
     }
 
     this.observers.push(observer);
-    console.log('订阅成功');
+    console.log("订阅成功");
   }
 
   public detach(observer: Observer): void {
     const observerIndex = this.observers.indexOf(observer);
     if (observerIndex === -1) {
-      return console.log('订阅者未订阅');
+      return console.log("订阅者未订阅");
     }
 
     this.observers.splice(observerIndex, 1);
-    console.log('订阅者已移除');
+    console.log("订阅者已移除");
   }
 
   public notify(): void {
-    console.log('通知所有订阅者');
+    console.log("通知所有订阅者");
     for (const observer of this.observers) {
       observer.update(this);
     }
@@ -105,7 +104,7 @@ interface Observer {
 class ConcreteObserverA implements Observer {
   public update(subject: ConcreteSubject) {
     if (subject.state <= 5) {
-      console.log('观察者A作出回应');
+      console.log("观察者A作出回应");
     }
   }
 }
@@ -114,7 +113,7 @@ class ConcreteObserverA implements Observer {
 class ConcreteObserverB implements Observer {
   public update(subject: ConcreteSubject) {
     if (subject.state > 5) {
-      console.log('观察者B作出回应');
+      console.log("观察者B作出回应");
     }
   }
 }

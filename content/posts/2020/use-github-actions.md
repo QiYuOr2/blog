@@ -1,11 +1,10 @@
 ---
-title: '使用Github Actions将Vue项目部署到Github Pages'
+title: "使用Github Actions将Vue项目部署到Github Pages"
 date: 2020/11/16 21:44:13
 pubDate: 2020/11/16 21:44:13
 tags: [Github Actions, Github Pages, Github]
 category: 工具
 description: GitHub Actions 是 GitHub 的持续集成服务，是一个非常强大的功能，用它可以实现很多自动化功能。现在我们来使用Github Actions将我们做好的Vue项目部署到Github Pages上。
-
 ---
 
 GitHub Actions 是 GitHub 的持续集成服务，是一个非常强大的功能，用它可以实现很多自动化功能。现在我们来使用 Github Actions 将我们做好的 Vue 项目部署到 Github Pages 上。
@@ -37,7 +36,7 @@ cd github-actions-demo
 
 ```js
 module.exports = {
-  publicPath: '/github-actions-demo/',
+  publicPath: "/github-actions-demo/",
 };
 ```
 

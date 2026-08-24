@@ -2,14 +2,12 @@
 title: 深入学习JavaScript数据类型
 date: 2020/07/06 19:44:50
 pubDate: 2020/07/06 19:44:50
-tags: [JavaScript,笔记]
+tags: [JavaScript, 笔记]
 category: 技术
 description: 数据类型是我们学习`JavaScript`时最先接触的东西，它是`JavaScript`中最基础的知识，这些知识看似简单，但实则有着许多初学者甚至是部分学习了多年`JavaScript`的老手所不了解的知识。
-
 ---
 
 数据类型是我们学习`JavaScript`时最先接触的东西，它是`JavaScript`中最基础的知识，这些知识看似简单，但实则有着许多初学者甚至是部分学习了多年`JavaScript`的老手所不了解的知识。
-
 
 ## 数据类型
 
@@ -52,7 +50,7 @@ ES10(ES2019)中新增了一种基本类型`BigInt`，可以用来表示超出`nu
 
 ```js
 var a = 10;
-var b = 'hello';
+var b = "hello";
 var c = true;
 ```
 
@@ -62,10 +60,10 @@ var c = true;
 
 ```js
 var a = 10;
-var obj1 = { name: 'nihao' };
+var obj1 = { name: "nihao" };
 var obj2 = function () {
-    // do something
-}
+  // do something
+};
 ```
 
 ![引用类型存储](https://gcore.jsdelivr.net/gh/qiyuor2/blog-image/img/20200707heap2.png)
@@ -73,7 +71,7 @@ var obj2 = function () {
 ### 基本类型具有不可变性
 
 ```js
-var name = 'hello';
+var name = "hello";
 name.toUpperCase(); // "HELLO"
 console.log(name); // "hello"
 ```
@@ -95,8 +93,8 @@ console.log(c); // false
 引用类型就可以很轻易的改变了，它不需要使用变量本身(`obj1`)去再次接收新的值就可以改变，例如：
 
 ```js
-var obj1 = { name: 'nihao' };
-obj1.name = 'nibuhao';
+var obj1 = { name: "nihao" };
+obj1.name = "nibuhao";
 console.log(obj1); // { name: 'nibuhao' }
 ```
 
@@ -105,16 +103,16 @@ console.log(obj1); // { name: 'nibuhao' }
 对于基本类型，比较时会直接比较它们的值，相等返回`true`
 
 ```js
-var str1 = 'Hello';
-var str2 = 'Hello';
+var str1 = "Hello";
+var str2 = "Hello";
 console.log(str1 === str2); // true
 ```
 
 对于引用类型，比较时会比较它们的引用地址，哪怕两个变量具有同名属性，且同名属性的值相同，但是因为存储位置不同，两者仍然不相等
 
 ```js
-var obj1 = { name: 'obj' };
-var obj2 = { name: 'obj' };
+var obj1 = { name: "obj" };
+var obj2 = { name: "obj" };
 console.log(obj1 === obj2); // false
 ```
 
@@ -125,17 +123,17 @@ console.log(obj1 === obj2); // false
 与上面的两种比较类似，基本类型赋值时是直接将值给另一个变量，而引用类型则是将地址给另一个变量
 
 ```js
-var str1 = 'Hello';
+var str1 = "Hello";
 var str2 = str1;
-str2 = 'World';
+str2 = "World";
 console.log(str1); // "Hello"
 //str1的值没变
 ```
 
 ```js
-var obj1 = { name: 'obj1' };
+var obj1 = { name: "obj1" };
 var obj2 = obj1;
-obj2.name = 'obj2';
+obj2.name = "obj2";
 console.log(obj1.name); // "obj2"
 // obj1的值改变
 ```
@@ -164,16 +162,16 @@ var s = Symbol(); // 注意没有new
 `Symbol()`函数接受一个可选参数，用来描述即将创建的`symbol`变量，无论传入的描述是否相同，最后生成的`symbol`一定是独一无二的
 
 ```js
-var name1 = Symbol('Tom');
-var name2 = Symbol('Tom');
+var name1 = Symbol("Tom");
+var name2 = Symbol("Tom");
 console.log(name1 === name2); // false
 ```
 
 如果一定要创建两个一模一样的`symbol`，需要使用`Symbol.for()`
 
 ```js
-var name1 = Symbol.for('Tom');
-var name2 = Symbol.for('Tom');
+var name1 = Symbol.for("Tom");
+var name2 = Symbol.for("Tom");
 console.log(name1 === name2); // true
 ```
 
@@ -181,7 +179,7 @@ console.log(name1 === name2); // true
 
 ```js
 var obj = {
-    [Symbol('name')]: 'Tom'
+  [Symbol("name")]: "Tom",
 };
 ```
 
@@ -189,10 +187,10 @@ var obj = {
 
 ```js
 var obj = {
-    [Symbol('name')]: 'Tom'
+  [Symbol("name")]: "Tom",
 };
 for (var key in obj) {
-   console.log(key); // undefined
+  console.log(key); // undefined
 }
 Object.getOwnPropertySymbols(obj); // [Symbol(name)]
 ```
@@ -212,7 +210,7 @@ Object.getOwnPropertySymbols(obj); // [Symbol(name)]
 `NaN`和任何类型比较都会返回`false`，包括他自己
 
 ```js
-NaN == NaN // false
+NaN == NaN; // false
 ```
 
 #### Boolean类型与其他类型进行比较
@@ -220,9 +218,9 @@ NaN == NaN // false
 只要`Boolean`类型参与比较，该`Boolean`类型的值都会被转换为`Number`类型，`1`转为`true`，`0`转为`false`
 
 ```js
-false == 0 // true
-true == 1 // true
-true == 2 // false
+false == 0; // true
+true == 1; // true
+true == 2; // false
 ```
 
 如果在使用`if`判断时，我们使用数字作为判断条件
@@ -230,10 +228,10 @@ true == 2 // false
 ```js
 var x = 10;
 if (x) {
-	// ...
+  // ...
 }
 if (x == true) {
-    // ...
+  // ...
 }
 ```
 
@@ -244,12 +242,12 @@ if (x == true) {
 这两者进行比较时，`String`类型会被转为`Number`类型，除了纯数字字符串正常转换为`Number`类型外，空字符串`''`转为`0`，科学计数法（例如`1e11`）正常转换，`Infinity`正常转换，其他全部转换为`NaN`
 
 ```js
-'' == 0 // true
-'123' == 123 // true
-'1e11' == 1e11 // true
-Infinity == 'Infinity' // true
-true == '1' // true
-false == '0' // true
+"" == 0; // true
+"123" == 123; // true
+"1e11" == 1e11; // true
+Infinity == "Infinity"; // true
+true == "1"; // true
+false == "0"; // true
 ```
 
 #### null与undefined
@@ -280,8 +278,12 @@ Number([]); // 0
 Number([10]); // 10
 
 var obj = {
-    valueOf: () => { return 10; },
-    toString: () => { return -10; }
+  valueOf: () => {
+    return 10;
+  },
+  toString: () => {
+    return -10;
+  },
 };
 Number(obj); // 10
 String(obj); // -10
@@ -295,9 +297,9 @@ String(obj); // -10
 var a = {};
 var b = [1, 2, 3];
 
-a == '[object Object]'; // true
+a == "[object Object]"; // true
 a.toString(); // [object Object]
-b == '1,2,3' // true
+b == "1,2,3"; // true
 b.toString(); // "1,2,3"
 ```
 
@@ -308,12 +310,12 @@ b.toString(); // "1,2,3"
 `typeof`只能用来判断以下几个类型
 
 ```js
-typeof 'str';  // string
-typeof 123;  // number
-typeof true;  // boolean
-typeof Symbol();  // symbol
-typeof undefined;  // undefined
-typeof function () {} // function
+typeof "str"; // string
+typeof 123; // number
+typeof true; // boolean
+typeof Symbol(); // symbol
+typeof undefined; // undefined
+typeof function () {}; // function
 ```
 
 对于引用类型（数组、对象等）以及`null`，`typeof`的返回值均为`object`
@@ -360,8 +362,6 @@ function Person() {}
 Object.prototype.toString.call(new Person()); // [object Object]
 new Person() instanceof Person; // true
 ```
-
-
 
 ## 参考资料
 

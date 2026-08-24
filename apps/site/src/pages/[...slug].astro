@@ -1,7 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
-import Comments from "@/components/comments";
-import TOC from "@/features/posts/components/toc";
+import Comments from "@/components/comments.vue";
+import TOC from "@/features/posts/components/toc.vue";
 import { visibleFilter, date, postURL, sortByDate } from "@/features/posts/model";
 import PageLayout from '@/layouts/page.astro'
 
@@ -85,7 +85,7 @@ const link = postURL(post)
       }
     </div>
 
-  <Comments client:load />
+  <Comments client:visible />
 
   <script>
     import mediumZoom from "medium-zoom";

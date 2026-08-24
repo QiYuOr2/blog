@@ -2,15 +2,15 @@
 title: C# 封装SqlHelper
 date: 2019/08/23 21:48:47
 pubDate: 2019/08/23 21:48:47
-tags: [CSharp,SQL Server,笔记]
+tags: [CSharp, SQL Server, 笔记]
 category: 技术
 description: 老师在讲C#实战项目时所使用的SqlHelper，使用的数据库是SQL Server
-
 ---
 
 老师在讲C#实战项目时所使用的SqlHelper，使用的数据库是SQL Server
 
 **注意，连接数据库的连接字符串需要在配置文件中设置好**
+
 ```xml
 <appSettings>
     <add key = "connString" value="data source = .; database = CourseSelectionInfo; integrated security = true"/>

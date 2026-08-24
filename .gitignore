@@ -34,3 +34,4 @@ dist
 
 .agents
 skills-lock.json
+.pnpm-store
