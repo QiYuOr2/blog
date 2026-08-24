@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import UnoCSS from "unocss/astro";
+import { unified } from "@astrojs/markdown-remark";
 import { remarkReadingTime, remarkImage, remarkMermaid } from "@tabi/plugins/remark/index.mjs";
 import yaml from "@rollup/plugin-yaml";
 import vue from "@astrojs/vue";
@@ -33,7 +34,9 @@ export default defineConfig({
   },
   markdown: {
     lazyLoad: false,
-    remarkPlugins: [remarkReadingTime, remarkImage, remarkMermaid],
+    processor: unified({
+      remarkPlugins: [remarkReadingTime, remarkImage, remarkMermaid],
+    }),
     shikiConfig: {
       theme: "vitesse-light",
     },
