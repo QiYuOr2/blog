@@ -16,7 +16,7 @@ const labels: Record<CollectionType, string> = {
   [CollectionType.Dropped]: "抛弃",
 };
 const data = ref<CollectionItem[]>([]),
-  loading = ref(false),
+  loading = ref(true),
   error = ref<string | null>(null),
   selected = ref<CollectionType>(CollectionType.Doing),
   page = ref(1),
@@ -70,7 +70,7 @@ async function load() {
     loading.value = false;
   }
 }
-onMounted(async () => {
+async function loadCounts() {
   try {
     await Promise.all(
       types.map(async (type) => {
@@ -84,7 +84,10 @@ onMounted(async () => {
   } catch (error) {
     console.error(error);
   }
+}
+onMounted(() => {
   load();
+  loadCounts();
 });
 watch([page, selected], load);
 const changeType = (type: CollectionType) => {

@@ -7,6 +7,7 @@ import ColorModeSwitch from '@/components/color-mode-switch.vue'
 import Navbar, { type Route } from '@/components/navbar.vue'
 import Analytics from '@vercel/analytics/astro'
 import SpeedInsights from '@vercel/speed-insights/astro';
+import Loading from '@/components/loading.astro'
 import dayjs from 'dayjs'
 import timezone from 'dayjs/plugin/timezone'
 import utc from 'dayjs/plugin/utc'
@@ -88,6 +89,7 @@ const buildTime = dayjs(Number(__BUILD_TIME__))
       </div>
     </footer>
 
+    <Loading />
     <BackTop client:load />
   </body>
 </html>

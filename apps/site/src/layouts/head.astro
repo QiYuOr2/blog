@@ -55,6 +55,13 @@ const { title, description, keywords = '' } = Astro.props
   document.addEventListener('astro:page-load', initBack)
   document.addEventListener('astro:after-swap', applyTheme)
 
+  document.addEventListener("astro:before-preparation", () => {
+    document.querySelector("#loading").classList.remove("hidden");
+  });
+  document.addEventListener("astro:after-preparation", () => {
+    document.querySelector("#loading").classList.add("hidden");
+  });
+
 </script>
 
 <script>

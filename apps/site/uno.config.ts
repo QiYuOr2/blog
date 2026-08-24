@@ -26,7 +26,7 @@ export default defineConfig({
         "[transform:translate3d(calc(var(--parallax-offset)_*_var(--parallax-rotateY)_/_var(--max-rotate)_*_1%),calc(var(--parallax-offset)_*_var(--parallax-rotateX)_/_var(--max-rotate)_*_-1%),0)]",
     },
     {
-      skeleton: "bg-stone-1 dark:bg-true-gray-700 rounded",
+      skeleton: "bg-stone-200 dark:bg-true-gray-700 rounded animate-pulse",
     },
   ],
   rules: [
