@@ -2,7 +2,7 @@
 import { computed, ref } from "vue";
 import type { WereadStaticData } from "../schema";
 import { getShelfBooks, getShelfProgressMap } from "../model";
-import { shouldRenderShelfBook } from "../utils/progress-utils";
+import { shouldRenderShelfBook, getReadDuration } from "../utils/progress-utils";
 import WereadCategoryFilter, { type WereadCategory } from './category-filter.vue'
 import WereadShelfGrid from "./shelf-grid.vue";
 const props = defineProps<{ data: WereadStaticData }>();
@@ -25,9 +25,17 @@ const categories = computed<WereadCategory[]>(() => {
     .map(([name, count]) => ({ name, count }))
     .sort((first, second) => second.count - first.count || first.name.localeCompare(second.name, 'zh-CN'))
 })
-const filteredBooks = computed(() => selectedCategory.value === null
-  ? shelfBooks.value
-  : shelfBooks.value.filter(book => getCategoryName(book.category) === selectedCategory.value))
+const filteredBooks = computed(() => {
+  const books = selectedCategory.value === null
+    ? shelfBooks.value
+    : shelfBooks.value.filter(book => getCategoryName(book.category) === selectedCategory.value)
+
+  return [...books].sort((first, second) => {
+    const firstDuration = getReadDuration(progressMap.value.get(first.bookId ?? "")) ?? -1
+    const secondDuration = getReadDuration(progressMap.value.get(second.bookId ?? "")) ?? -1
+    return secondDuration - firstDuration
+  })
+})
 </script>
 <template>
   <div
