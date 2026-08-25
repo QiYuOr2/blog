@@ -1,10 +1,17 @@
 ---
 title: C# HtmlAgilityPack+Selenium爬取需要拉动滚动条的页面内容
-date: 2019/09/05 12:02:37
-pubDate: 2019/09/05 12:02:37
-tags: [CSharp, Web Crawler, 笔记]
+date: '2019/09/05 12:02:37'
+pubDate: '2019/09/05 12:02:37'
+tags:
+  - CSharp
+  - Web Crawler
+  - 笔记
 category: 技术
-description: 现在大多数网站都是随着滚动条的滑动加载页面内容的，因此单纯获得静态页面的Html是无法获得全部的页面内容的。使用Selenium就可以模拟浏览器拉动滑动条来加载所有页面内容...
+description: >-
+  现在大多数网站都是随着滚动条的滑动加载页面内容的，因此单纯获得静态页面的Html是无法获得全部的页面内容的。使用Selenium就可以模拟浏览器拉动滑动条来加载所有页面内容...
+summary: >-
+  本文介绍了使用C#结合Selenium解决滚动加载型网页爬取问题的方法。通过Selenium
+  WebDriver模拟浏览器滚动条分次滑动到页面底部，并等待加载，从而获取完整HTML。随后用HtmlAgilityPack解析图片等资源，并给出了无窗口运行和关闭控制台等优化配置。
 ---
 
 现在大多数网站都是随着滚动条的滑动加载页面内容的，因此单纯获得静态页面的Html是无法获得全部的页面内容的。使用Selenium就可以模拟浏览器拉动滑动条来加载所有页面内容。

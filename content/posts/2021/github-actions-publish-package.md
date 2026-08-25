@@ -1,10 +1,17 @@
 ---
 title: 使用Github Actions自动化发布npm包的探索
-date: 2021/05/28 16:31:54
-pubDate: 2021/05/28 16:31:54
-tags: [Github Actions, CI]
+date: '2021/05/28 16:31:54'
+pubDate: '2021/05/28 16:31:54'
+tags:
+  - Github Actions
+  - CI
 category: 技术
-description: 最近编写了一个封装了前端存储 API 的工具库，准备将它发布在 npm 上方便以后使用，不过如果每次都手动从本地打包发布的话就会非常麻烦，因此这次尝试一下自动化发布。
+description: >-
+  最近编写了一个封装了前端存储 API 的工具库，准备将它发布在 npm
+  上方便以后使用，不过如果每次都手动从本地打包发布的话就会非常麻烦，因此这次尝试一下自动化发布。
+summary: >-
+  本文介绍了如何利用 GitHub Actions 与 semantic-release 实现 npm 包的自动化发布流程，包括配置工作流、插件及 NPM
+  令牌授权。通过规范化 commit 信息，工具可自动生成版本号、CHANGELOG 并触发发布，提升发布效率。
 ---
 
 最近编写了一个封装了前端存储 API 的工具库[symstorage](https://www.npmjs.com/package/symstorage)，准备将它发布在 npm 上方便以后使用，不过如果每次都手动从本地打包发布的话就会非常麻烦，因此这次尝试一下自动化发布。

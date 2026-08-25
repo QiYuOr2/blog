@@ -1,10 +1,20 @@
 ---
 title: 使用 webpack 手动搭建 vue 项目
-date: 2020/12/07 20:30:13
-pubDate: 2020/12/07 20:30:13
-tags: [JavaScript, Vue, Webpack]
+date: '2020/12/07 20:30:13'
+pubDate: '2020/12/07 20:30:13'
+tags:
+  - JavaScript
+  - Vue
+  - Webpack
 category: 技术
-description: webpack 是一个前端工程化打包工具，对于前端工程师来说 webpack 是一项十分重要的技能。下面我们就通过搭建一个 vue 项目来学习使用 webpack
+description: >-
+  webpack 是一个前端工程化打包工具，对于前端工程师来说 webpack 是一项十分重要的技能。下面我们就通过搭建一个 vue 项目来学习使用
+  webpack
+summary: >-
+  本文介绍了使用 webpack 5 从零搭建 Vue 2 项目的完整流程，包括基础目录构建、依赖安装及 webpack 配置。核心内容涵盖
+  html-webpack-plugin 生成页面、webpack-dev-server 实现热加载、vue-loader 处理 .vue
+  文件、url-loader 加载图片以及 babel 转换 ES6 语法。最后通过配置 src 别名和后缀省略，实现了类似 vue-cli
+  的基础工程化环境，验证了项目可正常运行。
 ---
 
 webpack 是一个前端工程化打包工具，对于前端工程师来说 webpack 是一项十分重要的技能。下面我们就通过搭建一个 vue 项目来学习使用 webpack

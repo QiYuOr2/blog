@@ -1,10 +1,18 @@
 ---
-title: "nodejs爬虫--抓取CSDN某用户全部文章"
-date: 2020/02/11 13:30:55
-pubDate: 2020/02/11 13:30:55
-tags: [JavaScript, Node.js, 爬虫, Web Crawler]
+title: nodejs爬虫--抓取CSDN某用户全部文章
+date: '2020/02/11 13:30:55'
+pubDate: '2020/02/11 13:30:55'
+tags:
+  - JavaScript
+  - Node.js
+  - 爬虫
+  - Web Crawler
 category: 技术
 description: 最近正在学习node.js，就像搞一些东西来玩玩，于是这个简单的爬虫就诞生了。
+summary: >-
+  该文章介绍了一个基于 Node.js 的简单爬虫实现，用于抓取指定 CSDN 用户的所有博客文章。作者通过 express 搭建本地服务器，结合
+  cheerio 解析页面、superagent 请求数据，并利用 eventproxy 处理并发异步请求，最终以 JSON
+  格式输出文章列表。文章详细说明了从环境搭建、依赖安装、页面结构分析到数据解析与并发控制的完整流程，并提供了可运行的代码示例。
 ---
 
 最近正在学习 node.js，就像搞一些东西来玩玩，于是这个简单的爬虫就诞生了。

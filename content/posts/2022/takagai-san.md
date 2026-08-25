@@ -1,10 +1,12 @@
 ---
 title: 擅长捉弄的高木同学
-date: 2022/01/19 23:50:17
-pubDate: 2022/01/19 23:50:17
+date: '2022/01/19 23:50:17'
+pubDate: '2022/01/19 23:50:17'
 description: 擅长调情的西片太太
-cover: https://gcore.jsdelivr.net/gh/qiyuor2/blog-image/img/20210122takagai-san.jpeg
+cover: 'https://gcore.jsdelivr.net/gh/qiyuor2/blog-image/img/20210122takagai-san.jpeg'
 draft: true
+summary: >-
+  这部文章称赞《高木同学》展现了双向奔赴的爱情，指出看似迟钝的西片其实以自己笨拙而真诚的方式回应着高木的情感，两人互动有来有回。作者认为爱情需要双方共同回应，才能推动关系发展。
 ---
 
 ![](https://gcore.jsdelivr.net/gh/qiyuor2/blog-image/img/20210122takagai-san.jpeg)

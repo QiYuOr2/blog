@@ -1,10 +1,16 @@
 ---
-title: "搭建hexo静态博客"
-date: 2019/08/31 09:13:23
-pubDate: 2019/08/31 09:13:23
-tags: [hexo, 笔记]
+title: 搭建hexo静态博客
+date: '2019/08/31 09:13:23'
+pubDate: '2019/08/31 09:13:23'
+tags:
+  - hexo
+  - 笔记
 category: 工具
 description: 使用hexo搭建博客，并将博客部署到github
+summary: >-
+  该教程介绍了使用Hexo框架搭建个人博客并部署到GitHub
+  Pages的完整流程，包括安装Node.js、Git等依赖工具，通过命令行初始化博客、本地预览及配置部署仓库，最后还说明了如何通过`hexo
+  new`创建新文章并发布。核心结论是，执行一系列Hexo命令即可完成博客的生成、部署和文章更新。
 ---
 
 使用 hexo 搭建博客，并将博客部署到 github

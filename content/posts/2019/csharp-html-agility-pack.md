@@ -1,10 +1,15 @@
 ---
 title: C# HtmlAgilityPack爬取静态页面
-date: 2019/09/04 22:10:24
-pubDate: 2019/09/04 22:10:24
-tags: [CSharp, Web Crawler, 笔记]
+date: '2019/09/04 22:10:24'
+pubDate: '2019/09/04 22:10:24'
+tags:
+  - CSharp
+  - Web Crawler
+  - 笔记
 category: 技术
 description: 最近对爬虫很感兴趣，稍微研究了一下，利用HtmlAgilityPack制作了一个十分简单的爬虫，这个简易爬虫只能获取静态页面的Html...
+summary: >-
+  文章介绍了使用C#与HtmlAgilityPack库构建简易静态网页爬虫的方法，重点演示了如何通过XPath解析HTML文档中的img标签和背景图URL，并利用WebClient实现图片下载。作者提供了完整的示例代码，涵盖页面加载、图片下载器封装、URL补全及文件保存等步骤，适用于获取静态页面中的图片资源。该方案仅适合静态页面，未涉及动态渲染或复杂反爬机制。
 ---
 
 最近对爬虫很感兴趣，稍微研究了一下，利用 HtmlAgilityPack 制作了一个十分简单的爬虫，这个简易爬虫只能获取静态页面的 Html

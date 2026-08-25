@@ -5,7 +5,8 @@
     "build": "pnpm --filter @tabi/site build",
     "preview": "pnpm --filter @tabi/site preview",
     "build:cli": "pnpm --filter @tabi/cli build",
-    "weread:sync": "pnpm --filter @tabi/scripts fetch-weread"
+    "weread:sync": "pnpm --filter @tabi/scripts fetch-weread",
+    "summary:gen": "pnpm --filter @tabi/scripts generate-summaries"
   },
   "devDependencies": {
     "typescript": "5.9.3"

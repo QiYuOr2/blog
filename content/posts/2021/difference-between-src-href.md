@@ -1,10 +1,15 @@
 ---
 title: 浅谈src与href的区别
-date: 2021/05/09 16:04:33
-pubDate: 2021/05/09 16:04:33
-tags: [html]
+date: '2021/05/09 16:04:33'
+pubDate: '2021/05/09 16:04:33'
+tags:
+  - html
 category: 技术
 description: src 和 href 都是用来引入外部资源的属性，例如：图片、视频、CSS 文件、JavaScript 文件等。那么它们两者之间究竟有什么样的区别呢？
+summary: >-
+  src 与 href 均用于引入外部资源，但核心区别在于：src 会将资源嵌入当前文档，而 href 仅建立文档与资源之间的关联。文章通过对比
+  `<script src>` 与 `<link href>` 说明前者会暂停页面解析，后者不会，同时指出“src 必然阻塞页面”并不准确，因为
+  async/defer 及图片加载已证明该说法存在例外。
 ---
 
 src 和 href 都是用来引入外部资源的属性，例如：图片、视频、CSS 文件、JavaScript 文件等。

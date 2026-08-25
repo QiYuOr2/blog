@@ -1,10 +1,18 @@
 ---
-title: "Promise 作用、方法、新语法等"
-date: 2025/2/23 22:00:57
-pubDate: 2025/2/23 22:00:57
+title: Promise 作用、方法、新语法等
+date: '2025/2/23 22:00:57'
+pubDate: '2025/2/23 22:00:57'
 description: Promise 相关
 category: 技术
-tags: [JavaScript, 笔记]
+tags:
+  - JavaScript
+  - 笔记
+summary: >-
+  Promise
+  是用于处理异步操作的对象，通过状态管理（Pending、Fulfilled、Rejected）以链式调用代替回调嵌套，解决回调地狱问题。文章逐一介绍了
+  then、catch、finally 等实例方法及 all、race、allSettled、any、resolve、reject
+  等静态方法的用途与行为差异，并提及 Promise.withResolvers 用于减少嵌套。整体概括了 Promise 的核心机制和常见 API
+  的使用场景，便于开发者按需选用。
 ---
 
 ## 概述

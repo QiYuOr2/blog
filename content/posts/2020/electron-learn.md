@@ -1,10 +1,17 @@
 ---
 title: Electron踩坑记录
-date: 2020/10/21 10:00:47
-pubDate: 2020/10/21 10:00:47
-tags: [JavaScript, Electron, NodeJs]
+date: '2020/10/21 10:00:47'
+pubDate: '2020/10/21 10:00:47'
+tags:
+  - JavaScript
+  - Electron
+  - NodeJs
 category: 技术
 description: 心血来潮想做一个PC端应用，就来学学Electron，以下为学习Electron时的踩坑记录。
+summary: >-
+  这篇文章总结了 Electron 开发中常见问题的解决方案，包括通过配置镜像源解决安装依赖时的网络卡顿，以及使用 electron-rebuild
+  或手动设置参数完成 C++ 包的重新编译。在打包方面，介绍了通过指定淘宝镜像或手动放置缓存文件来解决 electron-builder
+  下载依赖失败的问题。最后，针对白屏现象，提出了设置窗口背景色并在 ready-to-show 事件后再显示窗口的简单方法。
 ---
 
 ## 安装

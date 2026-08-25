@@ -1,10 +1,16 @@
 ---
 title: Vue.js 源码学习 - 初始化
-date: 2022/07/07 14:44:39
-pubDate: 2022/07/07 14:44:39
+date: '2022/07/07 14:44:39'
+pubDate: '2022/07/07 14:44:39'
 description: 对于Vue.js 技术揭秘与Vue源码的学习笔记
-tags: [笔记]
+tags:
+  - 笔记
 category: 技术
+summary: >-
+  本文梳理了 Vue.js 的构建流程与源码入口，指出通过 scripts/config.js 配置不同构建版本，区分 Runtime Only 与
+  Runtime + Compiler。分析了 new Vue 时 _init 方法对生命周期、状态等的初始化，以及 $mount
+  在不同构建下的差异和模板编译逻辑。还介绍了 render 生成 VNode、update 通过 patch 渲染真实 DOM 的完整流程，并强调 web 与
+  weex 平台通过共享 createPatchFunction 实现差异适配。
 ---
 
 对于[Vue.js 技术揭秘](https://ustbhuangyi.github.io/vue-analysis/v2/prepare/)与 Vue 源码的学习笔记

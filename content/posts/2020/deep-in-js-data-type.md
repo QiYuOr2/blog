@@ -1,10 +1,18 @@
 ---
 title: 深入学习JavaScript数据类型
-date: 2020/07/06 19:44:50
-pubDate: 2020/07/06 19:44:50
-tags: [JavaScript, 笔记]
+date: '2020/07/06 19:44:50'
+pubDate: '2020/07/06 19:44:50'
+tags:
+  - JavaScript
+  - 笔记
 category: 技术
-description: 数据类型是我们学习`JavaScript`时最先接触的东西，它是`JavaScript`中最基础的知识，这些知识看似简单，但实则有着许多初学者甚至是部分学习了多年`JavaScript`的老手所不了解的知识。
+description: >-
+  数据类型是我们学习`JavaScript`时最先接触的东西，它是`JavaScript`中最基础的知识，这些知识看似简单，但实则有着许多初学者甚至是部分学习了多年`JavaScript`的老手所不了解的知识。
+summary: >-
+  本文系统梳理了 JavaScript 的 7 种数据类型及新增的
+  BigInt，详细对比了基本类型与引用类型在内存存储、不可变性、值比较与赋值上的本质差异，并介绍了 null、undefined、Symbol
+  的特性。文章还总结了宽松等号下的隐式转换规则，以及 typeof、instanceof、Object.prototype.toString.call()
+  三种类型判断方法的适用范围与局限。
 ---
 
 数据类型是我们学习`JavaScript`时最先接触的东西，它是`JavaScript`中最基础的知识，这些知识看似简单，但实则有着许多初学者甚至是部分学习了多年`JavaScript`的老手所不了解的知识。

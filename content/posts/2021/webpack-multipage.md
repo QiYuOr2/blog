@@ -1,10 +1,16 @@
 ---
 title: 使用Webpack构建多页面程序
-date: 2021/03/15 20:32:48
-pubDate: 2021/03/15 20:32:48
-tags: [webpack, JavaScript]
+date: '2021/03/15 20:32:48'
+pubDate: '2021/03/15 20:32:48'
+tags:
+  - webpack
+  - JavaScript
 category: 技术
 description: 使用webpack搭建单页面程序十分常见，但在实际开发中我们可能还会有开发多页面程序的需求，因此我研究了一下如何使用webpack搭建多页面程序。
+summary: >-
+  本文介绍了使用 webpack 搭建多页面程序的实现方法，核心思路是将每个页面作为独立入口，配置多个 entry 和
+  html-webpack-plugin，并通过 glob
+  动态扫描目录生成入口和模板配置，从而避免手动维护。文中给出了完整的配置示例，并指出在此基础上还可以扩展热更新、代码分割等功能。
 ---
 
 使用 webpack 搭建单页面程序十分常见，但在实际开发中我们可能还会有开发多页面程序的需求，因此我研究了一下如何使用 webpack 搭建多页面程序。

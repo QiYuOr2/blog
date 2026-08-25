@@ -1,18 +1,20 @@
 ---
 title: Promise 并发控制中的同步循环和异步任务
-date: 2025/10/20 10:21:53
-pubDate: 2025/10/20 10:21:53
+date: '2025/10/20 10:21:53'
+pubDate: '2025/10/20 10:21:53'
 description: 解析 JavaScript 中同步循环与异步任务的陷阱，结合 EventLoop 深入理解 Promise.finally 的执行时机与正确实现方法。
 category: 技术
 tags:
-  [
-    EventLoop,
-    Promise,
-    面试题,
-    JavaScript Promise 并发控制,
-    Promise 调度器实现,
-    JavaScript 异步循环陷阱,
-  ]
+  - EventLoop
+  - Promise
+  - 面试题
+  - JavaScript Promise 并发控制
+  - Promise 调度器实现
+  - JavaScript 异步循环陷阱
+summary: >-
+  本文记录了一次实现带并发限制的 Promise 调度器时因忽略事件循环机制而导致的错误。作者最初在 `while` 循环中同步添加任务，但
+  `Promise.finally`
+  是异步执行，导致循环无法进入异步阶段而陷入死循环。正确解法是利用递归在任务完成后再调度下一个任务，从而保证并发数量可控。作者由此强调处理异步任务时需判断代码执行顺序和对异步结果的依赖。
 ---
 
 最近遇到了一道涉及 EventLoop 的面试题，本身题目并不难，但写出来后不论如何都得不到想要的结果，于是记录一下出问题的地方。

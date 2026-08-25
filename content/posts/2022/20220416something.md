@@ -1,10 +1,11 @@
 ---
 title: 小酌一杯。
-date: 2022/04/16 12:52:15
-pubDate: 2022/04/16 12:52:15
+date: '2022/04/16 12:52:15'
+pubDate: '2022/04/16 12:52:15'
 description: 月亮在黑暗中把光传递了下去
-cover: https://gcore.jsdelivr.net/gh/qiyuor2/blog-image/img/20220416sky-night.JPG
+cover: 'https://gcore.jsdelivr.net/gh/qiyuor2/blog-image/img/20220416sky-night.JPG'
 draft: true
+summary: 作者怀念博客时代互联网的纯粹与分享精神，批评当下社交媒体充斥浮躁、标签化和恶意攻击。他认为博客因技术门槛保留了相对干净的交流环境，如同森林中坚守的树木。
 ---
 
 ![](https://gcore.jsdelivr.net/gh/qiyuor2/blog-image/img/20220416sky-night.JPG)

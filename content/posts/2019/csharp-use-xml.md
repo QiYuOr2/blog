@@ -1,10 +1,15 @@
 ---
 title: C#中使用XML存储数据
-date: 2019/07/29 10:05:13
-pubDate: 2019/07/29 10:05:13
-tags: [CSharp, 笔记]
+date: '2019/07/29 10:05:13'
+pubDate: '2019/07/29 10:05:13'
+tags:
+  - CSharp
+  - 笔记
 category: 技术
 description: C#对于XML的一些增删改查的操作
+summary: >-
+  本文介绍了使用 C# 的 System.Xml 命名空间操作 XML 文档的常用方法，涵盖创建 XML 文件（含声明、根节点、子节点及保存）、通过索引器或
+  XPath 查询节点信息、修改节点或属性的值，以及删除节点等操作，并给出了关键代码示例和 InnerText 与 InnerXml 的区别说明。
 ---
 
 ## 创建 XML 文档

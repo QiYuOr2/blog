@@ -1,10 +1,17 @@
 ---
-title: "[Webpack & babel] exports is not defined 问题记录"
-date: 2024/06/28 11:44:01
-pubDate: 2024/06/28 11:44:01
+title: '[Webpack & babel] exports is not defined 问题记录'
+date: '2024/06/28 11:44:01'
+pubDate: '2024/06/28 11:44:01'
 description: 一次 Webpack 与 Babel 共同作用导致的白屏故障
 category: 技术
-tags: [Webpack, 工程化]
+tags:
+  - Webpack
+  - 工程化
+summary: >-
+  该文分析了一次因强制编译 npm 包导致的白屏故障：Babel 的 transform-runtime 在默认 sourceType 为 module
+  时注入 import，而 webpack 环境下 preset-env 不转换 ES Module，最终引发运行时错误。同时解释了 babel7 中
+  .babelrc 与 babel.config.js 加载差异，指出强制编译失效的根本原因。最后给出解决方案，即通过 overrides 配合
+  sourceType: "unambiguous" 处理目标模块，并提醒其潜在风险。
 ---
 
 一次 Webpack 与 Babel 共同作用导致的白屏故障。

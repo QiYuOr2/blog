@@ -1,10 +1,17 @@
 ---
-title: "Vite 为了开发体验做出的努力"
-date: 2024/5/27 16:32:30
-pubDate: 2024/5/27 16:32:30
+title: Vite 为了开发体验做出的努力
+date: '2024/5/27 16:32:30'
+pubDate: '2024/5/27 16:32:30'
 description: 主要内容为开发环境下 Vite 的各类机制
 category: 技术
-tags: [Vite, 工程化]
+tags:
+  - Vite
+  - 工程化
+summary: >-
+  Vite 在开发环境采用 no-bundle 策略，先启动服务器并按需请求资源，同时用 esbuild 对依赖进行预构建，将非 ES Module 格式转为
+  ESM 并合并文件以减少请求数；生产环境则使用 Rollup 完成打包、代码分割与 tree shaking，并集成构建优化。esbuild
+  负责开发依赖预构建、语法编译和代码压缩，因其 Go 实现和高效处理机制而性能更优。未来 Vite 计划统一使用 Rolldown
+  作为开发与生产的共同构建工具。
 ---
 
 ### 开发模式下的策略

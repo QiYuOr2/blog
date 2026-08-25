@@ -1,10 +1,13 @@
 ---
 title: 无职转生
-date: 2022/01/19 23:10:11
-pubDate: 2022/01/19 23:10:11
+date: '2022/01/19 23:10:11'
+pubDate: '2022/01/19 23:10:11'
 description: 若批评不再是批评
-cover: https://gcore.jsdelivr.net/gh/qiyuor2/blog-image/img/20210122wuzhizhuansheng.jpeg
+cover: >-
+  https://gcore.jsdelivr.net/gh/qiyuor2/blog-image/img/20210122wuzhizhuansheng.jpeg
 draft: true
+summary: >-
+  这部评论认为《无职转生》制作精良、剧情动人，但主角鲁迪的下流行为引发争议；作者通过细腻描写其内心创伤与成长，使“洗白”成为故事自洽的一部分。动画前两部分展现了鲁迪走出前世阴影的历程，尤其与父亲的和解令人动容。文章还批评了当下互联网零成本、断章取义的批评风气，强调评价作品应基于完整理解。
 ---
 
 ![](https://gcore.jsdelivr.net/gh/qiyuor2/blog-image/img/20210122wuzhizhuansheng.jpeg)

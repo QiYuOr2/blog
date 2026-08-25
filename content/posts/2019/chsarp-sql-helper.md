@@ -1,10 +1,16 @@
 ---
 title: C# 封装SqlHelper
-date: 2019/08/23 21:48:47
-pubDate: 2019/08/23 21:48:47
-tags: [CSharp, SQL Server, 笔记]
+date: '2019/08/23 21:48:47'
+pubDate: '2019/08/23 21:48:47'
+tags:
+  - CSharp
+  - SQL Server
+  - 笔记
 category: 技术
 description: 老师在讲C#实战项目时所使用的SqlHelper，使用的数据库是SQL Server
+summary: >-
+  该工具类封装了SQL
+  Server的常用数据库操作，包括增删改、查询单个值、读取数据流以及获取DataSet/DataTable，所有方法均支持参数化查询以提升安全性。连接字符串从配置文件读取，并通过静态方法简化调用，适合在C#项目中作为通用的数据访问层基础组件使用。
 ---
 
 老师在讲C#实战项目时所使用的SqlHelper，使用的数据库是SQL Server

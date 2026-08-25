@@ -1,10 +1,12 @@
 ---
 title: 龙与虎
-date: 2022/01/11 11:03:33
-pubDate: 2022/01/11 11:03:33
+date: '2022/01/11 11:03:33'
+pubDate: '2022/01/11 11:03:33'
 description: 「ホーリーナイト」
-cover: https://gcore.jsdelivr.net/gh/qiyuor2/blog-image/img/20210122tiger.jpeg
+cover: 'https://gcore.jsdelivr.net/gh/qiyuor2/blog-image/img/20210122tiger.jpeg'
 draft: true
+summary: >-
+  《龙与虎》并非纯粹的恋爱番，而是一部展现主角在爱情、友情与亲情中跌撞成长的青春故事，其剧情中的情感爆发与两难抉择真实而令人心痛。作者认为大河的“爱”源于被拯救的渴望，而私奔与和解则象征着成长与责任的承担。作品通过各角色的遗憾与妥协，揭示青春不仅充满甜蜜，更交织着伤痛与无奈。
 ---
 
 ![](https://gcore.jsdelivr.net/gh/qiyuor2/blog-image/img/20210122tiger.jpeg)

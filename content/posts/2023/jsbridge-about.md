@@ -1,10 +1,18 @@
 ---
 title: 关于 JSBridge
-date: 2023/1/4 18:53:32
-pubDate: 2023/1/4 18:53:32
-description: ""
-tags: [JSBridge, 跨端, 笔记]
+date: '2023/1/4 18:53:32'
+pubDate: '2023/1/4 18:53:32'
+description: ''
+tags:
+  - JSBridge
+  - 跨端
+  - 笔记
 category: 技术
+summary: >-
+  JSBridge 是连接 Native 与非 Native 的双向通信通道，其实现分为两条路径：JavaScript 调用 Native 时，可通过
+  Webview 注入全局方法，或通过 iframe 发送 URL Scheme 请求由 Native 拦截处理，其中注入方式性能更优；Native 调用
+  JavaScript 时，则直接拼接字符串调用挂在 window
+  上的全局方法。整体上，通信可靠性受调用方式与参数传递限制，实际应用中需根据场景选择合适方案。
 ---
 
 [JSBridge 的原理](https://juejin.cn/post/6844903585268891662)

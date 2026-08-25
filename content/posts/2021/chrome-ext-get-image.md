@@ -1,10 +1,16 @@
 ---
 title: Chrome插件开发入门
-date: 2021/04/18 17:22:37
-pubDate: 2021/04/18 17:22:37
-tags: [chrome, JavaScript, extension]
+date: '2021/04/18 17:22:37'
+pubDate: '2021/04/18 17:22:37'
+tags:
+  - chrome
+  - JavaScript
+  - extension
 category: 技术
 description: 最近学习了Chrome插件的开发，总体来说上手还是很容易的，因为浏览器插件本质上依旧是网页，写几个demo基本就了解了他的开发过程。
+summary: >-
+  文章介绍了开发 Chrome 插件的基础流程，通过一个获取并保存页面图片的示例，说明了 manifest.json 配置、popup
+  用户界面、content scripts 注入及消息通信、所需权限等核心环节，并指出插件本质上是网页，但需遵循特定规则与 API。
 ---
 
 最近学习了 Chrome 插件的开发，总体来说上手还是很容易的，因为浏览器插件本质上依旧是网页，写几个 demo 基本就了解了他的开发过程。

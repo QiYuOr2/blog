@@ -1,10 +1,18 @@
 ---
 title: React Native中使用Markdown编辑器
-date: 2021/02/17 11:31:32
-pubDate: 2021/02/17 11:31:32
-tags: [React Native, WebView]
+date: '2021/02/17 11:31:32'
+pubDate: '2021/02/17 11:31:32'
+tags:
+  - React Native
+  - WebView
 category: 技术
-description: 最近在研究`React Native`，准备用它写一个笔记APP，但是并没有搜到很好用的编辑器插件，因此准备使用`WebView`和已有的Web端编辑器自己封装一个。
+description: >-
+  最近在研究`React
+  Native`，准备用它写一个笔记APP，但是并没有搜到很好用的编辑器插件，因此准备使用`WebView`和已有的Web端编辑器自己封装一个。
+summary: >-
+  本文介绍了在 React Native 中通过 WebView 封装 Vditor 编辑器的方法，以解决笔记应用缺少合适编辑器插件的问题。文章说明了
+  WebView 的安装与两种引入方式（URL 和本地 HTML），重点讲解了 Web 与 React Native
+  双向通信的实现原理，并给出了注入配置、监听消息及初始化内容的完整组件代码。最后强调 WebView 必须设置宽高，并提供了完整项目地址供参考。
 ---
 
 最近在研究`React Native`，准备用它写一个笔记 APP，但是并没有搜到很好用的编辑器插件，因此准备使用`WebView`和已有的 Web 端编辑器自己封装一个。

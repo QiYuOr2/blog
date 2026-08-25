@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "fetch-weread": "node ./fetch-weread.mjs"
+    "fetch-weread": "node ./fetch-weread.mjs",
+    "generate-summaries": "node ./generate-summaries.mjs"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "openai": "^4.69.0"
   }
 }
