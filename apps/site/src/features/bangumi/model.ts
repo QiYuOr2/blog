@@ -50,3 +50,39 @@ export function getCachedPage(
 export function getCachedTotal(cache: BangumiCache, type: CollectionType): number {
   return cache.types[String(type)]?.total ?? 0;
 }
+
+/** 缓存里是否有可用的真实数据；至少一个类型有内容才算有效缓存。 */
+export function hasBangumiCache(cache?: BangumiCache): cache is BangumiCache {
+  if (!cache) return false;
+  return Object.values(cache.types).some((bucket) => bucket.total > 0);
+}
+
+export type PageButton = number | "start-ellipsis" | "end-ellipsis";
+
+/** 生成分页按钮序列（含省略号占位），供前端分页使用。 */
+export function computePageButtons(
+  currentPage: number,
+  totalPages: number,
+  maxVisible = 5,
+): PageButton[] {
+  const start = Math.max(1, currentPage - Math.floor(maxVisible / 2));
+  const end = Math.min(totalPages, start + maxVisible - 1);
+  const startPage = Math.max(1, end - maxVisible + 1);
+  const pages: PageButton[] = [];
+
+  if (startPage > 1) {
+    pages.push(1);
+    if (startPage > 2) pages.push("start-ellipsis");
+  }
+
+  for (let current = startPage; current <= end; current += 1) {
+    pages.push(current);
+  }
+
+  if (end < totalPages) {
+    if (end < totalPages - 1) pages.push("end-ellipsis");
+    pages.push(totalPages);
+  }
+
+  return pages;
+}
