@@ -45,7 +45,7 @@ function onSelectCategory(category: string | null) {
   <div>
 
     <div v-if="useCache" class="mb-4 text-size-xs opacity-60">
-      bangumi 请求超时，展示缓存数据，最后更新时间：{{ cacheUpdatedAt }}
+      bangumi 请求超时，缓存最后更新时间：{{ cacheUpdatedAt }}
     </div>
 
     <div class="mb-6">
