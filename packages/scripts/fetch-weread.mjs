@@ -1,10 +1,18 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 const SKILL_VERSION = "1.0.4";
 const WEREAD_API_URL = "https://i.weread.qq.com/api/agent/gateway";
 const MODES = ["weekly", "monthly", "annually", "overall"];
+/** 微信读书按 Asia/Shanghai（UTC+8，无夏令时）划分“今天/当月”。 */
+const SHANGHAI_TZ = "Asia/Shanghai";
 
 const scriptRoot = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(scriptRoot, "../..");
@@ -65,11 +73,14 @@ async function fetchMode(mode) {
  */
 async function fetchDailyReadTimes() {
   const monthBuckets = {};
-  const today = new Date();
+  // 以上海“今天”为基准，避免抓取月份随构建/机器时区漂移。
+  const today = dayjs().tz(SHANGHAI_TZ);
   for (let i = 5; i >= 0; i -= 1) {
-    const monthStart = new Date(today.getFullYear(), today.getMonth() - i, 1);
-    const baseTime = Math.floor(monthStart.getTime() / 1000);
-    process.stdout.write(`Fetching daily read times for ${monthStart.getFullYear()}-${String(monthStart.getMonth() + 1).padStart(2, "0")}... `);
+    // 上海当月 1 日 00:00，供 /readdata/detail 归一化到该月（monthStart.unix() 即该时刻的 UTC 秒）。
+    const monthStart = today.subtract(i, "month").startOf("month");
+    const baseTime = monthStart.unix();
+    const label = monthStart.format("YYYY-MM");
+    process.stdout.write(`Fetching daily read times for ${label}... `);
     const data = await postApi({
       api_name: "/readdata/detail",
       mode: "monthly",

@@ -149,6 +149,9 @@ importers:
 
   packages/scripts:
     dependencies:
+      dayjs:
+        specifier: ^1.11.13
+        version: 1.11.13
       gray-matter:
         specifier: ^4.0.3
         version: 4.0.3

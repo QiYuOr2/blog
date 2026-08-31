@@ -1,5 +1,12 @@
 <script setup lang="ts">
 import { computed } from "vue";
+import {
+  tsToDayKey,
+  dayFromKey,
+  recentWindowStart,
+  heatLevel,
+  type Dayjs,
+} from "../date";
 import { formatDuration } from "../utils/progress-utils";
 
 const props = defineProps<{
@@ -8,7 +15,7 @@ const props = defineProps<{
 }>();
 
 type DayCell = {
-  date: Date;
+  date: Dayjs;
   seconds: number;
   level: number;
   label: string;
@@ -19,85 +26,69 @@ const WEEKDAY_LABELS = ["一", "二", "三", "四", "五", "六", "日"];
 /** 热力图只展示最近 6 个月，避免容器内出现横向滚动。 */
 const RECENT_MONTHS = 6;
 
-// 将数据按“本地日”归并（接口返回的是 UTC 凌晨时间戳，需要转换成 Asia/Shanghai 本地日）。
+// 将数据按“上海日历日”归并。
 const dayMap = computed<Map<string, number>>(() => {
   const map = new Map<string, number>();
   for (const [key, seconds] of Object.entries(props.readTimesByDay)) {
     const ts = Number(key);
     if (!Number.isFinite(ts)) continue;
-    const date = new Date(ts * 1000);
-    const localKey = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
-    map.set(localKey, (map.get(localKey) ?? 0) + seconds);
+    const dayKey = tsToDayKey(ts);
+    map.set(dayKey, (map.get(dayKey) ?? 0) + seconds);
   }
   return map;
 });
 
-// 只保留最近 RECENT_MONTHS 个月（以前端“今天”为准，跨自然月）。
+// 只保留最近 RECENT_MONTHS 个月（以“上海今天”为准）。
 const recentDayMap = computed<Map<string, number>>(() => {
-  const cutoff = new Date();
-  cutoff.setDate(1);
-  cutoff.setMonth(cutoff.getMonth() - (RECENT_MONTHS - 1));
+  const cutoff = recentWindowStart(RECENT_MONTHS);
   const result = new Map<string, number>();
   for (const [key, seconds] of dayMap.value) {
-    const [y, m, d] = key.split("-").map(Number);
-    if (Number.isFinite(y) && Number.isFinite(m) && Number.isFinite(d)) {
-      const date = new Date(y, m - 1, d);
-      if (date >= cutoff) result.set(key, seconds);
-    }
+    const date = dayFromKey(key);
+    if (!date.isBefore(cutoff, "day")) result.set(key, seconds);
   }
   return result;
 });
 
-const maxSeconds = computed<number>(() => {
+// 颜色与悬浮提示共用“分钟”口径，避免出现“显示绿色但提示 0 分钟”的不一致。
+// 不足 1 分钟的天（如 2s/53s）按 0 分钟处理，不再上色。
+const maxMinutes = computed<number>(() => {
   let max = 0;
   for (const seconds of recentDayMap.value.values()) {
-    if (seconds > max) max = seconds;
+    const minutes = Math.floor(seconds / 60);
+    if (minutes > max) max = minutes;
   }
   return max;
 });
-
-// 以最大值为基准把阅读时长分成 5 档，颜色深度随时间递增。
-function levelOf(seconds: number, max: number) {
-  if (seconds <= 0) return 0;
-  if (max <= 0) return 0;
-  const ratio = seconds / max;
-  if (ratio > 0.8) return 4;
-  if (ratio > 0.5) return 3;
-  if (ratio > 0.25) return 2;
-  return 1;
-}
 
 // 计算最近的周列，先补齐到周一为起点，再补齐到周日为终点。
 const weeks = computed<DayCell[][]>(() => {
   if (!recentDayMap.value.size) return [];
 
-  const dates = [...recentDayMap.value.keys()].map((key) => new Date(`${key}T00:00:00`));
-  const min = new Date(Math.min(...dates.map((d) => d.getTime())));
-  const max = new Date(Math.max(...dates.map((d) => d.getTime())));
+  const dates = [...recentDayMap.value.keys()].map(dayFromKey);
+  const min = dates.reduce((a, b) => (b.isBefore(a) ? b : a));
+  const max = dates.reduce((a, b) => (b.isAfter(a) ? b : a));
 
-  const start = new Date(min);
-  const day = start.getDay();
-  start.setDate(start.getDate() - (day === 0 ? 6 : day - 1));
+  const start = min.startOf("week");
 
-  const end = new Date(max);
-  const endDay = end.getDay();
-  end.setDate(end.getDate() + (endDay === 0 ? 0 : 7 - endDay));
+  let end = max;
+  const endDay = end.day();
+  if (endDay !== 0) end = end.add(7 - endDay, "day");
 
   const result: DayCell[][] = [];
-  const cursor = new Date(start);
-  while (cursor <= end) {
+  let cursor = start.clone();
+  while (!cursor.isAfter(end, "day")) {
     const week: DayCell[] = [];
     for (let i = 0; i < DAYS_IN_WEEK; i += 1) {
-      const date = new Date(cursor);
-      const key = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+      const key = cursor.format("YYYY-MM-DD");
       const seconds = recentDayMap.value.get(key) ?? 0;
+      const minutes = Math.floor(seconds / 60);
       week.push({
-        date,
+        date: cursor,
         seconds,
-        level: levelOf(seconds, maxSeconds.value),
+        level: heatLevel(minutes, maxMinutes.value),
         label: `${key} 阅读 ${formatDuration(seconds)}`,
       });
-      cursor.setDate(cursor.getDate() + 1);
+      cursor = cursor.add(1, "day");
     }
     result.push(week);
   }
@@ -112,14 +103,14 @@ const monthLabels = computed<{ start: number; span: number; month: number; year:
   let firstKey = "";
   weeks.value.forEach((week, index) => {
     const first = week[0].date;
-    const monthKey = `${first.getFullYear()}-${first.getMonth()}`;
+    const monthKey = `${first.year()}-${first.month()}`;
     if (monthKey !== lastKey) {
       labels.push({
         start: index,
         span: 1,
-        month: first.getMonth() + 1,
-        year: first.getFullYear(),
-        showYear: !firstKey || first.getMonth() === 0,
+        month: first.month() + 1,
+        year: first.year(),
+        showYear: !firstKey || first.month() === 0,
         monthKey,
       });
       if (!firstKey) firstKey = monthKey;

@@ -4,18 +4,13 @@ import Weread from "@/features/weread/components/index.vue";
 import { getCollection } from "astro:content";
 import { getWereadStaticData } from "@/features/weread/model.ts";
 import Comments from "@/components/comments.vue";
-import dayjs from 'dayjs'
-import timezone from 'dayjs/plugin/timezone'
-import utc from 'dayjs/plugin/utc'
-
-dayjs.extend(utc)
-dayjs.extend(timezone)
+import { dayjs, SHANGHAI_TZ } from "@/features/weread/date";
 
 const wereadData = getWereadStaticData(await getCollection("weread"));
 
 function formatUpdatedAt(timestamp: string) {
   return dayjs(timestamp)
-    .tz("Asia/Shanghai")
+    .tz(SHANGHAI_TZ)
     .format('YYYY-MM-DD')
 }
 ---
