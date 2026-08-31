@@ -2,14 +2,15 @@
 import Bangumi from "@/features/bangumi/components/index.vue";
 import Comments from "@/components/comments.vue";
 import PageLayout from "@/layouts/page.astro";
+import { getCollection } from "astro:content";
+import { getBangumiStaticData } from "@/features/bangumi/model.ts";
 
-
-
+const bangumiCache = getBangumiStaticData(await getCollection("bangumi"));
 ---
 
 <PageLayout post>
   <article class="prose-stone dark:prose-invert">
-    <Bangumi client:load />
+    <Bangumi cache={bangumiCache} client:load />
   </article>
   <Comments client:visible />
 </PageLayout>

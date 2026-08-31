@@ -3,7 +3,8 @@ import { glob } from "astro/loaders";
 import { postsSchema } from "./features/posts/schema";
 import { memosSchema } from "./features/memo/schema";
 import { wereadSchema } from "./features/weread/schema";
-import { POSTS_DIR, MEMOS_DIR, WEREAD_DIR } from "@tabi/config/paths";
+import { bangumiSchema } from "./features/bangumi/schema";
+import { POSTS_DIR, MEMOS_DIR, WEREAD_DIR, BANGUMI_DIR } from "@tabi/config/paths";
 
 const posts = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: POSTS_DIR }),
@@ -20,4 +21,9 @@ const weread = defineCollection({
   schema: wereadSchema,
 });
 
-export const collections = { posts, memos, weread };
+const bangumi = defineCollection({
+  loader: glob({ pattern: "**/*.json", base: BANGUMI_DIR }),
+  schema: bangumiSchema,
+});
+
+export const collections = { posts, memos, weread, bangumi };

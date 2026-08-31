@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "fetch-weread": "node ./fetch-weread.mjs",
+    "fetch-bangumi": "node ./fetch-bangumi.mjs",
     "generate-summaries": "node ./generate-summaries.mjs"
   },
   "dependencies": {

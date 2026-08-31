@@ -6,9 +6,11 @@
     "preview": "pnpm --filter @tabi/site preview",
     "build:cli": "pnpm --filter @tabi/cli build",
     "weread:sync": "pnpm --filter @tabi/scripts fetch-weread",
+    "bangumi:sync": "pnpm --filter @tabi/scripts fetch-bangumi",
     "summary:gen": "pnpm --filter @tabi/scripts generate-summaries"
   },
   "devDependencies": {
+    "@types/node": "^24.0.0",
     "typescript": "5.9.3"
   }
 }

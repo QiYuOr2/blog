@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, watch } from "vue";
 import { CollectionType, type CollectionItem, type CollectionsDTO } from "../types";
+import type { BangumiCache } from "../schema";
+import { getCachedPage, getCachedTotal } from "../model";
+
 const types = [
   CollectionType.Wish,
   CollectionType.Collect,
@@ -15,9 +18,11 @@ const labels: Record<CollectionType, string> = {
   [CollectionType.OnHold]: "搁置",
   [CollectionType.Dropped]: "抛弃",
 };
+const props = defineProps<{ cache?: BangumiCache }>();
 const data = ref<CollectionItem[]>([]),
   loading = ref(true),
   error = ref<string | null>(null),
+  useCache = ref(false),
   selected = ref<CollectionType>(CollectionType.Doing),
   page = ref(1),
   total = ref(0),
@@ -29,6 +34,7 @@ const data = ref<CollectionItem[]>([]),
     [CollectionType.Dropped]: 0,
   });
 const pageSize = 12;
+const REQUEST_TIMEOUT_MS = 5_000;
 const totalPages = computed(() => Math.ceil(total.value / pageSize));
 const pageButtons = computed<(number | "start-ellipsis" | "end-ellipsis")[]>(() => {
   const maxVisible = 5;
@@ -53,37 +59,62 @@ const pageButtons = computed<(number | "start-ellipsis" | "end-ellipsis")[]>(() 
 
   return pages;
 });
+
+async function fetchWithTimeout(url: string): Promise<CollectionsDTO> {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+  try {
+    const response = await fetch(url, { signal: controller.signal });
+    if (!response.ok) throw Error(`Failed to fetch data (HTTP ${response.status})`);
+    return (await response.json()) as CollectionsDTO;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 async function load() {
   loading.value = true;
   error.value = null;
   try {
-    const response = await fetch(
+    const result = await fetchWithTimeout(
       `https://api.bgm.tv/v0/users/qiyuor2/collections?subject_type=2&type=${selected.value}&offset=${(page.value - 1) * pageSize}&limit=${pageSize}`,
     );
-    if (!response.ok) throw Error("Failed to fetch data");
-    const result: CollectionsDTO = await response.json();
     data.value = result.data;
     total.value = result.total;
+    useCache.value = false;
   } catch (e) {
-    error.value = e instanceof Error ? e.message : "Unknown error";
+    const cached = props.cache
+      ? getCachedPage(props.cache, selected.value, page.value, pageSize)
+      : null;
+    if (cached && cached.items.length > 0) {
+      data.value = cached.items;
+      total.value = cached.total;
+      useCache.value = true;
+    } else {
+      error.value = e instanceof Error ? e.message : "Unknown error";
+      useCache.value = false;
+    }
   } finally {
     loading.value = false;
   }
 }
 async function loadCounts() {
-  try {
-    await Promise.all(
-      types.map(async (type) => {
-        const r = await fetch(
-          `https://api.bgm.tv/v0/users/qiyuor2/collections?subject_type=2&type=${type}&limit=1`,
-        );
-        if (!r.ok) throw Error("Failed to fetch type counts");
-        counts.value[type] = ((await r.json()) as CollectionsDTO).total;
-      }),
-    );
-  } catch (error) {
-    console.error(error);
-  }
+  const results = await Promise.allSettled(
+    types.map(async (type) => {
+      const result = await fetchWithTimeout(
+        `https://api.bgm.tv/v0/users/qiyuor2/collections?subject_type=2&type=${type}&limit=1`,
+      );
+      return { type, total: result.total };
+    }),
+  );
+  results.forEach((result, index) => {
+    const type = types[index];
+    if (result.status === "fulfilled") {
+      counts.value[type] = result.value.total;
+    } else if (props.cache) {
+      counts.value[type] = getCachedTotal(props.cache, type);
+    }
+  });
 }
 onMounted(() => {
   load();
@@ -110,6 +141,9 @@ const open = (id: number) => window.open(`https://bgm.tv/subject/${id}`, "_blank
       >
         {{ labels[type] }} ({{ counts[type] }})
       </button>
+    </div>
+    <div v-if="useCache" class="mb-4 text-size-xs opacity-60">
+      bgm 接口较慢，当前展示的是缓存数据
     </div>
     <div v-if="error" class="mb-4 text-red-500">{{ error }}</div>
     <div class="grid grid-cols-3 gap-4 md:grid-cols-4 lg:grid-cols-4">

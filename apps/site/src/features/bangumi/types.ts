@@ -12,7 +12,7 @@ export enum SubjectType {
 }
 
 export interface Subject {
-  date: string;
+  date: string | null | { year?: number; month?: number; day?: number };
   images: {
     small: string;
     grid: string;
@@ -22,8 +22,8 @@ export interface Subject {
   };
   name: string;
   name_cn: string;
-  score: number;
-  rank: number;
+  score: number | null;
+  rank: number | null;
   id: number;
 }
 
