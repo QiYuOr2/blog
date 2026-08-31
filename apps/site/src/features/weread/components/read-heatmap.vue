@@ -22,7 +22,7 @@ type DayCell = {
 };
 
 const DAYS_IN_WEEK = 7;
-const WEEKDAY_LABELS = ["一", "二", "三", "四", "五", "六", "日"];
+const WEEKDAY_LABELS = ["日", "一", "二", "三", "四", "五", "六"];
 /** 热力图只展示最近 6 个月，避免容器内出现横向滚动。 */
 const RECENT_MONTHS = 6;
 
@@ -68,11 +68,15 @@ const weeks = computed<DayCell[][]>(() => {
   const min = dates.reduce((a, b) => (b.isBefore(a) ? b : a));
   const max = dates.reduce((a, b) => (b.isAfter(a) ? b : a));
 
-  const start = min.startOf("week");
+  // 把周日作为每周第一行（日、一、…、六）。dayjs 的 startOf("week") 会随 locale
+  // 在周日/周一之间漂移（服务端按周日、浏览器按周一），这里用 .day() 显式求周日，
+  // 保证服务端与浏览器渲染出的格网完全一致，避免 hydration 时颜色/时间错位。
+  const weekday = min.day(); // 0 = 周日, ... 6 = 周六
+  const start = min.subtract(weekday, "day");
 
   let end = max;
   const endDay = end.day();
-  if (endDay !== 0) end = end.add(7 - endDay, "day");
+  if (endDay !== 6) end = end.add(6 - endDay, "day");
 
   const result: DayCell[][] = [];
   let cursor = start.clone();
@@ -186,10 +190,10 @@ const gridLeftOffset = computed(() => `-${WEEKDAY_COL_WIDTH + GAP}px`);
           class="flex items-center justify-end"
         >{{ label }}</span>
 
-        <template v-for="(week, col) in weeks" :key="col">
+        <template v-for="(week, col) in weeks" :key="week[0].date.format('YYYY-MM-DD')">
           <span
             v-for="(cell, row) in week"
-            :key="row"
+            :key="cell.date.format('YYYY-MM-DD')"
             :title="cell.label"
             :style="{
               gridColumn: col + 2,
