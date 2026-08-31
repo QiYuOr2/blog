@@ -54,7 +54,7 @@ onBeforeUnmount(() => document.removeEventListener("click", onDocumentClick))
 
     <div
       v-show="open"
-      class="absolute left-0 w-[8rem] top-full z-20 mt-1.5 max-h-64 overflow-auto rounded-xl border border-[var(--un-prose-borders)] bg-white p-1 shadow-md dark:border-[var(--un-prose-invert-borders)] dark:bg-true-gray-700"
+      class="absolute left-0 w-[8rem] top-full z-20 mt-1.5 overflow-auto rounded-xl border border-[var(--un-prose-borders)] bg-white p-1 shadow-md dark:border-[var(--un-prose-invert-borders)] dark:bg-true-gray-700"
     >
       <button
         type="button"
