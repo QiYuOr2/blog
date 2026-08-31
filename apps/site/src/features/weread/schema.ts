@@ -152,6 +152,7 @@ export const wereadSchema = z
     }),
     shelf: wereadShelfSchema.optional(),
     progressMap: z.record(z.string(), wereadProgressEntrySchema).optional(),
+    readTimesByDay: z.record(z.string(), z.number()).optional(),
   })
   .passthrough();
 

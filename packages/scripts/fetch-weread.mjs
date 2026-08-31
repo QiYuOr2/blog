@@ -57,6 +57,31 @@ async function fetchMode(mode) {
   });
 }
 
+/**
+ * 收集最近半年的每日阅读时长（秒）。
+ * /readdata/detail 的年粒度只返回月桶，要拿到日级数据需按连续自然月逐个查询 monthly，
+ * 并合并各月返回的 readTimes（key 为每日 00:00 时间戳，value 为秒数）。
+ * 窗口固定取最近 6 个月，避免页面热力图过宽。
+ */
+async function fetchDailyReadTimes() {
+  const monthBuckets = {};
+  const today = new Date();
+  for (let i = 5; i >= 0; i -= 1) {
+    const monthStart = new Date(today.getFullYear(), today.getMonth() - i, 1);
+    const baseTime = Math.floor(monthStart.getTime() / 1000);
+    process.stdout.write(`Fetching daily read times for ${monthStart.getFullYear()}-${String(monthStart.getMonth() + 1).padStart(2, "0")}... `);
+    const data = await postApi({
+      api_name: "/readdata/detail",
+      mode: "monthly",
+      baseTime,
+      skill_version: SKILL_VERSION,
+    });
+    Object.assign(monthBuckets, data.readTimes ?? {});
+    process.stdout.write(`done (${Object.keys(data.readTimes ?? {}).length} days)\n`);
+  }
+  return monthBuckets;
+}
+
 async function fetchShelf() {
   return postApi({
     api_name: "/shelf/sync",
@@ -89,6 +114,7 @@ async function main() {
     modes: {},
     shelf: {},
     progressMap: {},
+    readTimesByDay: {},
   };
 
   for (const mode of MODES) {
@@ -132,6 +158,9 @@ async function main() {
     result.progressMap[book.bookId] = bookProgress.book ?? bookProgress;
     process.stdout.write("done\n");
   }
+
+  process.stdout.write("Fetching daily read times for the past 6 months...\n");
+  result.readTimesByDay = await fetchDailyReadTimes();
 
   await fs.writeFile(outputFile, JSON.stringify(result, null, 2), "utf-8");
   console.log(`Saved WeRead data to ${path.relative(repoRoot, outputFile)}`);

@@ -1,14 +1,16 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import type { WereadStaticData } from "../schema";
-import { getShelfBooks, getShelfProgressMap } from "../model";
+import { getShelfBooks, getShelfProgressMap, getReadTimesByDay } from "../model";
 import { shouldRenderShelfBook, getReadDuration } from "../utils/progress-utils";
 import WereadCategoryFilter, { type WereadCategory } from './category-filter.vue'
 import WereadShelfGrid from "./shelf-grid.vue";
+import WereadReadHeatmap from "./read-heatmap.vue";
 const props = defineProps<{ data: WereadStaticData }>();
 const selectedCategory = ref<string | null>(null)
 const modeData = computed(() => props.data.modes.overall);
 const progressMap = computed(() => getShelfProgressMap(props.data));
+const readTimesByDay = computed(() => getReadTimesByDay(props.data));
 const shelfBooks = computed(() =>
   getShelfBooks(props.data).filter((item) => shouldRenderShelfBook(item, progressMap.value)),
 );
@@ -45,6 +47,7 @@ const filteredBooks = computed(() => {
     微信读书数据尚未生成，请先执行构建前的数据更新。
   </div>
   <div v-else class="space-y-6 pb-8">
+    <WereadReadHeatmap :read-times-by-day="readTimesByDay" />
     <WereadCategoryFilter
       :categories="categories"
       :selected-category="selectedCategory"

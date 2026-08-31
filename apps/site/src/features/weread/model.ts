@@ -43,3 +43,7 @@ export function getShelfProgressMap(data: WereadStaticData) {
     ]),
   );
 }
+
+export function getReadTimesByDay(data: WereadStaticData) {
+  return data.readTimesByDay ?? {};
+}
