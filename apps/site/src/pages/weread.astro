@@ -1,6 +1,6 @@
 ---
 import PageLayout from "@/layouts/page.astro";
-import WereadProgress from "@/features/weread/components/index.vue";
+import Weread from "@/features/weread/components/index.vue";
 import { getCollection } from "astro:content";
 import { getWereadStaticData } from "@/features/weread/model.ts";
 import Comments from "@/components/comments.vue";
@@ -16,22 +16,22 @@ const wereadData = getWereadStaticData(await getCollection("weread"));
 function formatUpdatedAt(timestamp: string) {
   return dayjs(timestamp)
     .tz("Asia/Shanghai")
-    .format('YYYY-MM-DD HH:mm:ss')
+    .format('YYYY-MM-DD')
 }
 ---
 
 <PageLayout title="微信读书阅读进度 | @柒宇" description="展示微信读书当前已读书籍与完成状态" post>
   <article class="mx-auto w-full max-w-[min(62ch,100%)] prose-stone dark:prose-invert">
     <div class="space-y-5">
-      <div class="pb-4 text-xs">
+      <div class="mb-4 text-size-xs opacity-60 text-right">
         数据统计自
-        <a href="https://weread.qq.com/" target="_blank" rel="noopener noreferrer">
+        <a class="mx-2" href="https://weread.qq.com/" target="_blank" rel="noopener noreferrer">
           微信读书
         </a>
         最后更新时间：{formatUpdatedAt(wereadData.updatedAt)}
       </div>
 
-      <WereadProgress data={wereadData} client:load />
+      <Weread data={wereadData} client:load />
     </div>
 
     <Comments client:visible />
