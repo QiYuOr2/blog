@@ -203,9 +203,10 @@ const gridLeftOffset = computed(() => `-${WEEKDAY_COL_WIDTH + GAP}px`);
             :style="{
               gridColumn: col + 2,
               gridRow: row + 1,
+              aspectRatio: '1 / 1',
               backgroundColor: `var(--heat-${cell.level}, var(--heat-0))`,
             }"
-            class="aspect-square rounded-[2px] transition-transform duration-100 hover:scale-110"
+            class="rounded-[2px] transition-transform duration-100 hover:scale-110"
           />
         </template>
       </div>
