@@ -3,7 +3,7 @@ import { computed } from "vue";
 import {
   tsToDayKey,
   dayFromKey,
-  recentWindowStart,
+  shanghaiNow,
   heatLevel,
   type Dayjs,
 } from "../date";
@@ -38,9 +38,25 @@ const dayMap = computed<Map<string, number>>(() => {
   return map;
 });
 
-// 只保留最近 RECENT_MONTHS 个月（以“上海今天”为准）。
+// 参考日取自数据里最新的阅读日，而不是访问时的“今天”。
+// 本页是静态构建 + client:load 水合：若参考日取 shanghaiNow()，构建期(SSR)与
+// 客户端会在跨月时算出不同的 6 个月窗口，导致页面“先闪完整、再缺一截”。
+// 锚定到数据最新日，可让构建期与客户端计算结果完全一致。
+const referenceDay = computed<Dayjs>(() => {
+  let maxTs = 0;
+  for (const key of Object.keys(props.readTimesByDay)) {
+    const ts = Number(key);
+    if (Number.isFinite(ts) && ts > maxTs) maxTs = ts;
+  }
+  // 无数据时回退到“上海今天”（此时网格为空，仅用于避免计算报错）。
+  return maxTs ? dayFromKey(tsToDayKey(maxTs)) : shanghaiNow();
+});
+
+// 只保留最近 RECENT_MONTHS 个月（以“数据最新阅读日”为准）。
 const recentDayMap = computed<Map<string, number>>(() => {
-  const cutoff = recentWindowStart(RECENT_MONTHS);
+  const cutoff = referenceDay.value
+    .startOf("month")
+    .subtract(RECENT_MONTHS - 1, "month");
   const result = new Map<string, number>();
   for (const [key, seconds] of dayMap.value) {
     const date = dayFromKey(key);
