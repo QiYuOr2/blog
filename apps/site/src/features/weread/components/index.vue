@@ -3,7 +3,7 @@ import { computed, ref } from "vue";
 import type { WereadStaticData } from "../schema";
 import { getShelfBooks, getShelfProgressMap, getReadTimesByDay } from "../model";
 import { shouldRenderShelfBook, getReadDuration } from "../utils/progress-utils";
-import WereadCategoryFilter, { type WereadCategory } from './category-filter.vue'
+import CategoryFilter, { type CategoryOption } from "@/components/category-filter.vue";
 import WereadShelfGrid from "./shelf-grid.vue";
 import WereadReadHeatmap from "./read-heatmap.vue";
 const props = defineProps<{ data: WereadStaticData }>();
@@ -17,7 +17,7 @@ const shelfBooks = computed(() =>
 function getCategoryName(category?: string) {
   return category?.split('-')[0] || '未分类'
 }
-const categories = computed<WereadCategory[]>(() => {
+const categories = computed<CategoryOption[]>(() => {
   const counts = new Map<string, number>()
   for (const book of shelfBooks.value) {
     const category = getCategoryName(book.category)
@@ -48,7 +48,7 @@ const filteredBooks = computed(() => {
   </div>
   <div v-else class="space-y-6 pb-8">
     <WereadReadHeatmap :read-times-by-day="readTimesByDay" />
-    <WereadCategoryFilter
+    <CategoryFilter
       :categories="categories"
       :selected-category="selectedCategory"
       :total="shelfBooks.length"

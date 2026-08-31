@@ -1,39 +1,45 @@
 <script setup lang="ts">
 import { computed, ref, onMounted, onBeforeUnmount } from "vue";
 
-export interface WereadCategory {
-  name: string
-  count: number
+export interface CategoryOption {
+  name: string;
+  count: number;
 }
 
-const props = defineProps<{
-  categories: WereadCategory[]
-  selectedCategory: string | null
-  total: number
-}>()
+const props = withDefaults(
+  defineProps<{
+    categories: CategoryOption[];
+    selectedCategory: string | null;
+    /** 「全部」选项的计数，仅 showAll 为 true 时展示。 */
+    total?: number;
+    /** 是否显示「全部」选项；不展示时要求 selectedCategory 始终取一个分类。 */
+    showAll?: boolean;
+  }>(),
+  { total: 0, showAll: true },
+);
 
-const emit = defineEmits<{ select: [category: string | null] }>()
+const emit = defineEmits<{ select: [category: string | null] }>();
 
-const open = ref(false)
-const root = ref<HTMLElement>()
+const open = ref(false);
+const root = ref<HTMLElement>();
 
 const selectedLabel = computed(() => {
-  if (!props.selectedCategory) return `全部 (${props.total})`
-  const found = props.categories.find((c) => c.name === props.selectedCategory)
-  return found ? `${found.name} (${found.count})` : props.selectedCategory
-})
+  if (!props.selectedCategory) return `全部 (${props.total})`;
+  const found = props.categories.find((c) => c.name === props.selectedCategory);
+  return found ? `${found.name} (${found.count})` : props.selectedCategory;
+});
 
 function select(category: string | null) {
-  emit("select", category)
-  open.value = false
+  emit("select", category);
+  open.value = false;
 }
 
 function onDocumentClick(event: MouseEvent) {
-  if (root.value && !root.value.contains(event.target as Node)) open.value = false
+  if (root.value && !root.value.contains(event.target as Node)) open.value = false;
 }
 
-onMounted(() => document.addEventListener("click", onDocumentClick))
-onBeforeUnmount(() => document.removeEventListener("click", onDocumentClick))
+onMounted(() => document.addEventListener("click", onDocumentClick));
+onBeforeUnmount(() => document.removeEventListener("click", onDocumentClick));
 </script>
 
 <template>
@@ -57,6 +63,7 @@ onBeforeUnmount(() => document.removeEventListener("click", onDocumentClick))
       class="absolute left-0 w-[8rem] top-full z-20 mt-1.5 overflow-auto rounded-xl border border-[var(--un-prose-borders)] bg-white p-1 shadow-md dark:border-[var(--un-prose-invert-borders)] dark:bg-true-gray-700"
     >
       <button
+        v-if="showAll"
         type="button"
         class="flex w-full items-center justify-between rounded-lg px-2.5 py-1.5 text-left text-xs transition-colors duration-150"
         :class="selectedCategory === null
@@ -89,6 +96,7 @@ onBeforeUnmount(() => document.removeEventListener("click", onDocumentClick))
   <!-- 桌面端：胶囊按钮 -->
   <div class="hidden flex-wrap gap-2 sm:flex">
     <button
+      v-if="showAll"
       type="button"
       :class="['rounded-full px-3 py-1 text-xs transition-colors duration-150', selectedCategory === null ? 'bg-[rgb(59,105,61)] text-white' : 'bg-[var(--un-prose-bg-soft)] text-[var(--un-prose-body)] dark:text-[var(--un-prose-invert-body)]']"
       @click="emit('select', null)"
