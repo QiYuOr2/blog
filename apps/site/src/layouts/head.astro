@@ -62,6 +62,9 @@ const { title, description, keywords = '' } = Astro.props
     document.querySelector("#loading").classList.add("hidden");
   });
 
+  // 首屏同步应用主题，避免初次加载时先浅色（白底）再切暗色造成闪白（FOUC）。
+  applyTheme();
+
 </script>
 
 <script>
