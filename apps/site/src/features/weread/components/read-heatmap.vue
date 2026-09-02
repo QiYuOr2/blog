@@ -115,12 +115,19 @@ const weeks = computed<DayCell[][]>(() => {
   return result;
 });
 
+// 估算某个月份标签完整显示至少需要占用的格子数。
+// 带年份（如“2026年3月”）明显更宽；不带年份（如“4月”“12月”）相对窄一些。
+// 数值是保守估计：按 0.7rem 字号、常见格子宽度估算，格子数不足时字会溢出去压到下一列。
+const minColsForLabel = (showYear: boolean) => (showYear ? 3 : 2);
+
 // 月份标签：标注每个月的起始周，并跨过该月占用的周数，保证文字完整渲染。
-// 年份只在第一个月份和一月出现一次，其余月份只显示月号。
+// 年份标注在每年第一个“实际上展示出来”的月份上（通常是窗口首月或一月），其余月份只显示月号。
+// 若某个月份只占了很少几列（通常是最前/最后一个月或跨月的周），它的文字会溢出到下一列、
+// 与下一个月的标签重叠。此时直接跳过该月，避免两处月份标识叠在一起；若它是该年首个展示的月份，
+// 年份会顺延到下一个展示出来的月份，保证年份不丢失。
 const monthLabels = computed<{ start: number; span: number; month: number; year: number; showYear: boolean }[]>(() => {
-  const labels: { start: number; span: number; month: number; year: number; showYear: boolean; monthKey: string }[] = [];
+  const labels: { start: number; span: number; month: number; year: number }[] = [];
   let lastKey = "";
-  let firstKey = "";
   weeks.value.forEach((week, index) => {
     const first = week[0].date;
     const monthKey = `${first.year()}-${first.month()}`;
@@ -130,23 +137,32 @@ const monthLabels = computed<{ start: number; span: number; month: number; year:
         span: 1,
         month: first.month() + 1,
         year: first.year(),
-        showYear: !firstKey || first.month() === 0,
-        monthKey,
       });
-      if (!firstKey) firstKey = monthKey;
       lastKey = monthKey;
     } else if (labels.length) {
       // 当前月份跨到本列，增加当前首列的 span。
       labels[labels.length - 1].span += 1;
     }
   });
-  return labels.map(({ start, span, month, year, showYear }) => ({
-    start,
-    span,
-    month,
-    year,
-    showYear,
-  }));
+  const result: { start: number; span: number; month: number; year: number; showYear: boolean }[] = [];
+  const last = labels[labels.length - 1];
+  let prevYear: number | null = null;
+  for (const item of labels) {
+    // 该年第一个展示出来的月份才带年份（窗口首月或跨年时可自然区分年份）。
+    const showYear = prevYear === null || item.year !== prevYear;
+    // 若带年份后格子数不够，说明它其实是上一个月的“跨周残片”，跳过并让年份顺延。
+    // 但最后一个标签右侧没有下个月与之重叠，保留它以避免丢掉当下的年份/月份。
+    if (item !== last && item.span < minColsForLabel(showYear)) continue;
+    result.push({
+      start: item.start,
+      span: item.span,
+      month: item.month,
+      year: item.year,
+      showYear,
+    });
+    prevYear = item.year;
+  }
+  return result;
 });
 
 const cellLevels = [0, 1, 2, 3, 4];
