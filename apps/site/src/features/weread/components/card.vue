@@ -17,10 +17,10 @@ function openBook(href?: string) {
     class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden relative cursor-pointer hover:(shadow-lg) transition-all transition-duration-150"
     @click="openBook(href)"
   >
-    <img v-if="image" :src="image" :alt="name" loading="lazy" decoding="async" class="h-36 md:h-48 lg:h-48 w-full object-cover" />
+    <img v-if="image" :src="image" :alt="name" loading="lazy" decoding="async" class="aspect-[2/3] w-full object-cover" />
     <div
       v-else
-      class="flex h-36 md:h-48 lg:h-48 w-full items-center justify-center bg-slate-100 text-sm text-slate-600 dark:bg-slate-900 dark:text-slate-300"
+      class="flex aspect-[2/3] w-full items-center justify-center bg-slate-100 text-sm text-slate-600 dark:bg-slate-900 dark:text-slate-300"
     >
       无封面
     </div>

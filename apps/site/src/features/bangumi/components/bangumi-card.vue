@@ -69,7 +69,7 @@ function open() {
     <!-- 加载失败：占位 -->
     <div
       v-if="loadStatus === ImageLoadStatus.Failed"
-      class="h-36 md:h-48 lg:h-48 w-full flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-900"
+      class="aspect-[2/3] w-full flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-900"
     >
       <span class="i-mdi:image-outline text-2xl text-gray-400" />
       <span class="px-3 text-center text-xs text-gray-600 dark:text-gray-200 line-clamp-2">
@@ -81,7 +81,7 @@ function open() {
       v-if="loadStatus !== ImageLoadStatus.Failed"
       :src="item.subject.images.small"
       :alt="title"
-      class="relative h-36 md:h-48 lg:h-48 w-full object-cover"
+      class="relative aspect-[2/3] w-full object-cover"
       @load="onImageLoad"
       @error="onImageError"
     />

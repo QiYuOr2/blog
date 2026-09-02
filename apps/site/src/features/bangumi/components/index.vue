@@ -60,12 +60,12 @@ function onSelectCategory(category: string | null) {
 
     <div v-if="error" class="mb-4 text-red-500">{{ error }}</div>
 
-    <div class="grid grid-cols-3 gap-4 md:grid-cols-4 lg:grid-cols-4">
+    <div class="grid grid-cols-3 gap-4 sm:grid-cols-4">
       <template v-if="loading">
         <div
           v-for="n in pageSize"
           :key="n"
-          class="rounded-lg h-36 md:h-48 lg:h-48 w-full skeleton"
+          class="rounded-lg aspect-[2/3] w-full skeleton"
         />
       </template>
       <template v-else>

@@ -13,7 +13,7 @@ const progressFor = (book: WereadShelfBook) => props.progressMap.get(book.bookId
 </script>
 
 <template>
-  <div class="grid grid-cols-3 gap-4 md:grid-cols-4 lg:grid-cols-4">
+  <div class="grid grid-cols-3 gap-4 sm:grid-cols-4">
     <template v-if="books.length">
       <WereadCard
         v-for="(item, index) in books"
