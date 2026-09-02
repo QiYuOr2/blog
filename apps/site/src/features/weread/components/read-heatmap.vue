@@ -76,6 +76,21 @@ const maxMinutes = computed<number>(() => {
   return max;
 });
 
+// 汇总近六个月窗口内所有阅读日期的总阅读时长（秒），用于右上角摘要。
+const totalReadSeconds = computed<number>(() => {
+  let total = 0;
+  for (const seconds of recentDayMap.value.values()) total += seconds;
+  return total;
+});
+
+// 与底部图例/悬浮提示一致的“分钟”口径：整分后不足 1 分钟的部分不计入。
+const totalDurationLabel = computed<string>(() => {
+  const totalMinutes = Math.floor(totalReadSeconds.value / 60);
+  const hours = Math.floor(totalMinutes / 60);
+  const minutes = totalMinutes % 60;
+  return `${hours} 小时 ${minutes} 分钟`;
+});
+
 // 计算最近的周列，先补齐到周一为起点，再补齐到周日为终点。
 const weeks = computed<DayCell[][]>(() => {
   if (!recentDayMap.value.size) return [];
@@ -182,7 +197,7 @@ const gridLeftOffset = computed(() => `-${WEEKDAY_COL_WIDTH + GAP}px`);
     <div class="mb-3 flex items-center justify-between text-xs text-[var(--un-prose-body)] dark:text-[var(--un-prose-invert-body)]">
       <span>近半年阅读热力图</span>
       <span class="text-[var(--un-prose-captions)] dark:text-[var(--un-prose-invert-captions)]">
-        {{ weeks.length }} 周 · {{ recentDayMap.size }} 天
+        {{ recentDayMap.size }} 天 · 时长 {{ totalDurationLabel }}
       </span>
     </div>
 
