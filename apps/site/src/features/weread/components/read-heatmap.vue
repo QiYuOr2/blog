@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import {
   tsToDayKey,
   dayFromKey,
@@ -16,6 +16,7 @@ const props = defineProps<{
 
 type DayCell = {
   date: Dayjs;
+  key: string;
   seconds: number;
   level: number;
   label: string;
@@ -119,6 +120,7 @@ const weeks = computed<DayCell[][]>(() => {
       const minutes = Math.floor(seconds / 60);
       week.push({
         date: cursor,
+        key,
         seconds,
         level: heatLevel(minutes, maxMinutes.value),
         label: `${key} 阅读 ${formatDuration(seconds)}`,
@@ -190,6 +192,30 @@ const gridColumns = computed(() => {
 });
 /** 星期列 + 首列间隔，向左偏移后让真正的格子左缘与容器左缘对齐。 */
 const gridLeftOffset = computed(() => `-${WEEKDAY_COL_WIDTH + GAP}px`);
+
+// 触屏/点击：记录被选中的格子，在左下角展示“日期 · 当日阅读时长”，并把其余格子压灰。
+// 桌面端继续依赖原生 title 悬浮，这里只补触屏点按。
+const selectedDay = ref<string | null>(null);
+
+function selectDay(cell: DayCell) {
+  const key = cell.key;
+  // 再点一次同一个格子则取消选中。
+  selectedDay.value = selectedDay.value === key ? null : key;
+}
+
+const selectedInfo = computed(() => {
+  const key = selectedDay.value;
+  if (!key) return "点击某一天查看阅读时长";
+  const seconds = recentDayMap.value.get(key) ?? 0;
+  return `${key} · ${formatDuration(seconds)}`;
+});
+
+/** 未选中时正常显示；选中某天后其余格子压灰，选中的格子加描边。 */
+function cellClass(cell: DayCell) {
+  if (selectedDay.value === cell.key) return "heat-cell--selected";
+  if (selectedDay.value) return "heat-cell--dim";
+  return "";
+}
 </script>
 
 <template>
@@ -240,29 +266,34 @@ const gridLeftOffset = computed(() => `-${WEEKDAY_COL_WIDTH + GAP}px`);
         <template v-for="(week, col) in weeks" :key="week[0].date.format('YYYY-MM-DD')">
           <span
             v-for="(cell, row) in week"
-            :key="cell.date.format('YYYY-MM-DD')"
+            :key="cell.key"
             :title="cell.label"
+            @click="selectDay(cell)"
+            :class="cellClass(cell)"
             :style="{
               gridColumn: col + 2,
               gridRow: row + 1,
               aspectRatio: '1 / 1',
               backgroundColor: `var(--heat-${cell.level}, var(--heat-0))`,
             }"
-            class="rounded-[2px] transition-transform duration-100 hover:scale-110"
+            class="rounded-[2px] transition-all duration-150 hover:scale-110"
           />
         </template>
       </div>
 
-      <!-- 图例 -->
-      <div class="mt-3 flex items-center justify-end gap-1 text-[0.7rem] text-[var(--un-prose-captions)] dark:text-[var(--un-prose-invert-captions)]">
-        <span>少</span>
-        <span
-          v-for="level in cellLevels"
-          :key="level"
-          class="h-[10px] w-[10px] rounded-[2px]"
-          :style="{ backgroundColor: `var(--heat-${level})` }"
-        />
-        <span>多</span>
+      <!-- 底部：左侧为选中格子的时长信息，右侧为图例 -->
+      <div class="mt-3 flex items-center justify-between gap-2 text-[0.7rem] text-[var(--un-prose-captions)] dark:text-[var(--un-prose-invert-captions)]">
+        <span class="truncate">{{ selectedInfo }}</span>
+        <div class="flex shrink-0 items-center gap-1">
+          <span>少</span>
+          <span
+            v-for="level in cellLevels"
+            :key="level"
+            class="h-[10px] w-[10px] rounded-[2px]"
+            :style="{ backgroundColor: `var(--heat-${level})` }"
+          />
+          <span>多</span>
+        </div>
       </div>
     </div>
   </div>
@@ -283,5 +314,19 @@ const gridLeftOffset = computed(() => `-${WEEKDAY_COL_WIDTH + GAP}px`);
     --heat-2: rgb(54 92 64);
     --heat-3: rgb(66 121 79);
     --heat-4: rgb(76 145 90);
+  }
+
+  /* 选中某天时：其余格子压灰；选中的格子加描边，突出显示。 */
+  .heat-cell--selected {
+    box-shadow: 0 0 0 2px var(--un-prose-body);
+  }
+
+  :root.dark .heat-cell--selected {
+    box-shadow: 0 0 0 2px var(--un-prose-invert-body);
+  }
+
+  .heat-cell--dim {
+    filter: grayscale(1);
+    opacity: 0.45;
   }
 </style>
