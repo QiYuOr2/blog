@@ -1,0 +1,61 @@
+name: Sync WeRead
+
+on:
+  schedule:
+    # UTC 15:30 = 北京时间 23:30，避开整点调度高峰
+    - cron: "30 15 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-weread
+  cancel-in-progress: false
+
+env:
+  # 同步脚本用不到浏览器，跳过下载以加快安装
+  PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: "1"
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Sync WeRead data
+        run: pnpm weread:sync
+        env:
+          WEREAD_API_KEY: ${{ secrets.WEREAD_API_KEY }}
+
+      - name: Verify data
+        run: |
+          node -e "const d=require('./content/weread/weread.json');const b=d.shelf?.books?.length??0;const n=Object.keys(d.readTimesByDay??{}).length;console.log('books='+b,'days='+n,'updatedAt='+d.updatedAt);if(!b||!n){console.error('数据结构异常，取消提交');process.exit(1)}"
+
+      - name: Commit and push
+        run: |
+          if [ -z "$(git status --porcelain content/weread/weread.json)" ]; then
+            echo "content/weread/weread.json 无变化，跳过提交"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/weread/weread.json
+          git commit -m "chore: sync weread data"
+          git push
