@@ -1,65 +1,13 @@
 {
-  "updatedAt": "2026-09-14T16:30:33.543Z",
+  "updatedAt": "2026-09-15T17:43:50.691Z",
   "modes": {
     "weekly": {
       "readTimes": {
-        "1789315200": 8284
+        "1789315200": 8284,
+        "1789401600": 24078
       },
-      "readDays": 1,
+      "readDays": 2,
       "readLongest": [
-        {
-          "book": {
-            "bookId": "907758",
-            "deepLink": "https://weread.qq.com/book-detail?type=1&v=bd1326605dd9eebd18b21f1",
-            "title": "写给大家看的设计书（第4版）",
-            "author": "Robin Williams",
-            "translator": "苏金国,李盼等",
-            "intro": "平面设计入门经典大作、 零基础自学平面设计师指导手册！ 让人人都能成为设计师！在这部畅销全球多年、影响了一代设计师的经典著作中，Robin　Williams将优秀设计的秘诀归纳为对比、重复、对齐和亲密性四条基本原则，并用简洁通俗、幽默生动的文笔，同时配以大量经过修改进行前后对比的实例图解和设计练习（并提供解答），直观清晰地传授给读者。通过本书，普通读者很快就能够自信地设计出专业级别的作品，而专业设计师也将从中获得灵感和解决问题的途径。",
-            "cover": "https://cdn.weread.qq.com/weread/cover/18/YueWen_907758/s_YueWen_907758.jpg",
-            "version": 76330532,
-            "format": "epub",
-            "type": 0,
-            "soldout": 0,
-            "bookStatus": 1,
-            "payType": 1048577,
-            "finished": 1,
-            "maxFreeChapter": 10,
-            "maxFreeInfo": {
-              "maxfreeChapterIdx": 10,
-              "maxfreeChapterUid": 37,
-              "maxfreeChapterRatio": 66
-            },
-            "free": 0,
-            "mcardDiscount": 0,
-            "ispub": 1,
-            "extra_type": 5,
-            "cpid": 5256588,
-            "publishTime": "2016-01-01 00:00:00",
-            "lastChapterIdx": 28,
-            "paperBook": {
-              "skuId": ""
-            },
-            "centPrice": 3950,
-            "copyrightChapterUids": [
-              29
-            ],
-            "inStoreBookId": "",
-            "blockSaveImg": 1,
-            "language": "zh",
-            "isTraditionalChinese": false,
-            "hideUpdateTime": false,
-            "isEPUBComics": 0,
-            "isVerticalLayout": 0,
-            "isShowTTS": 1,
-            "selfProduceIncentive": false,
-            "webBookControl": 0,
-            "isAutoDownload": 1
-          },
-          "readTime": 5766,
-          "tags": [
-            "单日阅读最久"
-          ]
-        },
         {
           "book": {
             "bookId": "3300053214",
@@ -108,138 +56,7 @@
             "webBookControl": 0,
             "isAutoDownload": 1
           },
-          "readTime": 2518,
-          "tags": []
-        }
-      ],
-      "rank": {
-        "text": "朋友中排第1名",
-        "scheme": "weread://fRank"
-      },
-      "registTime": 1574756874,
-      "compare": 1.5157483731019523,
-      "dayAverageReadTime": 4142,
-      "baseTime": 1789315200,
-      "totalReadTime": 8284,
-      "readDistributionWord": "点评分布",
-      "preferBooks": [
-        {
-          "type": 13,
-          "title": "我的最爱"
-        },
-        {
-          "type": 1,
-          "title": "近期偏爱"
-        },
-        {
-          "type": 0,
-          "title": "常读常新"
-        },
-        {
-          "type": 5,
-          "title": "思考最多"
-        },
-        {
-          "type": 3,
-          "title": "最沉浸的"
-        },
-        {
-          "type": 4,
-          "title": "读到深夜"
-        },
-        {
-          "type": 7,
-          "title": "第一本阅读"
-        },
-        {
-          "type": 6,
-          "title": "最爱品类"
-        },
-        {
-          "type": 2,
-          "title": "最爱分享"
-        },
-        {
-          "type": 12,
-          "title": "共读最多"
-        },
-        {
-          "type": 10,
-          "title": "欣赏小众"
-        },
-        {
-          "type": 8,
-          "title": "总有一天读完"
-        }
-      ],
-      "readRecordsWord": "书籍分布"
-    },
-    "monthly": {
-      "readTimes": {
-        "1788192000": 6722,
-        "1788278400": 7383,
-        "1788364800": 3219,
-        "1788451200": 5772,
-        "1788537600": 118,
-        "1788624000": 1486,
-        "1788710400": 829,
-        "1788796800": 4889,
-        "1788883200": 349,
-        "1788969600": 358,
-        "1789056000": 820,
-        "1789142400": 1648,
-        "1789228800": 2632,
-        "1789315200": 8284
-      },
-      "readDays": 14,
-      "readLongest": [
-        {
-          "book": {
-            "bookId": "23303610",
-            "deepLink": "https://weread.qq.com/book-detail?type=1&v=caf32960716395bacafbb80",
-            "title": "荷马史诗·奥德赛",
-            "author": "[古希腊]荷马",
-            "translator": "王焕生",
-            "intro": "《荷马史诗》是希腊最早的一部史诗，包括《伊利亚特》和《奥德赛》两部分，相传是由盲诗人荷马所作，实际上它产生于民间口头文学。《奥德赛》是以特洛亚战争传说为题材的“系列史诗”中惟一一部传世的“返乡史诗”。足智多谋的奥德修斯用木马计攻陷特洛亚城之后，率领自己的军队渡海回国。途中遭遇各种艰难险阻，历经十年飘泊，随行同伴全部遇难，只有他在女神雅典娜的佑助下，坚韧不拔地孤身一人回到久别的故乡。",
-            "cover": "https://cdn.weread.qq.com/weread/cover/44/YueWen_23303610/s_YueWen_23303610.jpg",
-            "version": 1648794803,
-            "format": "epub",
-            "type": 0,
-            "soldout": 0,
-            "bookStatus": 1,
-            "payType": 4097,
-            "finished": 1,
-            "maxFreeChapter": 8,
-            "maxFreeInfo": {
-              "maxfreeChapterIdx": 8,
-              "maxfreeChapterUid": 8,
-              "maxfreeChapterRatio": 34
-            },
-            "free": 0,
-            "mcardDiscount": 0,
-            "ispub": 1,
-            "extra_type": 5,
-            "cpid": -2571052,
-            "publishTime": "2015-06-09 00:00:00",
-            "lastChapterIdx": 31,
-            "paperBook": {
-              "skuId": ""
-            },
-            "centPrice": 999,
-            "copyrightChapterUids": [],
-            "inStoreBookId": "",
-            "blockSaveImg": 0,
-            "language": "zh",
-            "isTraditionalChinese": false,
-            "hideUpdateTime": false,
-            "isEPUBComics": 0,
-            "isVerticalLayout": 0,
-            "isShowTTS": 1,
-            "selfProduceIncentive": false,
-            "webBookControl": 0,
-            "isAutoDownload": 1
-          },
-          "readTime": 30072,
+          "readTime": 18441,
           "tags": [
             "笔记最多",
             "单日阅读最久"
@@ -293,7 +110,279 @@
             "webBookControl": 0,
             "isAutoDownload": 1
           },
-          "readTime": 5766,
+          "readTime": 9010,
+          "tags": []
+        },
+        {
+          "book": {
+            "bookId": "567379",
+            "deepLink": "https://weread.qq.com/book-detail?type=1&v=1e5323c058a8531e55ae435",
+            "title": "魔戒三部曲（魔戒之战200年前的故事《指环王：洛汗之战》12.14上映）",
+            "author": "J.R.R.托尔金",
+            "translator": "邓嘉宛,石中歌,杜蕴慈",
+            "intro": "这是一部为了世界的光明未来，誓死抵抗黑暗的伟大史诗。至尊魔戒，拥有统御众戒、奴役世界的力量，黑暗魔君索隆苦觅已久。为了守护家园，魔戒继承人弗罗多毅然离开宁谧淳朴的夏尔，踏上前途未卜的旅途。与他同行的是睿智的巫师、勇敢的人类、美善的精灵、坚毅的矮人和热爱和平的霍比特人。征途见证了勇气与友谊。跃马客栈里的重重暗影，卡扎督姆桥的怒吼炎魔，勇猛骁勇的洛汗骠骑，范贡森林的上古树须，凄厉嘶嚎的邪恶戒灵，陡峭山壁旁的巨型毒蛛……每个人各自抵御着无尽的诱惑与磨难，承担起属于自己的善恶考验。平凡的霍比特人战栗在末日烈焰面前，他能战胜这噬灭灵魂的至尊魔戒吗？",
+            "cover": "https://cdn.weread.qq.com/weread/cover/67/YueWen_567379/s_YueWen_567379.jpg",
+            "version": 922061578,
+            "format": "epub",
+            "type": 0,
+            "soldout": 0,
+            "bookStatus": 1,
+            "payType": 1048577,
+            "finished": 1,
+            "maxFreeChapter": 12,
+            "maxFreeInfo": {
+              "maxfreeChapterIdx": 12,
+              "maxfreeChapterUid": 92,
+              "maxfreeChapterRatio": 40
+            },
+            "free": 0,
+            "mcardDiscount": 0,
+            "ispub": 1,
+            "extra_type": 5,
+            "cpid": -1361120,
+            "publishTime": "2014-07-01 00:00:00",
+            "lastChapterIdx": 82,
+            "paperBook": {
+              "skuId": ""
+            },
+            "centPrice": 19900,
+            "copyrightChapterUids": [
+              82
+            ],
+            "inStoreBookId": "",
+            "blockSaveImg": 0,
+            "language": "zh",
+            "isTraditionalChinese": false,
+            "hideUpdateTime": false,
+            "isEPUBComics": 0,
+            "isVerticalLayout": 0,
+            "isShowTTS": 1,
+            "selfProduceIncentive": false,
+            "webBookControl": 0,
+            "isAutoDownload": 1
+          },
+          "readTime": 3461,
+          "tags": []
+        },
+        {
+          "book": {
+            "bookId": "CB_Cyb3S93PmAEO76K75j8PoA6d",
+            "deepLink": "https://weread.qq.com/book-detail?type=1&v=daa425b3643425f43796233533933506d41454f37364b37356a38506f4136647f6",
+            "title": "[个人修复版]魔法使之夜-上",
+            "author": "【日】奈须蘑菇",
+            "cover": "https://res.weread.qq.com/wrepub/CB_Cyb3S93PmAEO76K75j8PoA6d_parsecover",
+            "version": 461586658,
+            "format": "epub",
+            "type": 0,
+            "soldout": 0,
+            "bookStatus": 1,
+            "payType": 134217761,
+            "finished": 1,
+            "free": 1,
+            "mcardDiscount": 0,
+            "ispub": 0,
+            "cpid": 0,
+            "publishTime": "",
+            "lastChapterIdx": 41,
+            "paperBook": {
+              "skuId": ""
+            },
+            "centPrice": 0,
+            "copyrightChapterUids": [],
+            "limitShareChat": 0,
+            "inStoreBookId": "",
+            "blockSaveImg": 0,
+            "language": "zh-wr",
+            "isTraditionalChinese": false,
+            "hideUpdateTime": false,
+            "isEPUBComics": 0,
+            "isVerticalLayout": 0,
+            "isShowTTS": 1,
+            "selfProduceIncentive": false,
+            "webBookControl": 0,
+            "isAutoDownload": 1
+          },
+          "readTime": 1426,
+          "tags": []
+        }
+      ],
+      "rank": {
+        "text": "朋友中排第1名",
+        "scheme": "weread://fRank"
+      },
+      "registTime": 1574756874,
+      "compare": 5.5519595083152575,
+      "dayAverageReadTime": 10787,
+      "baseTime": 1789315200,
+      "totalReadTime": 32362,
+      "readDistributionWord": "点评分布",
+      "preferBooks": [
+        {
+          "type": 13,
+          "title": "我的最爱"
+        },
+        {
+          "type": 1,
+          "title": "近期偏爱"
+        },
+        {
+          "type": 0,
+          "title": "常读常新"
+        },
+        {
+          "type": 5,
+          "title": "思考最多",
+          "bookInfo": {
+            "bookId": "3300053214",
+            "deepLink": "https://weread.qq.com/book-detail?type=1&v=679325a0813ab7b49g014cc2",
+            "title": "雪国",
+            "author": "川端康成",
+            "translator": "高慧勤",
+            "intro": "“穿过县境上长长的隧道，便是雪国。夜空下，大地赫然一片莹白……” \r\n东京舞蹈艺术家岛村在三次去往多雪的北国山村，与当地一名叫驹子的艺伎由邂逅而情爱。而他再次出发，却对玻璃窗对面萍水相逢的少女叶子，流露出一番倾慕之情。虚无思想甚重的岛村，认为人生的一切营求和努力，都归“徒劳”，对驹子的身世自感爱莫能助，决心分手；驹子虽然追求真挚的爱情，也终归“徒劳”而化为泡影；而叶子在意中人病逝后，与岛村约定好，前往东京，没想到，最后却迎来了一场大火……\r\n《雪国》为川端康成倾注心力最多的一部作品，也是其诺贝尔文学奖的获奖作品之一。该书由“国宝级”翻译家高慧勤翻译，完整呈现日式物哀之美的原貌，意境悠远，动人心脾。",
+            "cover": "https://cdn.weread.qq.com/weread/cover/58/cpplatform_a5njcwfpnft1sqfphpo5tb/s_cpplatform_a5njcwfpnft1sqfphpo5tb1679464085.jpg",
+            "version": 958861600,
+            "format": "epub",
+            "type": 0,
+            "soldout": 0,
+            "bookStatus": 1,
+            "payType": 4097,
+            "finished": 1,
+            "maxFreeChapter": 3,
+            "maxFreeInfo": {
+              "maxfreeChapterIdx": 3,
+              "maxfreeChapterUid": 3,
+              "maxfreeChapterRatio": 100
+            },
+            "free": 0,
+            "mcardDiscount": 0,
+            "ispub": 1,
+            "extra_type": 5,
+            "cpid": 16669091,
+            "publishTime": "2022-03-01 00:00:00",
+            "lastChapterIdx": 21,
+            "paperBook": {
+              "skuId": ""
+            },
+            "centPrice": 3399,
+            "copyrightChapterUids": [
+              2
+            ],
+            "inStoreBookId": "",
+            "blockSaveImg": 0,
+            "language": "zh",
+            "isTraditionalChinese": false,
+            "hideUpdateTime": false,
+            "isEPUBComics": 0,
+            "isVerticalLayout": 0,
+            "isShowTTS": 1,
+            "selfProduceIncentive": false,
+            "webBookControl": 0,
+            "isAutoDownload": 1
+          },
+          "reason": "笔记最多"
+        },
+        {
+          "type": 3,
+          "title": "最沉浸的"
+        },
+        {
+          "type": 4,
+          "title": "读到深夜"
+        },
+        {
+          "type": 7,
+          "title": "第一本阅读"
+        },
+        {
+          "type": 6,
+          "title": "最爱品类"
+        },
+        {
+          "type": 2,
+          "title": "最爱分享"
+        },
+        {
+          "type": 12,
+          "title": "共读最多"
+        },
+        {
+          "type": 10,
+          "title": "欣赏小众"
+        },
+        {
+          "type": 8,
+          "title": "总有一天读完"
+        }
+      ],
+      "readRecordsWord": "书籍分布"
+    },
+    "monthly": {
+      "readTimes": {
+        "1788192000": 6722,
+        "1788278400": 7383,
+        "1788364800": 3219,
+        "1788451200": 5772,
+        "1788537600": 118,
+        "1788624000": 1486,
+        "1788710400": 829,
+        "1788796800": 4889,
+        "1788883200": 349,
+        "1788969600": 358,
+        "1789056000": 820,
+        "1789142400": 1648,
+        "1789228800": 2632,
+        "1789315200": 8284,
+        "1789401600": 24078
+      },
+      "readDays": 15,
+      "readLongest": [
+        {
+          "book": {
+            "bookId": "23303610",
+            "deepLink": "https://weread.qq.com/book-detail?type=1&v=caf32960716395bacafbb80",
+            "title": "荷马史诗·奥德赛",
+            "author": "[古希腊]荷马",
+            "translator": "王焕生",
+            "intro": "《荷马史诗》是希腊最早的一部史诗，包括《伊利亚特》和《奥德赛》两部分，相传是由盲诗人荷马所作，实际上它产生于民间口头文学。《奥德赛》是以特洛亚战争传说为题材的“系列史诗”中惟一一部传世的“返乡史诗”。足智多谋的奥德修斯用木马计攻陷特洛亚城之后，率领自己的军队渡海回国。途中遭遇各种艰难险阻，历经十年飘泊，随行同伴全部遇难，只有他在女神雅典娜的佑助下，坚韧不拔地孤身一人回到久别的故乡。",
+            "cover": "https://cdn.weread.qq.com/weread/cover/44/YueWen_23303610/s_YueWen_23303610.jpg",
+            "version": 1648794803,
+            "format": "epub",
+            "type": 0,
+            "soldout": 0,
+            "bookStatus": 1,
+            "payType": 4097,
+            "finished": 1,
+            "maxFreeChapter": 8,
+            "maxFreeInfo": {
+              "maxfreeChapterIdx": 8,
+              "maxfreeChapterUid": 8,
+              "maxfreeChapterRatio": 34
+            },
+            "free": 0,
+            "mcardDiscount": 0,
+            "ispub": 1,
+            "extra_type": 5,
+            "cpid": -2571052,
+            "publishTime": "2015-06-09 00:00:00",
+            "lastChapterIdx": 31,
+            "paperBook": {
+              "skuId": ""
+            },
+            "centPrice": 999,
+            "copyrightChapterUids": [],
+            "inStoreBookId": "",
+            "blockSaveImg": 0,
+            "language": "zh",
+            "isTraditionalChinese": false,
+            "hideUpdateTime": false,
+            "isEPUBComics": 0,
+            "isVerticalLayout": 0,
+            "isShowTTS": 1,
+            "selfProduceIncentive": false,
+            "webBookControl": 0,
+            "isAutoDownload": 1
+          },
+          "readTime": 30072,
           "tags": []
         },
         {
@@ -344,7 +433,112 @@
             "webBookControl": 0,
             "isAutoDownload": 1
           },
-          "readTime": 5215,
+          "readTime": 21138,
+          "tags": [
+            "笔记最多",
+            "单日阅读最久"
+          ]
+        },
+        {
+          "book": {
+            "bookId": "907758",
+            "deepLink": "https://weread.qq.com/book-detail?type=1&v=bd1326605dd9eebd18b21f1",
+            "title": "写给大家看的设计书（第4版）",
+            "author": "Robin Williams",
+            "translator": "苏金国,李盼等",
+            "intro": "平面设计入门经典大作、 零基础自学平面设计师指导手册！ 让人人都能成为设计师！在这部畅销全球多年、影响了一代设计师的经典著作中，Robin　Williams将优秀设计的秘诀归纳为对比、重复、对齐和亲密性四条基本原则，并用简洁通俗、幽默生动的文笔，同时配以大量经过修改进行前后对比的实例图解和设计练习（并提供解答），直观清晰地传授给读者。通过本书，普通读者很快就能够自信地设计出专业级别的作品，而专业设计师也将从中获得灵感和解决问题的途径。",
+            "cover": "https://cdn.weread.qq.com/weread/cover/18/YueWen_907758/s_YueWen_907758.jpg",
+            "version": 76330532,
+            "format": "epub",
+            "type": 0,
+            "soldout": 0,
+            "bookStatus": 1,
+            "payType": 1048577,
+            "finished": 1,
+            "maxFreeChapter": 10,
+            "maxFreeInfo": {
+              "maxfreeChapterIdx": 10,
+              "maxfreeChapterUid": 37,
+              "maxfreeChapterRatio": 66
+            },
+            "free": 0,
+            "mcardDiscount": 0,
+            "ispub": 1,
+            "extra_type": 5,
+            "cpid": 5256588,
+            "publishTime": "2016-01-01 00:00:00",
+            "lastChapterIdx": 28,
+            "paperBook": {
+              "skuId": ""
+            },
+            "centPrice": 3950,
+            "copyrightChapterUids": [
+              29
+            ],
+            "inStoreBookId": "",
+            "blockSaveImg": 1,
+            "language": "zh",
+            "isTraditionalChinese": false,
+            "hideUpdateTime": false,
+            "isEPUBComics": 0,
+            "isVerticalLayout": 0,
+            "isShowTTS": 1,
+            "selfProduceIncentive": false,
+            "webBookControl": 0,
+            "isAutoDownload": 1
+          },
+          "readTime": 9010,
+          "tags": []
+        },
+        {
+          "book": {
+            "bookId": "567379",
+            "deepLink": "https://weread.qq.com/book-detail?type=1&v=1e5323c058a8531e55ae435",
+            "title": "魔戒三部曲（魔戒之战200年前的故事《指环王：洛汗之战》12.14上映）",
+            "author": "J.R.R.托尔金",
+            "translator": "邓嘉宛,石中歌,杜蕴慈",
+            "intro": "这是一部为了世界的光明未来，誓死抵抗黑暗的伟大史诗。至尊魔戒，拥有统御众戒、奴役世界的力量，黑暗魔君索隆苦觅已久。为了守护家园，魔戒继承人弗罗多毅然离开宁谧淳朴的夏尔，踏上前途未卜的旅途。与他同行的是睿智的巫师、勇敢的人类、美善的精灵、坚毅的矮人和热爱和平的霍比特人。征途见证了勇气与友谊。跃马客栈里的重重暗影，卡扎督姆桥的怒吼炎魔，勇猛骁勇的洛汗骠骑，范贡森林的上古树须，凄厉嘶嚎的邪恶戒灵，陡峭山壁旁的巨型毒蛛……每个人各自抵御着无尽的诱惑与磨难，承担起属于自己的善恶考验。平凡的霍比特人战栗在末日烈焰面前，他能战胜这噬灭灵魂的至尊魔戒吗？",
+            "cover": "https://cdn.weread.qq.com/weread/cover/67/YueWen_567379/s_YueWen_567379.jpg",
+            "version": 922061578,
+            "format": "epub",
+            "type": 0,
+            "soldout": 0,
+            "bookStatus": 1,
+            "payType": 1048577,
+            "finished": 1,
+            "maxFreeChapter": 12,
+            "maxFreeInfo": {
+              "maxfreeChapterIdx": 12,
+              "maxfreeChapterUid": 92,
+              "maxfreeChapterRatio": 40
+            },
+            "free": 0,
+            "mcardDiscount": 0,
+            "ispub": 1,
+            "extra_type": 5,
+            "cpid": -1361120,
+            "publishTime": "2014-07-01 00:00:00",
+            "lastChapterIdx": 82,
+            "paperBook": {
+              "skuId": ""
+            },
+            "centPrice": 19900,
+            "copyrightChapterUids": [
+              82
+            ],
+            "inStoreBookId": "",
+            "blockSaveImg": 0,
+            "language": "zh",
+            "isTraditionalChinese": false,
+            "hideUpdateTime": false,
+            "isEPUBComics": 0,
+            "isVerticalLayout": 0,
+            "isShowTTS": 1,
+            "selfProduceIncentive": false,
+            "webBookControl": 0,
+            "isAutoDownload": 1
+          },
+          "readTime": 3461,
           "tags": []
         },
         {
@@ -386,6 +580,47 @@
             "isAutoDownload": 1
           },
           "readTime": 2039,
+          "tags": []
+        },
+        {
+          "book": {
+            "bookId": "CB_Cyb3S93PmAEO76K75j8PoA6d",
+            "deepLink": "https://weread.qq.com/book-detail?type=1&v=daa425b3643425f43796233533933506d41454f37364b37356a38506f4136647f6",
+            "title": "[个人修复版]魔法使之夜-上",
+            "author": "【日】奈须蘑菇",
+            "cover": "https://res.weread.qq.com/wrepub/CB_Cyb3S93PmAEO76K75j8PoA6d_parsecover",
+            "version": 461586658,
+            "format": "epub",
+            "type": 0,
+            "soldout": 0,
+            "bookStatus": 1,
+            "payType": 134217761,
+            "finished": 1,
+            "free": 1,
+            "mcardDiscount": 0,
+            "ispub": 0,
+            "cpid": 0,
+            "publishTime": "",
+            "lastChapterIdx": 41,
+            "paperBook": {
+              "skuId": ""
+            },
+            "centPrice": 0,
+            "copyrightChapterUids": [],
+            "limitShareChat": 0,
+            "inStoreBookId": "",
+            "blockSaveImg": 0,
+            "language": "zh-wr",
+            "isTraditionalChinese": false,
+            "hideUpdateTime": false,
+            "isEPUBComics": 0,
+            "isVerticalLayout": 0,
+            "isShowTTS": 1,
+            "selfProduceIncentive": false,
+            "webBookControl": 0,
+            "isAutoDownload": 1
+          },
+          "readTime": 1664,
           "tags": []
         },
         {
@@ -437,7 +672,15 @@
           "parentCategoryId": 300000,
           "parentCategoryTitle": "文学",
           "readingCount": 2,
-          "readingTime": 32769
+          "readingTime": 35287
+        },
+        {
+          "categoryId": 400000,
+          "categoryTitle": "艺术",
+          "parentCategoryId": 400000,
+          "parentCategoryTitle": "艺术",
+          "readingCount": 1,
+          "readingTime": 5766
         },
         {
           "categoryId": 100001,
@@ -445,7 +688,7 @@
           "parentCategoryId": 100000,
           "parentCategoryTitle": "精品小说",
           "readingCount": 1,
-          "readingTime": 2697
+          "readingTime": 5215
         },
         {
           "categoryId": 1000000,
@@ -486,21 +729,13 @@
           "parentCategoryTitle": "哲学宗教",
           "readingCount": 0,
           "readingTime": 0
-        },
-        {
-          "categoryId": 800000,
-          "categoryTitle": "心理",
-          "parentCategoryId": 800000,
-          "parentCategoryTitle": "心理",
-          "readingCount": 0,
-          "readingTime": 0
         }
       ],
       "preferCategoryWord": "偏好阅读文学",
       "readStat": [
         {
           "stat": "读过",
-          "counts": "4本"
+          "counts": "6本"
         },
         {
           "stat": "读完",
@@ -508,18 +743,18 @@
         },
         {
           "stat": "阅读",
-          "counts": "14天"
+          "counts": "15天"
         },
         {
           "stat": "笔记",
-          "counts": "16条"
+          "counts": "35条"
         }
       ],
       "registTime": 1574756874,
-      "compare": -0.10372824325333788,
-      "dayAverageReadTime": 2967,
+      "compare": 0.2948067591663338,
+      "dayAverageReadTime": 4286,
       "baseTime": 1788192000,
-      "totalReadTime": 44509,
+      "totalReadTime": 68587,
       "readDistributionWord": "点评分布",
       "preferBooks": [
         {
@@ -538,38 +773,40 @@
           "type": 5,
           "title": "思考最多",
           "bookInfo": {
-            "bookId": "23303610",
-            "deepLink": "https://weread.qq.com/book-detail?type=1&v=caf32960716395bacafbb80",
-            "title": "荷马史诗·奥德赛",
-            "author": "[古希腊]荷马",
-            "translator": "王焕生",
-            "intro": "《荷马史诗》是希腊最早的一部史诗，包括《伊利亚特》和《奥德赛》两部分，相传是由盲诗人荷马所作，实际上它产生于民间口头文学。《奥德赛》是以特洛亚战争传说为题材的“系列史诗”中惟一一部传世的“返乡史诗”。足智多谋的奥德修斯用木马计攻陷特洛亚城之后，率领自己的军队渡海回国。途中遭遇各种艰难险阻，历经十年飘泊，随行同伴全部遇难，只有他在女神雅典娜的佑助下，坚韧不拔地孤身一人回到久别的故乡。",
-            "cover": "https://cdn.weread.qq.com/weread/cover/44/YueWen_23303610/s_YueWen_23303610.jpg",
-            "version": 1648794803,
+            "bookId": "3300053214",
+            "deepLink": "https://weread.qq.com/book-detail?type=1&v=679325a0813ab7b49g014cc2",
+            "title": "雪国",
+            "author": "川端康成",
+            "translator": "高慧勤",
+            "intro": "“穿过县境上长长的隧道，便是雪国。夜空下，大地赫然一片莹白……” \r\n东京舞蹈艺术家岛村在三次去往多雪的北国山村，与当地一名叫驹子的艺伎由邂逅而情爱。而他再次出发，却对玻璃窗对面萍水相逢的少女叶子，流露出一番倾慕之情。虚无思想甚重的岛村，认为人生的一切营求和努力，都归“徒劳”，对驹子的身世自感爱莫能助，决心分手；驹子虽然追求真挚的爱情，也终归“徒劳”而化为泡影；而叶子在意中人病逝后，与岛村约定好，前往东京，没想到，最后却迎来了一场大火……\r\n《雪国》为川端康成倾注心力最多的一部作品，也是其诺贝尔文学奖的获奖作品之一。该书由“国宝级”翻译家高慧勤翻译，完整呈现日式物哀之美的原貌，意境悠远，动人心脾。",
+            "cover": "https://cdn.weread.qq.com/weread/cover/58/cpplatform_a5njcwfpnft1sqfphpo5tb/s_cpplatform_a5njcwfpnft1sqfphpo5tb1679464085.jpg",
+            "version": 958861600,
             "format": "epub",
             "type": 0,
             "soldout": 0,
             "bookStatus": 1,
             "payType": 4097,
             "finished": 1,
-            "maxFreeChapter": 8,
+            "maxFreeChapter": 3,
             "maxFreeInfo": {
-              "maxfreeChapterIdx": 8,
-              "maxfreeChapterUid": 8,
-              "maxfreeChapterRatio": 34
+              "maxfreeChapterIdx": 3,
+              "maxfreeChapterUid": 3,
+              "maxfreeChapterRatio": 100
             },
             "free": 0,
             "mcardDiscount": 0,
             "ispub": 1,
             "extra_type": 5,
-            "cpid": -2571052,
-            "publishTime": "2015-06-09 00:00:00",
-            "lastChapterIdx": 31,
+            "cpid": 16669091,
+            "publishTime": "2022-03-01 00:00:00",
+            "lastChapterIdx": 21,
             "paperBook": {
               "skuId": ""
             },
-            "centPrice": 999,
-            "copyrightChapterUids": [],
+            "centPrice": 3399,
+            "copyrightChapterUids": [
+              2
+            ],
             "inStoreBookId": "",
             "blockSaveImg": 0,
             "language": "zh",
@@ -721,12 +958,12 @@
         "1780243200": 61982,
         "1782835200": 93030,
         "1785513600": 102631,
-        "1788192000": 44509,
+        "1788192000": 68587,
         "1790784000": 0,
         "1793462400": 0,
         "1796054400": 0
       },
-      "readDays": 156,
+      "readDays": 157,
       "readRecordsWord": "书籍分布",
       "readLongest": [
         {
@@ -1086,6 +1323,57 @@
         },
         {
           "book": {
+            "bookId": "3300053214",
+            "deepLink": "https://weread.qq.com/book-detail?type=1&v=679325a0813ab7b49g014cc2",
+            "title": "雪国",
+            "author": "川端康成",
+            "translator": "高慧勤",
+            "intro": "“穿过县境上长长的隧道，便是雪国。夜空下，大地赫然一片莹白……” \r\n东京舞蹈艺术家岛村在三次去往多雪的北国山村，与当地一名叫驹子的艺伎由邂逅而情爱。而他再次出发，却对玻璃窗对面萍水相逢的少女叶子，流露出一番倾慕之情。虚无思想甚重的岛村，认为人生的一切营求和努力，都归“徒劳”，对驹子的身世自感爱莫能助，决心分手；驹子虽然追求真挚的爱情，也终归“徒劳”而化为泡影；而叶子在意中人病逝后，与岛村约定好，前往东京，没想到，最后却迎来了一场大火……\r\n《雪国》为川端康成倾注心力最多的一部作品，也是其诺贝尔文学奖的获奖作品之一。该书由“国宝级”翻译家高慧勤翻译，完整呈现日式物哀之美的原貌，意境悠远，动人心脾。",
+            "cover": "https://cdn.weread.qq.com/weread/cover/58/cpplatform_a5njcwfpnft1sqfphpo5tb/s_cpplatform_a5njcwfpnft1sqfphpo5tb1679464085.jpg",
+            "version": 958861600,
+            "format": "epub",
+            "type": 0,
+            "soldout": 0,
+            "bookStatus": 1,
+            "payType": 4097,
+            "finished": 1,
+            "maxFreeChapter": 3,
+            "maxFreeInfo": {
+              "maxfreeChapterIdx": 3,
+              "maxfreeChapterUid": 3,
+              "maxfreeChapterRatio": 100
+            },
+            "free": 0,
+            "mcardDiscount": 0,
+            "ispub": 1,
+            "extra_type": 5,
+            "cpid": 16669091,
+            "publishTime": "2022-03-01 00:00:00",
+            "lastChapterIdx": 21,
+            "paperBook": {
+              "skuId": ""
+            },
+            "centPrice": 3399,
+            "copyrightChapterUids": [
+              2
+            ],
+            "inStoreBookId": "",
+            "blockSaveImg": 0,
+            "language": "zh",
+            "isTraditionalChinese": false,
+            "hideUpdateTime": false,
+            "isEPUBComics": 0,
+            "isVerticalLayout": 0,
+            "isShowTTS": 1,
+            "selfProduceIncentive": false,
+            "webBookControl": 0,
+            "isAutoDownload": 1
+          },
+          "readTime": 21534,
+          "tags": []
+        },
+        {
+          "book": {
             "bookId": "CB_0ry6fC6fNC9j75v75j79d9p9",
             "deepLink": "https://weread.qq.com/book-detail?type=1&v=00d42263643425f30727936664336664e43396a37357637356a373964397039054",
             "title": "吉尔伽美什史诗",
@@ -1175,47 +1463,6 @@
           },
           "readTime": 15757,
           "tags": []
-        },
-        {
-          "book": {
-            "bookId": "CB_3fk6rw6rm6gL70z71Y1gZH0A",
-            "deepLink": "https://weread.qq.com/book-detail?type=1&v=9f442733643425f33666b36727736726d36674c37307a37315931675a48304199e",
-            "title": "我们不可能成为恋人！绝对不行。(※似乎可行？) 第五卷",
-            "author": "竹嶋えく",
-            "cover": "https://res.weread.qq.com/wrepub/CB_3vP2GB2DrAzT6vb6wvFxF607_parsecover",
-            "version": 1247462769,
-            "format": "epub",
-            "type": 0,
-            "soldout": 0,
-            "bookStatus": 1,
-            "payType": 134217761,
-            "finished": 1,
-            "free": 1,
-            "mcardDiscount": 0,
-            "ispub": 0,
-            "cpid": 0,
-            "publishTime": "",
-            "lastChapterIdx": 17,
-            "paperBook": {
-              "skuId": ""
-            },
-            "centPrice": 0,
-            "copyrightChapterUids": [],
-            "limitShareChat": 0,
-            "inStoreBookId": "",
-            "blockSaveImg": 0,
-            "language": "zh-wr",
-            "isTraditionalChinese": false,
-            "hideUpdateTime": false,
-            "isEPUBComics": 0,
-            "isVerticalLayout": 0,
-            "isShowTTS": 1,
-            "selfProduceIncentive": false,
-            "webBookControl": 0,
-            "isAutoDownload": 1
-          },
-          "readTime": 9488,
-          "tags": []
         }
       ],
       "preferCategory": [
@@ -1225,7 +1472,7 @@
           "parentCategoryId": 300000,
           "parentCategoryTitle": "文学",
           "readingCount": 15,
-          "readingTime": 328874
+          "readingTime": 331392
         },
         {
           "categoryId": 100001,
@@ -1233,7 +1480,7 @@
           "parentCategoryId": 100000,
           "parentCategoryTitle": "精品小说",
           "readingCount": 10,
-          "readingTime": 271419
+          "readingTime": 273937
         },
         {
           "categoryId": 100021,
@@ -1248,8 +1495,8 @@
           "categoryTitle": "玄幻小说",
           "parentCategoryId": 100000,
           "parentCategoryTitle": "精品小说",
-          "readingCount": 2,
-          "readingTime": 61137
+          "readingCount": 3,
+          "readingTime": 61184
         },
         {
           "categoryId": 100004,
@@ -1268,20 +1515,20 @@
           "readingTime": 6970
         },
         {
+          "categoryId": 400000,
+          "categoryTitle": "艺术",
+          "parentCategoryId": 400000,
+          "parentCategoryTitle": "艺术",
+          "readingCount": 1,
+          "readingTime": 5766
+        },
+        {
           "categoryId": 900000,
           "categoryTitle": "社会文化",
           "parentCategoryId": 900000,
           "parentCategoryTitle": "社会文化",
           "readingCount": 1,
           "readingTime": 323
-        },
-        {
-          "categoryId": 1000000,
-          "categoryTitle": "个人成长",
-          "parentCategoryId": 1000000,
-          "parentCategoryTitle": "个人成长",
-          "readingCount": 0,
-          "readingTime": 0
         }
       ],
       "preferCategoryWord": "偏好阅读文学",
@@ -1347,7 +1594,7 @@
           "readTime": "1小时56分钟"
         }
       ],
-      "authorCount": 12,
+      "authorCount": 13,
       "preferCp": [
         {
           "count": 4,
@@ -1372,50 +1619,10 @@
         {
           "count": 1,
           "copyrightInfo": {
-            "name": "中作华文传媒",
-            "userVid": 0,
-            "role": 0,
-            "avatar": "",
-            "cpType": 0
-          }
-        },
-        {
-          "count": 1,
-          "copyrightInfo": {
-            "name": "青岛出版社",
-            "userVid": 152953137,
-            "role": 2,
-            "avatar": "https://res.weread.qq.com/wravatar/WV0024-MQA1U7JObHEaZG0yJmSb2a9/0",
-            "cpType": 0
-          }
-        },
-        {
-          "count": 1,
-          "copyrightInfo": {
-            "name": "杭州四月天",
-            "userVid": 0,
-            "role": 0,
-            "avatar": "",
-            "cpType": 0
-          }
-        },
-        {
-          "count": 1,
-          "copyrightInfo": {
             "name": "时代华语",
             "userVid": 339586742,
             "role": 2,
             "avatar": "https://res.weread.qq.com/wravatar/WV0009-G60Vxmh5x_rSPChKo5Hasc3/0",
-            "cpType": 0
-          }
-        },
-        {
-          "count": 1,
-          "copyrightInfo": {
-            "name": "九久读书人",
-            "userVid": 357656984,
-            "role": 2,
-            "avatar": "https://res.weread.qq.com/wravatar/WV0031-gRlx4IkE_ayPDRhHsIX8Za7/0",
             "cpType": 0
           }
         },
@@ -1432,10 +1639,10 @@
         {
           "count": 1,
           "copyrightInfo": {
-            "name": "读客熊猫君阅读",
-            "userVid": 391139040,
+            "name": "九久读书人",
+            "userVid": 357656984,
             "role": 2,
-            "avatar": "https://res.weread.qq.com/wravatar/WV0011-ulojIG4H14eBFgFjcLp8Cc2/0",
+            "avatar": "https://res.weread.qq.com/wravatar/WV0031-gRlx4IkE_ayPDRhHsIX8Za7/0",
             "cpType": 0
           }
         },
@@ -1446,6 +1653,46 @@
             "userVid": 331381138,
             "role": 2,
             "avatar": "https://wx.qlogo.cn/mmhead/AbruuZ3ILCltXXeXfuNnO0WxpcibFJCvM6T7tgzbZXQszHnahNxBtYQ/0",
+            "cpType": 0
+          }
+        },
+        {
+          "count": 1,
+          "copyrightInfo": {
+            "name": "读客熊猫君阅读",
+            "userVid": 391139040,
+            "role": 2,
+            "avatar": "https://res.weread.qq.com/wravatar/WV0011-ulojIG4H14eBFgFjcLp8Cc2/0",
+            "cpType": 0
+          }
+        },
+        {
+          "count": 1,
+          "copyrightInfo": {
+            "name": "人民邮电出版社",
+            "userVid": 545908360,
+            "role": 2,
+            "avatar": "https://res.weread.qq.com/wravatar/WV0022-WtKx5gB3PLVALg5t~WNwid2/0",
+            "cpType": 0
+          }
+        },
+        {
+          "count": 1,
+          "copyrightInfo": {
+            "name": "中作华文传媒",
+            "userVid": 0,
+            "role": 0,
+            "avatar": "",
+            "cpType": 0
+          }
+        },
+        {
+          "count": 1,
+          "copyrightInfo": {
+            "name": "青岛出版社",
+            "userVid": 152953137,
+            "role": 2,
+            "avatar": "https://res.weread.qq.com/wravatar/WV0024-MQA1U7JObHEaZG0yJmSb2a9/0",
             "cpType": 0
           }
         }
@@ -1460,19 +1707,23 @@
           "count": 2
         },
         {
-          "name": "上海译文出版社",
-          "count": 1
-        },
-        {
           "name": "浙江文艺出版社",
           "count": 1
         },
         {
-          "name": "广州天闻角川动漫有限公司",
+          "name": "作家出版社",
           "count": 1
         },
         {
-          "name": "作家出版社",
+          "name": "人民邮电出版社",
+          "count": 1
+        },
+        {
+          "name": "上海译文出版社",
+          "count": 1
+        },
+        {
+          "name": "广州天闻角川动漫有限公司",
           "count": 1
         },
         {
@@ -1487,7 +1738,7 @@
       "readStat": [
         {
           "stat": "读过",
-          "counts": "34本"
+          "counts": "37本"
         },
         {
           "stat": "读完",
@@ -1495,18 +1746,18 @@
         },
         {
           "stat": "阅读",
-          "counts": "156天"
+          "counts": "157天"
         },
         {
           "stat": "笔记",
-          "counts": "805条"
+          "counts": "824条"
         }
       ],
       "registTime": 1574756874,
-      "compare": 2.418876624303576,
-      "dayAverageReadTime": 2012,
+      "compare": 2.563588459367984,
+      "dayAverageReadTime": 2097,
       "baseTime": 1767196800,
-      "totalReadTime": 519288,
+      "totalReadTime": 543366,
       "readDistributionWord": "点评分布",
       "preferBooks": [
         {
@@ -1712,9 +1963,9 @@
         "1672502400": 121252,
         "1704038400": 289086,
         "1735660800": 214881,
-        "1767196800": 519288
+        "1767196800": 543366
       },
-      "readDays": 891,
+      "readDays": 892,
       "readLongest": [
         {
           "book": {
@@ -2226,7 +2477,7 @@
           "parentCategoryId": 300000,
           "parentCategoryTitle": "文学",
           "readingCount": 35,
-          "readingTime": 762057
+          "readingTime": 764575
         },
         {
           "categoryId": 100001,
@@ -2234,7 +2485,7 @@
           "parentCategoryId": 100000,
           "parentCategoryTitle": "精品小说",
           "readingCount": 18,
-          "readingTime": 482105
+          "readingTime": 484623
         },
         {
           "categoryId": 100012,
@@ -2245,20 +2496,20 @@
           "readingTime": 149871
         },
         {
-          "categoryId": 800000,
-          "categoryTitle": "心理",
-          "parentCategoryId": 800000,
-          "parentCategoryTitle": "心理",
-          "readingCount": 5,
-          "readingTime": 76436
-        },
-        {
           "categoryId": 100021,
           "categoryTitle": "年代小说",
           "parentCategoryId": 100000,
           "parentCategoryTitle": "精品小说",
           "readingCount": 1,
           "readingTime": 74887
+        },
+        {
+          "categoryId": 800000,
+          "categoryTitle": "心理",
+          "parentCategoryId": 800000,
+          "parentCategoryTitle": "心理",
+          "readingCount": 5,
+          "readingTime": 76436
         },
         {
           "categoryId": 100004,
@@ -2273,8 +2524,8 @@
           "categoryTitle": "玄幻小说",
           "parentCategoryId": 100000,
           "parentCategoryTitle": "精品小说",
-          "readingCount": 4,
-          "readingTime": 66710
+          "readingCount": 5,
+          "readingTime": 66757
         },
         {
           "categoryId": 100022,
@@ -2298,19 +2549,19 @@
         43594,
         37877,
         47679,
-        53059,
-        57022,
-        31205,
-        30320,
-        28780,
-        29142,
+        53997,
+        58090,
+        32610,
+        32787,
+        30244,
+        29310,
         40752,
         44980,
-        63510,
+        63511,
         65362,
         71223,
         80075,
-        79453,
+        80226,
         69316
       ],
       "preferAuthor": [
@@ -2375,7 +2626,7 @@
           "readTime": "15小时18分钟"
         }
       ],
-      "authorCount": 36,
+      "authorCount": 37,
       "preferCp": [
         {
           "count": 8,
@@ -2458,22 +2709,22 @@
           }
         },
         {
-          "count": 1,
+          "count": 2,
           "copyrightInfo": {
-            "name": "博集新媒",
-            "userVid": 384737583,
+            "name": "人民邮电出版社",
+            "userVid": 545908360,
             "role": 2,
-            "avatar": "https://res.weread.qq.com/wravatar/WV0027-lbqNH76CulSav6n3irXBJa5/0",
+            "avatar": "https://res.weread.qq.com/wravatar/WV0022-WtKx5gB3PLVALg5t~WNwid2/0",
             "cpType": 0
           }
         },
         {
           "count": 1,
           "copyrightInfo": {
-            "name": "天闻角川",
-            "userVid": 429152746,
+            "name": "博集新媒",
+            "userVid": 384737583,
             "role": 2,
-            "avatar": "https://wx.qlogo.cn/mmhead/cGNScwnYvk4sjwHeMYBCuo1Fia1AtDDwt5cibvgwLmutuLQibty0cDQcQ/0",
+            "avatar": "https://res.weread.qq.com/wravatar/WV0027-lbqNH76CulSav6n3irXBJa5/0",
             "cpType": 0
           }
         }
@@ -2484,10 +2735,6 @@
           "count": 10
         },
         {
-          "name": "江苏凤凰文艺出版社",
-          "count": 3
-        },
-        {
           "name": "南海出版公司",
           "count": 3
         },
@@ -2496,11 +2743,19 @@
           "count": 3
         },
         {
-          "name": "上海译文出版社",
-          "count": 2
+          "name": "江苏凤凰文艺出版社",
+          "count": 3
         },
         {
           "name": "天津人民出版社",
+          "count": 2
+        },
+        {
+          "name": "人民邮电出版社",
+          "count": 2
+        },
+        {
+          "name": "上海译文出版社",
           "count": 2
         },
         {
@@ -2514,16 +2769,12 @@
         {
           "name": "北京十月文艺出版社",
           "count": 1
-        },
-        {
-          "name": "中信出版集团",
-          "count": 1
         }
       ],
       "readStat": [
         {
           "stat": "读过",
-          "counts": "112本"
+          "counts": "114本"
         },
         {
           "stat": "读完",
@@ -2531,11 +2782,11 @@
         },
         {
           "stat": "阅读",
-          "counts": "891天"
+          "counts": "892天"
         },
         {
           "stat": "笔记",
-          "counts": "2174条"
+          "counts": "2193条"
         }
       ],
       "medals": [
@@ -2547,7 +2798,7 @@
           "ctime": 1788703814,
           "atime": 1788703814,
           "rank": 443866,
-          "users": 446882,
+          "users": 447230,
           "hint": "21天阅读挑战",
           "renderItem": "09 / 06",
           "name": "21天阅读挑战",
@@ -2566,7 +2817,7 @@
           "ctime": 1786818745,
           "atime": 1786818745,
           "rank": 560381,
-          "users": 574578,
+          "users": 575063,
           "hint": "21天阅读挑战",
           "renderItem": "08 / 16",
           "name": "21天阅读挑战",
@@ -2585,7 +2836,7 @@
           "ctime": 1785095527,
           "atime": 1785095527,
           "rank": 788749,
-          "users": 823382,
+          "users": 824074,
           "hint": "21天阅读挑战",
           "renderItem": "07 / 27",
           "name": "21天阅读挑战",
@@ -2604,7 +2855,7 @@
           "ctime": 1784293516,
           "atime": 1784293613,
           "rank": 3471260,
-          "users": 3527089,
+          "users": 3528071,
           "hint": "阅读 100 本书籍",
           "renderItem": "07 / 17",
           "name": "阅读书籍",
@@ -2623,7 +2874,7 @@
           "ctime": 1783353970,
           "atime": 1783353970,
           "rank": 1435177,
-          "users": 1526012,
+          "users": 1527384,
           "hint": "21天阅读挑战",
           "renderItem": "07 / 07",
           "name": "21天阅读挑战",
@@ -2664,7 +2915,7 @@
           "ctime": 1767644601,
           "atime": 1767644840,
           "rank": 592433,
-          "users": 661250,
+          "users": 661501,
           "hint": "想法发布 200 条",
           "renderItem": "01 / 06",
           "name": "想法发布",
@@ -2683,7 +2934,7 @@
           "ctime": 1766688692,
           "atime": 1766690180,
           "rank": 1100067,
-          "users": 1160533,
+          "users": 1160725,
           "hint": "发布 10 个点评",
           "renderItem": "12 / 26",
           "name": "点评书籍",
@@ -2702,7 +2953,7 @@
           "ctime": 1751926209,
           "atime": 1751926349,
           "rank": 1242967,
-          "users": 1449384,
+          "users": 1449888,
           "hint": "读完 50 本书籍",
           "renderItem": "07 / 08",
           "name": "读完书籍",
@@ -2787,7 +3038,7 @@
           "ctime": 1737908796,
           "atime": 1737912795,
           "rank": 918216,
-          "users": 1188496,
+          "users": 1188880,
           "hint": "想法发布 100 条",
           "renderItem": "01 / 27",
           "name": "想法发布",
@@ -2806,7 +3057,7 @@
           "ctime": 1737520044,
           "atime": 1737520200,
           "rank": 3271605,
-          "users": 4236082,
+          "users": 4237549,
           "hint": "阅读 10 本神作",
           "renderItem": "01 / 22",
           "name": "阅读神作",
@@ -2825,7 +3076,7 @@
           "ctime": 1727953574,
           "atime": 1727954028,
           "rank": 1462784,
-          "users": 1972443,
+          "users": 1973030,
           "hint": "想法发布 50 条",
           "renderItem": "10 / 03",
           "name": "想法发布",
@@ -2844,7 +3095,7 @@
           "ctime": 1726147758,
           "atime": 1726147820,
           "rank": 5113740,
-          "users": 6491544,
+          "users": 6493029,
           "hint": "阅读 50 本书籍",
           "renderItem": "09 / 12",
           "name": "阅读书籍",
@@ -2863,7 +3114,7 @@
           "ctime": 1714278927,
           "atime": 1714278937,
           "rank": 3594205,
-          "users": 5003730,
+          "users": 5005113,
           "hint": "想法发布 10 条",
           "renderItem": "04 / 28",
           "name": "想法发布",
@@ -2882,7 +3133,7 @@
           "ctime": 1705220132,
           "atime": 1705620888,
           "rank": 3444812,
-          "users": 4640266,
+          "users": 4641054,
           "hint": "阅读 500 天",
           "renderItem": "01 / 19",
           "name": "阅读天数",
@@ -2901,7 +3152,7 @@
           "ctime": 1695932077,
           "atime": 1695932380,
           "rank": 1058414,
-          "users": 2093539,
+          "users": 2093930,
           "hint": "发布 5 个点评",
           "renderItem": "09 / 29",
           "name": "点评书籍",
@@ -2920,7 +3171,7 @@
           "ctime": 1691953841,
           "atime": 1691955308,
           "rank": 2919097,
-          "users": 7532544,
+          "users": 7534737,
           "hint": "阅读 5 本神作",
           "renderItem": "08 / 14",
           "name": "阅读神作",
@@ -2939,7 +3190,7 @@
           "ctime": 1690498622,
           "atime": 1691419694,
           "rank": 3909699,
-          "users": 6171384,
+          "users": 6172774,
           "hint": "读完 10 本书籍",
           "renderItem": "08 / 07",
           "name": "读完书籍",
@@ -2958,13 +3209,13 @@
           "ctime": 1651686655,
           "atime": 1652424203,
           "rank": 112730,
-          "users": 321906,
+          "users": 321988,
           "hint": "连续阅读 365 天",
           "renderItem": "05 / 13",
           "name": "连续阅读",
           "index": 21,
           "availableCond": "累积达到365天",
-          "tip": "再连续阅读 275 天可得",
+          "tip": "再连续阅读 274 天可得",
           "title": "连续阅读",
           "rankText": "第112730位获得此勋章的书友",
           "displayText": "连续阅读 365 天"
@@ -2977,7 +3228,7 @@
           "ctime": 1645056630,
           "atime": 1645395930,
           "rank": 2235359,
-          "users": 6064992,
+          "users": 6065918,
           "hint": "阅读 365 天",
           "renderItem": "02 / 21",
           "name": "阅读天数",
@@ -2996,7 +3247,7 @@
           "ctime": 1644379106,
           "atime": 1644449986,
           "rank": 3107020,
-          "users": 9288374,
+          "users": 9290031,
           "hint": "阅读 100 小时",
           "renderItem": "02 / 10",
           "name": "阅读时长",
@@ -3015,7 +3266,7 @@
           "ctime": 1632847954,
           "atime": 1636090698,
           "rank": 1409195,
-          "users": 8854910,
+          "users": 8856196,
           "hint": "阅读 200 天",
           "renderItem": "11 / 05",
           "name": "阅读天数",
@@ -3034,7 +3285,7 @@
           "ctime": 1632847954,
           "atime": 1636090698,
           "rank": 1700007,
-          "users": 11925765,
+          "users": 11927543,
           "hint": "阅读 100 天",
           "renderItem": "11 / 05",
           "name": "阅读天数",
@@ -3053,13 +3304,13 @@
           "ctime": 1635702892,
           "atime": 1636090698,
           "rank": 164249,
-          "users": 874228,
+          "users": 874410,
           "hint": "连续阅读 180 天",
           "renderItem": "11 / 05",
           "name": "连续阅读",
           "index": 26,
           "availableCond": "累积达到180天",
-          "tip": "再连续阅读 90 天可得",
+          "tip": "再连续阅读 89 天可得",
           "title": "连续阅读",
           "rankText": "第164249位获得此勋章的书友",
           "displayText": "连续阅读 180 天"
@@ -3072,7 +3323,7 @@
           "ctime": 1632847954,
           "atime": 1636090698,
           "rank": 395670,
-          "users": 1949058,
+          "users": 1949421,
           "hint": "连续阅读 90 天",
           "renderItem": "11 / 05",
           "name": "连续阅读",
@@ -3091,7 +3342,7 @@
           "ctime": 1632847954,
           "atime": 1636090698,
           "rank": 988203,
-          "users": 5425690,
+          "users": 5426788,
           "hint": "连续阅读 30 天",
           "renderItem": "11 / 05",
           "name": "连续阅读",
@@ -3106,7 +3357,7 @@
       "registTime": 1574756874,
       "readDistributionWord": "点评分布",
       "baseTime": 0,
-      "totalReadTime": 1601557,
+      "totalReadTime": 1625635,
       "readRecordsWord": "书籍分布",
       "preferBooks": [
         {
@@ -3299,7 +3550,7 @@
             "translator": "李育超",
             "intro": "《杀死一只知更鸟》的故事发生在大萧条时期美国南方一个静谧的小镇，几桩离奇的疑案彻底打破了几个孩子平静的生活：事件的真凶，怪人的谜底，传言背后的真相……在父亲的指引下，他们在迷雾中寻找真知，在磨难中历练风度，在不公平中积累正气，经历了暴风骤雨般的成长，也感受了人间的温暖与真情。",
             "cover": "https://cdn.weread.qq.com/weread/cover/32/YueWen_853116/s_YueWen_853116.jpg",
-            "version": 40500603,
+            "version": 650669814,
             "format": "epub",
             "type": 0,
             "soldout": 0,
@@ -3322,7 +3573,7 @@
             "paperBook": {
               "skuId": ""
             },
-            "centPrice": 5599,
+            "centPrice": 3480,
             "copyrightChapterUids": [
               35
             ],
@@ -4288,7 +4539,7 @@
           "good": 2281,
           "fair": 465,
           "poor": 76,
-          "recent": 51,
+          "recent": 48,
           "deepV": 867,
           "myRating": "",
           "title": "脍炙人口"
@@ -4337,15 +4588,15 @@
         "translator": "陈德文",
         "publisher": "人民文学出版社",
         "intro": "《丰饶之海》四部曲的第三部。1952年，本多已经是58岁的老男人，这时他遇到长大成人之后到日本求学的金让，本多挽留月光公主在自己别墅小住。他爱上了金让，从墙上的窥孔里偷看月光公主的裸体，发现了她的左侧腹上有三颗黑痣，相信她是清显、勋的转生。",
-        "newRatingCount": 591,
+        "newRatingCount": 593,
         "newRating": 785,
         "isbn": "9787020120932",
         "newRatingDetail": {
-          "good": 456,
-          "fair": 121,
+          "good": 457,
+          "fair": 122,
           "poor": 14,
-          "recent": 16,
-          "deepV": 199,
+          "recent": 18,
+          "deepV": 200,
           "myRating": "",
           "title": "值得一读"
         },
@@ -4365,14 +4616,14 @@
         "translator": "陈德文",
         "publisher": "人民文学出版社",
         "intro": "《丰饶之海》系列第一部。侯爵家庭出身的清显没有勇气接受伯爵女儿聪子的求婚，在聪子被皇上敕许给洞院宫三王子治典提亲后，他们通过老仆蓼科保持联系。聪子有了孕，其父怕事情败露，让女儿去奈良月修寺躲风。聪子却在月修寺削发为尼。清显在友人帮助下，去月修寺会见聪子，遭聪子拒绝，回到东京次日，心力交瘁，离开了人世。川端康成称赞它是“现代的《源氏物语》”。",
-        "newRatingCount": 2131,
-        "newRating": 891,
+        "newRatingCount": 2132,
+        "newRating": 892,
         "isbn": "9787020121038",
         "newRatingDetail": {
-          "good": 1946,
+          "good": 1947,
           "fair": 157,
           "poor": 28,
-          "recent": 24,
+          "recent": 23,
           "deepV": 500,
           "myRating": "good",
           "title": "好评如潮"
@@ -4393,14 +4644,14 @@
         "translator": "曹曼",
         "publisher": "天津人民出版社",
         "intro": "《金阁寺》是世界公认的长篇杰作。1950年，日本京都名胜古迹金阁寺，被年轻僧人的一把大火焚毁，成为轰动一时的事件。这便是《金阁寺》的原型。三岛由纪夫根据当年僧人的一句独白，“我妒忌金阁寺的美丽”，展开想象的翅膀，由此有了这部著名代表作的诞生。小说以第一人称写就，“我”在十几岁时因住持父亲离世，被托付到了金阁寺。整本书围绕着我对金阁的情感变化展开。我是个面貌抱歉的结巴，金阁是完美和永恒的化身，“世界上没有比金阁更美的东西”。未见时憧憬，初见时因为落差而失望，后来整日生活在一起，便觉得金阁是不可或缺的一部分。后来金阁在我脑海中幻化为我和真实世界的阻碍，尤其在我想做出格事情时，总会看到金阁显形，从而做不成……绝望之余，“我”将金阁付之一炬，亦打算与金阁同归于尽，然而在大火烧起之后，我放弃跟金阁同归于尽的想法，决定一个人好好活下去。",
-        "newRatingCount": 4813,
+        "newRatingCount": 4814,
         "newRating": 824,
         "isbn": "9787201169767",
         "newRatingDetail": {
-          "good": 3976,
+          "good": 3977,
           "fair": 751,
           "poor": 86,
-          "recent": 13,
+          "recent": 12,
           "deepV": 553,
           "myRating": "",
           "title": "脍炙人口"
@@ -4428,7 +4679,7 @@
           "good": 751,
           "fair": 20,
           "poor": 3,
-          "recent": 13,
+          "recent": 12,
           "deepV": 250,
           "myRating": "",
           "title": "神作"
@@ -4449,11 +4700,11 @@
         "translator": "陈德文",
         "isbn": "9787020092246",
         "intro": "渔歌式的纯情故事。青年渔民新治在早春的一个傍晚，认识了刚从外地回来的有着健康美的姑娘初江，他们在不知不觉中相爱了。不料谣言四起，初江的父亲得知后勃然大怒，不准他俩见面。不久，新治在狂涛骇浪，挽救了初江父亲的一条船，凭着他的勇猛过人最终赢得美人归。《潮骚》对青春的描写，提高了爱情的纯洁度。",
-        "newRatingCount": 2721,
+        "newRatingCount": 2720,
         "newRating": 798,
         "publisher": "人民文学出版社",
         "newRatingDetail": {
-          "good": 2134,
+          "good": 2133,
           "fair": 530,
           "poor": 57,
           "recent": 11,
@@ -4823,7 +5074,7 @@
           "good": 140,
           "fair": 8,
           "poor": 5,
-          "recent": 3,
+          "recent": 2,
           "deepV": 25,
           "myRating": "",
           "title": ""
@@ -4951,15 +5202,15 @@
         "updateTime": 1760170439,
         "publishTime": "2020-06-01 00:00:00",
         "intro": "为什么我们做事总是急于求成、避难趋易？所谓有耐心，就是要“咬牙坚持、死磕到底”？如何不再用“三分钟热情”和“打鸡血”的方式做事？如何保持极度专注？如何消除焦虑？如何提高学习能力？这是一部可以穿透时间的个人成长方法论。7大底层概念，20个成长关键词，助你彻底走出焦虑与迷茫，拥有清醒的认知、清楚的目标、清晰的路径、清爽的情绪。通过“大脑构造、潜意识、元认知”等思维规律，你将真正看清自己；通过“深度学习、关联、反馈”等事物规律，你将真正看清世界，提升自控力、专注力、学习力……只有洞悉底层的内在规律，我们才能真正开启自我改变的原动力。",
-        "newRatingCount": 129335,
+        "newRatingCount": 129373,
         "newRating": 903,
         "publisher": "人民邮电出版社",
         "newRatingDetail": {
-          "good": 118199,
+          "good": 118235,
           "fair": 7768,
-          "poor": 3368,
-          "recent": 1181,
-          "deepV": 14019,
+          "poor": 3370,
+          "recent": 1191,
+          "deepV": 14027,
           "myRating": "",
           "title": "神作"
         },
@@ -4987,7 +5238,7 @@
           "good": 26762,
           "fair": 7553,
           "poor": 692,
-          "recent": 41,
+          "recent": 38,
           "deepV": 613,
           "myRating": "good",
           "title": "值得一读"
@@ -5008,15 +5259,15 @@
         "publisher": "华夏出版社",
         "intro": "马歇尔•卢森堡博士发现了一种沟通方式，依照它来谈话和聆听，能使人们情意相通，和谐相处，这就是“非暴力沟通”。做为一个遵纪守法的好人，也许我们从来没有把谈话和“暴力”扯上关系。不过如果稍微留意一下现实生活中的谈话方式，并且用心体会各种谈话方式给我们的不同感受，我们一定会发现，有些话确实伤人！言语上的指责、嘲讽、否定、说教以及任意打断、拒不回应、随意出口的评价和结论给我们带来的情感和精神上的创伤甚至比肉体的伤害更加令人痛苦。这些无心或有意的语言暴力让人与人变得冷漠、隔膜、敌视。非暴力沟通能够：疗愈内心深处的隐秘伤痛;超越个人心智和情感的局限性;突破那些引发愤怒、沮丧、焦虑等负面情绪的思维方式;用不带伤害的方式化解人际间的冲突;学会建立和谐的生命体验。",
         "isbn": "9787522200514",
-        "newRatingCount": 30542,
+        "newRatingCount": 30552,
         "newRating": 826,
         "publishTime": "2021-05-01 00:00:00",
         "newRatingDetail": {
-          "good": 25323,
-          "fair": 4612,
+          "good": 25332,
+          "fair": 4613,
           "poor": 607,
           "recent": 236,
-          "deepV": 3092,
+          "deepV": 3096,
           "myRating": "",
           "title": "脍炙人口"
         }
@@ -5032,16 +5283,16 @@
         "readUpdateTime": 1756965198,
         "secret": 0,
         "updateTime": 1788920507,
-        "newRatingCount": 12788,
+        "newRatingCount": 12816,
         "intro": "\"通过对日本“失去的三十年”泡沫经济时代中，教育、卫生、医疗等各个产业的详尽分析，梳理日本多种社会问题形成的根源所在。\n每一个问题都在结合中国读者最关心的话题：\n“考公务员是最合理的就业选择吗？”\n“医生未来的待遇会更好还是更差？”\n“生育率下降会影响教师就业吗？”\n“研究生扩招，报考人数下降，研究生还值得读吗？”\n作为文化相近、轨迹相似的邻国，日本的社会发展史，是最能给国人带来思考和借鉴意义的发展史。\n在经济寒冬、社会问题频发、年轻人陷入迷茫的今天，“职业选择”已经成了头等大事。\n也许今天你可以求助“择校专家”，那么五年后呢？“师医公”还会是今天的“铁饭碗”吗？\n在这里，有十余年外资投行分析师经验的作者，将通过我们的近邻日本的各种社会问题和经历，为疑惑的你给出答案。\"",
         "newRating": 764,
         "publishTime": "2025-08-28 00:00:00",
         "newRatingDetail": {
-          "good": 9305,
-          "fair": 2782,
-          "poor": 701,
-          "recent": 517,
-          "deepV": 6473,
+          "good": 9323,
+          "fair": 2793,
+          "poor": 700,
+          "recent": 532,
+          "deepV": 6484,
           "myRating": "",
           "title": "值得一读"
         },
@@ -5063,15 +5314,15 @@
         "publishTime": "2017-05-01 00:00:00",
         "intro": "一名深陷自卑、无能与不幸福的青年，听到了一名哲人主张的“世界无比单纯，人人都能幸福”便来挑战，两人展开了你来我往的思考和辩论，在一夜一夜过去后，青年开始思考，为什么“所谓的自由，就是被别人讨厌”？问题不在于世界是什么样子，在于你是什么样子。",
         "publisher": "机械工业出版社",
-        "newRatingCount": 169948,
+        "newRatingCount": 169985,
         "newRating": 867,
         "isbn": "9787111495482",
         "newRatingDetail": {
-          "good": 148337,
-          "fair": 17595,
-          "poor": 4016,
-          "recent": 1071,
-          "deepV": 9988,
+          "good": 148371,
+          "fair": 17597,
+          "poor": 4017,
+          "recent": 1073,
+          "deepV": 9995,
           "myRating": "",
           "title": "好评如潮"
         }
@@ -5639,7 +5890,7 @@
         "updateTime": 1789146100,
         "secret": 1,
         "finishReading": 0,
-        "readUpdateTime": 1789208883,
+        "readUpdateTime": 1789478965,
         "newRating": 0,
         "publisher": "",
         "newRatingDetail": {
@@ -5731,7 +5982,7 @@
           "good": 2046,
           "fair": 176,
           "poor": 32,
-          "recent": 24,
+          "recent": 23,
           "deepV": 739,
           "myRating": "",
           "title": "好评如潮"
@@ -5752,15 +6003,15 @@
         "translator": "陈澄和",
         "publisher": "河南文艺出版社",
         "intro": "很多人都笑我。但他们是我的朋友我们都很快乐。\n 声称能改造智能的科学实验在白老鼠阿尔吉侬身上获得了突破性的进展，下一步急需进行人体实验。个性和善、学习态度积极的心智障碍者查理·高登成为最佳人选。\n查理对实验只有模糊的了解，但他知道自己想变聪明，想要受重视，爱人和被爱。\n手术成功后，查理的智商从68跃升为185，那些从未有过的情绪和记忆也逐渐浮现。",
-        "newRatingCount": 67930,
+        "newRatingCount": 67958,
         "newRating": 917,
         "isbn": "9787555913726",
         "newRatingDetail": {
-          "good": 63474,
-          "fair": 3672,
+          "good": 63499,
+          "fair": 3675,
           "poor": 784,
-          "recent": 615,
-          "deepV": 10316,
+          "recent": 617,
+          "deepV": 10321,
           "myRating": "",
           "title": "神作"
         },
@@ -5774,7 +6025,7 @@
         "updateTime": 1712033491,
         "cover": "https://cdn.weread.qq.com/weread/cover/58/cpplatform_a5njcwfpnft1sqfphpo5tb/t6_cpplatform_a5njcwfpnft1sqfphpo5tb1679464085.jpg",
         "finishReading": 0,
-        "readUpdateTime": 1789384817,
+        "readUpdateTime": 1789482110,
         "secret": 0,
         "category": "日本文学",
         "translator": "高慧勤",
@@ -5809,15 +6060,15 @@
         "publisher": "中信出版集团",
         "intro": "《当下的力量（白金版）》堪称心灵读物经典，作者埃克哈特·托利指出了我们日常痛苦的主要来源——被大脑思维所控制、焦虑过去和未来而非活在当下。但实际上，我们只能活在当下，活在此时此刻。通过向当下的臣服，你才能找到真正的力量，获得内在的智慧和真正的喜悦。作者在《当下的力量》中提出了几个非常实用的方法，让自己认清时间的幻象，活在当下。《当下的力量》对于普遍焦虑、抑郁、压力大的现代大众读者来说，是一本切实有用的好书，将让我们认清时间的幻象，活在当下，找到真正的力量，发现平和与宁静的入口。",
         "isbn": "9787508661766",
-        "newRatingCount": 20952,
+        "newRatingCount": 20963,
         "newRating": 855,
         "publishTime": "2016-06-01 00:00:00",
         "newRatingDetail": {
-          "good": 18135,
-          "fair": 1997,
+          "good": 18144,
+          "fair": 1999,
           "poor": 820,
-          "recent": 286,
-          "deepV": 4817,
+          "recent": 285,
+          "deepV": 4821,
           "myRating": "",
           "title": "好评如潮"
         }
@@ -5836,11 +6087,11 @@
         "translator": "许郁文",
         "publisher": "百花洲文艺出版社",
         "intro": "看来在我今后的人生里不会有好事发生了。因此，我余下的寿命被“估价”每年一万日元。对自己未来非常悲观的我，干脆将余下的寿命卖掉了大半，并想着至少让余下的一点点人生过得更幸福一些。谁知无论我做什么都事与愿违。就在我周而复始地做着徒劳无功的挣扎时，“监视员”宫城在我面前出现了。可惜的是，当我终于意识到为宫城而活是最幸福的事情后，我只剩下不足两个月的生命了。",
-        "newRatingCount": 1292,
+        "newRatingCount": 1291,
         "newRating": 867,
         "isbn": "9787550021198",
         "newRatingDetail": {
-          "good": 1142,
+          "good": 1141,
           "fair": 121,
           "poor": 29,
           "recent": 24,
@@ -5864,19 +6115,47 @@
         "translator": "王逢振等",
         "isbn": "9787559633002",
         "intro": "安徽出生的贫苦农夫王龙，娶了村里地主黄家的丫鬟阿兰。阿兰虽不美丽，且个性木讷，但吃苦耐劳，还生下两个儿子。结发夫妻一起耕耘，迎来了土地丰收，连年的好收成甚至让王龙有积蓄买下家业日败的黄家肥沃的土地。偏偏在富裕临门前，天灾降临，王龙不得不带着一家老小逃亡南城，靠着乞讨与拉车，苟延残喘地在城墙边过日子。正当生活陷入泥淖的时候，战乱发生了。王龙意外地从被盗贼劫掠的大户人家中抢得银两，启程回家，用那些意外之财买了牛、种子、犁田的器具，重振家园。年年丰收的王龙，持续买进更多土地，逐渐成了村里最大的富豪。生活富足起来的王龙开始上酒楼，大肆挥霍，还在阿兰眼下娶了位酒女荷花作姨太太。直到天灾再临……",
-        "newRatingCount": 2871,
-        "newRating": 752,
+        "newRatingCount": 2872,
+        "newRating": 753,
         "publisher": "北京联合出版有限公司",
         "newRatingDetail": {
-          "good": 2143,
+          "good": 2144,
           "fair": 625,
           "poor": 103,
-          "recent": 12,
+          "recent": 13,
           "deepV": 293,
           "myRating": "",
           "title": "值得一读"
         },
         "publishTime": "2019-09-01 00:00:00"
+      },
+      {
+        "bookId": "3300046683",
+        "deepLink": "https://weread.qq.com/book-detail?type=1&v=e8732d70813ab78bcg013ecf",
+        "title": "伊豆的舞女",
+        "author": "川端康成",
+        "updateTime": 1760178366,
+        "cover": "https://cdn.weread.qq.com/weread/cover/72/cpplatform_nrwvhdtjvixfzjf2lgp8q5/t6_cpplatform_nrwvhdtjvixfzjf2lgp8q51674010247.jpg",
+        "finishReading": 0,
+        "readUpdateTime": 1789480840,
+        "secret": 0,
+        "category": "文学-外国文学",
+        "translator": "王晓玲  唐静",
+        "isbn": "",
+        "intro": "《伊豆的舞女》是川端康成早期的代表作，也是一篇杰出的短篇小说，在读者中产生了深远的影响。作品情节简单，描述的是一名高中生为排遣内心的忧郁和苦闷，只身来到伊豆旅行，途中偶遇巡回艺人一行人，并与其中的清纯舞女薰产生了一种朦胧的纯真感情。伊豆的青山秀水与少男少女间纯净的爱慕之情交织在一起，互相辉映，给读者一份清新之感，也净化了读者的心灵，使人们感同身受，如同回到了那清纯唯美的初恋时代。",
+        "newRatingCount": 3408,
+        "newRating": 762,
+        "publisher": "",
+        "newRatingDetail": {
+          "good": 2360,
+          "fair": 912,
+          "poor": 136,
+          "recent": 66,
+          "deepV": 764,
+          "myRating": "",
+          "title": "值得一读"
+        },
+        "publishTime": "2023-01-16 00:00:00"
       },
       {
         "bookId": "3300066685",
@@ -5886,7 +6165,7 @@
         "updateTime": 1760180291,
         "cover": "https://cdn.weread.qq.com/weread/cover/95/cpplatform_j53osdxtvobpwwb6c3hdfs/t6_cpplatform_j53osdxtvobpwwb6c3hdfs1691399232.jpg",
         "finishReading": 0,
-        "readUpdateTime": 1789210920,
+        "readUpdateTime": 1789476151,
         "secret": 0,
         "category": "文学",
         "translator": "罗山川",
@@ -5899,7 +6178,7 @@
           "good": 254,
           "fair": 72,
           "poor": 19,
-          "recent": 11,
+          "recent": 10,
           "deepV": 154,
           "myRating": "",
           "title": ""
@@ -5920,14 +6199,14 @@
         "translator": "张国辰 王培沛",
         "publisher": "重庆出版社",
         "intro": "作为一部自传体小说，斐德洛的故事，其实正是本书作者罗伯特·M. 波西格的人生。在《柏拉图对话集》中，斐德洛是一个爱好哲学的普通雅典青年。而在本书中，斐德洛重返人间。他曾经是学哲学的学生，同时也是教修辞学的教师，但是由于哲学理念与文化的世界观冲突，他终于因精神崩溃而住院。出院后，他希望从狭窄而受限的自我解脱，于是开始了一场骑着摩托车横跨美国大陆的万里长旅，一路经过复杂经验与反省思考，终于暂时恢复了灵性的完整与清静。这一回归自己的过程，是通过不断寻求“良质”，即东方哲学里的禅思，并用摩托车维修之道对其进行阐释而实现的。这便是《禅与摩托车维修艺术》一名的由来。与此同时，书中还批评了西方世界的二分法或二元论，如人文与科技、精神与物质、神秘主义与机械论、艺术与工业、心灵与机械、东方与西方等相对意识。",
-        "newRatingCount": 5422,
+        "newRatingCount": 5423,
         "newRating": 816,
         "isbn": "9787229131548",
         "newRatingDetail": {
           "good": 4432,
-          "fair": 807,
+          "fair": 808,
           "poor": 183,
-          "recent": 43,
+          "recent": 42,
           "deepV": 1006,
           "myRating": "",
           "title": "脍炙人口"
@@ -5973,15 +6252,15 @@
         "translator": "杨武能",
         "isbn": "9787020104130",
         "intro": "本书是歌德早期最重要的著作，一出版即风靡欧洲，掀起“维特热”。年轻的维特来到一个民风淳朴的小镇。他对少女绿蒂一见倾心；绿蒂也喜欢他，但她已与维特的好友订婚。维特陷入尴尬和痛苦，他离开此地，希望在事业上有所成就，以便得到解脱。而鄙陋的环境、压抑个性的现存秩序，使他无法忍受。他遂以死殉情。",
-        "newRatingCount": 2658,
+        "newRatingCount": 2661,
         "newRating": 830,
         "publisher": "人民文学出版社",
         "newRatingDetail": {
-          "good": 2202,
+          "good": 2205,
           "fair": 394,
           "poor": 62,
-          "recent": 21,
-          "deepV": 558,
+          "recent": 25,
+          "deepV": 561,
           "myRating": "",
           "title": "脍炙人口"
         },
@@ -5995,21 +6274,21 @@
         "updateTime": 1760170331,
         "cover": "https://cdn.weread.qq.com/weread/cover/18/YueWen_907758/t6_YueWen_907758.jpg",
         "finishReading": 0,
-        "readUpdateTime": 1789392800,
+        "readUpdateTime": 1789480261,
         "secret": 0,
         "category": "艺术-设计",
         "translator": "苏金国,李盼等",
         "publisher": "人民邮电出版社",
         "intro": "平面设计入门经典大作、 零基础自学平面设计师指导手册！ 让人人都能成为设计师！在这部畅销全球多年、影响了一代设计师的经典著作中，Robin　Williams将优秀设计的秘诀归纳为对比、重复、对齐和亲密性四条基本原则，并用简洁通俗、幽默生动的文笔，同时配以大量经过修改进行前后对比的实例图解和设计练习（并提供解答），直观清晰地传授给读者。通过本书，普通读者很快就能够自信地设计出专业级别的作品，而专业设计师也将从中获得灵感和解决问题的途径。",
         "isbn": "9787115404404",
-        "newRatingCount": 3331,
+        "newRatingCount": 3332,
         "newRating": 791,
         "publishTime": "2016-01-01 00:00:00",
         "newRatingDetail": {
-          "good": 2633,
+          "good": 2634,
           "fair": 663,
           "poor": 35,
-          "recent": 8,
+          "recent": 9,
           "deepV": 183,
           "myRating": "",
           "title": "值得一读"
@@ -6028,15 +6307,15 @@
         "updateTime": 1765511013,
         "publisher": "台海出版社",
         "intro": "这本书是教师蔡淇华专为写作初学者及爱好者打造的实用写作指南。\n书中提出写作需要具备的四十种关键能力，如觉察力、五感力、联想 力等，通过真实案例和细腻的讲解，让读者能够逐步掌握写作的技巧与创意。\n本书文字浅显生动，具有故事性；基中的写作技巧基于作者 创作经历和多年指导写任的经验，具有实用性；本书内容源于经验，但加以提炼升华，具有创新性。\n在文字之外，每篇配以生动的漫画，图文并茂，趣味盎然，是一本值得一读的写作入门书。",
-        "newRatingCount": 129,
-        "newRating": 802,
+        "newRatingCount": 130,
+        "newRating": 788,
         "isbn": "9787516842676",
         "newRatingDetail": {
-          "good": 100,
-          "fair": 23,
+          "good": 99,
+          "fair": 25,
           "poor": 6,
-          "recent": 9,
-          "deepV": 77,
+          "recent": 11,
+          "deepV": 78,
           "myRating": "",
           "title": ""
         },
@@ -6053,16 +6332,16 @@
         "readUpdateTime": 1784221177,
         "secret": 0,
         "updateTime": 1760174409,
-        "newRatingCount": 59002,
+        "newRatingCount": 59024,
         "intro": "《一句顶一万句》是作家刘震云创作于2006年到2008年的长篇小说[1]，2011年8月获得第八届茅盾文学奖[2]。小说的主题是讲“一个人想找另一个人说句话不容易”。",
         "newRating": 913,
         "publisher": "花城出版社",
         "newRatingDetail": {
-          "good": 54949,
-          "fair": 3193,
+          "good": 54968,
+          "fair": 3196,
           "poor": 860,
-          "recent": 803,
-          "deepV": 15039,
+          "recent": 792,
+          "deepV": 15045,
           "myRating": "",
           "title": "神作"
         },
@@ -6083,15 +6362,15 @@
         "translator": "周克希",
         "publisher": "译林出版社",
         "intro": "世界通俗小说中的扛鼎之作，一百多年来始终畅销不衰，发行数以亿册，多次被搬上银幕。本书主要描写的是法国波旁王朝时期发生的一个报恩复仇的故事。法老号船的年轻大副唐戴斯受船长临终之托为拿破仑党人送一封信，遭两个卑鄙小人和阴险检察官维尔福的陷害，被关入死牢。剥夺了本该属于他的美好阳光、爱情和前程。十八年后，他带着狱友法里亚教士临死前告诉他的秘密，越狱逃生，找到法里亚藏匿的宝藏后成为巨富，从此他化名基督山伯爵。经过精心策划，他报答了恩人，惩罚了三个想置他于死地的仇人，并向恩人报了恩。",
-        "newRatingCount": 35480,
+        "newRatingCount": 35484,
         "newRating": 927,
         "isbn": "9787544731591",
         "newRatingDetail": {
-          "good": 33481,
-          "fair": 1780,
+          "good": 33484,
+          "fair": 1781,
           "poor": 219,
-          "recent": 247,
-          "deepV": 4345,
+          "recent": 242,
+          "deepV": 4344,
           "myRating": "good",
           "title": "神作"
         },
@@ -6111,15 +6390,15 @@
         "translator": "吴劳",
         "publisher": "上海译文出版社",
         "intro": "本文描写古巴老渔夫圣地亚哥在连续八十四天没捕到鱼的情况下，终于独自钓上了一条大马林鱼，而在归程中，他一再遭到鲨鱼的袭击，最后回港时只剩下鱼头鱼尾和一条脊骨。“一个人可以被毁灭，但不能被打败”，这句话将永远给予人们直面现实的勇气。",
-        "newRatingCount": 5710,
+        "newRatingCount": 5712,
         "newRating": 884,
         "isbn": "9787532747986",
         "newRatingDetail": {
-          "good": 5134,
+          "good": 5136,
           "fair": 457,
           "poor": 119,
-          "recent": 16,
-          "deepV": 1234,
+          "recent": 18,
+          "deepV": 1235,
           "myRating": "",
           "title": "好评如潮"
         },
@@ -6136,16 +6415,16 @@
         "readUpdateTime": 1772302294,
         "secret": 0,
         "updateTime": 1776759067,
-        "newRatingCount": 57514,
+        "newRatingCount": 57529,
         "intro": "不看不知道，莫言真幽默！在极度痛苦时笑出声来，获得内心深处的解脱。\n不看不知道，欲哭又想笑。活着不容易，幽默无价宝。\n——莫言\n五十年间西门闹经历六次转世，\n一世为驴，二世为牛，三世为猪，四世为狗，五世为猴，最终降生为人。\n在这六世里，他目睹蓝脸一家三代经历人生的生死疲劳，\n他们爱就爱到底，恨就恨到底，犟就犟到底，干就干到底，\n有极致的痛苦与欢乐，更有不灭的热情与希望。\n而他们的故事，要从1950年1月1日讲起……",
         "newRating": 912,
         "publisher": "浙江文艺出版社",
         "newRatingDetail": {
-          "good": 53390,
+          "good": 53405,
           "fair": 3299,
           "poor": 825,
-          "recent": 417,
-          "deepV": 7120,
+          "recent": 419,
+          "deepV": 7126,
           "myRating": "good",
           "title": "神作"
         },
@@ -6173,7 +6452,7 @@
           "good": 1353,
           "fair": 403,
           "poor": 64,
-          "recent": 7,
+          "recent": 6,
           "deepV": 162,
           "myRating": "",
           "title": "值得一读"
@@ -6191,16 +6470,16 @@
         "readUpdateTime": 1775172103,
         "secret": 0,
         "updateTime": 1781746549,
-        "newRatingCount": 114838,
+        "newRatingCount": 114845,
         "intro": "同名电视剧由张嘉译、何冰、秦海璐、刘佩琦等人主演。当代文学里程碑之作，茅盾文学奖获奖作品。一部记录“民族的秘史”的长卷，一部渭河平原50年变迁的雄奇史诗，一轴中国农村斑斓多彩，触目惊心的长幅画卷。主人公白嘉轩六娶六丧，神秘的序曲预示着不祥。一个家族两代子孙，为争夺白鹿原的统治代代争斗不已，上演了一幕幕惊心动魄的活剧：巧取风水地，恶施美人计，孝子为匪，亲翁杀媳，兄弟相煎，情人反目……大革命、日寇入侵、三年内战，白鹿原翻云覆雨，王旗变幻，家仇国恨交错缠结，冤冤相报代代不已。",
         "newRating": 911,
         "publishTime": "1993-06-01 00:00:00",
         "newRatingDetail": {
-          "good": 105263,
+          "good": 105270,
           "fair": 8800,
           "poor": 775,
-          "recent": 247,
-          "deepV": 3510,
+          "recent": 243,
+          "deepV": 3512,
           "myRating": "",
           "title": "神作"
         },
@@ -6222,15 +6501,15 @@
         "publisher": "南海出版公司",
         "intro": "奇迹！一部新人首作，上市第一周即登上《纽约时报》畅销榜，至今已累计80周，仍高居No.1，全美销量破百万册，作者被《时代周刊》评为“年度影响力人物”。17岁前从未上过学的女孩，如何成为剑桥大学博士？我们要背叛多少曾经，才能找到真正的自我！ 比尔·盖茨年度荐书 No.1",
         "isbn": "9787544276986",
-        "newRatingCount": 115214,
+        "newRatingCount": 115238,
         "newRating": 873,
         "publishTime": "2019-11-01 00:00:00",
         "newRatingDetail": {
-          "good": 101808,
+          "good": 101832,
           "fair": 12130,
           "poor": 1276,
-          "recent": 749,
-          "deepV": 9284,
+          "recent": 752,
+          "deepV": 9288,
           "myRating": "",
           "title": "好评如潮"
         }
@@ -6327,7 +6606,7 @@
         "finishReading": 0,
         "readUpdateTime": 1737882070,
         "secret": 0,
-        "updateTime": 1713549601,
+        "updateTime": 1789466983,
         "newRatingCount": 2988,
         "intro": "晴天好耕作，雨天好读书，阴晴无定好品茗。人生，需要有一些时刻，慢下来，静下来，去生活。\n收录《泡茶馆》《人间草木》《故都的秋》《八十述怀》等40余篇华语散文经典作品，书写俗世烟火里的温暖和恬静，如水一样的文字写尽生活妙趣，呈现平和、空灵的人生境界，每个人都能从中找到生活的另一种可能，活出内心的安宁与自在。生活，是很美好的，人，是很诗意的，如果你很累了，不妨坐下来，喝一杯茶，读读这本书。",
         "newRating": 894,
@@ -6359,15 +6638,15 @@
         "isbn": "9787020102792",
         "intro": "《荷马史诗》是希腊最早的一部史诗，包括《伊利亚特》和《奥德赛》两部分，相传是由盲诗人荷马所作，实际上它产生于民间口头文学。《奥德赛》是以特洛亚战争传说为题材的“系列史诗”中惟一一部传世的“返乡史诗”。足智多谋的奥德修斯用木马计攻陷特洛亚城之后，率领自己的军队渡海回国。途中遭遇各种艰难险阻，历经十年飘泊，随行同伴全部遇难，只有他在女神雅典娜的佑助下，坚韧不拔地孤身一人回到久别的故乡。",
         "publisher": "人民文学出版社",
-        "newRatingCount": 854,
-        "newRating": 868,
+        "newRatingCount": 858,
+        "newRating": 867,
         "publishTime": "2015-06-09 00:00:00",
         "newRatingDetail": {
-          "good": 752,
-          "fair": 95,
+          "good": 754,
+          "fair": 97,
           "poor": 7,
-          "recent": 185,
-          "deepV": 265,
+          "recent": 178,
+          "deepV": 267,
           "myRating": "",
           "title": "好评如潮"
         }
@@ -6393,7 +6672,7 @@
           "good": 1996,
           "fair": 299,
           "poor": 64,
-          "recent": 27,
+          "recent": 26,
           "deepV": 506,
           "myRating": "",
           "title": "脍炙人口"
@@ -6408,20 +6687,20 @@
         "updateTime": 1764316613,
         "cover": "https://cdn.weread.qq.com/weread/cover/67/YueWen_567379/t6_YueWen_567379.jpg",
         "finishReading": 0,
-        "readUpdateTime": 1784626012,
+        "readUpdateTime": 1789486646,
         "secret": 0,
         "category": "奇幻文学",
         "translator": "邓嘉宛,石中歌,杜蕴慈",
         "publisher": "上海人民出版社",
         "intro": "这是一部为了世界的光明未来，誓死抵抗黑暗的伟大史诗。至尊魔戒，拥有统御众戒、奴役世界的力量，黑暗魔君索隆苦觅已久。为了守护家园，魔戒继承人弗罗多毅然离开宁谧淳朴的夏尔，踏上前途未卜的旅途。与他同行的是睿智的巫师、勇敢的人类、美善的精灵、坚毅的矮人和热爱和平的霍比特人。征途见证了勇气与友谊。跃马客栈里的重重暗影，卡扎督姆桥的怒吼炎魔，勇猛骁勇的洛汗骠骑，范贡森林的上古树须，凄厉嘶嚎的邪恶戒灵，陡峭山壁旁的巨型毒蛛……每个人各自抵御着无尽的诱惑与磨难，承担起属于自己的善恶考验。平凡的霍比特人战栗在末日烈焰面前，他能战胜这噬灭灵魂的至尊魔戒吗？",
-        "newRatingCount": 3042,
+        "newRatingCount": 3041,
         "newRating": 928,
         "isbn": "9787208113039",
         "newRatingDetail": {
-          "good": 2866,
+          "good": 2865,
           "fair": 144,
           "poor": 32,
-          "recent": 21,
+          "recent": 20,
           "deepV": 385,
           "myRating": "",
           "title": "神作"
@@ -6443,7 +6722,7 @@
         "publisher": "",
         "intro": "《卡拉马佐夫兄弟》是俄国文学巨匠‌陀思妥耶夫斯基‌于1880年完成的长篇小说，也是他生前最后一部作品，被公认为其文学与思想的巅峰之作。小说围绕地主‌费奥多尔·卡拉马佐夫‌与其三个儿子——德米特里、伊凡、阿廖沙——之间的激烈冲突展开，通过一场谋杀案，层层剥开信仰、理性、欲望与人性的终极博弈。",
         "newRatingCount": 586,
-        "newRating": 972,
+        "newRating": 970,
         "isbn": "",
         "newRatingDetail": {
           "good": 577,
@@ -6498,15 +6777,15 @@
         "translator": "郝明义",
         "publisher": "上海文艺出版社",
         "intro": "刘慈欣：我所有作品都是《2001：太空漫游》的拙劣模仿！ 科幻文学史上的至高神作！50年来，影响了后世几乎所有科幻作品：《三体》《流浪地球》《星际穿越》《星球大战》《阿凡达》《黑客帝国》《地心引力》《降临》《异形》《飞向太空》《第三类接触》《人工智能》《终结者》《超时空接触》《普罗米修斯》……入选美国国家公共电台、《轨迹》杂志、英国《卫报》有史以来百大科幻-奇幻小说榜单。入选美国图书电商评选的有生之年不可不读的百大科幻-奇幻小说！ 同名改编电影，由斯坦利·库布里克执导，登顶所有科幻电影榜单！关于人类探索太空和自身的恢宏构想！被誉为“摸到了人类想象力的天花板” ！人类对太空的想象，到《2001：太空漫游》为止！ 阿瑟·克拉克与阿西莫夫、海因莱因一起并称为“20世纪科幻三巨头”，被誉为科幻小说之王。一生创作100多部作品，被翻译成40多种语言，作品总销量1亿多册。阿瑟·克拉克被誉为20世纪伟大的太空预言家，他针对太空技术作出的许多预测都成为现实，地球静止卫星的轨道正是因为他而被命名为“克拉克轨道”。《2001：太空漫游》是阿瑟·克拉克极负盛名和被公认的至高杰作！",
-        "newRatingCount": 8647,
+        "newRatingCount": 8648,
         "newRating": 875,
         "isbn": "9787532170692",
         "newRatingDetail": {
-          "good": 7617,
+          "good": 7618,
           "fair": 966,
           "poor": 64,
           "recent": 34,
-          "deepV": 808,
+          "deepV": 809,
           "myRating": "",
           "title": "好评如潮"
         },
@@ -6520,20 +6799,20 @@
         "cover": "https://cdn.weread.qq.com/weread/cover/71/cpplatform_8rvczjhmmo1e5fqwuxhfl6/t6_cpplatform_8rvczjhmmo1e5fqwuxhfl61699263077.jpg",
         "category": "童书-儿童文学",
         "finishReading": 0,
-        "readUpdateTime": 1788433499,
+        "readUpdateTime": 1789475401,
         "secret": 0,
         "updateTime": 1773717787,
         "publisher": "天天出版社",
         "intro": "《从百草园到三味书屋》是鲁迅于1926年写的一篇童年妙趣生活的回忆性散文。一年四季，春夏秋冬，对于儿时的鲁迅来说，百草园都有无穷的乐趣。三味书屋是晚清绍兴府城内著名私塾，也是鲁迅12岁至17岁求学的地方。鲁迅在三味书屋的学习，为他打下了坚实的国学基础，读书之余，三味书屋的后园也有一群稚气未消的少年游戏的身影。即使身处不同的时代，《从百草园到三味书屋》里流淌着的童真与纯粹，今天读来，仍然会让读者产生心灵强烈的共鸣。",
-        "newRatingCount": 566,
+        "newRatingCount": 569,
         "newRating": 920,
         "isbn": "9787501618620",
         "newRatingDetail": {
-          "good": 536,
+          "good": 539,
           "fair": 21,
           "poor": 9,
-          "recent": 23,
-          "deepV": 185,
+          "recent": 26,
+          "deepV": 186,
           "myRating": "",
           "title": "神作"
         },
@@ -6553,14 +6832,14 @@
         "translator": "林少华",
         "isbn": "9787555236078",
         "intro": "夏目漱石的经典代表作，著名翻译家林少华倾情翻译。长篇小说《心》是日本近代文学作品中不可多得的佳作，至今仍跻身于日本中学生最喜欢读的十部作品之列。“我”认识了一位“先生”，后来接得“先生”一封长信（其时“先生”已不在人世），信中讲述了“先生”在大学时代同朋友K一同爱上房东漂亮的独生女儿。“先生”设计使K自杀，自己如愿以偿。但婚后时常遭受良心和道义的谴责，最后也自杀而死。\n",
-        "newRatingCount": 4252,
+        "newRatingCount": 4254,
         "newRating": 772,
         "publisher": "青岛出版社",
         "newRatingDetail": {
-          "good": 3282,
-          "fair": 919,
+          "good": 3285,
+          "fair": 918,
           "poor": 51,
-          "recent": 38,
+          "recent": 39,
           "deepV": 266,
           "myRating": "",
           "title": "值得一读"
@@ -6581,15 +6860,15 @@
         "translator": "李文俊",
         "isbn": "9787020158454",
         "intro": "《喧哗与骚动》是美国诺贝尔文学奖得主、20世纪文学大师威廉·福克纳最优秀的代表作，1929年出版发行。这部小说描写的是19世纪末至20世纪20年代美国南方杰弗逊镇的望族康普生家庭的没落以及各个家庭成员的遭遇与精神状态。全书共分四个部分，每部分有一个人物来叙述故事。",
-        "newRatingCount": 1936,
+        "newRatingCount": 1937,
         "newRating": 896,
         "publisher": "人民文学出版社",
         "newRatingDetail": {
-          "good": 1797,
+          "good": 1798,
           "fair": 106,
           "poor": 33,
-          "recent": 33,
-          "deepV": 688,
+          "recent": 34,
+          "deepV": 691,
           "myRating": "",
           "title": "好评如潮"
         },
@@ -6608,15 +6887,15 @@
         "updateTime": 1783323070,
         "publisher": "人民文学出版社",
         "intro": "《城南旧事》是以作者七到十三岁的生活为背景写作的一部自传体短篇小说集。1960年初版以来曾多次再版，成为“永不过时”的名著。本次特为中小学课外阅读目的制作，以台湾纯文学出版社1983年排印本为底本，并进行了必要的校订；另精选了包括《窃读记》在内的林海音美文五篇，附于书后，以让读者对林海音笔下的老北京有一个更进一步的了解。另外，书前配有“导读”，书后有“知识链接”，以给读者以必要指引和知识的积累。",
-        "newRatingCount": 6375,
+        "newRatingCount": 6377,
         "newRating": 936,
         "isbn": "9787020138784",
         "newRatingDetail": {
-          "good": 6156,
+          "good": 6158,
           "fair": 171,
           "poor": 48,
-          "recent": 85,
-          "deepV": 1195,
+          "recent": 86,
+          "deepV": 1196,
           "myRating": "",
           "title": "神作"
         },
@@ -6635,14 +6914,14 @@
         "updateTime": 1785317696,
         "publisher": "人民文学出版社",
         "intro": "此次出版大字本，底本拟采用发行量最大的“中国古典文学读本丛书”四大名著，其中《三国演义》《西游记》经过全面修订，更臻完善。",
-        "newRatingCount": 12039,
+        "newRatingCount": 12038,
         "newRating": 925,
         "isbn": "9787020008735",
         "newRatingDetail": {
           "good": 11481,
           "fair": 322,
-          "poor": 236,
-          "recent": 117,
+          "poor": 235,
+          "recent": 115,
           "deepV": 2610,
           "myRating": "",
           "title": "神作"
@@ -6663,15 +6942,15 @@
         "translator": "柳鸣九",
         "publisher": "上海译文出版社",
         "intro": "本小说塑造了一个惊世骇俗的“荒谬的人”——对一切都漠然置之的主人公默而索，他对身边发生的一切事情都漠不关心，他母亲的去世，甚至自己被判处死刑，他都没有感觉……",
-        "newRatingCount": 31600,
+        "newRatingCount": 31617,
         "newRating": 875,
         "isbn": "9787532761760",
         "newRatingDetail": {
-          "good": 28198,
-          "fair": 3084,
+          "good": 28214,
+          "fair": 3085,
           "poor": 318,
-          "recent": 530,
-          "deepV": 5600,
+          "recent": 531,
+          "deepV": 5601,
           "myRating": "",
           "title": "好评如潮"
         },
@@ -6690,15 +6969,15 @@
         "updateTime": 1789017458,
         "publisher": "天津人民出版社",
         "intro": "【畅销10万册全新修订版！清华教授十五年一线教学淬炼，写作原来可以这样轻松有趣；新增章节和AI使用练习】清华教授刘军强十五年一线教学淬炼，给每一个要把想法说清、道理讲透、思想写活的人。\r\n全书共十辑，三十篇短小精悍的文章，从选题、文献、结构、论证，到思维和文风，系统分享说理写作的方法；针对选题难、架构难、下笔难等写作者的普遍困扰，亦给出了实用建议。本书不是模板堆砌，而是真诚的手艺传承——把缄默的知识变成可拆可练的动作，把常翻的车、管用的招，摊开给你看。你会发现，写作原来可以这样轻松，如此落地。\r\n读者说：“想穿越回去塞给大一的自己。”本书问世以来，成为众多本硕博、教师、职场人的案头常备。新版全书修订，除了新增章节，每篇还设有AI时代专属练习：教你怎么把大模型当工具，又能牢牢守住自己的判断、手感和声音。",
-        "newRatingCount": 1316,
+        "newRatingCount": 1318,
         "newRating": 903,
         "isbn": "9787201215341",
         "newRatingDetail": {
-          "good": 1245,
-          "fair": 39,
-          "poor": 32,
-          "recent": 50,
-          "deepV": 638,
+          "good": 1247,
+          "fair": 38,
+          "poor": 33,
+          "recent": 49,
+          "deepV": 640,
           "myRating": "",
           "title": "神作"
         },
@@ -6715,16 +6994,16 @@
         "readUpdateTime": 1787580584,
         "secret": 0,
         "updateTime": 1753951441,
-        "newRatingCount": 2972,
+        "newRatingCount": 2974,
         "intro": "《呐喊》是现代文学家鲁迅的短篇小说集，收录鲁迅于1918年至1922年所作的14篇短篇小说，1923年由北京新潮社初版。单行本系在《鲁迅全集》编订基础上普及化的读本。鲁迅作品包括杂文、短篇小说、评论、散文、翻译作品，对于“五四运动”以后的中国文学产生了深刻的影响。",
         "newRating": 919,
         "isbn": "9787020152575",
         "newRatingDetail": {
-          "good": 2887,
+          "good": 2889,
           "fair": 70,
           "poor": 15,
-          "recent": 57,
-          "deepV": 776,
+          "recent": 58,
+          "deepV": 777,
           "myRating": "",
           "title": "神作"
         },
@@ -6742,16 +7021,16 @@
         "readUpdateTime": 1786958322,
         "secret": 0,
         "updateTime": 1760178071,
-        "newRatingCount": 213033,
+        "newRatingCount": 213064,
         "intro": "《活着》是当代作家余华的代表作，讲述了一个人历尽世间沧桑和磨难的一生，亦将中国大半个世纪的社会变迁凝缩其间。《活着》还讲述了眼泪的宽广和丰富；讲述了绝望的不存在；讲述了人是为了活着本身而活着的，而不是为了活着之外的任何事物而活着。\r\n《活着》出版30年来打动了无数读者，经过时间的沉淀，已成为20世纪中国文学当之无愧的经典之作。",
         "newRating": 920,
         "publisher": "北京出版集团北京十月文艺出版社",
         "newRatingDetail": {
-          "good": 198264,
-          "fair": 13381,
+          "good": 198294,
+          "fair": 13382,
           "poor": 1388,
-          "recent": 1000,
-          "deepV": 8699,
+          "recent": 999,
+          "deepV": 8703,
           "myRating": "",
           "title": "神作"
         },
@@ -6771,15 +7050,15 @@
         "updateTime": 1734076571,
         "publisher": "人民文学出版社",
         "intro": "要是有些事我没说，地坛，你别以为是我忘了，我什么也没忘；但是有些事只适合收藏，不能说，不能想，却又不能忘。《我与地坛》是史铁生文学作品中，充满哲思又极为人性化的代表作之一。其前两段被纳入人民教育出版社的高一教材中。前两部分注重讲地坛和他与母亲的后悔，对中学生来说，这是一篇令人反思的优秀文章。",
-        "newRatingCount": 81351,
+        "newRatingCount": 81362,
         "newRating": 915,
         "isbn": "9787020083442",
         "newRatingDetail": {
-          "good": 76542,
-          "fair": 4297,
+          "good": 76554,
+          "fair": 4296,
           "poor": 512,
-          "recent": 440,
-          "deepV": 7645,
+          "recent": 439,
+          "deepV": 7647,
           "myRating": "",
           "title": "神作"
         },
@@ -6852,16 +7131,16 @@
         "readUpdateTime": 1775881183,
         "secret": 0,
         "updateTime": 1715364301,
-        "newRatingCount": 1485,
+        "newRatingCount": 1486,
         "intro": "《阿Q正传》是鲁迅小说的代表作，也是鲁迅一生中创作的唯一一篇中型小说。它以辛亥革命前后的农村作为背景，塑造了阿Q这个不朽的流浪雇农的典型形象。除《阿Q正传》外，本书还精选了鲁迅二十二篇小说代表作，并配以精美插图。",
         "newRating": 910,
         "publisher": "中国华侨出版社",
         "newRatingDetail": {
-          "good": 1403,
+          "good": 1404,
           "fair": 64,
           "poor": 18,
           "recent": 11,
-          "deepV": 239,
+          "deepV": 240,
           "myRating": "",
           "title": "神作"
         },
@@ -6883,15 +7162,15 @@
         "publisher": "中信出版集团",
         "intro": "否定性的社会已经消失，取而代之的是充溢着积极性的社会。从这一范式转移出发，韩炳哲展示了当今社会的病理形态，其中包括抑郁症、注意力缺乏症、过劳症等精神疾病。它们不是传染病，而是梗阻症；不是由否定性的、免疫学上的他者导致，而是源于过量的肯定性。因此，一切免疫学式预防和抵抗措施都失效了。作者的论述终以一个社会愿景结束，他有意赋予其一个含有歧义的名称“倦怠社会”。其中，生命变成了生存，生存导向对健康的狂热崇拜，健康带来了疾病和僵死。失去了死亡的否定性，生命自身僵化成为死亡。一部为当下全球化时代做出诊断的重要作品。",
         "isbn": "9787521704693",
-        "newRatingCount": 6644,
+        "newRatingCount": 6647,
         "newRating": 753,
         "publishTime": "2019-06-01 00:00:00",
         "newRatingDetail": {
-          "good": 4948,
-          "fair": 1527,
-          "poor": 169,
-          "recent": 63,
-          "deepV": 1575,
+          "good": 4951,
+          "fair": 1528,
+          "poor": 168,
+          "recent": 65,
+          "deepV": 1577,
           "myRating": "",
           "title": "值得一读"
         }
@@ -6917,7 +7196,7 @@
           "good": 346,
           "fair": 31,
           "poor": 5,
-          "recent": 4,
+          "recent": 3,
           "deepV": 102,
           "myRating": "",
           "title": ""
@@ -6965,15 +7244,15 @@
         "translator": "崔健",
         "publisher": "南海出版公司",
         "intro": "\r\n★ 东野圭吾名作，2022版新译本！\r\n\r\n★ 与《白夜行》《嫌疑人X的献身》《解忧杂货店》并称东野圭吾四大杰作，从《恶意》开始真正认识东野圭吾\r\n\r\n★ 深刻揭示人性，处处是悬念，加贺恭一郎系列扛鼎之作\r\n\r\n★《纽约时报》《华尔街日报》《柯克斯书评》推荐\r\n\r\n★ ZUI大的恶意不是SHA了你，而是毁了你\r\n\r\n★ 赌上全部人生也要贯彻到底的恶意，究竟从何而来？\r\n\r\n★ 中文版发行量350万册 ，豆瓣评分8.7，跻身豆瓣推理小说百强榜！\r\n\r\n\r\n",
-        "newRatingCount": 46256,
+        "newRatingCount": 46281,
         "newRating": 909,
         "isbn": "9787544269452",
         "newRatingDetail": {
-          "good": 43169,
+          "good": 43194,
           "fair": 2767,
           "poor": 320,
-          "recent": 1176,
-          "deepV": 7769,
+          "recent": 1149,
+          "deepV": 7776,
           "myRating": "good",
           "title": "神作"
         },
@@ -6999,8 +7278,8 @@
           "good": 3310,
           "fair": 389,
           "poor": 132,
-          "recent": 32,
-          "deepV": 787,
+          "recent": 33,
+          "deepV": 788,
           "myRating": "",
           "title": "好评如潮"
         },
@@ -7027,7 +7306,7 @@
           "good": 3423,
           "fair": 466,
           "poor": 29,
-          "recent": 26,
+          "recent": 25,
           "deepV": 436,
           "myRating": "",
           "title": "好评如潮"
@@ -7048,15 +7327,15 @@
         "translator": "范晔",
         "publisher": "南海出版公司",
         "intro": "奈飞同名影视剧播出中。中国读者等待了近半个世纪的殿堂级经典《百年孤独》中文版惟一正式授权，根据马尔克斯指定版本翻译，未做任何增删！\n缔造文坛传奇与文学奇迹，影响世界小说走向的文学巨匠加西亚·马尔克斯巅峰杰作！代表“魔幻现实主义”文学主峰！征服全球读者、作家、出版社、版权经纪人、书店、媒体的鸿篇巨制！被誉为“《堂吉诃德》之后伟大的西班牙语作品”！",
-        "newRatingCount": 82496,
+        "newRatingCount": 82512,
         "newRating": 893,
         "isbn": "9787573510921",
         "newRatingDetail": {
-          "good": 74635,
-          "fair": 6988,
+          "good": 74650,
+          "fair": 6989,
           "poor": 873,
-          "recent": 590,
-          "deepV": 8169,
+          "recent": 587,
+          "deepV": 8172,
           "myRating": "",
           "title": "好评如潮"
         },
@@ -7077,15 +7356,15 @@
         "isbn": "9787201161051",
         "intro": "《一个青年艺术家的画像》是爱尔兰作家詹姆斯·乔伊斯的自传体成长小说。在乔伊斯的所有作品当中，本书是拥有读者数量最多的一部，也是西方成长小说中写得最有深度的一部。全书以乔伊斯本人的生活经历和遭遇为素材，讲述了主人公斯蒂芬·迪达勒斯从襁褓之初到大学毕业的成长过程。五章环环相扣，分别探索了人在自我形成的过程中需要面对的学校、家庭、性爱、宗教和民族的影响，以及其中包含的束缚，还有同样存在的可能性，为读者带来战胜恐惧、忠于内心、冲破藩篱、追寻自由的精神力量。",
         "publisher": "天津人民出版社",
-        "newRatingCount": 166,
-        "newRating": 799,
+        "newRatingCount": 167,
+        "newRating": 801,
         "publishTime": "2020-08-01 00:00:00",
         "newRatingDetail": {
-          "good": 133,
+          "good": 134,
           "fair": 27,
           "poor": 6,
-          "recent": 2,
-          "deepV": 68,
+          "recent": 3,
+          "deepV": 69,
           "myRating": "",
           "title": ""
         }
@@ -7111,7 +7390,7 @@
           "good": 6999,
           "fair": 1057,
           "poor": 113,
-          "recent": 33,
+          "recent": 30,
           "deepV": 906,
           "myRating": "",
           "title": "脍炙人口"
@@ -7168,7 +7447,7 @@
           "good": 397,
           "fair": 71,
           "poor": 13,
-          "recent": 25,
+          "recent": 24,
           "deepV": 144,
           "myRating": "",
           "title": ""
@@ -7195,7 +7474,7 @@
           "good": 770,
           "fair": 123,
           "poor": 33,
-          "recent": 10,
+          "recent": 9,
           "deepV": 214,
           "myRating": "",
           "title": "脍炙人口"
@@ -7217,17 +7496,17 @@
         "intro": "本书是刘慈欣中短篇科幻小说合集，收录了《山》《朝闻道》《欢乐颂》等众多优秀作品，让我们走进刘慈欣的科幻世界，感受科幻文学的无穷魅力！",
         "publishTime": "2024-04-01 00:00:00",
         "newRatingDetail": {
-          "good": 11544,
+          "good": 11546,
           "fair": 1062,
-          "poor": 147,
-          "recent": 78,
-          "deepV": 1292,
+          "poor": 148,
+          "recent": 80,
+          "deepV": 1293,
           "myRating": "",
           "title": "好评如潮"
         },
         "publisher": "",
         "isbn": "",
-        "newRatingCount": 12753
+        "newRatingCount": 12756
       },
       {
         "bookId": "22946457",
@@ -7240,15 +7519,15 @@
         "readUpdateTime": 1733868844,
         "secret": 0,
         "updateTime": 1785313012,
-        "newRatingCount": 110738,
+        "newRatingCount": 110744,
         "intro": "钱钟书先生最经典的作品，也是仅有的一部长篇小说，堪称中国现代文学史上风格独特的讽刺经典，被誉为“新儒林外史”，自上世纪八十年代以来一直横贯常销、畅销小说之首。小说塑造了抗战初期以方鸿渐为主的一类知识分子群像，记叙了他们所面临的教育、婚姻和事业困境。虽然有具体的历史背景，但这部小说揭示的人群的弱点，在今天依然能引起人们的共鸣。著名文学评论家夏志清先生在《中国现代小说史》中认为，“《围城》比任何中国古典讽刺小说优秀”，称之为“中国现代文学史中写得最有趣、最细腻的小说，或许是最伟大的小说。”",
         "newRating": 898,
         "publishTime": "2017-07-01 00:00:00",
         "newRatingDetail": {
-          "good": 99837,
+          "good": 99843,
           "fair": 9833,
           "poor": 1068,
-          "recent": 207,
+          "recent": 212,
           "deepV": 3155,
           "myRating": "good",
           "title": "好评如潮"
@@ -7298,15 +7577,15 @@
         "translator": "荣如德",
         "publisher": "上海译文出版社",
         "intro": "本书系俄国大作家陀思妥耶夫斯基代表作之一。小说通过一桩真实的弑父案，描写老卡拉马佐夫同三个儿子即两代人之间的尖锐冲突。老卡拉马佐夫贪婪好色，独占妻子留给儿子们的遗产，并与长子德米特里为一个风流女子争风吃醋。一天黑夜，德米特里疑心自己的情人去跟老头儿幽会，便闯入家园，一怒之下，差点儿把老头儿砸死。他仓皇逃离后，躲在暗中装病的老卡拉马佐夫的私生子斯乜尔加科夫，悄然杀死老爷，造成了一桩震惊全俄的扑朔迷离的血案，从而引发了一连串惊心动魄的事件。作品展示一个错综复杂的社会家庭、道德和人性的悲剧主题，体现了作家一生的最高艺术成就。",
-        "newRatingCount": 12360,
+        "newRatingCount": 12367,
         "newRating": 935,
         "isbn": "9787532763696",
         "newRatingDetail": {
-          "good": 11927,
-          "fair": 340,
+          "good": 11936,
+          "fair": 338,
           "poor": 93,
-          "recent": 242,
-          "deepV": 3703,
+          "recent": 245,
+          "deepV": 3704,
           "myRating": "",
           "title": "神作"
         },
@@ -7328,7 +7607,7 @@
         "intro": "高中生塔野薰在无意间发现一条神奇的隧道，似乎穿过这条隧道就可以穿越回过去，为了救回在五年前意外坠亡的妹妹，他决定进入这条隧道探索秘密。没承想却被新来的转校生花城杏子发现，最后二人决定携手合作，一同探索隧道的秘密。",
         "publishTime": "2022-11-01 00:00:00",
         "newRatingDetail": {
-          "good": 1186,
+          "good": 1187,
           "fair": 201,
           "poor": 41,
           "recent": 23,
@@ -7338,7 +7617,7 @@
         },
         "isbn": "9787530683859",
         "publisher": "百花文艺出版社",
-        "newRatingCount": 1428
+        "newRatingCount": 1429
       },
       {
         "bookId": "40726710",
@@ -7355,15 +7634,15 @@
         "publisher": "上海文化出版社",
         "intro": "这是一位心理治疗师的回忆录，讲述了发生在诊室中的故事。在这个小小的密闭空间里，人们会展现出最真实、最脆弱的一面；也是在这里，人们获得了陪伴和倾听，也获得了宝贵的觉察、成长与改变。在书中，我们会看到四个来访者的故事，他们是：一个四十多岁、事业成功、自以为是，认为身边所有人都是蠢货的好莱坞制片人；一个三十多岁、刚刚新婚就被诊断出患有绝症，时日不多的大学女教师；一个六十九岁、离过三次婚，感觉孤独绝望，声称生活再不好转就要在七十岁生日当天自杀的老太太；一个二十多岁、有原生家庭创伤和酗酒问题，在爱情中频频受挫的姑娘。同时，书中还有第五个寻求帮助的人，那就是治疗师自己。她是一个单身的职场妈妈，四十多岁时遭遇失恋，几乎崩溃。有朋友对她说“或许你该找个人聊聊”，于是她也给自己找了一位心理治疗师。当她切换到来访者的位置，坐到另一位心理治疗师的沙发上诉说自己内心的脆弱与悲伤，就更能感受到心理治疗为何具有治愈和改变的力量。这本书从治疗师和来访者的双重视角展现了心理治疗的过程，让我们发现：无论身份背景有多相异，人类面对的烦恼其实都相通——爱与被爱、遗憾、选择、控制、不确定、死亡，这些都是我们身而为人必须共同学习面对的议题。我们在现实生活中所遭遇的切肤之痛和生命困境，都能在这本书中得到共鸣、找到希望。",
         "isbn": "9787553522838",
-        "newRatingCount": 35412,
+        "newRatingCount": 35422,
         "newRating": 918,
         "publishTime": "2021-06-01 00:00:00",
         "newRatingDetail": {
-          "good": 32916,
+          "good": 32926,
           "fair": 1837,
           "poor": 659,
-          "recent": 298,
-          "deepV": 5829,
+          "recent": 299,
+          "deepV": 5833,
           "myRating": "",
           "title": "神作"
         }
@@ -7390,7 +7669,7 @@
           "good": 5561,
           "fair": 1214,
           "poor": 275,
-          "recent": 4,
+          "recent": 3,
           "deepV": 180,
           "myRating": "",
           "title": "值得一读"
@@ -7410,14 +7689,14 @@
         "translator": "刘辽逸",
         "publisher": "人民文学出版社",
         "intro": "《战争与和平》描写1812年俄法战争的全过程，以当时四大贵族家庭的人物活动为线索，反映了1805—1820年间许多重大的历史事件以及各阶层的现实生活，抨击了那些谈吐优雅，但漠视祖国命运的贵族，歌颂了青年一代在战争中表现出来的爱国主义和英雄主义，是一部史诗般的鸿篇巨制。",
-        "newRatingCount": 4594,
+        "newRatingCount": 4595,
         "newRating": 913,
         "isbn": "9787020102747",
         "newRatingDetail": {
           "good": 4241,
-          "fair": 285,
+          "fair": 286,
           "poor": 68,
-          "recent": 43,
+          "recent": 41,
           "deepV": 717,
           "myRating": "",
           "title": "神作"
@@ -7445,8 +7724,8 @@
           "good": 3553,
           "fair": 823,
           "poor": 157,
-          "recent": 14,
-          "deepV": 948,
+          "recent": 15,
+          "deepV": 949,
           "myRating": "",
           "title": "值得一读"
         },
@@ -7578,15 +7857,15 @@
         "translator": "姜乙",
         "isbn": "9787201159096",
         "intro": "《德米安》是德国作家赫尔曼·黑塞于1919年创作的中篇小说。读者将伴随少年埃米尔·辛克莱的成长，经历复杂世界的诱惑，品尝孤独、胆怯、彷徨、叛逆，渴望爱情与友谊，陷入对自我与外部世界的怀疑，直到遇见同龄人德米安，在他的影响下，一步步寻得答案，走向成熟。",
-        "newRatingCount": 4931,
+        "newRatingCount": 4932,
         "newRating": 891,
         "publisher": "天津人民出版社",
         "newRatingDetail": {
-          "good": 4486,
+          "good": 4487,
           "fair": 397,
           "poor": 48,
-          "recent": 83,
-          "deepV": 1188,
+          "recent": 80,
+          "deepV": 1189,
           "myRating": "",
           "title": "好评如潮"
         },
@@ -7607,17 +7886,17 @@
         "intro": "这部选集，包括了毛泽东同志在中国革命各个时期中的重要著作。几年前各地方曾经出过几种不同版本的《毛泽东选集》，都是没有经过著者审查的，体例颇为杂乱，文字亦有错讹，有些重要的著作又没有收进去。现在的这部选集，是按照中国共产党成立后所经历的各个历史时期并且按照著作年月次序而编辑的。这部选集尽可能地搜集了一些为各地方过去印行的集子还没有包括在内的重要著作。选集中的各篇著作，都经著者校阅过，其中有些地方著者曾作了一些文字上的修正，也有个别的文章曾作了一些内容上的补充和修改。",
         "publishTime": "1991-06-01 00:00:00",
         "newRatingDetail": {
-          "good": 13706,
+          "good": 13715,
           "fair": 183,
           "poor": 229,
-          "recent": 214,
-          "deepV": 2669,
+          "recent": 219,
+          "deepV": 2673,
           "myRating": "",
           "title": "神作"
         },
         "isbn": "",
         "publisher": "人民出版社",
-        "newRatingCount": 14118
+        "newRatingCount": 14127
       },
       {
         "bookId": "3300020527",
@@ -7633,15 +7912,15 @@
         "translator": "李盈春",
         "publisher": "南海出版公司",
         "intro": "东野圭吾当之无愧的长篇小说代表作。一本带给人无限温暖、安慰与感动的书。\n东野圭吾特别寄语中国读者：“《解忧杂货店》能在中国拥有这么多读者，对我而言既是荣幸也是鼓励。我想在这本书中写的，是无论身处哪个国家、哪个时代的人都一定会抱有的‘梦想’与‘烦恼’。人之所以为人，正是因为这无尽的梦想与烦恼吧。”\n我想再创作一部穿越的作品，但这次谁也不穿越。移动时空的不是人，而是信。如果可以和过去的人交换信件，自己要写些什么呢——这种想法成为创作《解忧杂货店》的契机。回顾写作过程，我发现自己始终在思考：站在人生的岔路口，人究竟应该怎么做？我希望读者能在掩卷时喃喃自语：我从未读过这样的小说。——东野圭吾",
-        "newRatingCount": 19775,
+        "newRatingCount": 19794,
         "newRating": 926,
         "isbn": "9787544298995",
         "newRatingDetail": {
-          "good": 18871,
-          "fair": 749,
+          "good": 18887,
+          "fair": 752,
           "poor": 155,
-          "recent": 673,
-          "deepV": 4095,
+          "recent": 656,
+          "deepV": 4104,
           "myRating": "good",
           "title": "神作"
         },
@@ -7661,14 +7940,14 @@
         "translator": "张一乔",
         "isbn": "9787213091322",
         "intro": "他们说，妈妈死了，我没哭；这是无情，该死。隔天就和女友厮混；这是不孝，该死。挑拨朋友仇家互斗；这是不义，该死。我合该天地不容，人神共愤，但你们企图用来拯救我的那一套，又算什么？我杀了人，只因夏日阳光太刺眼……",
-        "newRatingCount": 4122,
+        "newRatingCount": 4123,
         "newRating": 871,
         "publisher": "浙江人民出版社",
         "newRatingDetail": {
-          "good": 3637,
+          "good": 3638,
           "fair": 452,
           "poor": 33,
-          "recent": 75,
+          "recent": 73,
           "deepV": 590,
           "myRating": "",
           "title": "好评如潮"
@@ -7736,7 +8015,7 @@
         "deepLink": "https://weread.qq.com/book-detail?type=1&v=57e324b05d047c57ebe463e",
         "title": "杀死一只知更鸟（同名电影原著）",
         "author": "哈珀·李",
-        "updateTime": 1760175989,
+        "updateTime": 1789467578,
         "cover": "https://cdn.weread.qq.com/weread/cover/32/YueWen_853116/t6_YueWen_853116.jpg",
         "finishReading": 1,
         "readUpdateTime": 1579569220,
@@ -7745,15 +8024,15 @@
         "translator": "李育超",
         "publishTime": "2017-02-01 00:00:00",
         "intro": "《杀死一只知更鸟》的故事发生在大萧条时期美国南方一个静谧的小镇，几桩离奇的疑案彻底打破了几个孩子平静的生活：事件的真凶，怪人的谜底，传言背后的真相……在父亲的指引下，他们在迷雾中寻找真知，在磨难中历练风度，在不公平中积累正气，经历了暴风骤雨般的成长，也感受了人间的温暖与真情。",
-        "newRatingCount": 115357,
+        "newRatingCount": 115381,
         "newRating": 920,
         "publisher": "译林出版社",
         "newRatingDetail": {
-          "good": 107762,
+          "good": 107786,
           "fair": 6853,
           "poor": 742,
-          "recent": 608,
-          "deepV": 7105,
+          "recent": 615,
+          "deepV": 7111,
           "myRating": "good",
           "title": "神作"
         },
@@ -7774,15 +8053,15 @@
         "publisher": "作家出版社",
         "intro": "本书以小说的形式，通过一名哲学导师向一个叫苏菲的女孩传授哲学知识的经过，揭示了西方哲学发展的历程。由前苏格拉底时代到萨特，以及亚里士多德、笛卡儿、黑格尔等人的思想都通过作者生动的笔触跃然纸上，并配以当时的历史背景加以解释，引人入胜。评论家认为，对于那些从未读过哲学课程的人而言，此书是最为合适的入门书，而对于那些以往读过一些哲学而已忘得一干二净的人士，也可起到温故知新的作用。14岁的少女苏菲不断接到一些极不寻常的来信，世界像谜团一般在她眼前展开。在一位神秘导师的指引下，苏菲开始思索，她运用少女天生的悟性与后天知识，企图解开这些谜团。然而，事实真相远比她所想的更怪异、更离奇……",
         "isbn": "9787506341271",
-        "newRatingCount": 21130,
+        "newRatingCount": 21132,
         "newRating": 863,
         "publishTime": "2007-10-01 00:00:00",
         "newRatingDetail": {
-          "good": 18380,
+          "good": 18382,
           "fair": 2490,
           "poor": 260,
-          "recent": 59,
-          "deepV": 1250,
+          "recent": 60,
+          "deepV": 1251,
           "myRating": "",
           "title": "好评如潮"
         }
@@ -7799,16 +8078,16 @@
         "secret": 0,
         "category": "奇幻文学",
         "translator": "苏农,马爱农,马爱新",
-        "newRatingCount": 11076,
+        "newRatingCount": 11085,
         "intro": "哈利·波特被丢在门阶上的时候还是个婴儿，当时的他并不知道自己就是那个\"大难不死的男孩\"，也不知道自己是魔法世界里的大名人。几年后，他意外地收到了霍格沃茨魔法学校的入学通知随后不久，他就开启了一场与众不同的魔法冒险。快来和哈利以及他的挚友赫敏和罗恩一起，开启这个有关真实、爱与希望之力的故事。作为本世代的经典之作，哈利波特电子书集书将无疑为你从另一个世界带来心灵上的慰藉。在他们所传递的希望、归属感，以及贯穿始终的真实与爱的加持下，这个小男孩的成长故事将继续激励新世代的读者。",
         "newRating": 927,
         "publisher": "Pottermore Publishing",
         "newRatingDetail": {
-          "good": 10715,
+          "good": 10722,
           "fair": 211,
-          "poor": 150,
-          "recent": 227,
-          "deepV": 2082,
+          "poor": 152,
+          "recent": 226,
+          "deepV": 2085,
           "myRating": "",
           "title": "神作"
         },
@@ -7889,7 +8168,7 @@
           "good": 1227,
           "fair": 67,
           "poor": 18,
-          "recent": 18,
+          "recent": 17,
           "deepV": 357,
           "myRating": "",
           "title": "神作"
@@ -7909,15 +8188,15 @@
         "updateTime": 1721319311,
         "publisher": "人民文学出版社",
         "intro": "《朝花夕拾》是鲁迅先生最重要的散文集之一，在中国现代散文史上享有盛誉。共收录《从百草园到三味书屋》《藤野先生》等散文十余篇，《五猖会》《藤野先生》等作品十二篇，记述了作者童年的生活和青年时求学的历程，抒发了对往日亲友和师长的怀念之情，并在夹叙夹议中，对反动、守旧势力进行了嘲讽。本书是以回忆为素材、用娴熟的文学手法写成的优美的散文珍品，备受一代代读者尤其是年轻读者和小读者的喜爱。此次出版“指导目录”版，以整理完备的我社2005年版《鲁迅全集》中相应文本为底本，对于不太好懂的字词，详细注释，另配有丰子恺等插图多幅，以让青少年读者获得双重美感享受。书末附录了北京大学中文系教授、统编语文教材总主编温儒敏先生《和中学生朋友谈谈怎样读〈朝花夕拾〉》一文，以期对青少年读者阅读这本名著有一个切实指导。",
-        "newRatingCount": 6007,
+        "newRatingCount": 6008,
         "newRating": 926,
         "isbn": "9787020162949",
         "newRatingDetail": {
-          "good": 5698,
+          "good": 5699,
           "fair": 182,
           "poor": 127,
-          "recent": 126,
-          "deepV": 730,
+          "recent": 123,
+          "deepV": 731,
           "myRating": "good",
           "title": "神作"
         },
@@ -7936,15 +8215,15 @@
         "updateTime": 1776758632,
         "publisher": "化学工业出版社",
         "intro": "古希腊人崇拜神，但并不赋予神明过分的崇高性，也不把神明作为道德衡量的标准，而是将其作为人生的折射。希腊神话正是以这种人本精神，以动人的故事和深邃的思想内涵，长久以来令人百读不厌，成为后代文学艺术创作丰富的源泉。本书以希腊神话中的奥林匹斯主神为线索，介绍经典希腊神话故事的主要情节，多角度生层次解读以希腊神话为主题的经典西方美术杰作，伸展展现有关主题在美术领域的发展与演变，以及探寻希腊文化的起源和影响。",
-        "newRatingCount": 6244,
+        "newRatingCount": 6246,
         "newRating": 900,
         "isbn": "9787122352606",
         "newRatingDetail": {
-          "good": 5685,
+          "good": 5687,
           "fair": 478,
           "poor": 81,
-          "recent": 162,
-          "deepV": 1244,
+          "recent": 159,
+          "deepV": 1246,
           "myRating": "",
           "title": "神作"
         },
@@ -7964,15 +8243,15 @@
         "translator": "宁蒙",
         "publishTime": "2015-12-01 00:00:00",
         "intro": "认识一下欧维。他59岁，脾气古怪，嫌东嫌西，带着坚不可摧的原则、每天恪守的常规以及随时发飙的脾性在社区晃来晃去，被背地里称为“地狱来的恶邻”。他每天一大早就四处巡视，搬动没停进格线的脚踏车，检查垃圾是否按规定分类，抱怨谁家的草坪还不修剪，诅咒那只掉了毛的流浪猫。没完没了。他想自杀。直到一个十一月的早晨，当一对话痨夫妇和他们的两个话痨女儿搬到隔壁，不小心撞坏了他的邮筒……看哭全北欧的瑞典票房冠军电影同名原著小说，韩国治愈系男神池昌旭温情推荐。",
-        "newRatingCount": 79919,
+        "newRatingCount": 79935,
         "newRating": 925,
         "publisher": "四川文艺出版社",
         "newRatingDetail": {
-          "good": 74964,
+          "good": 74980,
           "fair": 4580,
           "poor": 375,
-          "recent": 501,
-          "deepV": 6042,
+          "recent": 497,
+          "deepV": 6047,
           "myRating": "good",
           "title": "神作"
         },
@@ -7998,7 +8277,7 @@
           "good": 17844,
           "fair": 5728,
           "poor": 233,
-          "recent": 53,
+          "recent": 48,
           "deepV": 952,
           "myRating": "",
           "title": "值得一读"
@@ -8044,15 +8323,15 @@
         "readUpdateTime": 1775109947,
         "secret": 0,
         "updateTime": 1760180186,
-        "newRatingCount": 9548,
+        "newRatingCount": 9550,
         "intro": "在这一本由七篇短篇小说组成的《寂寞的游戏》中，袁哲生通过各种不同的人际情感，例如父母与儿子之间的亲情，年少时同学之间的友情，或是两人结婚多年的夫妻之情，一再地去捕捉寂寞这种“生而为人必定面临的困境感”，字里行间处处散发孤独的感觉。寂寞、孤独一直是文学作品中常见的基调，也是许多作家竭力描述的情感，但是，当我们在《寂寞的游戏》中仔细品味袁哲生冷静节制的文字后，终将会发现一种袁哲生独有的寂寞书写。",
         "newRating": 739,
         "publishTime": "2017-09-01 00:00:00",
         "newRatingDetail": {
-          "good": 7020,
+          "good": 7022,
           "fair": 2406,
           "poor": 122,
-          "recent": 30,
+          "recent": 31,
           "deepV": 616,
           "myRating": "",
           "title": "值得一读"
@@ -8788,20 +9067,20 @@
     },
     "567379": {
       "appId": "239270826",
-      "bookVersion": 0,
+      "bookVersion": 922061578,
       "reviewId": "",
-      "chapterUid": 1,
-      "chapterOffset": 0,
-      "chapterIdx": 1,
-      "updateTime": 1784626012,
-      "synckey": 884362048,
-      "summary": "这是一部为了世界的光明未来，誓死抵抗黑暗的伟大史诗。至尊魔戒",
+      "chapterUid": 85,
+      "chapterOffset": 16501,
+      "chapterIdx": 5,
+      "updateTime": 1789486646,
+      "synckey": 1377719393,
+      "summary": "他还写了篇短论文《夏尔旧词与名称》，着重探讨了诸如马松以及地",
       "repairOffsetTime": 0,
-      "readingTime": 47,
-      "progress": 0,
-      "isStartReading": 0,
+      "readingTime": 3508,
+      "progress": 2,
+      "isStartReading": 1,
       "ttsTime": 0,
-      "startReadingTime": 0,
+      "startReadingTime": 1784584775,
       "installId": "",
       "recordReadingTime": 0
     },
@@ -9170,17 +9449,17 @@
     },
     "907758": {
       "appId": "243111411",
-      "bookVersion": 0,
+      "bookVersion": 76330532,
       "reviewId": "",
-      "chapterUid": 40,
-      "chapterOffset": 0,
-      "chapterIdx": 13,
-      "updateTime": 1789392800,
-      "synckey": 1089078168,
-      "summary": "第5章\n对比\n对比是为页面增加视觉效果的最有效的途径，也是在",
+      "chapterUid": 42,
+      "chapterOffset": 11671,
+      "chapterIdx": 15,
+      "updateTime": 1789480261,
+      "synckey": 2095266818,
+      "summary": "现在对比要明显多了；产生这种对比是由于色质有差别。由于某些情",
       "repairOffsetTime": 0,
-      "readingTime": 5886,
-      "progress": 27,
+      "readingTime": 9130,
+      "progress": 44,
       "isStartReading": 1,
       "ttsTime": 0,
       "startReadingTime": 1734489243,
@@ -10497,19 +10776,35 @@
       "installId": "",
       "recordReadingTime": 0
     },
+    "3300046683": {
+      "appId": "",
+      "bookVersion": 0,
+      "reviewId": "",
+      "chapterUid": 0,
+      "chapterOffset": 0,
+      "updateTime": 1789480840,
+      "repairOffsetTime": 0,
+      "readingTime": 0,
+      "progress": 0,
+      "isStartReading": 0,
+      "ttsTime": 0,
+      "startReadingTime": 0,
+      "installId": "",
+      "recordReadingTime": 0
+    },
     "3300053214": {
       "appId": "239270826",
       "bookVersion": 958861600,
       "reviewId": "",
-      "chapterUid": 3,
-      "chapterOffset": 27832,
-      "chapterIdx": 3,
-      "updateTime": 1789384817,
-      "synckey": 224093220,
-      "summary": "刚要跨出门口，看见有个发白的东西，回头一看，原来是只桐木做的",
+      "chapterUid": 4,
+      "chapterOffset": 3646,
+      "chapterIdx": 4,
+      "updateTime": 1789482110,
+      "synckey": 813947298,
+      "summary": "骑牛庵的休息室里，有一幅画着葡萄的彩色挂轴，说是光悦之孙空中",
       "repairOffsetTime": 0,
-      "readingTime": 5611,
-      "progress": 11,
+      "readingTime": 21534,
+      "progress": 42,
       "isStartReading": 1,
       "ttsTime": 0,
       "startReadingTime": 1783421404,
@@ -10555,17 +10850,17 @@
       "recordReadingTime": 0
     },
     "3300066685": {
-      "appId": "239270826",
-      "bookVersion": 0,
+      "appId": "243111411",
+      "bookVersion": 587168860,
       "reviewId": "",
       "chapterUid": 7,
       "chapterOffset": 0,
       "chapterIdx": 7,
-      "updateTime": 1789210920,
-      "synckey": 884465014,
+      "updateTime": 1789476151,
+      "synckey": 1368990577,
       "summary": "第一章　幻影重重\n叫我以实玛利吧。几年以前——别管它究竟是多",
       "repairOffsetTime": 0,
-      "readingTime": 116,
+      "readingTime": 127,
       "progress": 0,
       "isStartReading": 0,
       "ttsTime": 0,
@@ -10592,17 +10887,17 @@
       "recordReadingTime": 0
     },
     "3300076917": {
-      "appId": "239270826",
+      "appId": "243111411",
       "bookVersion": 1138813791,
       "reviewId": "",
-      "chapterUid": 1,
-      "chapterOffset": 0,
-      "chapterIdx": 1,
-      "updateTime": 1788433499,
-      "synckey": 884362048,
-      "summary": "《从百草园到三味书屋》是鲁迅于1926年写的一篇童年妙趣生活",
+      "chapterUid": 3,
+      "chapterOffset": 927,
+      "chapterIdx": 3,
+      "updateTime": 1789475401,
+      "synckey": 745827795,
+      "summary": "不必说碧绿的菜畦(qí)，光滑的石井栏，高大的皂荚树，紫红的",
       "repairOffsetTime": 0,
-      "readingTime": 10,
+      "readingTime": 23,
       "progress": 0,
       "isStartReading": 0,
       "ttsTime": 0,
@@ -11781,18 +12076,18 @@
       "recordReadingTime": 0
     },
     "CB_Cyb3S93PmAEO76K75j8PoA6d": {
-      "appId": "239270826",
+      "appId": "243111411",
       "bookVersion": 461586658,
       "reviewId": "",
-      "chapterUid": 11,
-      "chapterOffset": 1047,
-      "chapterIdx": 11,
-      "updateTime": 1789208883,
-      "synckey": 122273955,
-      "summary": "三咲高中的教师无一例外地讨厌过于招摇的东西，因此在这所学校里",
+      "chapterUid": 15,
+      "chapterOffset": 1231,
+      "chapterIdx": 15,
+      "updateTime": 1789478965,
+      "synckey": 1990330979,
+      "summary": "下课铃声响起，老教师行过一礼，走向走廊。\n目送他离开教室后，",
       "repairOffsetTime": 0,
-      "readingTime": 238,
-      "progress": 0,
+      "readingTime": 1664,
+      "progress": 20,
       "isStartReading": 0,
       "ttsTime": 0,
       "startReadingTime": 0,
@@ -12495,6 +12790,7 @@
     "1789056000": 820,
     "1789142400": 1648,
     "1789228800": 2632,
-    "1789315200": 8284
+    "1789315200": 8284,
+    "1789401600": 24078
   }
 }
