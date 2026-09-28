@@ -132,16 +132,20 @@ const weeks = computed<DayCell[][]>(() => {
   return result;
 });
 
-// 估算某个月份标签完整显示至少需要占用的格子数。
-// 带年份（如“2026年3月”）明显更宽；不带年份（如“4月”“12月”）相对窄一些。
-// 数值是保守估计：按 0.7rem 字号、常见格子宽度估算，格子数不足时字会溢出去压到下一列。
+// 月份标签需要占用的最小列数（按 0.7rem 字号估算）：
+// - 只显示「N月」约 18–24px，2 列就够；
+// - 年份不再与月份同行，而是渲染成上方 0.6rem 的小字（约 24px），3 列足够。
+// 之所以拆开：内联的「2026年4月」宽约 55–61px，而手机宽度下相邻月份标签只隔 4 个列宽
+// （393px 视口下约 50px），必然溢出并压住下一个月标签。
 const minColsForLabel = (showYear: boolean) => (showYear ? 3 : 2);
 
-// 月份标签：标注每个月的起始周，并跨过该月占用的周数，保证文字完整渲染。
-// 年份标注在每年第一个“实际上展示出来”的月份上（通常是窗口首月或一月），其余月份只显示月号。
-// 若某个月份只占了很少几列（通常是最前/最后一个月或跨月的周），它的文字会溢出到下一列、
-// 与下一个月的标签重叠。此时直接跳过该月，避免两处月份标识叠在一起；若它是该年首个展示的月份，
-// 年份会顺延到下一个展示出来的月份，保证年份不丢失。
+// 月份标签：标注每个月的起始周，并跨过该月占用的周数。
+// 年份显示在每年第一个“实际上展示出来”的月份标签上方（窗口首月；跨年时还有 1 月），
+// 其余月份只显示月号。年份独占一行后不再挤占月份那一行的宽度，因此相邻标签不会重叠，
+// 跨年窗口也能同时标出两个年份。
+// 若某个月份只占了很少几列（通常是窗口首/尾的“跨周残片”），跳过该月；若它是该年首个
+// 展示出来的月份，年份会顺延到下一个展示出来的月份。最后一个标签不跳过，避免丢掉正在
+// 展示的月份（以及它承载的年份）。
 const monthLabels = computed<{ start: number; span: number; month: number; year: number; showYear: boolean }[]>(() => {
   const labels: { start: number; span: number; month: number; year: number }[] = [];
   let lastKey = "";
@@ -228,9 +232,11 @@ function cellClass(cell: DayCell) {
     </div>
 
     <div>
-      <!-- 月份标签：与热力图网格同列对齐，位置由 item.col 决定 -->
+      <!-- 月份标签：与热力图网格同列对齐，位置由 item.start 决定。
+           年份作为上方小字独立成行，items-end 让所有月份贴同一条底线；
+           这样「2026年4月」这类长文案不会在窄屏溢出压住下个月。 -->
       <div
-        class="mb-1 grid text-[0.7rem] leading-none text-[var(--un-prose-captions)] dark:text-[var(--un-prose-invert-captions)]"
+        class="mb-1 grid items-end text-[0.7rem] leading-none text-[var(--un-prose-captions)] dark:text-[var(--un-prose-invert-captions)]"
         :style="{
           gridTemplateColumns: gridColumns,
           columnGap: `${GAP}px`,
@@ -241,8 +247,11 @@ function cellClass(cell: DayCell) {
           v-for="item in monthLabels"
           :key="item.start"
           :style="{ gridColumn: `${item.start + 2} / span ${item.span}` }"
-          class="whitespace-nowrap"
-        >{{ item.showYear ? `${item.year}年` : "" }}{{ item.month }}月</span>
+          class="flex flex-col justify-end whitespace-nowrap"
+        >
+          <span v-if="item.showYear" class="text-[0.6rem] leading-none opacity-85">{{ item.year }}</span>
+          <span class="mt-0.5 leading-none">{{ item.month }}月</span>
+        </span>
       </div>
 
       <!-- 热力图网格：首列为星期标签，其余列为每周 -->
