@@ -104,3 +104,4 @@
 - 本机 `astro build` / `astro dev` 会挂在 `astro sync`（`require is not defined`，picomatch 在 Vite SSR runner 里按 ESM 求值），因此本次只做了 SFC 级编译检查与结构级复刻验证，**上线前建议在可构建的环境跑一次 `pnpm build` 并肉眼确认手机宽度**。
 - 边界情况：若参考月只有 1–2 个周列且需要显示年份（例如最新阅读日是 1 月 10 日），末位标签会保留年份，年份小字会向右溢出内容区约 16px（落在 `main` 的 `px-7` 内边距里，不会被 `overflow-hidden` 裁掉，也不与任何标签重叠）。若希望更保守，可在末位标签的 `span < 3` 时只保留月份。
 - 如果以后想把年份改回内联（或加更多文字），必须先实现方案 B 的实测碰撞检测，否则会在同样的宽度区间复现本问题。
+- 后续变更：热力图的标题行与「N 天 · 时长 …」的位置已在 [2026-09-28-heatmap-footer-summary.md](./2026-09-28-heatmap-footer-summary.md) 中调整（本次的月份标签行未受影响）。

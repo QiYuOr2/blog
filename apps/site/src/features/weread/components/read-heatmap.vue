@@ -207,9 +207,12 @@ function selectDay(cell: DayCell) {
   selectedDay.value = selectedDay.value === key ? null : key;
 }
 
-const selectedInfo = computed(() => {
+// 底栏左侧：未选中时显示窗口汇总（原先在标题行右侧），选中某天后改为当天日期与时长。
+// 标题行已移除，这行文字同时承担「汇总」与「选中反馈」两种状态；再点同一格会取消选中、
+// 回到汇总文案。
+const footerText = computed(() => {
   const key = selectedDay.value;
-  if (!key) return "点击某一天查看阅读时长";
+  if (!key) return `${recentDayMap.value.size} 天 · ${totalDurationLabel.value}`;
   const seconds = recentDayMap.value.get(key) ?? 0;
   return `${key} · ${formatDuration(seconds)}`;
 });
@@ -224,13 +227,6 @@ function cellClass(cell: DayCell) {
 
 <template>
   <div class="select-none">
-    <div class="mb-3 flex items-center justify-between text-xs text-[var(--un-prose-body)] dark:text-[var(--un-prose-invert-body)]">
-      <span>近半年阅读热力图</span>
-      <span class="text-[var(--un-prose-captions)] dark:text-[var(--un-prose-invert-captions)]">
-        {{ recentDayMap.size }} 天 · 时长 {{ totalDurationLabel }}
-      </span>
-    </div>
-
     <div>
       <!-- 月份标签：与热力图网格同列对齐，位置由 item.start 决定。
            年份作为上方小字独立成行，items-end 让所有月份贴同一条底线；
@@ -292,7 +288,7 @@ function cellClass(cell: DayCell) {
 
       <!-- 底部：左侧为选中格子的时长信息，右侧为图例 -->
       <div class="mt-3 flex items-center justify-between gap-2 text-[0.7rem] text-[var(--un-prose-captions)] dark:text-[var(--un-prose-invert-captions)]">
-        <span class="truncate">{{ selectedInfo }}</span>
+        <span class="truncate">{{ footerText }}</span>
         <div class="flex shrink-0 items-center gap-1">
           <span>少</span>
           <span
