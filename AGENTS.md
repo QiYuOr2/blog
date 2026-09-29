@@ -22,7 +22,8 @@
 ## 常用命令
 
 - `pnpm dev` / `pnpm build` / `pnpm preview` — 开发 / 构建 / 预览（转发到 `@tabi/site`）。
-- `pnpm build:cli` — 构建 `tabi` CLI。
+- `pnpm build:cli` — 构建 `tabi` CLI（产物 `apps/cli/dist`，已被 gitignore）。
+- `pnpm tabi <command>` — 在仓库根目录运行 `tabi`（会先自动构建，再执行命令），如 `pnpm tabi post "标题"`、`pnpm tabi memo "内容"`。
 - `pnpm weread:sync` — 拉取微信读书数据。
 - `pnpm bangumi:sync` — 拉取 Bangumi 动画收藏。
 - `pnpm summary:gen` — 为文章生成 AI 摘要（详见下文）。

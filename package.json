@@ -5,6 +5,7 @@
     "build": "pnpm --filter @tabi/site build",
     "preview": "pnpm --filter @tabi/site preview",
     "build:cli": "pnpm --filter @tabi/cli build",
+    "tabi": "pnpm build:cli --logLevel silent && node apps/cli/bin/index.mjs",
     "weread:sync": "pnpm --filter @tabi/scripts fetch-weread",
     "bangumi:sync": "pnpm --filter @tabi/scripts fetch-bangumi",
     "summary:gen": "pnpm --filter @tabi/scripts generate-summaries",
