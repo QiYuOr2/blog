@@ -1,9 +1,18 @@
-import fs from "node:fs/promises";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc.js";
 import timezone from "dayjs/plugin/timezone.js";
+import { parseArgs } from "../lib/args.mjs";
+import { loadRepoEnv } from "../lib/env.mjs";
+import { info, task } from "../lib/log.mjs";
+import { writeJson } from "../lib/json.mjs";
+import {
+  applyCategoryOverrides,
+  applyTitleOverrides,
+  loadOverrideTable,
+  overrideTableFile,
+} from "../lib/overrides.mjs";
+import { repoRelative, wereadDataFile } from "../lib/paths.mjs";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -13,29 +22,15 @@ const WEREAD_API_URL = "https://i.weread.qq.com/api/agent/gateway";
 const MODES = ["weekly", "monthly", "annually", "overall"];
 /** 微信读书按 Asia/Shanghai（UTC+8，无夏令时）划分“今天/当月”。 */
 const SHANGHAI_TZ = "Asia/Shanghai";
-
-const scriptRoot = path.dirname(fileURLToPath(import.meta.url));
-const repoRoot = path.resolve(scriptRoot, "../..");
-const dataDir = path.join(repoRoot, "content", "weread");
-const outputFile = path.join(dataDir, "weread.json");
-const overridesFile = path.join(scriptRoot, "category-overrides.json");
-
-async function loadCategoryOverrides() {
-  try {
-    const raw = await fs.readFile(overridesFile, "utf-8");
-    return JSON.parse(raw);
-  } catch (err) {
-    if (err.code === "ENOENT") {
-      return {};
-    }
-    throw err;
-  }
-}
+/** 热力图的日级数据窗口（月）。 */
+const DAILY_WINDOW_MONTHS = 6;
 
 async function postApi(body) {
   const apiKey = process.env.WEREAD_API_KEY;
   if (!apiKey) {
-    throw new Error("WEREAD_API_KEY 未设置，请在构建环境中配置该环境变量。");
+    throw new Error(
+      "WEREAD_API_KEY 未设置，请写入仓库根目录 .env.local 或进程环境变量。",
+    );
   }
 
   const res = await fetch(WEREAD_API_URL, {
@@ -75,21 +70,21 @@ async function fetchDailyReadTimes() {
   const monthBuckets = {};
   // 以上海“今天”为基准，避免抓取月份随构建/机器时区漂移。
   const today = dayjs().tz(SHANGHAI_TZ);
-  for (let i = 5; i >= 0; i -= 1) {
+
+  for (let i = DAILY_WINDOW_MONTHS - 1; i >= 0; i -= 1) {
     // 上海当月 1 日 00:00，供 /readdata/detail 归一化到该月（monthStart.unix() 即该时刻的 UTC 秒）。
     const monthStart = today.subtract(i, "month").startOf("month");
-    const baseTime = monthStart.unix();
-    const label = monthStart.format("YYYY-MM");
-    process.stdout.write(`Fetching daily read times for ${label}... `);
+    const done = task(`Fetching daily read times for ${monthStart.format("YYYY-MM")}`);
     const data = await postApi({
       api_name: "/readdata/detail",
       mode: "monthly",
-      baseTime,
+      baseTime: monthStart.unix(),
       skill_version: SKILL_VERSION,
     });
     Object.assign(monthBuckets, data.readTimes ?? {});
-    process.stdout.write(`done (${Object.keys(data.readTimes ?? {}).length} days)\n`);
+    done(`${Object.keys(data.readTimes ?? {}).length} days`);
   }
+
   return monthBuckets;
 }
 
@@ -116,9 +111,19 @@ async function fetchBookProgress(bookId) {
   });
 }
 
-async function main() {
-  await fs.mkdir(dataDir, { recursive: true });
-  const categoryOverrides = await loadCategoryOverrides();
+async function run(argv) {
+  loadRepoEnv();
+
+  const { options } = parseArgs(argv);
+  const out = options.get("out");
+  const outputFile = out ? path.resolve(process.cwd(), out) : wereadDataFile;
+
+  const categoryOverrides = await loadOverrideTable(
+    overrideTableFile("weread", "category-overrides.json"),
+  );
+  const titleOverrides = await loadOverrideTable(
+    overrideTableFile("weread", "title-overrides.json"),
+  );
 
   const result = {
     updatedAt: new Date().toISOString(),
@@ -129,33 +134,27 @@ async function main() {
   };
 
   for (const mode of MODES) {
-    process.stdout.write(`Fetching WeRead data for mode=${mode}... `);
-    const data = await fetchMode(mode);
-    result.modes[mode] = data;
-    process.stdout.write("done\n");
+    const done = task(`Fetching WeRead data for mode=${mode}`);
+    result.modes[mode] = await fetchMode(mode);
+    done();
   }
 
-  process.stdout.write("Fetching shelf data... ");
+  const doneShelf = task("Fetching shelf data");
   const shelfData = await fetchShelf();
-  process.stdout.write("done\n");
+  doneShelf();
 
   const books = Array.isArray(shelfData.books) ? shelfData.books : [];
   const enrichedBooks = [];
   for (const book of books) {
     if (!book?.bookId) continue;
-    process.stdout.write(`Fetching book info for bookId=${book.bookId}... `);
+    const done = task(`Fetching book info for bookId=${book.bookId}`);
     const bookInfo = await fetchBookInfo(book.bookId);
     const bookDetail = bookInfo.book ?? bookInfo;
     enrichedBooks.push({ ...book, ...bookDetail });
-    process.stdout.write("done\n");
+    done();
   }
 
-  for (const book of enrichedBooks) {
-    const override = categoryOverrides[book.bookId];
-    if (override) {
-      book.category = override;
-    }
-  }
+  applyCategoryOverrides(enrichedBooks, categoryOverrides);
 
   result.shelf = {
     ...shelfData,
@@ -164,20 +163,24 @@ async function main() {
 
   for (const book of enrichedBooks) {
     if (!book?.bookId) continue;
-    process.stdout.write(`Fetching progress for bookId=${book.bookId}... `);
+    const done = task(`Fetching progress for bookId=${book.bookId}`);
     const bookProgress = await fetchBookProgress(book.bookId);
     result.progressMap[book.bookId] = bookProgress.book ?? bookProgress;
-    process.stdout.write("done\n");
+    done();
   }
 
-  process.stdout.write("Fetching daily read times for the past 6 months...\n");
+  info(`Fetching daily read times for the past ${DAILY_WINDOW_MONTHS} months`);
   result.readTimesByDay = await fetchDailyReadTimes();
 
-  await fs.writeFile(outputFile, JSON.stringify(result, null, 2), "utf-8");
-  console.log(`Saved WeRead data to ${path.relative(repoRoot, outputFile)}`);
+  applyTitleOverrides(result, titleOverrides);
+
+  await writeJson(outputFile, result);
+  info(`Saved WeRead data to ${repoRelative(outputFile)}`);
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+export default {
+  name: "fetch-weread",
+  describe: "拉取微信读书数据（阅读统计 / 书架 / 进度 / 热力图）并写入 content/weread",
+  usage: "[--out <file>]",
+  run,
+};

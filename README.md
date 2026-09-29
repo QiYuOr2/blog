@@ -12,4 +12,6 @@
 
 首次使用需要在仓库 Settings → Secrets and variables → Actions 里配置 `WEREAD_API_KEY`（微信读书 Agent API Key）。也可以随时在该 workflow 的 Actions 页面手动触发（Run workflow）。
 
-本地手动执行 `pnpm weread:sync` 时也需要这个 key，但同步脚本不读 `.env` 文件，得先 `export WEREAD_API_KEY=xxx`（PowerShell：`$env:WEREAD_API_KEY="xxx"`）。
+脚本都在 `packages/scripts`，命令有 `pnpm weread:sync` / `pnpm bangumi:sync` / `pnpm summary:gen`，目录结构、环境变量与覆盖表说明见 [packages/scripts/README.md](./packages/scripts/README.md)。
+
+本地执行时会自动读取仓库根目录的 `.env.local` / `.env`（优先级：shell 环境变量 > `.env.local` > `.env`），把 `WEREAD_API_KEY`、`AI_API_KEY` 填进 `.env.local`（已被 gitignore，模板见 `.env.example`）即可，不必再手动 `export`。

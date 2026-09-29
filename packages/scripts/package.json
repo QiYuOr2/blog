@@ -2,10 +2,16 @@
   "name": "@tabi/scripts",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20.12"
+  },
   "scripts": {
-    "fetch-weread": "node ./fetch-weread.mjs",
-    "fetch-bangumi": "node ./fetch-bangumi.mjs",
-    "generate-summaries": "node ./generate-summaries.mjs"
+    "fetch-weread": "node ./src/cli.mjs fetch-weread",
+    "fetch-bangumi": "node ./src/cli.mjs fetch-bangumi",
+    "generate-summaries": "node ./src/cli.mjs generate-summaries",
+    "test": "node --test test/",
+    "help": "node ./src/cli.mjs --help"
   },
   "dependencies": {
     "dayjs": "^1.11.13",

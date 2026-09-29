@@ -14,7 +14,7 @@
 - `apps/site` — 主站点（Astro 页面/布局 + Vue 交互组件）。
 - `apps/cli` — `tabi` 命令行：`tabi post <title>` 新建文章、`tabi memo <content>` 新建碎碎念。
 - `packages/config` — 共享路径常量（`POSTS_DIR` / `MEMOS_DIR` / `WEREAD_DIR`）。
-- `packages/scripts` — 脚本：`fetch-weread.mjs`、`generate-summaries.mjs`。
+- `packages/scripts` — 数据脚本：CLI 入口 `src/cli.mjs`，命令在 `src/commands/`，共用工具在 `src/lib/`，手工覆盖表在 `overrides/`；结构与用法见 `packages/scripts/README.md`。
 - `packages/plugins` — remark 插件：`remark-reading-time`、`remark-image`、`remark-mermaid`。
 - `packages/utils` — 通用工具（如 `findMonorepoRoot`）。
 - `content/` — 内容数据：`posts/`（md/mdx）、`memos/`（yaml）、`weread/`（json）。
@@ -24,7 +24,9 @@
 - `pnpm dev` / `pnpm build` / `pnpm preview` — 开发 / 构建 / 预览（转发到 `@tabi/site`）。
 - `pnpm build:cli` — 构建 `tabi` CLI。
 - `pnpm weread:sync` — 拉取微信读书数据。
+- `pnpm bangumi:sync` — 拉取 Bangumi 动画收藏。
 - `pnpm summary:gen` — 为文章生成 AI 摘要（详见下文）。
+- `pnpm test` — 跑 `packages/scripts` 的单元测试（Node 内置 runner，无额外依赖）。
 - 构建产物在 `apps/site/dist`。
 
 ## 内容模型
@@ -35,6 +37,8 @@
 - 首页/列表通过 `visibleFilter` 过滤 `draft`，`sortByDate` 按 `date` 倒序。
 - `remark-reading-time` 会在构建期往 `remarkPluginFrontmatter.minutesRead` 注入阅读时长。
 - 文章正文里的图片由 `remark-image` 处理，mermaid 图表由 `remark-mermaid` 处理。
+- 微信读书数据（`content/weread/weread.json`）由 `packages/scripts/src/commands/fetch-weread.mjs` 生成后每日自动提交，手工改 JSON 会被下次同步覆盖。
+- 需要修正书籍分类或书名时改覆盖表（按 `bookId` 命中）：`packages/scripts/overrides/weread/category-overrides.json` 覆盖 `category`（只作用于书架），`packages/scripts/overrides/weread/title-overrides.json` 覆盖 `title`（作用于含书架在内的所有书籍对象）。
 
 ## 样式约定（重要，非标准写法）
 
@@ -48,9 +52,9 @@
 
 ## AI 摘要功能
 
-- 脚本：`packages/scripts/generate-summaries.mjs`，用 openai SDK 调 DeepSeek（OpenAI 兼容接口）。
+- 脚本：`packages/scripts/src/commands/generate-summaries.mjs`，用 openai SDK 调 DeepSeek（OpenAI 兼容接口）。
 - 逻辑：遍历 `content/posts/**/*.md`，用 `gray-matter` 读写 frontmatter；已有 `summary` 就跳过（除非 `--force`）；支持 `--dry-run`、`--limit N`。
-- 环境变量（脚本启动时会用 `process.loadEnvFile` 加载根目录 `.env.local` 和 `.env`，要求 Node ≥ 20.12）：
+- 环境变量（所有脚本启动时都会用 `process.loadEnvFile` 加载根目录 `.env.local` 和 `.env`，要求 Node ≥ 20.12）：
   - `AI_API_KEY`（必填）
   - `AI_BASE_URL`（默认 `https://api.deepseek.com`）
   - `AI_MODEL`（默认 `deepseek-v4-flash`）
@@ -64,6 +68,6 @@
 
 ## 已知坑 / 约定
 
-- `generate-summaries.mjs` 用 gray-matter 回写会规范化 frontmatter：`date`/`pubDate` 加引号、`tags` 由行内数组变列表、长 `description` 折叠成 `>-` 块。值不变，但提交前要看一眼 diff。
+- `generate-summaries` 用 gray-matter 回写会规范化 frontmatter：`date`/`pubDate` 加引号、`tags` 由行内数组变列表、长 `description` 折叠成 `>-` 块。值不变，但提交前要看一眼 diff。
 - 交互部分用 Vue 组件（`comments.vue`、`post-list.vue`、`toc.vue`、memo/weread 卡片等）；静态页面/布局用 Astro。
 - `[...slug].astro` 里的 `<style lang="less">`（`.action` / `.medium-zoom-image--opened`）是历史遗留；新样式优先用 UnoCSS，不要再引入 Less。

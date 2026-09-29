@@ -2,7 +2,7 @@
 
 > 每次改动代码行为，就追加一条记录。本页是索引与规范。
 >
-> 更新日期：2026-09-28
+> 更新日期：2026-09-29
 
 ## 0. 为什么要记
 
@@ -43,6 +43,7 @@
 
 | 日期 | 范围 | 类型 | 摘要 | 记录 |
 | --- | --- | --- | --- | --- |
+| 2026-09-29 | `packages/scripts` | 重构 | 脚本改为 CLI + `commands/` + `lib/` + `overrides/` + `test/` 分层，行为等价并补单元测试 | [2026-09-29-scripts-directory-restructure.md](./2026-09-29-scripts-directory-restructure.md) |
 | 2026-09-28 | `apps/site` 读书页热力图 | 调整 | 摘要「N 天 · 时长 …」移到底栏、移除标题行，保留点击查看某天时长的交互 | [2026-09-28-heatmap-footer-summary.md](./2026-09-28-heatmap-footer-summary.md) |
 | 2026-09-28 | `apps/site` 读书页热力图 | 修复 | 月份标签在手机宽度下与下个月重叠：年份从标签内联改为标签上方小字 | [2026-09-28-heatmap-month-label-overlap.md](./2026-09-28-heatmap-month-label-overlap.md) |
 
