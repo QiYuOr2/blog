@@ -1,0 +1,10 @@
+- timestamp: 1792432528474
+  type: text
+  content: 
+    - 用 AI 搞了个划词翻译软件，原生的，Mac、Windows 都能用。
+    - 这个时代除了一些基础设施级别的应用，其他应用好像每个人都可以自己做一个更符合自己需求的版本了。不论有没有专业素养，只要往对话框里随便输入几句话，AI 就能像神奇海螺一样给你扔出来点你想要的东西。
+    - 每天接收到各种各样的信息也有一半是和 AI 有关的，被 AI 包围的感觉并没有很好。
+  link:
+    title: boku-desktop
+    href: https://github.com/QiYuOr2/boku-desktop
+  create_at: '2026-10-19T17:55:28.474Z'
