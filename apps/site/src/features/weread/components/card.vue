@@ -7,8 +7,6 @@ const props = withDefaults(
     topBadge?: string;
     /** 紧跟在 topBadge 下方的一枚徽标（阅读进度）。 */
     bottomBadge?: string;
-    /** 独立挂在左上角的徽标（系列卡里是「第 N 卷」），与右上角两个徽标互不遮挡。 */
-    cornerBadge?: string;
     /** 封面底部的阅读进度条（0–100）；未传或传 0 时不画。 */
     progress?: number;
     /** 有 deepLink 时点击跳转。 */
@@ -67,13 +65,7 @@ function open() {
       {{ name }}
     </p>
 
-    <!-- 卷次独立挂左上角；时长/进度竖排在右上角，两者不会互相压住。 -->
-    <span
-      v-if="cornerBadge"
-      class="absolute top-1 left-1 inline-flex rounded bg-[rgba(0,0,0,0.45)] px-1.5 py-1 text-xs leading-none text-white"
-    >
-      {{ cornerBadge }}
-    </span>
+    <!-- 时长 / 进度徽标竖排在右上角。 -->
     <div class="absolute top-1 right-1 flex flex-col items-end gap-1 text-right text-xs text-white">
       <span v-if="topBadge" class="inline-flex rounded bg-[rgba(0,0,0,0.45)] px-1.5 py-1">
         {{ topBadge }}

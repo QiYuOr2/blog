@@ -80,7 +80,6 @@ const progressPercent = computed(() =>
           <WereadCard
             :image="book.cover"
             :name="book.title || '未知书籍'"
-            :corner-badge="`第 ${info.volumes.get(book.bookId ?? '') ?? '?'} 卷`"
             :bottom-badge="getProgressLabel(book, progressFor(book.bookId))"
             :href="book.deepLink"
           />
