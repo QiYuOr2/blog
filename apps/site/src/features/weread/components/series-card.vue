@@ -62,13 +62,20 @@ const progressPercent = computed(() =>
     </span>
   </button>
 
+  <!--
+    分册区占满整行：它紧跟在占 1 格的系列卡之后，放不进本行剩余列，
+    于是自动换到下一行并横跨整行——后面的行整体下移，同行卡片不受影响。
+    （本行剩余空格由 shelf-grid 的 grid-flow-row-dense 回填。）
+  -->
   <Transition name="sink">
     <div
       v-if="expanded"
       :id="`series-${info.name}`"
-      class="series-panel col-span-full"
+      class="col-span-full"
     >
-      <ul class="series-volumes">
+      <ul
+        class="grid list-none gap-4 rounded-lg bg-[var(--un-prose-bg-soft)] p-3 shadow-sm dark:bg-[var(--un-prose-invert-bg-soft)] [grid-template-columns:repeat(3,minmax(0,1fr))] sm:[grid-template-columns:repeat(4,minmax(0,1fr))]"
+      >
         <li v-for="book in info.books" :key="book.bookId ?? book.title">
           <WereadCard
             :image="book.cover"
@@ -85,37 +92,10 @@ const progressPercent = computed(() =>
 
 <style scoped>
 /*
-  `grid-row: span 1` + `grid-column: 1 / -1` 会让分册区试图挤进**当前行**剩余列；
-  这里的关键是它前面紧挨着系列卡（占 1 格），于是「第一列已被占」，
-  分册区放不下就自动换到下一行并横跨整行——正是想要的效果。
-  为了让本行剩余格子不被白白浪费，shelf-grid 开了 dense 回填。
+  动画相关的三个状态类必须写在 CSS 里：它们由 Vue 的 <Transition> 按 name="sink"
+  自动挂载（sink-enter-active / sink-enter-from / …），无法用工具类表达。
+  其余布局与视觉（网格、间距、圆角、背景、阴影）都在模板上用 UnoCSS 描述。
 */
-.series-panel {
-  grid-column: 1 / -1;
-}
-
-.series-volumes {
-  display: grid;
-  gap: 1rem;
-  margin: 0;
-  padding: 0.75rem;
-  border-radius: 0.5rem;
-  list-style: none;
-  background-color: var(--un-prose-bg-soft);
-  box-shadow: 0 1px 3px rgb(0 0 0 / 0.12);
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-@media (min-width: 640px) {
-  .series-volumes {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-}
-
-:global(.dark) .series-volumes {
-  background-color: var(--un-prose-invert-bg-soft);
-}
-
 .sink-enter-active,
 .sink-leave-active {
   transition:
