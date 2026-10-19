@@ -25,7 +25,8 @@ packages/scripts/
 └── overrides/               # 手工维护的数据覆盖表（按数据源分目录）
     └── weread/
         ├── category-overrides.json
-        └── title-overrides.json
+        ├── title-overrides.json
+        └── series-overrides.json
 ```
 
 ## 命令
@@ -67,14 +68,52 @@ node packages/scripts/src/cli.mjs generate-summaries --help
 
 ## 覆盖表
 
-微信读书返回的书名/分类常带版本后缀或运营后缀，且不能改线上数据，所以用覆盖表在生成时改写。两个表都以 `bookId` 为 key，不存在时按空表处理，格式写错会直接报错。
+微信读书返回的书名/分类常带版本后缀或运营后缀，且不能改线上数据，所以用覆盖表在生成时改写。`category-overrides` 与 `title-overrides` 都以 `bookId` 为 key，不存在时按空表处理，格式写错会直接报错。
 
 | 文件 | 覆盖字段 | 作用范围 |
 | --- | --- | --- |
 | `overrides/weread/category-overrides.json` | `category` | 只作用于书架条目 |
 | `overrides/weread/title-overrides.json` | `title` | 所有书籍对象（书架、阅读榜单等） |
+| `overrides/weread/series-overrides.json` | `name` + `books`（bookId → 卷号） | 只被 `apps/site` 读书页读取，不属于同步产物 |
 
-数据同步 workflow 每天重跑 `fetch-weread`，直接改 `content/weread/weread.json` 会被覆盖——要改分类或书名请改这里的覆盖表。
+### series-overrides.json
+
+**读书页的系列合并完全由这张白名单决定，不做任何书名推断。** 没登记的书一律按单本展示。
+
+这样做是因为书名规律追不上真实数据的写法——同一系列可能一本带全名前缀、另一本只剩缩写，还有简繁混排、换译名、第 1 部没有卷号等情况：
+
+```
+君主·埃尔梅罗二世事件簿1　case.剥离塔阿德拉
+事件簿2　case.双貌塔伊泽路玛（上）      ← 缩写掉了系列前缀
+沙丘 / 沙丘2：沙丘救世主             ← 第 1 部没有卷号
+安达与岛村 / 安達與島村2 / 安達與島村3   ← 简繁混排 + 紧贴数字
+```
+
+格式是一个数组，每条一个系列：
+
+```json
+[
+  {
+    "name": "君主·埃尔梅罗二世事件簿",
+    "books": {
+      "CB_DJAG6aG5IG2H72r71YBUd0Lr": 1,
+      "CB_D2iG6eG5IG2H72r71YBclDEe": 2
+    }
+  }
+]
+```
+
+- `name`：合并后卡片上显示的系列名；
+- `books`：bookId → 卷号（正整数），决定展开后各分册的先后顺序；不同书可以有相同卷号（如同一卷的不同版本），此时按书架顺序稳定排列；
+- 同一本书出现在两个系列里、卷号不是正整数、缺少 `name`/`books`，构建时都会直接报错；
+- **系列卡始终展示**，不受读书页 10 分钟阅读时长门槛限制（单本卡片仍受限）；
+- 只登记了 1 册的系列没有折叠意义，仍按单本展示。
+
+这个表由 `apps/site` 用 Vite 的 `import.meta.glob` 直接读取，修改后重新构建即可生效，不需要跑同步脚本。`fetch-weread` 不读取它。
+
+**新增一本书进某个系列时**：从书架或微信读书详情页拿到 `bookId`，在对应系列的 `books` 里加上「bookId: 卷号」即可。漏登记只会让那本书显示为单本卡片，不会丢书。
+
+数据同步 workflow 每天重跑 `fetch-weread`，直接改 `content/weread/weread.json` 会被覆盖——要改分类、书名或系列，请改这里的覆盖表。
 
 ## 新增一个命令
 

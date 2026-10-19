@@ -1,43 +1,68 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, shallowRef } from "vue";
 import type { WereadStaticData } from "../schema";
-import { getShelfBooks, getShelfProgressMap, getReadTimesByDay } from "../model";
-import { shouldRenderShelfBook, getReadDuration } from "../utils/progress-utils";
+import {
+  getShelfBooks,
+  getShelfProgressMap,
+  getReadTimesByDay,
+  getSeriesOverrides,
+} from "../model";
+import {
+  getCardCategory,
+  getCardDuration,
+  groupShelfSeries,
+  shouldRenderCard,
+} from "../utils/series-utils";
 import CategoryFilter, { type CategoryOption } from "@/components/category-filter.vue";
 import WereadShelfGrid from "./shelf-grid.vue";
 import WereadReadHeatmap from "./read-heatmap.vue";
+
 const props = defineProps<{ data: WereadStaticData }>();
-const selectedCategory = ref<string | null>(null)
+
+const selectedCategory = shallowRef<string | null>(null);
 const modeData = computed(() => props.data.modes.overall);
 const progressMap = computed(() => getShelfProgressMap(props.data));
 const readTimesByDay = computed(() => getReadTimesByDay(props.data));
-const shelfBooks = computed(() =>
-  getShelfBooks(props.data).filter((item) => shouldRenderShelfBook(item, progressMap.value)),
+const seriesOverrides = getSeriesOverrides();
+
+/** 书架里同系列的多册折成一张卡，筛选与计数都按卡片口径走。 */
+const cards = computed(() =>
+  groupShelfSeries(getShelfBooks(props.data), seriesOverrides).filter((card) =>
+    shouldRenderCard(card, progressMap.value),
+  ),
 );
+
 function getCategoryName(category?: string) {
-  return category?.split('-')[0] || '未分类'
+  return category?.split("-")[0] || "未分类";
 }
+
 const categories = computed<CategoryOption[]>(() => {
-  const counts = new Map<string, number>()
-  for (const book of shelfBooks.value) {
-    const category = getCategoryName(book.category)
-    counts.set(category, (counts.get(category) ?? 0) + 1)
+  const counts = new Map<string, number>();
+  for (const card of cards.value) {
+    const category = getCategoryName(getCardCategory(card));
+    counts.set(category, (counts.get(category) ?? 0) + 1);
   }
   return [...counts.entries()]
     .map(([name, count]) => ({ name, count }))
-    .sort((first, second) => second.count - first.count || first.name.localeCompare(second.name, 'zh-CN'))
-})
-const filteredBooks = computed(() => {
-  const books = selectedCategory.value === null
-    ? shelfBooks.value
-    : shelfBooks.value.filter(book => getCategoryName(book.category) === selectedCategory.value)
+    .sort(
+      (first, second) =>
+        second.count - first.count || first.name.localeCompare(second.name, "zh-CN"),
+    );
+});
 
-  return [...books].sort((first, second) => {
-    const firstDuration = getReadDuration(progressMap.value.get(first.bookId ?? "")) ?? -1
-    const secondDuration = getReadDuration(progressMap.value.get(second.bookId ?? "")) ?? -1
-    return secondDuration - firstDuration
-  })
-})
+const filteredCards = computed(() => {
+  const visible =
+    selectedCategory.value === null
+      ? cards.value
+      : cards.value.filter(
+          (card) => getCategoryName(getCardCategory(card)) === selectedCategory.value,
+        );
+
+  return [...visible].sort(
+    (first, second) =>
+      getCardDuration(second, progressMap.value) - getCardDuration(first, progressMap.value),
+  );
+});
 </script>
 <template>
   <div
@@ -51,9 +76,9 @@ const filteredBooks = computed(() => {
     <CategoryFilter
       :categories="categories"
       :selected-category="selectedCategory"
-      :total="shelfBooks.length"
+      :total="cards.length"
       @select="selectedCategory = $event"
     />
-    <WereadShelfGrid :books="filteredBooks" :progress-map="progressMap" />
+    <WereadShelfGrid :cards="filteredCards" :progress-map="progressMap" />
   </div>
 </template>
