@@ -74,7 +74,7 @@ const progressPercent = computed(() =>
       class="col-span-full"
     >
       <ul
-        class="grid list-none gap-4 rounded-lg bg-[var(--un-prose-bg-soft)] p-3 shadow-sm dark:bg-[var(--un-prose-invert-bg-soft)] [grid-template-columns:repeat(3,minmax(0,1fr))] sm:[grid-template-columns:repeat(4,minmax(0,1fr))]"
+        class="grid list-none gap-4 rounded-lg bg-[var(--un-prose-bg-soft)] p-3 shadow-inner dark:bg-[var(--un-prose-invert-bg-soft)] [grid-template-columns:repeat(3,minmax(0,1fr))] sm:[grid-template-columns:repeat(4,minmax(0,1fr))]"
       >
         <li v-for="book in info.books" :key="book.bookId ?? book.title">
           <WereadCard
