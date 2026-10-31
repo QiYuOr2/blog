@@ -8,6 +8,12 @@ const storgeKey = import.meta.env.PUBLIC_COLOR_MODE;
 
 type ModeChangeEvent = (mode: Mode.Dark | Mode.Light) => void;
 
+function readStoredMode(): Mode {
+  const value = globalThis.localStorage?.getItem?.(storgeKey);
+  if (value === Mode.Light || value === Mode.Dark || value === Mode.System) return value;
+  return Mode.System;
+}
+
 const events: Set<ModeChangeEvent> = new Set();
 export function colorModeEffect() {
   function appendToDocument(value: Mode, save = true) {
@@ -41,7 +47,7 @@ export function colorModeEffect() {
     });
   }
 
-  const initial = (globalThis.localStorage?.getItem?.(storgeKey) ?? Mode.System) as Mode;
+  const initial = readStoredMode();
 
   function addEventListener(action: ModeChangeEvent) {
     events.add(action);
@@ -51,12 +57,12 @@ export function colorModeEffect() {
     events.delete(action);
   }
 
-  function getCurrentMode(): Mode {
-    if (initial === Mode.System && globalThis.matchMedia) {
-      const media = globalThis.matchMedia("(prefers-color-scheme: dark)");
-      return media.matches ? Mode.Dark : Mode.Light;
-    }
-    return initial;
+  function getCurrentMode(): Mode.Dark | Mode.Light {
+    const stored = readStoredMode();
+    if (stored === Mode.Dark || stored === Mode.Light) return stored;
+
+    const prefersDark = globalThis.matchMedia?.("(prefers-color-scheme: dark)")?.matches;
+    return prefersDark ? Mode.Dark : Mode.Light;
   }
 
   return {

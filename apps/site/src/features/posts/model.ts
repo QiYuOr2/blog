@@ -1,8 +1,9 @@
 import { type CollectionEntry } from "astro:content";
 import { BASE_URL } from "@/constants";
+import { formatPostDate } from "./date";
 
 export function date(post: CollectionEntry<"posts">) {
-  return new Date(post.data.date).toLocaleString("zh-CN");
+  return formatPostDate(new Date(post.data.date));
 }
 
 export function visibleFilter(post: CollectionEntry<"posts">) {

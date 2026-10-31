@@ -31,8 +31,11 @@ const { title, description, keywords = '' } = Astro.props
       const media = window.matchMedia('(prefers-color-scheme: dark)')
       color = media.matches ? 'dark' : 'light'
     }
-    document.documentElement.style.colorScheme = color
-    document.documentElement.classList.add(color)
+    const root = document.documentElement
+    // 视图切换会保留上一个页面的 class，只 add 会让 dark 和 light 同时留在 html 上。
+    root.classList.remove('light', 'dark')
+    root.style.colorScheme = color
+    root.classList.add(color)
   }
 
   function backAction(event) {

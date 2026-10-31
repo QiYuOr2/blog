@@ -1,0 +1,58 @@
+name: Sync Bangumi
+
+on:
+  schedule:
+    # UTC 14:00 = 北京时间 22:00，错开微信读书同步
+    - cron: "0 14 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-bangumi
+  cancel-in-progress: false
+
+env:
+  PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: "1"
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: 10
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Sync Bangumi data
+        run: pnpm bangumi:sync
+
+      - name: Verify data
+        run: |
+          node -e "const d=require('./content/bangumi/bangumi.json');const totals=Object.values(d.types??{}).map(t=>t.total??0);console.log('types='+totals.join(','),'updatedAt='+d.updatedAt);if(!d.updatedAt||totals.every(n=>!n)){console.error('数据结构异常，取消提交');process.exit(1)}"
+
+      - name: Commit and push
+        run: |
+          if [ -z "$(git status --porcelain content/bangumi/bangumi.json)" ]; then
+            echo "content/bangumi/bangumi.json 无变化，跳过提交"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/bangumi/bangumi.json
+          git commit -m "chore: sync bangumi data"
+          git push
