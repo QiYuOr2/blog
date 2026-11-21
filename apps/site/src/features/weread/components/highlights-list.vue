@@ -60,14 +60,16 @@ const visibleGroups = computed<BookGroup[]>(() => {
   return result;
 });
 
-const visibleCount = computed(() =>
-  visibleGroups.value.reduce((sum, group) => sum + group.items.length, 0),
-);
 const isFiltering = computed(() => selectedBookId.value !== null || query.value.trim() !== "");
 
 function clearFilters() {
   selectedBookId.value = null;
   query.value = "";
+}
+
+/** 工具栏内的回到顶部（本页隐藏了全站 back-top，见文末样式）。 */
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 function formatDate(createTime?: number) {
@@ -98,9 +100,10 @@ onMounted(() => {
   -->
   <!-- 底部留白：让列表末尾能滚过底部悬浮的工具栏。 -->
   <div class="pb-28">
-    <!-- 工具栏：底部悬浮，bottom 取安全区与 0.75rem 的较大值，手机上避开 Home 指示条。 -->
+    <!-- 工具栏：底部悬浮，bottom 取安全区与 0.75rem 的较大值，手机上避开 Home 指示条；
+      淡色边框划清与内容的界限；保持完整一行，全站 back-top 在本页隐藏（见文末样式），回到顶部按钮放进工具栏内。 -->
     <div
-      class="fixed bottom-[max(0.75rem,env(safe-area-inset-bottom))] left-1/2 z-20 flex w-[min(62ch,calc(100%-2rem))] -translate-x-1/2 flex-wrap items-center gap-2 rounded-full bg-white/85 p-2 shadow-lg backdrop-blur max-sm:rounded-[1.6rem] dark:bg-gray-800/85"
+      class="fixed bottom-[max(0.75rem,env(safe-area-inset-bottom))] left-1/2 z-20 flex w-[min(62ch,calc(100%-2rem))] -translate-x-1/2 flex-wrap items-center gap-2 rounded-full border border-black/10 bg-white/85 p-2 shadow-lg backdrop-blur max-sm:rounded-[1.6rem] dark:border-white/15 dark:bg-gray-800/85"
     >
       <label class="relative min-w-40 flex-1 max-sm:min-w-30">
         <span
@@ -130,9 +133,15 @@ onMounted(() => {
           aria-hidden="true"
         />
       </div>
-      <span class="px-1 text-xs whitespace-nowrap opacity-55">
-        {{ visibleCount }} / {{ highlights.length }} 条
-      </span>
+      <!-- 回到顶部：替代本页隐藏掉的全站 back-top，与搜索/筛选同排。 -->
+      <button
+        type="button"
+        aria-label="回到顶部"
+        class="shrink-0 cursor-pointer rounded-full bg-black/4 p-2 transition-colors hover:bg-black/8 dark:bg-white/8 dark:hover:bg-white/12"
+        @click="scrollToTop"
+      >
+        <span class="i-mdi:arrow-top-bold block h-5 w-5" />
+      </button>
     </div>
 
     <!-- 不设书目头：书籍信息（书名、作者）放进每张卡片里，列表是一条连续的卡片流。 -->
@@ -193,5 +202,10 @@ onMounted(() => {
   :root.dark .highlight-item.highlight-located {
     background-color: rgb(76 145 90 / 0.12);
     border-color: rgb(76 145 90 / 0.5);
+  }
+
+  /* 本页工具栏自带回到顶部按钮：隐藏全站的 back-top，避免两个按钮并存。本组件只用在书摘页，样式不会外溢到其他页面。 */
+  .back-top {
+    display: none;
   }
 </style>

@@ -46,6 +46,11 @@ function openInList() {
   if (!item) return;
   window.location.href = `/weread/highlights#${item.bookmarkId}`;
 }
+
+/** 卡外右下的「全部 N 条」：去全部书摘页顶部，不带锚点。 */
+function openAll() {
+  window.location.href = "/weread/highlights";
+}
 </script>
 
 <template>
@@ -56,7 +61,8 @@ function openInList() {
     - 强调色只用一种，就是热力图的绿 rgb(59,105,61)（暗色 rgb(76,145,90)），与 Readmate 的墨绿同系；
     - 出处按 Readmate 的排法放卡片底部：左侧书名（稍粗）/ 章节 / 作者 / 日期逐行渐淡，右侧放封面缩略图。
   -->
-  <section v-if="current" aria-label="随机书摘" class="group relative">
+  <section v-if="current" aria-label="随机书摘">
+    <div class="group relative">
     <!-- 整卡可点：用覆盖层按钮承担跳转（避开 prose 对 <a> 的统一样式，理由同 card.vue）。 -->
     <button
       type="button"
@@ -113,13 +119,8 @@ function openInList() {
               <p v-if="current.book?.author" class="my-0! truncate text-xs opacity-45">
                 {{ current.book.author }}
               </p>
-              <p class="my-0! text-xs">
-                <span v-if="current.createTime" class="opacity-40">{{ formatDate(current.createTime) }}</span>
-                <span
-                  class="ml-2 font-medium text-[rgb(59,105,61)] opacity-0 transition-opacity duration-150 group-hover:opacity-100 dark:text-[rgb(76,145,90)]"
-                >
-                  全部 {{ highlights.length }} 条 →
-                </span>
+              <p v-if="current.createTime" class="my-0! text-xs opacity-40">
+                {{ formatDate(current.createTime) }}
               </p>
             </div>
             <img
@@ -133,6 +134,17 @@ function openInList() {
           </div>
         </div>
       </div>
+    </div>
+    </div>
+    <!-- 「全部 N 条」不放卡内：独立在卡片外右下角，常显，是进全量列表的入口。 -->
+    <div class="mt-2 text-right">
+      <button
+        type="button"
+        class="cursor-pointer text-xs font-medium text-[rgb(59,105,61)] opacity-70 transition-opacity duration-150 hover:opacity-100 dark:text-[rgb(76,145,90)]"
+        @click="openAll"
+      >
+        全部 {{ highlights.length }} 条 →
+      </button>
     </div>
   </section>
 </template>
