@@ -141,6 +141,28 @@ const wereadProgressEntrySchema = z
   })
   .passthrough();
 
+const wereadHighlightSchema = z
+  .object({
+    bookmarkId: z.string(),
+    bookId: z.string(),
+    chapterUid: z.number().optional(),
+    chapterTitle: z.string().optional(),
+    markText: z.string(),
+    createTime: z.number().optional(),
+    range: z.string().optional(),
+    colorStyle: z.number().optional(),
+    book: z
+      .object({
+        bookId: z.string().optional(),
+        title: z.string().optional(),
+        author: z.string().optional(),
+        cover: z.string().optional(),
+      })
+      .passthrough()
+      .optional(),
+  })
+  .passthrough();
+
 export const wereadSchema = z
   .object({
     updatedAt: z.string(),
@@ -153,6 +175,7 @@ export const wereadSchema = z
     shelf: wereadShelfSchema.optional(),
     progressMap: z.record(z.string(), wereadProgressEntrySchema).optional(),
     readTimesByDay: z.record(z.string(), z.number()).optional(),
+    highlights: z.array(wereadHighlightSchema).optional(),
   })
   .passthrough();
 
@@ -162,3 +185,4 @@ export type WereadModeData = z.infer<typeof wereadModeSchema>;
 export type WereadShelfBook = z.infer<typeof wereadShelfBookSchema>;
 export type WereadShelfAlbum = z.infer<typeof wereadShelfAlbumSchema>;
 export type WereadStaticData = z.infer<typeof wereadSchema>;
+export type WereadHighlight = z.infer<typeof wereadHighlightSchema>;

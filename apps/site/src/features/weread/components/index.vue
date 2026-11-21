@@ -6,6 +6,7 @@ import {
   getShelfProgressMap,
   getReadTimesByDay,
   getSeriesOverrides,
+  getHighlights,
 } from "../model";
 import {
   getCardCategory,
@@ -16,6 +17,7 @@ import {
 import CategoryFilter, { type CategoryOption } from "@/components/category-filter.vue";
 import WereadShelfGrid from "./shelf-grid.vue";
 import WereadReadHeatmap from "./read-heatmap.vue";
+import WereadRandomHighlight from "./random-highlight.vue";
 
 const props = defineProps<{ data: WereadStaticData }>();
 
@@ -23,6 +25,7 @@ const selectedCategory = shallowRef<string | null>(null);
 const modeData = computed(() => props.data.modes.overall);
 const progressMap = computed(() => getShelfProgressMap(props.data));
 const readTimesByDay = computed(() => getReadTimesByDay(props.data));
+const highlights = computed(() => getHighlights(props.data));
 const seriesOverrides = getSeriesOverrides();
 
 /** 书架里同系列的多册折成一张卡，筛选与计数都按卡片口径走。 */
@@ -73,6 +76,7 @@ const filteredCards = computed(() => {
   </div>
   <div v-else class="space-y-6 pb-8">
     <WereadReadHeatmap :read-times-by-day="readTimesByDay" />
+    <WereadRandomHighlight v-if="highlights.length" :highlights="highlights" />
     <CategoryFilter
       :categories="categories"
       :selected-category="selectedCategory"

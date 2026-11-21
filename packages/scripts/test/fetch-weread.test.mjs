@@ -58,6 +58,39 @@ function createFetchStub(fixture) {
     if (apiName === "/book/getprogress") {
       return reply({ book: fixture.progressMap[bookId] ?? {} });
     }
+    if (apiName === "/user/notebooks") {
+      // 从已提交的 highlights 按书反推笔记本概览：一页全返回，hasMore=0。
+      const seen = new Map();
+      for (const item of fixture.highlights ?? []) {
+        const entry = seen.get(item.bookId) ?? { bookId: item.bookId, noteCount: 0, sort: seen.size };
+        entry.noteCount += 1;
+        seen.set(item.bookId, entry);
+      }
+      return reply({ books: [...seen.values()], hasMore: 0 });
+    }
+    if (apiName === "/book/bookmarklist") {
+      const items = (fixture.highlights ?? []).filter((item) => item.bookId === bookId);
+      const chapters = [];
+      const seenChapters = new Set();
+      for (const item of items) {
+        if (item.chapterUid === undefined || seenChapters.has(item.chapterUid)) continue;
+        seenChapters.add(item.chapterUid);
+        chapters.push({ chapterUid: item.chapterUid, title: item.chapterTitle });
+      }
+      return reply({
+        updated: items.map((item) => ({
+          bookmarkId: item.bookmarkId,
+          bookId: item.bookId,
+          chapterUid: item.chapterUid,
+          markText: item.markText,
+          createTime: item.createTime,
+          range: item.range,
+          colorStyle: item.colorStyle,
+        })),
+        chapters,
+        book: items[0]?.book ?? {},
+      });
+    }
     throw new Error(`未预期的接口调用：${apiName}`);
   };
 }

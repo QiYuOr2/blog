@@ -38,7 +38,7 @@
 - 首页/列表通过 `visibleFilter` 过滤 `draft`，`sortByDate` 按 `date` 倒序。
 - `remark-reading-time` 会在构建期往 `remarkPluginFrontmatter.minutesRead` 注入阅读时长。
 - 文章正文里的图片由 `remark-image` 处理，mermaid 图表由 `remark-mermaid` 处理。
-- 微信读书数据（`content/weread/weread.json`）由 `packages/scripts/src/commands/fetch-weread.mjs` 生成后每日自动提交，手工改 JSON 会被下次同步覆盖。
+- 微信读书数据（`content/weread/weread.json`）由 `packages/scripts/src/commands/fetch-weread.mjs` 生成后每日自动提交，手工改 JSON 会被下次同步覆盖。产物含 `highlights`（全部划线书摘，来自 `/user/notebooks` + `/book/bookmarklist`，只收划线不含想法/书签，且不收 `CB_` 前缀的用户导入书籍）：读书页在热力图与书架之间展示随机书摘卡片，点击跳 `/weread/highlights#<bookmarkId>` 定位到对应书摘。
 - 需要修正书籍分类或书名时改覆盖表（按 `bookId` 命中）：`packages/scripts/overrides/weread/category-overrides.json` 覆盖 `category`（只作用于书架），`packages/scripts/overrides/weread/title-overrides.json` 覆盖 `title`（作用于含书架在内的所有书籍对象）。
 
 ## 样式约定（重要，非标准写法）
