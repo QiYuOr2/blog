@@ -4,30 +4,32 @@ import { CollectionType, type CollectionItem, type Subject } from "./types";
 const subjectSchema: z.ZodType<Subject> = z
   .object({
     id: z.number(),
-    date: z.union([
-      z.string(),
-      z.null(),
-      z
-        .object({
-          year: z.number().optional(),
-          month: z.number().optional(),
-          day: z.number().optional(),
-        })
-        .passthrough(),
-    ]),
+    date: z
+      .union([
+        z.string(),
+        z.null(),
+        z
+          .object({
+            year: z.number().optional(),
+            month: z.number().optional(),
+            day: z.number().optional(),
+          })
+          .passthrough(),
+      ])
+      .optional(),
     images: z
       .object({
         small: z.string(),
-        grid: z.string(),
-        large: z.string(),
-        medium: z.string(),
-        common: z.string(),
+        grid: z.string().optional(),
+        large: z.string().optional(),
+        medium: z.string().optional(),
+        common: z.string().optional(),
       })
       .passthrough(),
     name: z.string(),
     name_cn: z.string(),
     score: z.number().nullable(),
-    rank: z.number().nullable(),
+    rank: z.number().nullable().optional(),
   });
 
 const collectionItemSchema: z.ZodType<CollectionItem> = z

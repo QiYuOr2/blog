@@ -66,7 +66,7 @@ function setCachedPage(url: URL, entry: CachedPage) {
 
 function fetchPageHtml(
   url: URL,
-  options: { priority?: "high" | "low"; signal?: AbortSignal } = {},
+  options: { priority?: "high" | "low" } = {},
 ): Promise<CachedPage | null> {
   const cached = getCachedPage(url);
   if (cached) return Promise.resolve(cached);
@@ -123,14 +123,24 @@ function preloadNewStylesheets(newDocument: Document, signal: AbortSignal): Prom
   for (const el of newDocument.querySelectorAll("head link[rel=stylesheet]")) {
     const href = el.getAttribute("href");
     if (!href) continue;
-    if (document.querySelector(`link[rel=stylesheet][href="${href}"]`)) continue;
+    const escapedHref = typeof CSS !== "undefined" && CSS.escape ? CSS.escape(href) : href.replaceAll('"', '\\"');
+    if (
+      document.querySelector(
+        `link[rel="stylesheet"][href="${escapedHref}"], link[rel="preload"][as="style"][href="${escapedHref}"]`,
+      )
+    ) {
+      continue;
+    }
     const link = document.createElement("link");
     link.setAttribute("rel", "preload");
     link.setAttribute("as", "style");
     link.setAttribute("href", href);
     tasks.push(
       new Promise<void>((resolve) => {
-        const done = () => resolve();
+        const done = () => {
+          link.remove();
+          resolve();
+        };
         link.addEventListener("load", done, { once: true });
         link.addEventListener("error", done, { once: true });
         document.head.append(link);
@@ -350,6 +360,7 @@ export function initPageTransitions() {
   initialized = true;
 
   let visualPathname = location.pathname;
+  let activeNavId = 0;
 
   scheduleNavbarPrefetch();
   initHoverPrefetch();
@@ -359,6 +370,7 @@ export function initPageTransitions() {
   });
 
   document.addEventListener("astro:before-preparation", (event) => {
+    const navId = ++activeNavId;
     const resolvedDirection = resolvePageTransitionDirection(
       visualPathname,
       event.to.pathname,
@@ -381,9 +393,41 @@ export function initPageTransitions() {
 
       let skeletonShown = false;
       let skeletonTransition: ViewTransition | null = null;
+      let savedMainNodes: Node[] | null = null;
+      let savedPathname = visualPathname;
+      let savedScroll = { x: window.scrollX, y: window.scrollY };
+
+      const restoreSnapshot = () => {
+        if (!savedMainNodes) return;
+        const main = document.querySelector("main");
+        if (main) {
+          main.replaceChildren(...savedMainNodes);
+          updateNavbarActiveState(savedPathname);
+          window.scrollTo({ left: savedScroll.x, top: savedScroll.y, behavior: "instant" });
+        }
+        visualPathname = savedPathname;
+        savedMainNodes = null;
+      };
+
+      const onAbort = () => {
+        // 如果新导航走 samePage 短路（不会触发下一次 astro:before-preparation），
+        // 且旧导航已展示骨架屏，微任务后恢复原页面内容避免停留在骨架屏。
+        queueMicrotask(() => {
+          if (skeletonShown && activeNavId === navId) {
+            restoreSnapshot();
+          }
+        });
+      };
+      event.signal.addEventListener("abort", onAbort, { once: true });
 
       const timer = window.setTimeout(() => {
         if (event.signal.aborted) return;
+        const main = document.querySelector("main");
+        if (main) {
+          savedMainNodes = Array.from(main.childNodes);
+          savedPathname = visualPathname;
+          savedScroll = { x: window.scrollX, y: window.scrollY };
+        }
         skeletonShown = true;
         visualPathname = event.to.pathname;
         skeletonTransition = swapToSkeleton(event.to.pathname, resolvedDirection);
@@ -391,7 +435,7 @@ export function initPageTransitions() {
 
       try {
         if (canUseHtmlCache) {
-          const entry = await fetchPageHtml(event.to, { priority: "high", signal: event.signal });
+          const entry = await fetchPageHtml(event.to, { priority: "high" });
           if (event.signal.aborted) return;
           if (!entry) {
             event.preventDefault();
@@ -403,11 +447,13 @@ export function initPageTransitions() {
         }
       } finally {
         window.clearTimeout(timer);
+        event.signal.removeEventListener("abort", onAbort);
       }
 
       if (skeletonShown && !event.signal.aborted) {
-        if (skeletonTransition) {
-          await skeletonTransition.updateCallbackDone.catch(() => {});
+        const activeTransition = skeletonTransition as ViewTransition | null;
+        if (activeTransition) {
+          await activeTransition.updateCallbackDone.catch(() => {});
         }
         // 已播放过方向切换动画进入骨架屏，真实内容就绪后只做温和的淡入替换，避免二次滑动。
         event.direction = "skeleton-reveal";

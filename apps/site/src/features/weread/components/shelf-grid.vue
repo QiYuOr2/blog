@@ -66,7 +66,7 @@ const progressFor = (bookId?: string) => progressMap.get(bookId ?? "");
     </template>
     <div
       v-else
-      class="col-span-full rounded-2xl border border-dashed border-[var(--un-prose-border)] bg-[var(--un-prose-bg-soft)] p-6 text-[var(--un-prose-body)] dark:border-[var(--un-prose-invert-border)] dark:bg-[var(--un-prose-invert-bg-soft)] dark:text-[var(--un-prose-invert-body)]"
+      class="col-span-full rounded-2xl border border-dashed border-[var(--un-prose-borders)] bg-[var(--un-prose-bg-soft)] p-6 text-[var(--un-prose-body)] dark:border-[var(--un-prose-invert-borders)] dark:bg-[var(--un-prose-invert-bg-soft)] dark:text-[var(--un-prose-invert-body)]"
     >
       暂无书籍阅读记录。
     </div>

@@ -4,7 +4,6 @@ import sitemap from "@astrojs/sitemap";
 import UnoCSS from "unocss/astro";
 import { unified } from "@astrojs/markdown-remark";
 import { remarkReadingTime, remarkImage, remarkMermaid } from "@tabi/plugins/remark/index.mjs";
-import yaml from "@rollup/plugin-yaml";
 import vue from "@astrojs/vue";
 import { resolve } from "node:path";
 
@@ -22,7 +21,6 @@ export default defineConfig({
     vue(),
   ],
   vite: {
-    plugins: [yaml()],
     resolve: {
       alias: {
         "@": resolve("./src"),

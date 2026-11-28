@@ -13,10 +13,6 @@ concurrency:
   group: sync-weread
   cancel-in-progress: false
 
-env:
-  # 同步脚本用不到浏览器，跳过下载以加快安装
-  PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: "1"
-
 jobs:
   sync:
     runs-on: ubuntu-latest
@@ -37,7 +33,7 @@ jobs:
           cache: pnpm
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile --filter @tabi/scripts...
 
       - name: Sync WeRead data
         run: pnpm weread:sync

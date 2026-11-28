@@ -3,7 +3,7 @@ import { parseArgs, parsePositiveInt } from "../lib/args.mjs";
 import { sleep } from "../lib/async.mjs";
 import { loadRepoEnv } from "../lib/env.mjs";
 import { createJsonClient } from "../lib/http.mjs";
-import { writeJson } from "../lib/json.mjs";
+import { writeJsonIfChanged } from "../lib/json.mjs";
 import { info, task } from "../lib/log.mjs";
 import { bangumiDataFile, repoRelative } from "../lib/paths.mjs";
 
@@ -39,6 +39,27 @@ function collectionUrl(config, type, offset) {
   );
 }
 
+/**
+ * 仅保留前端追番页渲染所需的最小字段，剔除 short_summary / tags（全站计数每日变动）
+ * 与多尺寸封面图，既缩小产物 ~85%，也消除每日上万行无意义 diff。
+ */
+export function slimCollectionItem(item) {
+  const subject = item?.subject ?? {};
+  return {
+    updated_at: item?.updated_at ?? "",
+    type: item?.type,
+    subject: {
+      id: subject.id,
+      name: subject.name ?? "",
+      name_cn: subject.name_cn ?? "",
+      score: subject.score ?? null,
+      images: {
+        small: subject.images?.small ?? "",
+      },
+    },
+  };
+}
+
 async function fetchCollection({ requestJson, config, type }) {
   const items = [];
   let offset = 0;
@@ -48,7 +69,7 @@ async function fetchCollection({ requestJson, config, type }) {
     const dto = await requestJson(collectionUrl(config, type, offset));
     total = Number(dto.total ?? 0);
     const pageItems = Array.isArray(dto.data) ? dto.data : [];
-    items.push(...pageItems);
+    items.push(...pageItems.map(slimCollectionItem));
     offset += config.limit;
     process.stdout.write(
       `type=${type} offset=${offset} loaded=${items.length}/${total}... `,
@@ -88,8 +109,12 @@ async function run(argv) {
     done(`${items.length} items`);
   }
 
-  await writeJson(outputFile, result);
-  info(`Saved bangumi data to ${repoRelative(outputFile)}`);
+  const { written } = await writeJsonIfChanged(outputFile, result);
+  if (written) {
+    info(`Saved bangumi data to ${repoRelative(outputFile)}`);
+  } else {
+    info(`Bangumi data unchanged, skipped writing ${repoRelative(outputFile)}`);
+  }
 }
 
 export default {

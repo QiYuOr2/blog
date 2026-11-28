@@ -1,30 +1,18 @@
 ---
-import { createHash } from "node:crypto";
 import PageLayout from "@/layouts/page.astro";
 import Weread from "@/features/weread/components/index.vue";
 import { getCollection } from "astro:content";
-import {
-  buildWereadPagePayload,
-  getHighlights,
-  getWereadStaticData,
-} from "@/features/weread/model.ts";
+import { buildWereadPagePayload, getWereadStaticData } from "@/features/weread/model.ts";
+import { buildHighlightsUrl } from "@/features/weread/highlights-url.ts";
 import Comments from "@/components/comments.vue";
 import { dayjs, SHANGHAI_TZ } from "@/features/weread/date";
 
 const wereadData = getWereadStaticData(await getCollection("weread"));
-const highlightsVersion = createHash("sha1")
-  .update(JSON.stringify(getHighlights(wereadData)))
-  .digest("hex")
-  .slice(0, 8);
-const payload = buildWereadPagePayload(
-  wereadData,
-  `/data/weread-highlights.json?v=${highlightsVersion}`,
-);
+const { url: highlightsUrl } = buildHighlightsUrl(wereadData);
+const payload = buildWereadPagePayload(wereadData, highlightsUrl);
 
 function formatUpdatedAt(timestamp: string) {
-  return dayjs(timestamp)
-    .tz(SHANGHAI_TZ)
-    .format('YYYY-MM-DD')
+  return dayjs(timestamp).tz(SHANGHAI_TZ).format("YYYY-MM-DD");
 }
 ---
 

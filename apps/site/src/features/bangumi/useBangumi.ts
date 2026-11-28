@@ -44,7 +44,12 @@ function fetchFallbackCache(url?: string): Promise<BangumiCache | undefined> {
   if (existing) return existing;
   const task = fetch(url)
     .then((res) => (res.ok ? (res.json() as Promise<BangumiCache>) : undefined))
-    .catch(() => undefined);
+    .catch(() => undefined)
+    .then((data) => {
+      // 失败或无数据时清理缓存条目，允许后续重试。
+      if (!data) cacheLoaders.delete(url);
+      return data;
+    });
   cacheLoaders.set(url, task);
   return task;
 }
@@ -88,7 +93,10 @@ export function useBangumi(props: { cache?: BangumiCache; cacheUrl?: string }) {
     total.value = cached.total;
   }
 
+  let loadSeq = 0;
+
   async function load() {
+    const seq = ++loadSeq;
     loading.value = true;
     error.value = null;
 
@@ -101,11 +109,14 @@ export function useBangumi(props: { cache?: BangumiCache; cacheUrl?: string }) {
 
     try {
       const result = await fetchCollections(selected.value, page.value);
+      if (seq !== loadSeq) return;
       data.value = result.data;
       total.value = result.total;
       useCache.value = false;
     } catch (e) {
+      if (seq !== loadSeq) return;
       const cache = await resolveCache();
+      if (seq !== loadSeq) return;
       if (hasBangumiCache(cache)) {
         applyCachedPage(cache);
         useCache.value = true;
@@ -114,7 +125,9 @@ export function useBangumi(props: { cache?: BangumiCache; cacheUrl?: string }) {
         useCache.value = false;
       }
     } finally {
-      loading.value = false;
+      if (seq === loadSeq) {
+        loading.value = false;
+      }
     }
   }
 

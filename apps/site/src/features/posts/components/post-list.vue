@@ -51,15 +51,17 @@ const years = computed<PostYearViewModel[]>(() =>
   <div>
     <div v-for="year in years" :key="year.year" class="mb-8">
       <div class="text-2xl font-bold">{{ year.year }}</div>
-      <div>
-        <a
+      <ul class="m-0 p-0 list-none">
+        <li
           v-for="post in year.posts"
           :key="post.key"
-          :href="post.href"
-          :target="post.target"
-          class="no-underline relative"
-          ><li
-            class="flex flex-col sm:flex-row gap-2 py-2 px-8 my-2 mx--8 list-none cursor-pointer"
+          class="my-2 mx--8 list-none"
+        >
+          <a
+            :href="post.href"
+            :target="post.target"
+            :rel="post.isExternal ? 'noopener noreferrer' : undefined"
+            class="flex flex-col sm:flex-row gap-2 py-2 px-8 no-underline relative cursor-pointer"
           >
             <div
               class="flex transition-all duration-300 text-[1.1rem] text-true-gray-800 dark:text-true-gray-200 hover:text-warm-gray-900 dark:hover:text-warm-gray-50"
@@ -79,9 +81,9 @@ const years = computed<PostYearViewModel[]>(() =>
                 笔记
               </div>
             </div>
-          </li>
-        </a>
-      </div>
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
 </template>

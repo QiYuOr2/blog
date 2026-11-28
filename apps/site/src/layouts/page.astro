@@ -15,7 +15,7 @@ import utc from 'dayjs/plugin/utc'
 dayjs.extend(utc)
 dayjs.extend(timezone)
 
-const { title = '@柒宇', description, tags = [], post = false } = Astro.props
+const { title = '@柒宇', description, tags = [], post = false, ogType = 'website' } = Astro.props
 const { pathname } = Astro.url
 
 const buildTime = dayjs(Number(__BUILD_TIME__))
@@ -28,7 +28,7 @@ const buildTime = dayjs(Number(__BUILD_TIME__))
     <meta charset="utf-8">
     <title>{title}</title>
 
-    <Head title={title} description={description} keywords={tags.join(',')} />
+    <Head title={title} description={description} keywords={tags.join(',')} ogType={ogType} />
 
     <link rel="sitemap" href="/sitemap-index.xml" />
   </head>

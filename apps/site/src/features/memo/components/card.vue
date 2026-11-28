@@ -1,8 +1,15 @@
 <script setup lang="ts">
 import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
 import "dayjs/locale/zh-cn";
+import type { MemoLink as SchemaMemoLink } from "../schema";
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
 dayjs.locale("zh-cn");
-type MemoLink = string | { href: string; title: string; cover?: string; description?: string };
+
+type MemoLink = string | NonNullable<SchemaMemoLink>;
 interface MemoCardProps {
   type: string;
   timestamp: string | number;
@@ -13,7 +20,7 @@ interface MemoCardProps {
   className?: string;
 }
 const props = defineProps<MemoCardProps>();
-const displayTime = dayjs(props.create_at).format("YYYY 年 MM 月 DD 日 dddd");
+const displayTime = dayjs(props.create_at).tz("Asia/Shanghai").format("YYYY 年 MM 月 DD 日 dddd");
 const icon =
   "ml-2 cursor-pointer hover:(text-dark scale-180 transition-all dark:text-light) duration-150";
 </script>
@@ -39,7 +46,7 @@ const icon =
         class="inline-block bg-[var(--un-prose-bg-soft)] text-[var(--un-prose-body)] dark:(bg-[var(--un-prose-invert-bg-soft)] text-[var(--un-prose-invert-body)]) px-3.5 py-3 ml-4 my-2 rounded-2xl"
       >
         <div v-if="Array.isArray(content)">
-          <p v-for="item in content" :key="item" class="mt-0 mb-[0.5em] last:mb-0">{{ item }}</p>
+          <p v-for="(item, index) in content" :key="index" class="mt-0 mb-[0.5em] last:mb-0">{{ item }}</p>
         </div>
         <div v-else>{{ content }}</div>
         <template v-if="link">

@@ -3,9 +3,10 @@ import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc.js";
 import timezone from "dayjs/plugin/timezone.js";
 import { parseArgs } from "../lib/args.mjs";
+import { mapLimit, sleep } from "../lib/async.mjs";
 import { loadRepoEnv } from "../lib/env.mjs";
 import { info, task } from "../lib/log.mjs";
-import { writeJson } from "../lib/json.mjs";
+import { writeJsonIfChanged } from "../lib/json.mjs";
 import {
   applyCategoryOverrides,
   applyTitleOverrides,
@@ -19,11 +20,41 @@ dayjs.extend(timezone);
 
 const SKILL_VERSION = "1.0.6";
 const WEREAD_API_URL = "https://i.weread.qq.com/api/agent/gateway";
-const MODES = ["weekly", "monthly", "annually", "overall"];
 /** 微信读书按 Asia/Shanghai（UTC+8，无夏令时）划分“今天/当月”。 */
 const SHANGHAI_TZ = "Asia/Shanghai";
 /** 热力图的日级数据窗口（月）。 */
 const DAILY_WINDOW_MONTHS = 6;
+const REQUEST_TIMEOUT_MS = 30_000;
+const MAX_RETRIES = 2;
+const RETRY_DELAY_MS = 500;
+const CONCURRENCY = 4;
+
+/** 仅保留页面消费所需的书架书籍字段，剔除 intro/price 等大段冗余属性。 */
+export function slimShelfBook(book) {
+  return {
+    ...(book.bookId ? { bookId: book.bookId } : {}),
+    ...(book.title ? { title: book.title } : {}),
+    ...(book.author ? { author: book.author } : {}),
+    ...(book.category ? { category: book.category } : {}),
+    ...(book.cover ? { cover: book.cover } : {}),
+    ...(book.deepLink ? { deepLink: book.deepLink } : {}),
+    ...(book.finishReading != null ? { finishReading: book.finishReading } : {}),
+  };
+}
+
+/** 仅保留页面消费所需的进度字段，剔除每日波动的同步元信息。 */
+export function slimProgressEntry(entry) {
+  if (!entry || typeof entry !== "object") return {};
+  return {
+    ...(entry.progress != null ? { progress: entry.progress } : {}),
+    ...(entry.readingTime != null ? { readingTime: entry.readingTime } : {}),
+    ...(entry.readTime != null ? { readTime: entry.readTime } : {}),
+    ...(entry.recordReadingTime != null
+      ? { recordReadingTime: entry.recordReadingTime }
+      : {}),
+    ...(entry.finishTime != null ? { finishTime: entry.finishTime } : {}),
+  };
+}
 
 async function postApi(body) {
   const apiKey = process.env.WEREAD_API_KEY;
@@ -33,31 +64,75 @@ async function postApi(body) {
     );
   }
 
-  const res = await fetch(WEREAD_API_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${apiKey}`,
-    },
-    body: JSON.stringify(body),
-  });
+  let lastError;
+  for (let attempt = 0; attempt <= MAX_RETRIES; attempt += 1) {
+    try {
+      const res = await fetch(WEREAD_API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${apiKey}`,
+        },
+        body: JSON.stringify(body),
+        signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+      });
 
-  const json = await res.json();
-  if (!res.ok || (json.errcode && json.errcode !== 0)) {
-    throw new Error(
-      `微信读书接口请求失败，api=${body.api_name}, 错误：${json.errmsg || JSON.stringify(json)}`,
-    );
+      const rawText = typeof res.text === "function" ? await res.text() : null;
+      let json;
+      if (rawText !== null) {
+        try {
+          json = JSON.parse(rawText);
+        } catch {
+          if ((res.status === 429 || res.status >= 500) && attempt < MAX_RETRIES) {
+            await sleep(RETRY_DELAY_MS * (attempt + 1));
+            continue;
+          }
+          throw new Error(
+            `微信读书接口返回非 JSON 响应，api=${body.api_name}, status=${res.status}`,
+          );
+        }
+      } else {
+        json = await res.json();
+      }
+
+      if ((res.status === 429 || res.status >= 500) && attempt < MAX_RETRIES) {
+        await sleep(RETRY_DELAY_MS * (attempt + 1));
+        continue;
+      }
+
+      if (!res.ok || (json.errcode && json.errcode !== 0)) {
+        throw new Error(
+          `微信读书接口请求失败，api=${body.api_name}, status=${res.status}, 错误：${json.errmsg || JSON.stringify(json)}`,
+        );
+      }
+
+      return json;
+    } catch (err) {
+      lastError = err;
+      const isRetryable =
+        err?.name === "TimeoutError" ||
+        err?.name === "AbortError" ||
+        err?.name === "TypeError";
+      if (isRetryable && attempt < MAX_RETRIES) {
+        await sleep(RETRY_DELAY_MS * (attempt + 1));
+        continue;
+      }
+      throw err;
+    }
   }
 
-  return json;
+  throw lastError;
 }
 
-async function fetchMode(mode) {
-  return postApi({
+async function fetchOverallMode() {
+  const data = await postApi({
     api_name: "/readdata/detail",
-    mode,
+    mode: "overall",
     skill_version: SKILL_VERSION,
   });
+  return {
+    ...(data.totalReadTime != null ? { totalReadTime: data.totalReadTime } : {}),
+  };
 }
 
 /**
@@ -70,10 +145,11 @@ async function fetchDailyReadTimes() {
   const monthBuckets = {};
   // 以上海“今天”为基准，避免抓取月份随构建/机器时区漂移。
   const today = dayjs().tz(SHANGHAI_TZ);
+  const months = Array.from({ length: DAILY_WINDOW_MONTHS }, (_, index) =>
+    today.subtract(DAILY_WINDOW_MONTHS - 1 - index, "month").startOf("month"),
+  );
 
-  for (let i = DAILY_WINDOW_MONTHS - 1; i >= 0; i -= 1) {
-    // 上海当月 1 日 00:00，供 /readdata/detail 归一化到该月（monthStart.unix() 即该时刻的 UTC 秒）。
-    const monthStart = today.subtract(i, "month").startOf("month");
+  const buckets = await mapLimit(months, CONCURRENCY, async (monthStart) => {
     const done = task(`Fetching daily read times for ${monthStart.format("YYYY-MM")}`);
     const data = await postApi({
       api_name: "/readdata/detail",
@@ -81,8 +157,13 @@ async function fetchDailyReadTimes() {
       baseTime: monthStart.unix(),
       skill_version: SKILL_VERSION,
     });
-    Object.assign(monthBuckets, data.readTimes ?? {});
-    done(`${Object.keys(data.readTimes ?? {}).length} days`);
+    const readTimes = data.readTimes ?? {};
+    done(`${Object.keys(readTimes).length} days`);
+    return readTimes;
+  });
+
+  for (const readTimes of buckets) {
+    Object.assign(monthBuckets, readTimes);
   }
 
   return monthBuckets;
@@ -145,14 +226,15 @@ async function fetchNotebooks() {
 async function fetchHighlights(shelfBooks, titleOverrides) {
   const shelfById = new Map(shelfBooks.map((book) => [book.bookId, book]));
   const notebooks = await fetchNotebooks();
-  const highlights = [];
 
-  for (const notebook of notebooks) {
+  const targets = notebooks.filter((notebook) => {
     const bookId = notebook?.bookId;
-    if (!bookId || !(notebook.noteCount > 0)) continue;
-    // CB_ 前缀是用户自己导入的书（书架数据里无 isbn / 出版时间可对照确认），
-    // 书摘不收录这类书，只保留微信读书书城的正式书籍。
-    if (bookId.startsWith("CB_")) continue;
+    // CB_ 前缀是用户自己导入的书，书摘不收录这类书，只保留微信读书书城的正式书籍。
+    return Boolean(bookId && notebook.noteCount > 0 && !bookId.startsWith("CB_"));
+  });
+
+  const perBookHighlights = await mapLimit(targets, CONCURRENCY, async (notebook) => {
+    const bookId = notebook.bookId;
     const done = task(`Fetching highlights for bookId=${bookId}`);
     const data = await postApi({
       api_name: "/book/bookmarklist",
@@ -167,30 +249,33 @@ async function fetchHighlights(shelfBooks, titleOverrides) {
     );
     const shelfBook = shelfById.get(bookId) ?? {};
     const apiBook = data.book ?? notebook.book ?? {};
+    const title = titleOverrides[bookId] ?? shelfBook.title ?? apiBook.title;
+    const author = shelfBook.author ?? apiBook.author;
+    const cover = shelfBook.cover ?? apiBook.cover;
     const book = {
       bookId,
-      title: titleOverrides[bookId] ?? shelfBook.title ?? apiBook.title,
-      author: shelfBook.author ?? apiBook.author,
-      cover: shelfBook.cover ?? apiBook.cover,
+      ...(title ? { title } : {}),
+      ...(author ? { author } : {}),
+      ...(cover ? { cover } : {}),
     };
+    const items = [];
     for (const item of Array.isArray(data.updated) ? data.updated : []) {
       if (!item?.bookmarkId || !item?.markText) continue;
-      highlights.push({
+      const chapterTitle = chapterTitleByUid.get(item.chapterUid);
+      items.push({
         bookmarkId: item.bookmarkId,
         bookId,
-        chapterUid: item.chapterUid,
-        chapterTitle: chapterTitleByUid.get(item.chapterUid),
+        ...(chapterTitle ? { chapterTitle } : {}),
         markText: item.markText,
-        createTime: item.createTime,
-        range: item.range,
-        colorStyle: item.colorStyle,
+        ...(item.createTime != null ? { createTime: item.createTime } : {}),
         book,
       });
     }
-    done(`${Array.isArray(data.updated) ? data.updated.length : 0} highlights`);
-  }
+    done(`${items.length} highlights`);
+    return items;
+  });
 
-  return highlights;
+  return perBookHighlights.flat();
 }
 
 async function run(argv) {
@@ -207,64 +292,69 @@ async function run(argv) {
     overrideTableFile("weread", "title-overrides.json"),
   );
 
-  const result = {
-    updatedAt: new Date().toISOString(),
-    modes: {},
-    shelf: {},
-    progressMap: {},
-    readTimesByDay: {},
-    highlights: [],
-  };
-
-  for (const mode of MODES) {
-    const done = task(`Fetching WeRead data for mode=${mode}`);
-    result.modes[mode] = await fetchMode(mode);
-    done();
-  }
+  const doneOverall = task("Fetching WeRead overall summary");
+  const overallMode = await fetchOverallMode();
+  doneOverall();
 
   const doneShelf = task("Fetching shelf data");
   const shelfData = await fetchShelf();
   doneShelf();
 
-  const books = Array.isArray(shelfData.books) ? shelfData.books : [];
-  const enrichedBooks = [];
-  for (const book of books) {
-    if (!book?.bookId) continue;
+  const rawBooks = (Array.isArray(shelfData.books) ? shelfData.books : []).filter(
+    (book) => Boolean(book?.bookId),
+  );
+  const enrichedBooks = await mapLimit(rawBooks, CONCURRENCY, async (book) => {
     const done = task(`Fetching book info for bookId=${book.bookId}`);
     const bookInfo = await fetchBookInfo(book.bookId);
     const bookDetail = bookInfo.book ?? bookInfo;
-    enrichedBooks.push({ ...book, ...bookDetail });
     done();
-  }
+    return { ...book, ...bookDetail };
+  });
 
   applyCategoryOverrides(enrichedBooks, categoryOverrides);
+  const slimBooks = enrichedBooks.map(slimShelfBook);
 
-  result.shelf = {
-    ...shelfData,
-    books: enrichedBooks,
-  };
-
-  for (const book of enrichedBooks) {
-    if (!book?.bookId) continue;
+  const progressEntries = await mapLimit(slimBooks, CONCURRENCY, async (book) => {
     const done = task(`Fetching progress for bookId=${book.bookId}`);
     const bookProgress = await fetchBookProgress(book.bookId);
-    result.progressMap[book.bookId] = bookProgress.book ?? bookProgress;
     done();
-  }
+    return [book.bookId, slimProgressEntry(bookProgress.book ?? bookProgress)];
+  });
+  const progressMap = Object.fromEntries(progressEntries);
 
   info(`Fetching daily read times for the past ${DAILY_WINDOW_MONTHS} months`);
-  result.readTimesByDay = await fetchDailyReadTimes();
+  const readTimesByDay = await fetchDailyReadTimes();
+
+  const result = {
+    updatedAt: new Date().toISOString(),
+    modes: {
+      weekly: {},
+      monthly: {},
+      annually: {},
+      overall: overallMode,
+    },
+    shelf: {
+      books: slimBooks,
+    },
+    progressMap,
+    readTimesByDay,
+    highlights: [],
+  };
 
   applyTitleOverrides(result, titleOverrides);
 
   // 划线在覆盖表生效后再拉：fetchHighlights 内部按 bookId 手工套用 title 覆盖，
   // 避免把 highlights 放进 result 后被递归覆盖在条目顶层多写一个 title 字段。
   info("Fetching highlights (bookmarks) for all noted books");
-  result.highlights = await fetchHighlights(enrichedBooks, titleOverrides);
+  result.highlights = await fetchHighlights(result.shelf.books, titleOverrides);
   info(`Fetched ${result.highlights.length} highlights`);
 
-  await writeJson(outputFile, result);
-  info(`Saved WeRead data to ${repoRelative(outputFile)}`);
+  const { written } = await writeJsonIfChanged(outputFile, result);
+  if (written) {
+    info(`Saved WeRead data to ${repoRelative(outputFile)}`);
+  } else {
+    info(`WeRead data unchanged, skipped writing ${repoRelative(outputFile)}`);
+  }
 }
 
 export default {

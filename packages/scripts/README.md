@@ -22,12 +22,13 @@ packages/scripts/
 │       ├── log.mjs          # info / warn / error / task
 │       ├── overrides.mjs    # 覆盖表的读取与应用
 │       └── paths.mjs        # monorepo 根目录、content 子目录、产物路径
-└── overrides/               # 手工维护的数据覆盖表（按数据源分目录）
-    └── weread/
-        ├── category-overrides.json
-        ├── title-overrides.json
-        └── series-overrides.json
+└── test/                    # 单元测试（node --test）
 ```
+
+手工维护的数据覆盖表归口在 `packages/config/overrides/weread/`（供同步脚本与 `apps/site` 共用）：
+- `category-overrides.json`
+- `title-overrides.json`
+- `series-overrides.json`
 
 ## 命令
 

@@ -4,17 +4,19 @@ export enum Mode {
   Dark = "dark",
 }
 
-const storgeKey = import.meta.env.PUBLIC_COLOR_MODE;
+const storageKey = import.meta.env.PUBLIC_COLOR_MODE || "@qiyuor2/color-mode";
 
 type ModeChangeEvent = (mode: Mode.Dark | Mode.Light) => void;
 
 function readStoredMode(): Mode {
-  const value = globalThis.localStorage?.getItem?.(storgeKey);
+  if (typeof window === "undefined") return Mode.System;
+  const value = window.localStorage?.getItem?.(storageKey);
   if (value === Mode.Light || value === Mode.Dark || value === Mode.System) return value;
   return Mode.System;
 }
 
 const events: Set<ModeChangeEvent> = new Set();
+
 export function colorModeEffect() {
   function appendToDocument(value: Mode, save = true) {
     if (!globalThis?.document) {
@@ -23,28 +25,35 @@ export function colorModeEffect() {
 
     document.documentElement.classList.remove("light", "dark");
 
-    save && localStorage.setItem(storgeKey, value);
-    if (value === Mode.System) {
-      const media = globalThis.matchMedia("(prefers-color-scheme: dark)");
-      value = media.matches ? Mode.Dark : Mode.Light;
+    if (save) {
+      localStorage.setItem(storageKey, value);
     }
 
-    document.documentElement.classList.add(value);
-    document.documentElement.style.colorScheme = value;
-    events.forEach((event) => event(value as Mode.Dark | Mode.Light));
+    const resolved: Mode.Dark | Mode.Light =
+      value === Mode.System
+        ? globalThis.matchMedia("(prefers-color-scheme: dark)").matches
+          ? Mode.Dark
+          : Mode.Light
+        : value;
+
+    document.documentElement.classList.add(resolved);
+    document.documentElement.style.colorScheme = resolved;
+    events.forEach((event) => event(resolved));
   }
 
-  function onFollowSystem() {
+  function onFollowSystem(): () => void {
     if (!globalThis?.matchMedia) {
-      return;
+      return () => {};
     }
 
     const media = globalThis.matchMedia("(prefers-color-scheme: dark)");
-    media.addEventListener("change", () => {
-      if (localStorage.getItem(storgeKey) === Mode.System) {
+    const handleChange = () => {
+      if (readStoredMode() === Mode.System) {
         appendToDocument(media.matches ? Mode.Dark : Mode.Light, false);
       }
-    });
+    };
+    media.addEventListener("change", handleChange);
+    return () => media.removeEventListener("change", handleChange);
   }
 
   const initial = readStoredMode();
@@ -53,7 +62,7 @@ export function colorModeEffect() {
     events.add(action);
   }
 
-  function removeEventLister(action: ModeChangeEvent) {
+  function removeEventListener(action: ModeChangeEvent) {
     events.delete(action);
   }
 
@@ -70,7 +79,7 @@ export function colorModeEffect() {
     appendToDocument,
     onFollowSystem,
     addEventListener,
-    removeEventLister,
+    removeEventListener,
     getCurrentMode,
   };
 }

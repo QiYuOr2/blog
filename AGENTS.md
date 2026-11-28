@@ -13,8 +13,8 @@
 
 - `apps/site` — 主站点（Astro 页面/布局 + Vue 交互组件）。
 - `apps/cli` — `tabi` 命令行：`tabi post <title>` 新建文章、`tabi memo <content>` 新建碎碎念。
-- `packages/config` — 共享路径常量（`POSTS_DIR` / `MEMOS_DIR` / `WEREAD_DIR`）。
-- `packages/scripts` — 数据脚本：CLI 入口 `src/cli.mjs`，命令在 `src/commands/`，共用工具在 `src/lib/`，手工覆盖表在 `overrides/`；结构与用法见 `packages/scripts/README.md`。
+- `packages/config` — 共享路径常量（`POSTS_DIR` / `MEMOS_DIR` / `WEREAD_DIR` / `BANGUMI_DIR`）及手工覆盖表（`overrides/`）。
+- `packages/scripts` — 数据脚本：CLI 入口 `src/cli.mjs`，命令在 `src/commands/`，共用工具在 `src/lib/`；结构与用法见 `packages/scripts/README.md`。
 - `packages/plugins` — remark 插件：`remark-reading-time`、`remark-image`、`remark-mermaid`。
 - `packages/utils` — 通用工具（如 `findMonorepoRoot`）。
 - `content/` — 内容数据：`posts/`（md/mdx）、`memos/`（yaml）、`weread/`（json）。
@@ -27,7 +27,8 @@
 - `pnpm weread:sync` — 拉取微信读书数据。
 - `pnpm bangumi:sync` — 拉取 Bangumi 动画收藏。
 - `pnpm summary:gen` — 为文章生成 AI 摘要（详见下文）。
-- `pnpm test` — 跑 `packages/scripts` 的单元测试（Node 内置 runner，无额外依赖）。
+- `pnpm test` — 跑 `packages/scripts` 与 `apps/site` 的单元测试（Node 内置 runner，无额外依赖）。
+- `pnpm typecheck` — 跑 `astro check` 与 `@tabi/cli` 类型检查。
 - 构建产物在 `apps/site/dist`。
 
 ## 内容模型
@@ -39,7 +40,7 @@
 - `remark-reading-time` 会在构建期往 `remarkPluginFrontmatter.minutesRead` 注入阅读时长。
 - 文章正文里的图片由 `remark-image` 处理，mermaid 图表由 `remark-mermaid` 处理。
 - 微信读书数据（`content/weread/weread.json`）由 `packages/scripts/src/commands/fetch-weread.mjs` 生成后每日自动提交，手工改 JSON 会被下次同步覆盖。产物含 `highlights`（全部划线书摘，来自 `/user/notebooks` + `/book/bookmarklist`，只收划线不含想法/书签，且不收 `CB_` 前缀的用户导入书籍）：读书页在热力图与书架之间展示随机书摘卡片，点击跳 `/weread/highlights#<bookmarkId>` 定位到对应书摘。
-- 需要修正书籍分类或书名时改覆盖表（按 `bookId` 命中）：`packages/scripts/overrides/weread/category-overrides.json` 覆盖 `category`（只作用于书架），`packages/scripts/overrides/weread/title-overrides.json` 覆盖 `title`（作用于含书架在内的所有书籍对象）。
+- 需要修正书籍分类、书名或系列时改覆盖表（按 `bookId` 命中）：`packages/config/overrides/weread/category-overrides.json` 覆盖 `category`（只作用于书架），`packages/config/overrides/weread/title-overrides.json` 覆盖 `title`（作用于含书架在内的所有书籍对象），`packages/config/overrides/weread/series-overrides.json` 控制读书页系列折叠。
 
 ## 样式约定（重要，非标准写法）
 
@@ -64,11 +65,11 @@
 ## 环境变量 / 密钥
 
 - `apps/site/.env`（已提交，只有 `PUBLIC_BASE_URL`、`PUBLIC_COLOR_MODE`）和 `apps/site/.env.development`。
-- `.gitignore` 只忽略 `.env.local`、`.env.*.local`；**根目录 `.env` 不会被忽略**，别把密钥放进去。
-- 脚本要读的密钥建议放根目录 `.env.local`（已被 gitignore）；模板见 `.env.example`。
+- `.gitignore` 已忽略根目录 `.env`、`.env.local`、`.env.*.local`，同时保留了 `apps/site/.env` 与 `apps/site/.env.development`。
+- 脚本要读的密钥放根目录 `.env.local`（已被 gitignore）；模板见 `.env.example`。
 
 ## 已知坑 / 约定
 
 - `generate-summaries` 用 gray-matter 回写会规范化 frontmatter：`date`/`pubDate` 加引号、`tags` 由行内数组变列表、长 `description` 折叠成 `>-` 块。值不变，但提交前要看一眼 diff。
 - 交互部分用 Vue 组件（`comments.vue`、`post-list.vue`、`toc.vue`、memo/weread 卡片等）；静态页面/布局用 Astro。
-- `[...slug].astro` 里的 `<style lang="less">`（`.action` / `.medium-zoom-image--opened`）是历史遗留；新样式优先用 UnoCSS，不要再引入 Less。
+- 新样式统一使用 UnoCSS，项目不再依赖 Less。

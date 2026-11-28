@@ -1,5 +1,10 @@
 {
   "name": "@tabi/config",
+  "type": "module",
+  "exports": {
+    "./paths": "./paths.ts",
+    "./overrides/weread/series-overrides.json": "./overrides/weread/series-overrides.json"
+  },
   "dependencies": {
     "@tabi/utils": "workspace:^"
   }

@@ -7,8 +7,6 @@ const props = withDefaults(
     topBadge?: string;
     /** 紧跟在 topBadge 下方的一枚徽标（阅读进度）。 */
     bottomBadge?: string;
-    /** 封面底部的阅读进度条（0–100）；未传或传 0 时不画。 */
-    progress?: number;
     /** 有 deepLink 时点击跳转。 */
     href?: string;
     /**
@@ -17,7 +15,7 @@ const props = withDefaults(
      */
     interactive?: boolean;
   }>(),
-  { progress: 0, interactive: true },
+  { interactive: true },
 );
 
 /**

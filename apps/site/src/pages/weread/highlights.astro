@@ -1,16 +1,12 @@
 ---
-import { createHash } from "node:crypto";
 import PageLayout from "@/layouts/page.astro";
 import HighlightsList from "@/features/weread/components/highlights-list.vue";
 import { getCollection } from "astro:content";
-import { getWereadStaticData, getHighlights } from "@/features/weread/model.ts";
+import { getWereadStaticData } from "@/features/weread/model.ts";
+import { buildHighlightsUrl } from "@/features/weread/highlights-url.ts";
 
-const highlights = getHighlights(getWereadStaticData(await getCollection("weread")));
-const highlightsVersion = createHash("sha1")
-  .update(JSON.stringify(highlights))
-  .digest("hex")
-  .slice(0, 8);
-const highlightsUrl = `/data/weread-highlights.json?v=${highlightsVersion}`;
+const wereadData = getWereadStaticData(await getCollection("weread"));
+const { url: highlightsUrl, count } = buildHighlightsUrl(wereadData);
 ---
 
 <PageLayout title="全部书摘 | @柒宇" description="微信读书的全部划线书摘" post>
@@ -19,6 +15,6 @@ const highlightsUrl = `/data/weread-highlights.json?v=${highlightsVersion}`;
       <h2 class="my-0! text-xl font-semibold">全部书摘</h2>
       <a href="/weread" class="text-sm">← 返回读书</a>
     </div>
-    <HighlightsList highlightsUrl={highlightsUrl} totalCount={highlights.length} client:load />
+    <HighlightsList highlightsUrl={highlightsUrl} totalCount={count} client:load />
   </article>
 </PageLayout>

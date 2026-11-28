@@ -18,14 +18,6 @@ export default defineConfig({
       time: "font-normal text-[0.8rem] leading-normal text-warm-gray-400 text-opacity-80",
     },
     {
-      "parallax-card":
-        "[transform:rotateX(calc(var(--parallax-rotateX)_*_1deg))_rotateY(calc(var(--parallax-rotateY)_*_1deg))]",
-    },
-    {
-      "parallax-items":
-        "[transform:translate3d(calc(var(--parallax-offset)_*_var(--parallax-rotateY)_/_var(--max-rotate)_*_1%),calc(var(--parallax-offset)_*_var(--parallax-rotateX)_/_var(--max-rotate)_*_-1%),0)]",
-    },
-    {
       skeleton: "bg-stone-200 dark:bg-true-gray-700 rounded animate-pulse",
     },
     {
@@ -41,7 +33,6 @@ export default defineConfig({
           "radial-gradient(19px at 0%, var(--un-gradient-from) 100%, var(--un-gradient-to) 100%)",
       },
     ],
-    ["animate-fade-in", { animation: "fadeIn 0.5s ease-in-out" }],
   ],
   presets: [
     presetAttributify(),

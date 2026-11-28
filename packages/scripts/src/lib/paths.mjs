@@ -37,8 +37,8 @@ export const bangumiDir = path.join(contentDir, "bangumi");
 export const wereadDataFile = path.join(wereadDir, "weread.json");
 export const bangumiDataFile = path.join(bangumiDir, "bangumi.json");
 
-/** 手工维护的覆盖表根目录。 */
-export const overridesDir = path.join(scriptsRoot, "overrides");
+/** 手工维护的覆盖表根目录（统一归口在 @tabi/config，供脚本与站点共用）。 */
+export const overridesDir = path.join(repoRoot, "packages", "config", "overrides");
 
 /**
  * 日志里用的仓库相对路径（统一用正斜杠，跨平台输出稳定）。

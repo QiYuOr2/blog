@@ -1,51 +1,90 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { onBeforeUnmount, onMounted, ref } from "vue";
 import { colorModeEffect, Mode } from "@/features/theme/color-mode";
 
 const modes = [
-  { icon: "i-mingcute:sun-line", mode: Mode.Light },
-  { icon: "i-mingcute:computer-line", mode: Mode.System },
-  { icon: "i-mingcute:moon-line", mode: Mode.Dark },
+  { icon: "i-mingcute:sun-line", mode: Mode.Light, label: "浅色模式" },
+  { icon: "i-mingcute:computer-line", mode: Mode.System, label: "跟随系统" },
+  { icon: "i-mingcute:moon-line", mode: Mode.Dark, label: "深色模式" },
 ];
 const colorMode = colorModeEffect();
-colorMode.onFollowSystem();
 const wrapper = ref<HTMLDivElement>();
 const buttons = ref<HTMLButtonElement[]>([]);
-const mode = ref(colorMode.initial);
+const mode = ref<Mode>(Mode.System);
 const active = ref(false);
 const sliderX = ref(4);
 
-let timeLock = false;
+let stopFollowSystem: (() => void) | null = null;
+
+function syncSlider(targetMode: Mode = mode.value) {
+  const index = modes.findIndex((item) => item.mode === targetMode);
+  const button = buttons.value[index];
+  if (button?.parentElement) {
+    sliderX.value =
+      button.getBoundingClientRect().left - button.parentElement.getBoundingClientRect().left;
+  }
+}
 
 function setActive(value: boolean) {
   if (active.value === value) return;
-
-  const button = buttons.value[modes.findIndex((item) => item.mode === mode.value)];
-
-  if (button?.parentElement)
-    sliderX.value =
-      button.getBoundingClientRect().left - button.parentElement.getBoundingClientRect().left;
-
-  timeLock = true;
-  setTimeout(() => (timeLock = false), 200);
+  if (value) syncSlider();
   active.value = value;
 }
 
+function onPointerEnter(event: PointerEvent) {
+  if (event.pointerType === "mouse") {
+    setActive(true);
+  }
+}
+
+function onPointerLeave(event: PointerEvent) {
+  if (event.pointerType === "mouse") {
+    setActive(false);
+  }
+}
+
 function select(index: number, target: Mode) {
-  if (timeLock || !wrapper.value) return;
+  if (!active.value) {
+    setActive(true);
+    return;
+  }
 
   const button = buttons.value[index];
-  sliderX.value = button.getBoundingClientRect().left - wrapper.value.getBoundingClientRect().left;
+  if (button && wrapper.value) {
+    sliderX.value = button.getBoundingClientRect().left - wrapper.value.getBoundingClientRect().left;
+  }
   mode.value = target;
   colorMode.appendToDocument(target);
 }
+
+function onDocumentClick(event: MouseEvent) {
+  if (active.value && wrapper.value && !wrapper.value.contains(event.target as Node)) {
+    active.value = false;
+  }
+}
+
+onMounted(() => {
+  mode.value = colorMode.initial;
+  syncSlider(mode.value);
+  stopFollowSystem = colorMode.onFollowSystem();
+  document.addEventListener("click", onDocumentClick);
+});
+
+onBeforeUnmount(() => {
+  stopFollowSystem?.();
+  stopFollowSystem = null;
+  document.removeEventListener("click", onDocumentClick);
+});
 </script>
 <template>
   <div
     ref="wrapper"
-    class="w-8 hover:w-23 overflow-hidden transition-x duration-200 transform-gpu rounded-full"
-    @mouseover="setActive(true)"
-    @mouseleave="setActive(false)"
+    :class="[
+      'overflow-hidden transition-x duration-200 transform-gpu rounded-full',
+      active ? 'w-23' : 'w-8 hover:w-23',
+    ]"
+    @pointerenter="onPointerEnter"
+    @pointerleave="onPointerLeave"
   >
     <div
       :class="[
@@ -55,7 +94,7 @@ function select(index: number, target: Mode) {
     >
       <div
         :class="[
-          'w-6 h-6 flex items-center justify-center bg-light-50 dark:(bg-dark text-light-50) rounded-full shadow absolute text-black z-99 translate-x duration-100',
+          'w-6 h-6 flex items-center justify-center bg-light-50 dark:(bg-dark text-light-50) rounded-full shadow absolute text-black z-99 translate-x duration-100 pointer-events-none',
           active ? 'left-$status-x' : 'left-1',
         ]"
         :style="{ '--status-x': `${sliderX}px` }"
@@ -70,6 +109,9 @@ function select(index: number, target: Mode) {
       <button
         v-for="(item, index) in modes"
         :key="item.mode"
+        type="button"
+        :aria-label="item.label"
+        :aria-pressed="item.mode === mode"
         :ref="
           (el) => {
             if (el) buttons[index] = el as HTMLButtonElement;

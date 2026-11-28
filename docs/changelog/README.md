@@ -43,6 +43,9 @@
 
 | 日期 | 范围 | 类型 | 摘要 | 记录 |
 | --- | --- | --- | --- | --- |
+| 2026-11-28 | 全仓工程与包边界 | 重构 | 覆盖表归口 `@tabi/config`，合并站点单测与 `typecheck`，加固 CLI，清理冗余依赖与死代码 | [2026-11-28-monorepo-boundaries-and-cleanup.md](./2026-11-28-monorepo-boundaries-and-cleanup.md) |
+| 2026-11-28 | `packages/scripts` & Sync CI | 优化 | Bangumi/WeRead 落盘字段裁剪、无变更跳过写入、WeRead 超时重试与并发、CI 按需装依赖 | [2026-11-28-sync-scripts-slim-and-diff-guard.md](./2026-11-28-sync-scripts-slim-and-diff-guard.md) |
+| 2026-11-28 | `apps/site` & `packages/plugins` | 修复 | 修复文章页 View Transitions 与按需 Mermaid、去 Less、主题水合、Memo 时区、Bangumi 竞态与书摘分页 | [2026-11-28-site-bugs-hydration-and-perf.md](./2026-11-28-site-bugs-hydration-and-perf.md) |
 | 2026-10-19 | `apps/site` 读书页书架 | 功能 | 同系列多册折叠成一张系列卡，原位展开分册；卡片改为语义化链接/按钮 | [2026-10-19-weread-series-collapse.md](./2026-10-19-weread-series-collapse.md) |
 | 2026-09-29 | `packages/scripts` | 重构 | 脚本改为 CLI + `commands/` + `lib/` + `overrides/` + `test/` 分层，行为等价并补单元测试 | [2026-09-29-scripts-directory-restructure.md](./2026-09-29-scripts-directory-restructure.md) |
 | 2026-09-28 | `apps/site` 读书页热力图 | 调整 | 摘要「N 天 · 时长 …」移到底栏、移除标题行，保留点击查看某天时长的交互 | [2026-09-28-heatmap-footer-summary.md](./2026-09-28-heatmap-footer-summary.md) |

@@ -28,14 +28,6 @@ export function shanghaiNow() {
 }
 
 /**
- * 计算“最近 N 个月”的窗口起点：当前月往前推 (N - 1) 个月的第 1 天（上海时区）。
- * 返回一个可比较的 dayjs。
- */
-export function recentWindowStart(months: number) {
-  return shanghaiNow().startOf("month").subtract(months - 1, "month");
-}
-
-/**
  * 把某天阅读秒数（displayMinutes 级别）映射为 0 - 4 档颜色等级。
  * 不足 1 分钟按 0 档（不上色），颜色随时间递增。
  */

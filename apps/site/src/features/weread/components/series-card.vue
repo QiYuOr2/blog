@@ -35,10 +35,6 @@ const countBadge = computed(() =>
     ? `${info.total} 册·共${info.expected}册`
     : `${info.total} 册`,
 );
-
-const progressPercent = computed(() =>
-  info.total > 0 ? Math.round((info.finished / info.total) * 100) : 0,
-);
 </script>
 
 <template>
@@ -54,7 +50,6 @@ const progressPercent = computed(() =>
       :name="info.name"
       :top-badge="durationBadge"
       :bottom-badge="countBadge"
-      :progress="progressPercent"
       :interactive="false"
     />
     <span class="sr-only">

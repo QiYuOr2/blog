@@ -5,7 +5,8 @@ import { colorModeEffect, Mode } from "@/features/theme/color-mode";
 
 const colorMode = colorModeEffect();
 const toGiscusTheme = (mode: Mode) => (mode === Mode.Dark ? "dark" : "light");
-const theme = ref(toGiscusTheme(colorMode.getCurrentMode()));
+// 与 SSR 初值保持一致，挂载后再同步客户端主题，避免暗色模式 Hydration Mismatch。
+const theme = ref<"light" | "dark">("light");
 
 const handleColorModeChange = (mode: Mode.Dark | Mode.Light) => {
   theme.value = toGiscusTheme(mode);
@@ -16,6 +17,7 @@ const loaded = ref(false);
 let observer: MutationObserver | null = null;
 
 onMounted(() => {
+  theme.value = toGiscusTheme(colorMode.getCurrentMode());
   colorMode.addEventListener(handleColorModeChange);
 
   if (!commentsContainer.value) return;
@@ -36,7 +38,7 @@ onMounted(() => {
 });
 
 onBeforeUnmount(() => {
-  colorMode.removeEventLister(handleColorModeChange);
+  colorMode.removeEventListener(handleColorModeChange);
   observer?.disconnect();
 });
 </script>

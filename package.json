@@ -9,7 +9,8 @@
     "weread:sync": "pnpm --filter @tabi/scripts fetch-weread",
     "bangumi:sync": "pnpm --filter @tabi/scripts fetch-bangumi",
     "summary:gen": "pnpm --filter @tabi/scripts generate-summaries",
-    "test": "pnpm --filter @tabi/scripts test"
+    "test": "pnpm --filter @tabi/scripts test && pnpm --filter @tabi/site test",
+    "typecheck": "pnpm --filter @tabi/site typecheck && pnpm --filter @tabi/cli exec tsc --noEmit"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",

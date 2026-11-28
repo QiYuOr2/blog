@@ -109,8 +109,8 @@ onBeforeUnmount(() => {
         <span class="i-mingcute:close-line" aria-hidden="true"></span>
       </button>
     </div>
+    <p class="mb-[0.2rem] toc__desktop-title">目录</p>
     <ul class="pl-0">
-      <p class="mb-[0.2rem] toc__desktop-title">目录</p>
       <li
         v-for="heading in headings"
         :key="heading.slug"
@@ -121,7 +121,7 @@ onBeforeUnmount(() => {
         ]"
       >
         <a
-          class="no-underline border-b border-warm-gary-400 transition-all duration-300 text-warm-gray-400 hover:(text-dark border-black) dark:border-warm-gray-500 dark:hover:(text-white border-white)"
+          class="no-underline border-b border-warm-gray-400 transition-all duration-300 text-warm-gray-400 hover:(text-dark border-black) dark:border-warm-gray-500 dark:hover:(text-white border-white)"
           :href="`#${heading.slug}`"
           @click="onLinkClick($event, heading.slug)"
         >

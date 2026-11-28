@@ -4,6 +4,14 @@ import { getCollection } from "astro:content";
 import { BASE_URL } from "@/constants";
 import { externalPosts, isExternalPost } from "@/externals";
 
+function escapeHtml(value: string) {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;");
+}
+
 export async function GET() {
   const posts = await getCollection("posts");
 
@@ -19,7 +27,7 @@ export async function GET() {
           ? {
               ...item.data,
               link: item.link,
-              content: `<a href="${item.link}">${item.data.title}</a>`,
+              content: `<a href="${escapeHtml(item.link)}">${escapeHtml(item.data.title)}</a>`,
             }
           : {
               ...item.data,

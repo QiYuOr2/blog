@@ -1,41 +1,41 @@
 ---
 import { ClientRouter } from "astro:transitions";
 
-const { title, description, keywords = '' } = Astro.props
-
+const { title, description, keywords = "", ogType = "website" } = Astro.props;
+const canonicalUrl = Astro.url.href;
+const metaKeywords = ["柒宇,blog,frontend,前端,博客", keywords].filter(Boolean).join(",");
+const colorModeKey = import.meta.env.PUBLIC_COLOR_MODE || "@qiyuor2/color-mode";
 ---
 
-<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="author" content="qiyuor2" />
-<meta name="description" content={description || '柒宇的个人博客'} />
-<meta name="keywords" content={'柒宇,blog,frontend,前端,博客' + `,${keywords}`} />
+<meta name="description" content={description || "柒宇的个人博客"} />
+<meta name="keywords" content={metaKeywords} />
+<link rel="canonical" href={canonicalUrl} />
 
-<meta property="og:title" content={title}>
-<meta property="og:description" content={description || '柒宇的个人博客'}>
-<meta property="og:url" content="https://blog.qiyuor2.me">
-<meta property="og:site_name" content="@柒宇">
-<meta property="og:image:alt" content="柒宇">
-<meta property="og:image:type" content="image/png">
-<meta property="og:image" content="https://avatars.githubusercontent.com/u/48339849">
-<meta property="og:image:width" content="454">
-<meta property="og:image:height" content="454">
-<meta property="og:type" content="website">
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description || "柒宇的个人博客"} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:site_name" content="@柒宇" />
+<meta property="og:image:alt" content="柒宇" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/48339849" />
+<meta property="og:image:width" content="454" />
+<meta property="og:image:height" content="454" />
+<meta property="og:type" content={ogType} />
 
-<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2136419557476214" crossorigin="anonymous"></script> -->
-
-<script is:inline>
+<script is:inline define:vars={{ colorModeKey }}>
   function applyTheme() {
-    let color = localStorage.getItem(/* import.meta.env.PUBLIC_COLOR_MODE */ '@qiyuor2/color-mode') ?? ''
-    if (!['dark', 'light'].includes(color)) {
-      const media = window.matchMedia('(prefers-color-scheme: dark)')
-      color = media.matches ? 'dark' : 'light'
+    let color = localStorage.getItem(colorModeKey) ?? "";
+    if (!["dark", "light"].includes(color)) {
+      const media = window.matchMedia("(prefers-color-scheme: dark)");
+      color = media.matches ? "dark" : "light";
     }
-    const root = document.documentElement
+    const root = document.documentElement;
     // 视图切换会保留上一个页面的 class，只 add 会让 dark 和 light 同时留在 html 上。
-    root.classList.remove('light', 'dark')
-    root.style.colorScheme = color
-    root.classList.add(color)
+    root.classList.remove("light", "dark");
+    root.style.colorScheme = color;
+    root.classList.add(color);
   }
 
   function backAction(event) {
@@ -43,32 +43,34 @@ const { title, description, keywords = '' } = Astro.props
     if (window.history.length > 1) {
       history.back();
     } else {
-      location.href = '/';
+      location.href = "/";
     }
   }
 
   function initBack() {
-    document.querySelectorAll('.back').forEach(back => {
-      back.removeEventListener('click', backAction)
-      back.addEventListener('click', backAction)
-    })
+    document.querySelectorAll(".back").forEach((back) => {
+      back.removeEventListener("click", backAction);
+      back.addEventListener("click", backAction);
+    });
   }
 
-  document.addEventListener('astro:page-load', applyTheme)
-  document.addEventListener('astro:page-load', initBack)
-  document.addEventListener('astro:after-swap', applyTheme)
+  if (!window.__tabiHeadListenersBound) {
+    window.__tabiHeadListenersBound = true;
+    document.addEventListener("astro:page-load", applyTheme);
+    document.addEventListener("astro:page-load", initBack);
+    document.addEventListener("astro:after-swap", applyTheme);
+  }
 
   // 首屏同步应用主题，避免初次加载时先浅色（白底）再切暗色造成闪白（FOUC）。
   applyTheme();
-
 </script>
 
 <script>
   import { initPageTransitions } from "@/lib/skeleton-navigation";
 
   // qiyuor2.github.io/blog/ 跳转 blog.qiyuor2.me/
-  if (location.hostname === 'qiyuor2.github.io') {
-    location.href = 'https://blog.qiyuor2.me' + location.pathname.replace(/^\/blog/, '')
+  if (location.hostname === "qiyuor2.github.io") {
+    location.href = "https://blog.qiyuor2.me" + location.pathname.replace(/^\/blog/, "");
   }
 
   initPageTransitions();
@@ -84,6 +86,3 @@ const { title, description, keywords = '' } = Astro.props
 <link rel="manifest" href="/site.webmanifest" />
 
 <ClientRouter fallback="swap" />
-
-<!-- <link href="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/style.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js"></script> -->

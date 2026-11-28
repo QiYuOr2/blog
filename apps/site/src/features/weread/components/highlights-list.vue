@@ -1,17 +1,20 @@
 <script setup lang="ts">
-import { computed, nextTick, onMounted, shallowRef } from "vue";
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, shallowRef, watch } from "vue";
 import type { WereadHighlight } from "../schema";
 import { dayjs, SHANGHAI_TZ } from "../date";
 import { getCachedHighlights, loadHighlights } from "../highlights-loader";
+
+const BATCH_SIZE = 80;
+const SEARCH_DEBOUNCE_MS = 150;
 
 const props = defineProps<{
   highlightsUrl: string;
   totalCount?: number;
 }>();
 
-const cached = getCachedHighlights(props.highlightsUrl);
-const highlights = shallowRef<WereadHighlight[]>(cached ?? []);
-const loading = shallowRef(!cached);
+// 与 SSR 保持一致的初始值，挂载后再同步读取内存缓存，避免客户端路由切入时发生 Hydration Mismatch。
+const highlights = shallowRef<WereadHighlight[]>([]);
+const loading = shallowRef(true);
 const loadError = shallowRef(false);
 
 type BookGroup = {
@@ -43,7 +46,22 @@ const groups = computed<BookGroup[]>(() => {
 });
 
 const selectedBookId = shallowRef<string | null>(null);
+const rawQuery = shallowRef("");
 const query = shallowRef("");
+const visibleLimit = shallowRef(BATCH_SIZE);
+const loadMoreSentinel = ref<HTMLElement | null>(null);
+
+let debounceTimer: ReturnType<typeof setTimeout> | undefined;
+watch(rawQuery, (val) => {
+  clearTimeout(debounceTimer);
+  debounceTimer = setTimeout(() => {
+    query.value = val;
+  }, SEARCH_DEBOUNCE_MS);
+});
+
+watch([selectedBookId, query], () => {
+  visibleLimit.value = BATCH_SIZE;
+});
 
 /** 书筛选 + 正文/书名/作者/章节的关键词搜索，两者叠加。 */
 const visibleGroups = computed<BookGroup[]>(() => {
@@ -69,11 +87,42 @@ const visibleGroups = computed<BookGroup[]>(() => {
   return result;
 });
 
-const isFiltering = computed(() => selectedBookId.value !== null || query.value.trim() !== "");
+const totalVisibleItems = computed(() =>
+  visibleGroups.value.reduce((sum, group) => sum + group.items.length, 0),
+);
+
+/** 分批截断渲染，避免一次性挂载近 2000 个 DOM 节点阻塞主线程。 */
+const displayedGroups = computed<BookGroup[]>(() => {
+  let remaining = visibleLimit.value;
+  const result: BookGroup[] = [];
+  for (const group of visibleGroups.value) {
+    if (remaining <= 0) break;
+    if (group.items.length <= remaining) {
+      result.push(group);
+      remaining -= group.items.length;
+    } else {
+      result.push({ ...group, items: group.items.slice(0, remaining) });
+      remaining = 0;
+    }
+  }
+  return result;
+});
+
+const hasMore = computed(() => visibleLimit.value < totalVisibleItems.value);
+
+function loadMore() {
+  if (hasMore.value) {
+    visibleLimit.value += BATCH_SIZE;
+  }
+}
+
+const isFiltering = computed(() => selectedBookId.value !== null || rawQuery.value.trim() !== "");
 
 function clearFilters() {
   selectedBookId.value = null;
+  rawQuery.value = "";
   query.value = "";
+  clearTimeout(debounceTimer);
 }
 
 /** 工具栏内的回到顶部（本页隐藏了全站 back-top，见文末样式）。 */
@@ -86,21 +135,62 @@ function formatDate(createTime?: number) {
   return dayjs.unix(createTime).tz(SHANGHAI_TZ).format("YYYY-MM-DD");
 }
 
-function scrollToHashTarget() {
+async function scrollToHashTarget() {
   const id = window.location.hash.replace(/^#/, "");
   if (!id) return;
+
+  // 若目标书摘在当前分页批次之后，先自动扩展上限确保 DOM 已渲染。
+  let index = 0;
+  let foundIndex = -1;
+  for (const group of visibleGroups.value) {
+    for (const item of group.items) {
+      if (item.bookmarkId === id) {
+        foundIndex = index;
+        break;
+      }
+      index += 1;
+    }
+    if (foundIndex !== -1) break;
+  }
+  if (foundIndex >= visibleLimit.value) {
+    visibleLimit.value = foundIndex + BATCH_SIZE;
+    await nextTick();
+  }
+
   const target = document.getElementById(id);
   if (!target) return;
   target.scrollIntoView({ block: "center" });
   target.classList.add("highlight-located");
 }
 
+let sentinelObserver: IntersectionObserver | null = null;
+
+function observeSentinel() {
+  sentinelObserver?.disconnect();
+  if (!loadMoreSentinel.value || typeof IntersectionObserver === "undefined") return;
+  sentinelObserver = new IntersectionObserver(
+    (entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) {
+        loadMore();
+      }
+    },
+    { rootMargin: "400px 0px" },
+  );
+  sentinelObserver.observe(loadMoreSentinel.value);
+}
+
+watch(loadMoreSentinel, observeSentinel);
+
 /**
  * 从随机书摘卡片跳来时 URL 带 #bookmarkId：原生锚点只会把目标顶到视口上方，
  * 挂载后主动把目标滚到视口中央，并加一层强调样式，方便一眼找到。
  */
 onMounted(async () => {
-  if (!highlights.value.length) {
+  const cached = getCachedHighlights(props.highlightsUrl);
+  if (cached) {
+    highlights.value = cached;
+    loading.value = false;
+  } else {
     try {
       highlights.value = await loadHighlights(props.highlightsUrl);
     } catch {
@@ -110,7 +200,13 @@ onMounted(async () => {
     }
   }
   await nextTick();
-  scrollToHashTarget();
+  observeSentinel();
+  await scrollToHashTarget();
+});
+
+onBeforeUnmount(() => {
+  clearTimeout(debounceTimer);
+  sentinelObserver?.disconnect();
 });
 </script>
 
@@ -133,7 +229,7 @@ onMounted(async () => {
           class="i-mingcute:search-line pointer-events-none absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 opacity-45"
         />
         <input
-          v-model="query"
+          v-model="rawQuery"
           type="search"
           placeholder="搜索书摘、章节…"
           class="w-full rounded-full bg-black/4 py-2 pr-3 pl-9 text-sm outline-none placeholder:opacity-50 focus:ring-2 focus:ring-[rgb(59,105,61)]/50 dark:bg-white/8 dark:focus:ring-[rgb(76,145,90)]/50"
@@ -187,42 +283,52 @@ onMounted(async () => {
 
     <!-- 不设书目头：书籍信息（书名、作者）放进每张卡片里，列表是一条连续的卡片流。 -->
     <template v-else>
-    <section v-for="group in visibleGroups" :key="group.bookId" class="mb-3 last:mb-0">
-      <!-- 书摘条目：无圆角白卡 + 淡色边框——低调引号 + 衬线正文 + 卡内出处（书名作者 / 章节日期）。 -->
-      <article
-        v-for="item in group.items"
-        :id="item.bookmarkId"
-        :key="item.bookmarkId"
-        class="highlight-item mb-3 scroll-mt-24 border border-black/10 bg-white px-5 py-4 transition-colors duration-150 last:mb-0 hover:border-black/20 dark:border-white/10 dark:bg-gray-800 dark:hover:border-white/20"
-      >
-        <div
-          aria-hidden="true"
-          class="quote-serif text-[1.3rem] leading-[0.5] text-[rgb(59,105,61)] opacity-25 select-none dark:text-[rgb(76,145,90)]"
+      <section v-for="group in displayedGroups" :key="group.bookId" class="mb-3 last:mb-0">
+        <!-- 书摘条目：无圆角白卡 + 淡色边框——低调引号 + 衬线正文 + 卡内出处（书名作者 / 章节日期）。 -->
+        <article
+          v-for="item in group.items"
+          :id="item.bookmarkId"
+          :key="item.bookmarkId"
+          class="highlight-item mb-3 scroll-mt-24 border border-black/10 bg-white px-5 py-4 transition-colors duration-150 last:mb-0 hover:border-black/20 dark:border-white/10 dark:bg-gray-800 dark:hover:border-white/20"
         >
-          ❝
-        </div>
-        <p class="quote-serif my-0! mt-1 text-[1rem] leading-[1.9]">{{ item.markText }}</p>
-        <!-- 出处放卡内：书名、章节、作者、日期同在一组，窄屏自然折行，逐项渐淡。 -->
-        <div class="mt-3 flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
-          <span class="text-[0.8rem] font-medium opacity-80">{{ group.title }}</span>
-          <span v-if="item.chapterTitle" class="text-[0.72rem] opacity-55">{{ item.chapterTitle }}</span>
-          <span v-if="group.author" class="text-[0.72rem] opacity-55">{{ group.author }}</span>
-          <span v-if="item.createTime" class="text-[0.72rem] opacity-40">{{ formatDate(item.createTime) }}</span>
-        </div>
-      </article>
-    </section>
+          <div
+            aria-hidden="true"
+            class="quote-serif text-[1.3rem] leading-[0.5] text-[rgb(59,105,61)] opacity-25 select-none dark:text-[rgb(76,145,90)]"
+          >
+            ❝
+          </div>
+          <p class="quote-serif my-0! mt-1 text-[1rem] leading-[1.9]">{{ item.markText }}</p>
+          <!-- 出处放卡内：书名、章节、作者、日期同在一组，窄屏自然折行，逐项渐淡。 -->
+          <div class="mt-3 flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+            <span class="text-[0.8rem] font-medium opacity-80">{{ group.title }}</span>
+            <span v-if="item.chapterTitle" class="text-[0.72rem] opacity-55">{{ item.chapterTitle }}</span>
+            <span v-if="group.author" class="text-[0.72rem] opacity-55">{{ group.author }}</span>
+            <span v-if="item.createTime" class="text-[0.72rem] opacity-40">{{ formatDate(item.createTime) }}</span>
+          </div>
+        </article>
+      </section>
 
-    <div v-if="!visibleGroups.length" class="py-16 text-center">
-      <p class="my-0! text-sm opacity-60">没有符合条件的书摘。</p>
-      <button
-        v-if="isFiltering"
-        type="button"
-        class="mt-3 cursor-pointer rounded-full px-3 py-1.5 text-sm font-medium text-[rgb(59,105,61)] transition-colors hover:bg-[rgb(59,105,61)]/10 dark:text-[rgb(76,145,90)] dark:hover:bg-[rgb(76,145,90)]/15"
-        @click="clearFilters"
-      >
-        清除筛选
-      </button>
-    </div>
+      <div v-if="hasMore" ref="loadMoreSentinel" class="py-6 text-center">
+        <button
+          type="button"
+          class="cursor-pointer rounded-full px-4 py-1.5 text-xs font-medium text-[rgb(59,105,61)] transition-colors hover:bg-[rgb(59,105,61)]/10 dark:text-[rgb(76,145,90)] dark:hover:bg-[rgb(76,145,90)]/15"
+          @click="loadMore"
+        >
+          加载更多（剩余 {{ totalVisibleItems - visibleLimit }} 条）
+        </button>
+      </div>
+
+      <div v-if="!visibleGroups.length" class="py-16 text-center">
+        <p class="my-0! text-sm opacity-60">没有符合条件的书摘。</p>
+        <button
+          v-if="isFiltering"
+          type="button"
+          class="mt-3 cursor-pointer rounded-full px-3 py-1.5 text-sm font-medium text-[rgb(59,105,61)] transition-colors hover:bg-[rgb(59,105,61)]/10 dark:text-[rgb(76,145,90)] dark:hover:bg-[rgb(76,145,90)]/15"
+          @click="clearFilters"
+        >
+          清除筛选
+        </button>
+      </div>
     </template>
   </div>
 </template>

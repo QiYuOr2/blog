@@ -13,9 +13,6 @@ concurrency:
   group: sync-bangumi
   cancel-in-progress: false
 
-env:
-  PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: "1"
-
 jobs:
   sync:
     runs-on: ubuntu-latest
@@ -36,7 +33,7 @@ jobs:
           cache: pnpm
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile --filter @tabi/scripts...
 
       - name: Sync Bangumi data
         run: pnpm bangumi:sync

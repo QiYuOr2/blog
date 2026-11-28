@@ -6,24 +6,19 @@ export enum CollectionType {
   Dropped = 5,
 }
 
-export enum SubjectType {
-  Book = 1,
-  Anime = 2,
-}
-
 export interface Subject {
-  date: string | null | { year?: number; month?: number; day?: number };
+  date?: string | null | { year?: number; month?: number; day?: number };
   images: {
     small: string;
-    grid: string;
-    large: string;
-    medium: string;
-    common: string;
+    grid?: string;
+    large?: string;
+    medium?: string;
+    common?: string;
   };
   name: string;
   name_cn: string;
   score: number | null;
-  rank: number | null;
+  rank?: number | null;
   id: number;
 }
 

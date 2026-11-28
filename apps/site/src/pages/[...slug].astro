@@ -3,7 +3,7 @@ import { getCollection, render } from "astro:content";
 import Comments from "@/components/comments.vue";
 import TOC from "@/features/posts/components/toc.vue";
 import { visibleFilter, date, postURL, sortByDate } from "@/features/posts/model";
-import PageLayout from '@/layouts/page.astro'
+import PageLayout from "@/layouts/page.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
@@ -20,119 +20,153 @@ export async function getStaticPaths() {
 const { post, paginations } = Astro.props;
 const { Content, headings, remarkPluginFrontmatter } = await render(post);
 
-const linkClassName = 'underline'
-const link = postURL(post)
-
-
+const linkClassName = "underline";
+const link = postURL(post);
 ---
-<PageLayout title={`${post.data.title} | @柒宇`} description={post.data.description} tags={post.data.tags} post>
-    <h1>{post.data.title}</h1>
-    <div class="flex items-center gap-2">
-      <div font-bold text-stone>{date(post).split(" ")[0]}</div>
 
-      {Number(remarkPluginFrontmatter.minutesRead) > 1 && (
-        <div bg-stone-3 w-1 h-1 rounded-full></div>
-        <div font-bold text-stone>{`${Math.ceil(remarkPluginFrontmatter.minutesRead)} mins`}</div>
-      )}
-      
-    </div>
+<PageLayout
+  title={`${post.data.title} | @柒宇`}
+  description={post.data.description}
+  tags={post.data.tags}
+  ogType="article"
+  post
+>
+  <h1>{post.data.title}</h1>
+  <div class="flex items-center gap-2">
+    <div font-bold text-stone>{date(post).split(" ")[0]}</div>
 
-    <article class="post-layout">
-      <TOC headings={headings} client:load />
-      <div class="post-content prose-stone dark:prose-invert">
-        {post.data.summary && (
+    {
+      Number(remarkPluginFrontmatter.minutesRead) > 1 && (
+        <>
+          <div bg-stone-3 w-1 h-1 rounded-full />
+          <div font-bold text-stone>{`${Math.ceil(remarkPluginFrontmatter.minutesRead)} mins`}</div>
+        </>
+      )
+    }
+  </div>
+
+  <article class="post-layout">
+    <TOC headings={headings} client:load />
+    <div class="post-content prose-stone dark:prose-invert">
+      {
+        post.data.summary && (
           <div class="my-6 shadow border dark:border-warm-gray-500 rounded-sm overflow-hidden bg-stone-1 dark:bg-[var(--un-prose-invert-bg-soft)]">
-            {post.data.summary && (
-              <div class="px-4 py-3">
-                <div class="mb-1 flex items-center gap-2 text-[0.85rem] font-medium text-stone dark:text-zinc-4">
-                  <span class="i-mingcute:sparkles-line text-[rgb(59,105,61)] dark:text-[#8bc9a0]" aria-hidden="true"></span>
-                  <span>AI 摘要</span>
-                </div>
-                <p class="m-0 text-stone-5 dark:text-zinc-3">{post.data.summary}</p>
+            <div class="px-4 py-3">
+              <div class="mb-1 flex items-center gap-2 text-[0.85rem] font-medium text-stone dark:text-zinc-4">
+                <span
+                  class="i-mingcute:sparkles-line text-[rgb(59,105,61)] dark:text-[#8bc9a0]"
+                  aria-hidden="true"
+                />
+                <span>AI 摘要</span>
               </div>
-            )}
+              <p class="m-0 text-stone-5 dark:text-zinc-3">{post.data.summary}</p>
+            </div>
           </div>
-        )}
+        )
+      }
 
-        <Content />
+      <Content />
 
-        <div class="copyright mt-8 px-6 border rounded-md overflow-hidden text-zinc-8 dark:text-zinc-4 relative after:(dark:text-zinc-4)">
-          <div>
-            <p class="break-words">
-              <span>文章地址：</span>
-              <a href={link} class={linkClassName}>{ link }</a>
-            </p>
-            <p>
-              本作品由
-              <a class={linkClassName} href="https://github.com/QiYuOr2">柒宇</a>
-              采用
-              <a class={linkClassName} href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
-                CC BY-NC-SA 4.0
-              </a>
-              进行许可，转载请注明出处。
-            </p>
-          </div>
-          <div class="text-[#4a4a4a] dark:text-light-500 h-[150px] w-[150px] opacity-10 absolute right-[-40px] top-[-45px]">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
-              <path fill="currentColor" d="m245.8 214.9-33.2 17.3c-9.4-19.6-25.2-20-27.4-20-22.2 0-33.3 14.6-33.3 43.9 0 23.5 9.2 43.8 33.3 43.8 14.4 0 24.6-7 30.5-21.3l30.6 15.5a73.2 73.2 0 0 1-65.1 39c-22.6 0-74-10.3-74-77 0-58.7 43-77 72.6-77 30.8-.1 52.7 11.9 66 35.8zm143 0-32.7 17.3c-9.5-19.8-25.7-20-27.9-20-22.1 0-33.2 14.6-33.2 43.9 0 23.5 9.2 43.8 33.2 43.8 14.5 0 24.7-7 30.5-21.3l31 15.5c-2 3.8-21.3 39-65 39-22.7 0-74-9.9-74-77 0-58.7 43-77 72.6-77C354 179 376 191 389 214.8zM247.7 8C104.7 8 0 123 0 256c0 138.4 113.6 248 247.6 248C377.5 504 496 403 496 256 496 118 389.4 8 247.6 8zm.8 450.8c-112.5 0-203.7-93-203.7-202.8 0-105.5 85.5-203.3 203.8-203.3A201.7 201.7 0 0 1 451.3 256c0 121.7-99.7 202.9-202.9 202.9z"/>
-            </svg>
-          </div>
+      <div
+        class="copyright mt-8 px-6 border rounded-md overflow-hidden text-zinc-8 dark:text-zinc-4 relative after:(dark:text-zinc-4)"
+      >
+        <div>
+          <p class="break-words">
+            <span>文章地址：</span>
+            <a href={link} class={linkClassName}>{link}</a>
+          </p>
+          <p>
+            本作品由
+            <a class={linkClassName} href="https://github.com/QiYuOr2">柒宇</a>
+            采用
+            <a class={linkClassName} href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+              CC BY-NC-SA 4.0
+            </a>
+            进行许可，转载请注明出处。
+          </p>
+        </div>
+        <div
+          class="text-[#4a4a4a] dark:text-light-500 h-[150px] w-[150px] opacity-10 absolute right-[-40px] top-[-45px]"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+            <path
+              fill="currentColor"
+              d="m245.8 214.9-33.2 17.3c-9.4-19.6-25.2-20-27.4-20-22.2 0-33.3 14.6-33.3 43.9 0 23.5 9.2 43.8 33.3 43.8 14.4 0 24.6-7 30.5-21.3l30.6 15.5a73.2 73.2 0 0 1-65.1 39c-22.6 0-74-10.3-74-77 0-58.7 43-77 72.6-77 30.8-.1 52.7 11.9 66 35.8zm143 0-32.7 17.3c-9.5-19.8-25.7-20-27.9-20-22.1 0-33.2 14.6-33.2 43.9 0 23.5 9.2 43.8 33.2 43.8 14.5 0 24.7-7 30.5-21.3l31 15.5c-2 3.8-21.3 39-65 39-22.7 0-74-9.9-74-77 0-58.7 43-77 72.6-77C354 179 376 191 389 214.8zM247.7 8C104.7 8 0 123 0 256c0 138.4 113.6 248 247.6 248C377.5 504 496 403 496 256 496 118 389.4 8 247.6 8zm.8 450.8c-112.5 0-203.7-93-203.7-202.8 0-105.5 85.5-203.3 203.8-203.3A201.7 201.7 0 0 1 451.3 256c0 121.7-99.7 202.9-202.9 202.9z"
+            />
+          </svg>
         </div>
       </div>
-    </article>
-
-
-    <div class="paginations" text-center mt-12>
-      {
-        paginations[1] &&  (
-          <div class="action">
-            <div class="title">上一篇</div>
-            <a class="to" href={postURL(paginations[1])}>{paginations[1].data.title}</a>
-          </div>
-        )
-      }
-
-      {
-        paginations[0] &&  (
-          <div class="action">
-            <div class="title">下一篇</div>
-            <a class="to" href={postURL(paginations[0])}>{paginations[0].data.title}</a>
-          </div>
-        )
-      }
     </div>
+  </article>
+
+  <div class="paginations" text-center mt-12>
+    {
+      paginations[1] && (
+        <div class="mb-6">
+          <div class="text-sm text-stone dark:text-zinc-4">上一篇</div>
+          <a
+            class="inline-block mt-2 font-bold text-[1.2rem] text-neutral-900 dark:text-neutral-100"
+            href={postURL(paginations[1])}
+          >
+            {paginations[1].data.title}
+          </a>
+        </div>
+      )
+    }
+
+    {
+      paginations[0] && (
+        <div class="mb-6">
+          <div class="text-sm text-stone dark:text-zinc-4">下一篇</div>
+          <a
+            class="inline-block mt-2 font-bold text-[1.2rem] text-neutral-900 dark:text-neutral-100"
+            href={postURL(paginations[0])}
+          >
+            {paginations[0].data.title}
+          </a>
+        </div>
+      )
+    }
+  </div>
 
   <Comments client:visible />
 
   <script>
-    import mediumZoom from "medium-zoom";
+    import mediumZoom, { type Zoom } from "medium-zoom";
 
-    mediumZoom('[data-zoomable]')
-    if (typeof window !== 'undefined') {
-      import("mermaid").then(({ default: mermaid }) => {
-        mermaid.initialize({ startOnLoad: true });
+    const INIT_KEY = "__tabiPostEnhancersBound";
+    let zoomInstance: Zoom | null = null;
+
+    async function renderMermaidDiagrams() {
+      const nodes = Array.from(document.querySelectorAll<HTMLElement>(".mermaid")).filter(
+        (el) => !el.dataset.processed,
+      );
+      if (nodes.length === 0) return;
+
+      const { default: mermaid } = await import("mermaid");
+      const isDark = document.documentElement.classList.contains("dark");
+      mermaid.initialize({
+        startOnLoad: false,
+        theme: isDark ? "dark" : "default",
+      });
+      await mermaid.run({ nodes });
+    }
+
+    function enhancePostPage() {
+      zoomInstance?.detach();
+      const zoomables = document.querySelectorAll<HTMLElement>("[data-zoomable]");
+      zoomInstance = zoomables.length ? mediumZoom(zoomables) : null;
+      void renderMermaidDiagrams();
+    }
+
+    const win = window as unknown as Record<string, boolean>;
+    if (!win[INIT_KEY]) {
+      win[INIT_KEY] = true;
+      document.addEventListener("astro:page-load", enhancePostPage);
+      document.addEventListener("astro:before-swap", () => {
+        zoomInstance?.detach();
+        zoomInstance = null;
       });
     }
   </script>
-
-
-
-  <style lang="less">
-  .action {
-    margin-bottom: 1.4rem;
-    .to {
-      display: inline-block;
-      margin-top: 0.5rem;
-      color: #000;
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-  }
-
-  .medium-zoom-image--opened {
-    z-index: 999;
-  }
-  </style>
 </PageLayout>
-
-

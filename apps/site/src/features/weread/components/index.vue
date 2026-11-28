@@ -62,7 +62,7 @@ const filteredCards = computed(() => {
 <template>
   <div
     v-if="!hasData"
-    class="rounded-xl border border-[var(--un-prose-border)] bg-[var(--un-prose-bg-soft)] p-6 text-[var(--un-prose-body)] dark:border-[var(--un-prose-invert-border)] dark:bg-[var(--un-prose-invert-bg-soft)] dark:text-[var(--un-prose-invert-body)]"
+    class="rounded-xl border border-[var(--un-prose-borders)] bg-[var(--un-prose-bg-soft)] p-6 text-[var(--un-prose-body)] dark:border-[var(--un-prose-invert-borders)] dark:bg-[var(--un-prose-invert-bg-soft)] dark:text-[var(--un-prose-invert-body)]"
   >
     微信读书数据尚未生成，请先执行构建前的数据更新。
   </div>
