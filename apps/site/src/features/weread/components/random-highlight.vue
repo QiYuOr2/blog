@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { navigate } from "astro:transitions/client";
 import { computed, onMounted, shallowRef } from "vue";
 import type { WereadHighlight } from "../schema";
 import { dayjs, SHANGHAI_TZ } from "../date";
@@ -44,12 +45,12 @@ function formatDate(createTime?: number) {
 function openInList() {
   const item = current.value;
   if (!item) return;
-  window.location.href = `/weread/highlights#${item.bookmarkId}`;
+  navigate(`/weread/highlights#${item.bookmarkId}`);
 }
 
 /** 卡外右下的「全部 N 条」：去全部书摘页顶部，不带锚点。 */
 function openAll() {
-  window.location.href = "/weread/highlights";
+  navigate("/weread/highlights");
 }
 </script>
 

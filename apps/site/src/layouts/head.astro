@@ -71,10 +71,20 @@ const { title, description, keywords = '' } = Astro.props
 </script>
 
 <script>
+  import { resolvePageTransitionDirection } from "@/lib/navigation";
+
   // qiyuor2.github.io/blog/ 跳转 blog.qiyuor2.me/
   if (location.hostname === 'qiyuor2.github.io') {
     location.href = 'https://blog.qiyuor2.me' + location.pathname.replace(/^\/blog/, '')
   }
+
+  document.addEventListener("astro:before-preparation", (event) => {
+    event.direction = resolvePageTransitionDirection(
+      event.from.pathname,
+      event.to.pathname,
+      event.direction,
+    );
+  });
 </script>
 
 <link rel="preconnect" href="https://giscus.app" crossorigin />

@@ -4,7 +4,8 @@ import Header from '@/components/header.vue'
 import GlobalStyles from './styles.astro'
 import Head from './head.astro'
 import ColorModeSwitch from '@/components/color-mode-switch.vue'
-import Navbar, { type Route } from '@/components/navbar.vue'
+import Navbar from '@/components/navbar.vue'
+import { NAVBAR_ROUTES } from '@/lib/navigation'
 import Analytics from '@vercel/analytics/astro'
 import SpeedInsights from '@vercel/speed-insights/astro';
 import Loading from '@/components/loading.astro'
@@ -17,29 +18,6 @@ dayjs.extend(timezone)
 
 const { title = '@柒宇', description, tags = [], post = false } = Astro.props
 const { pathname } = Astro.url
-
-const routes: Route[] = [
-  {
-    path: '/',
-    label: '文章',
-  },
-  {
-    path: '/memo',
-    label: '碎碎念'
-  },
-  {
-    path: '/bgm',
-    label: '追番'
-  },
-  {
-    path: '/weread',
-    label: '读书'
-  },
-  {
-    path: '/about',
-    label: '关于'
-  }
-]
 
 const buildTime = dayjs(Number(__BUILD_TIME__))
   .tz("Asia/Shanghai")
@@ -54,19 +32,19 @@ const buildTime = dayjs(Number(__BUILD_TIME__))
     <Head title={title} description={description} keywords={tags.join(',')} />
 
     <link rel="sitemap" href="/sitemap-index.xml" />
-
-    <Analytics />
-    <SpeedInsights />
-
   </head>
   <body class="dark:bg-dark-900">
     <Header className="max-w-[65ch] px-7 xl:px-0">
       <ColorModeSwitch client:load transition:persist />
     </Header>
 
-    <Navbar currentPath={pathname} routes={routes} />
+    <Navbar currentPath={pathname} routes={NAVBAR_ROUTES} />
 
-    <main class={post ? "prose dark:prose-invert mx-auto px-7 xl:px-0 overflow-hidden sm:overflow-visible" : ''} transition:animate="slide">
+    <main
+      class={post ? "prose dark:prose-invert mx-auto px-7 xl:px-0 overflow-hidden sm:overflow-visible" : ''}
+      transition:name="page-main"
+      transition:animate="slide"
+    >
       <slot />
     </main>
 
@@ -91,6 +69,8 @@ const buildTime = dayjs(Number(__BUILD_TIME__))
 
     <Loading />
     <BackTop client:load />
+    <Analytics />
+    <SpeedInsights />
   </body>
 </html>
 
