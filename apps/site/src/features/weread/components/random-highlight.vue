@@ -3,38 +3,51 @@ import { navigate } from "astro:transitions/client";
 import { computed, onMounted, shallowRef } from "vue";
 import type { WereadHighlight } from "../schema";
 import { dayjs, SHANGHAI_TZ } from "../date";
+import { getCachedHighlights, loadHighlights } from "../highlights-loader";
 
-const props = defineProps<{ highlights: WereadHighlight[] }>();
+const props = defineProps<{
+  initialHighlight: WereadHighlight | null;
+  totalCount: number;
+  highlightsUrl: string;
+}>();
 
-/**
- * 首屏（SSR）用「上海日期」做种子的确定性一摘：构建期与客户端算出同一条，
- * 避免水合时内容跳变（与热力图锚定数据日期是同一类处理）。
- * 挂载后再换成真随机，访客每次打开都能看到不同的一条。
- */
-const dailyPick = computed<WereadHighlight | null>(() => {
-  const list = props.highlights;
-  if (!list.length) return null;
-  const seed = Number(dayjs().tz(SHANGHAI_TZ).format("YYYYMMDD"));
-  return list[seed % list.length];
-});
-
+const allHighlights = shallowRef<WereadHighlight[]>(getCachedHighlights(props.highlightsUrl) ?? []);
 const picked = shallowRef<WereadHighlight | null>(null);
-const current = computed(() => picked.value ?? dailyPick.value);
+const current = computed(() => picked.value ?? props.initialHighlight);
+const displayCount = computed(() => allHighlights.value.length || props.totalCount);
 
-function pickRandom() {
-  const list = props.highlights;
-  if (list.length <= 1) {
-    picked.value = list[0] ?? null;
+function chooseRandomFrom(list: WereadHighlight[]) {
+  if (!list.length) return;
+  if (list.length === 1) {
+    picked.value = list[0];
     return;
   }
-  let next = current.value;
-  while (next === current.value) {
+  const prevId = current.value?.bookmarkId;
+  let next = list[Math.floor(Math.random() * list.length)];
+  while (next.bookmarkId === prevId) {
     next = list[Math.floor(Math.random() * list.length)];
   }
   picked.value = next;
 }
 
-onMounted(pickRandom);
+async function ensureLoaded() {
+  if (allHighlights.value.length) return allHighlights.value;
+  try {
+    allHighlights.value = await loadHighlights(props.highlightsUrl);
+  } catch {
+    // 加载失败时继续展示首屏每日一摘
+  }
+  return allHighlights.value;
+}
+
+async function pickRandom() {
+  const list = await ensureLoaded();
+  chooseRandomFrom(list);
+}
+
+onMounted(() => {
+  void pickRandom();
+});
 
 function formatDate(createTime?: number) {
   if (!createTime) return "";
@@ -144,7 +157,7 @@ function openAll() {
         class="cursor-pointer text-xs font-medium text-[rgb(59,105,61)] opacity-70 transition-opacity duration-150 hover:opacity-100 dark:text-[rgb(76,145,90)]"
         @click="openAll"
       >
-        全部 {{ highlights.length }} 条 →
+        全部 {{ displayCount }} 条 →
       </button>
     </div>
   </section>

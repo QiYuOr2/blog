@@ -8,7 +8,6 @@ import Navbar from '@/components/navbar.vue'
 import { NAVBAR_ROUTES } from '@/lib/navigation'
 import Analytics from '@vercel/analytics/astro'
 import SpeedInsights from '@vercel/speed-insights/astro';
-import Loading from '@/components/loading.astro'
 import dayjs from 'dayjs'
 import timezone from 'dayjs/plugin/timezone'
 import utc from 'dayjs/plugin/utc'
@@ -67,7 +66,6 @@ const buildTime = dayjs(Number(__BUILD_TIME__))
       </div>
     </footer>
 
-    <Loading />
     <BackTop client:load />
     <Analytics />
     <SpeedInsights />

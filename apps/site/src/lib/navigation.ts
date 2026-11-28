@@ -26,7 +26,23 @@ export const NAVBAR_ROUTES: readonly NavRoute[] = [
   },
 ];
 
-export type PageTransitionDirection = "forward" | "back" | "vertical-up" | "vertical-down";
+export type PageTransitionDirection =
+  | "forward"
+  | "back"
+  | "vertical-up"
+  | "vertical-down"
+  | "skeleton-reveal";
+
+export type PageSkeletonKind = "posts" | "memo" | "grid" | "highlights" | "article";
+
+export function getSkeletonKind(pathname: string): PageSkeletonKind {
+  const normalized = normalizePathname(pathname);
+  if (normalized === "/") return "posts";
+  if (normalized === "/memo") return "memo";
+  if (normalized === "/bgm" || normalized === "/weread") return "grid";
+  if (normalized === "/weread/highlights") return "highlights";
+  return "article";
+}
 
 export function normalizePathname(pathname: string): string {
   const clean = pathname.replace(/\/+$/, "");

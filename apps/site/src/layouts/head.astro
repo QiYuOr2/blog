@@ -58,33 +58,20 @@ const { title, description, keywords = '' } = Astro.props
   document.addEventListener('astro:page-load', initBack)
   document.addEventListener('astro:after-swap', applyTheme)
 
-  document.addEventListener("astro:before-preparation", () => {
-    document.querySelector("#loading").classList.remove("hidden");
-  });
-  document.addEventListener("astro:after-preparation", () => {
-    document.querySelector("#loading").classList.add("hidden");
-  });
-
   // 首屏同步应用主题，避免初次加载时先浅色（白底）再切暗色造成闪白（FOUC）。
   applyTheme();
 
 </script>
 
 <script>
-  import { resolvePageTransitionDirection } from "@/lib/navigation";
+  import { initPageTransitions } from "@/lib/skeleton-navigation";
 
   // qiyuor2.github.io/blog/ 跳转 blog.qiyuor2.me/
   if (location.hostname === 'qiyuor2.github.io') {
     location.href = 'https://blog.qiyuor2.me' + location.pathname.replace(/^\/blog/, '')
   }
 
-  document.addEventListener("astro:before-preparation", (event) => {
-    event.direction = resolvePageTransitionDirection(
-      event.from.pathname,
-      event.to.pathname,
-      event.direction,
-    );
-  });
+  initPageTransitions();
 </script>
 
 <link rel="preconnect" href="https://giscus.app" crossorigin />

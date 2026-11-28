@@ -28,6 +28,10 @@ export default defineConfig({
     {
       skeleton: "bg-stone-200 dark:bg-true-gray-700 rounded animate-pulse",
     },
+    {
+      "nav-item-active":
+        "text-black dark:text-light-50 before:(content-[''] absolute z-10 top-0 bottom-0 left--1 right--1 bg-light-50 dark:bg-dark rounded-full shadow)",
+    },
   ],
   rules: [
     [

@@ -8,7 +8,7 @@ import BangumiCard from "./bangumi-card.vue";
 import BangumiPagination from "./bangumi-pagination.vue";
 
 const CACHE_IMAGE_TIMEOUT_MS = 5_000;
-const props = defineProps<{ cache?: BangumiCache }>();
+const props = defineProps<{ cache?: BangumiCache; cacheUrl?: string }>();
 const {
   types,
   labels,

@@ -1,9 +1,18 @@
 <script setup lang="ts">
-import { computed, onMounted, shallowRef } from "vue";
+import { computed, nextTick, onMounted, shallowRef } from "vue";
 import type { WereadHighlight } from "../schema";
 import { dayjs, SHANGHAI_TZ } from "../date";
+import { getCachedHighlights, loadHighlights } from "../highlights-loader";
 
-const props = defineProps<{ highlights: WereadHighlight[] }>();
+const props = defineProps<{
+  highlightsUrl: string;
+  totalCount?: number;
+}>();
+
+const cached = getCachedHighlights(props.highlightsUrl);
+const highlights = shallowRef<WereadHighlight[]>(cached ?? []);
+const loading = shallowRef(!cached);
+const loadError = shallowRef(false);
 
 type BookGroup = {
   bookId: string;
@@ -16,7 +25,7 @@ type BookGroup = {
 /** 按书分组：保持产物里的顺序（最近有笔记的书在前，书内保持接口返回顺序）。 */
 const groups = computed<BookGroup[]>(() => {
   const byId = new Map<string, BookGroup>();
-  for (const item of props.highlights) {
+  for (const item of highlights.value) {
     let group = byId.get(item.bookId);
     if (!group) {
       group = {
@@ -77,17 +86,31 @@ function formatDate(createTime?: number) {
   return dayjs.unix(createTime).tz(SHANGHAI_TZ).format("YYYY-MM-DD");
 }
 
-/**
- * 从随机书摘卡片跳来时 URL 带 #bookmarkId：原生锚点只会把目标顶到视口上方，
- * 挂载后主动把目标滚到视口中央，并加一层强调样式，方便一眼找到。
- */
-onMounted(() => {
+function scrollToHashTarget() {
   const id = window.location.hash.replace(/^#/, "");
   if (!id) return;
   const target = document.getElementById(id);
   if (!target) return;
   target.scrollIntoView({ block: "center" });
   target.classList.add("highlight-located");
+}
+
+/**
+ * 从随机书摘卡片跳来时 URL 带 #bookmarkId：原生锚点只会把目标顶到视口上方，
+ * 挂载后主动把目标滚到视口中央，并加一层强调样式，方便一眼找到。
+ */
+onMounted(async () => {
+  if (!highlights.value.length) {
+    try {
+      highlights.value = await loadHighlights(props.highlightsUrl);
+    } catch {
+      loadError.value = true;
+    } finally {
+      loading.value = false;
+    }
+  }
+  await nextTick();
+  scrollToHashTarget();
 });
 </script>
 
@@ -144,7 +167,26 @@ onMounted(() => {
       </button>
     </div>
 
+    <!-- 首次冷打开加载书摘 JSON 时的骨架占位 -->
+    <div v-if="loading" class="space-y-3" aria-busy="true" aria-label="正在加载书摘">
+      <div
+        v-for="n in 5"
+        :key="n"
+        class="border border-black/10 bg-white px-5 py-4 dark:border-white/10 dark:bg-gray-800"
+      >
+        <div class="mb-2 h-4 w-full skeleton" />
+        <div class="mb-2 h-4 w-11/12 skeleton" />
+        <div class="mb-4 h-4 w-3/5 skeleton" />
+        <div class="h-3 w-40 skeleton" />
+      </div>
+    </div>
+
+    <div v-else-if="loadError" class="py-16 text-center text-sm opacity-60">
+      书摘加载失败，请稍后刷新重试。
+    </div>
+
     <!-- 不设书目头：书籍信息（书名、作者）放进每张卡片里，列表是一条连续的卡片流。 -->
+    <template v-else>
     <section v-for="group in visibleGroups" :key="group.bookId" class="mb-3 last:mb-0">
       <!-- 书摘条目：无圆角白卡 + 淡色边框——低调引号 + 衬线正文 + 卡内出处（书名作者 / 章节日期）。 -->
       <article
@@ -181,6 +223,7 @@ onMounted(() => {
         清除筛选
       </button>
     </div>
+    </template>
   </div>
 </template>
 

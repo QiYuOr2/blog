@@ -1,12 +1,25 @@
 ---
+import { createHash } from "node:crypto";
 import PageLayout from "@/layouts/page.astro";
 import Weread from "@/features/weread/components/index.vue";
 import { getCollection } from "astro:content";
-import { getWereadStaticData } from "@/features/weread/model.ts";
+import {
+  buildWereadPagePayload,
+  getHighlights,
+  getWereadStaticData,
+} from "@/features/weread/model.ts";
 import Comments from "@/components/comments.vue";
 import { dayjs, SHANGHAI_TZ } from "@/features/weread/date";
 
 const wereadData = getWereadStaticData(await getCollection("weread"));
+const highlightsVersion = createHash("sha1")
+  .update(JSON.stringify(getHighlights(wereadData)))
+  .digest("hex")
+  .slice(0, 8);
+const payload = buildWereadPagePayload(
+  wereadData,
+  `/data/weread-highlights.json?v=${highlightsVersion}`,
+);
 
 function formatUpdatedAt(timestamp: string) {
   return dayjs(timestamp)
@@ -26,7 +39,7 @@ function formatUpdatedAt(timestamp: string) {
         最后更新时间：{formatUpdatedAt(wereadData.updatedAt)}
       </div>
 
-      <Weread data={wereadData} client:load />
+      <Weread payload={payload} client:load />
     </div>
 
     <Comments client:visible />

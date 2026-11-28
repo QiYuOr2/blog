@@ -1,13 +1,6 @@
 <script setup lang="ts">
 import { computed, shallowRef } from "vue";
-import type { WereadStaticData } from "../schema";
-import {
-  getShelfBooks,
-  getShelfProgressMap,
-  getReadTimesByDay,
-  getSeriesOverrides,
-  getHighlights,
-} from "../model";
+import { getSeriesOverrides, type WereadPagePayload } from "../model";
 import {
   getCardCategory,
   getCardDuration,
@@ -19,18 +12,17 @@ import WereadShelfGrid from "./shelf-grid.vue";
 import WereadReadHeatmap from "./read-heatmap.vue";
 import WereadRandomHighlight from "./random-highlight.vue";
 
-const props = defineProps<{ data: WereadStaticData }>();
+const props = defineProps<{ payload: WereadPagePayload }>();
 
 const selectedCategory = shallowRef<string | null>(null);
-const modeData = computed(() => props.data.modes.overall);
-const progressMap = computed(() => getShelfProgressMap(props.data));
-const readTimesByDay = computed(() => getReadTimesByDay(props.data));
-const highlights = computed(() => getHighlights(props.data));
+const hasData = computed(() => props.payload.hasData);
+const progressMap = computed(() => new Map(Object.entries(props.payload.progressMap)));
+const readTimesByDay = computed(() => props.payload.readTimesByDay);
 const seriesOverrides = getSeriesOverrides();
 
 /** 书架里同系列的多册折成一张卡，筛选与计数都按卡片口径走。 */
 const cards = computed(() =>
-  groupShelfSeries(getShelfBooks(props.data), seriesOverrides).filter((card) =>
+  groupShelfSeries(props.payload.shelfBooks, seriesOverrides).filter((card) =>
     shouldRenderCard(card, progressMap.value),
   ),
 );
@@ -69,14 +61,19 @@ const filteredCards = computed(() => {
 </script>
 <template>
   <div
-    v-if="!modeData"
+    v-if="!hasData"
     class="rounded-xl border border-[var(--un-prose-border)] bg-[var(--un-prose-bg-soft)] p-6 text-[var(--un-prose-body)] dark:border-[var(--un-prose-invert-border)] dark:bg-[var(--un-prose-invert-bg-soft)] dark:text-[var(--un-prose-invert-body)]"
   >
     微信读书数据尚未生成，请先执行构建前的数据更新。
   </div>
   <div v-else class="space-y-6 pb-8">
     <WereadReadHeatmap :read-times-by-day="readTimesByDay" />
-    <WereadRandomHighlight v-if="highlights.length" :highlights="highlights" />
+    <WereadRandomHighlight
+      v-if="props.payload.highlightsCount > 0"
+      :initial-highlight="props.payload.initialHighlight"
+      :total-count="props.payload.highlightsCount"
+      :highlights-url="props.payload.highlightsUrl"
+    />
     <CategoryFilter
       :categories="categories"
       :selected-category="selectedCategory"

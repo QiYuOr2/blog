@@ -1,4 +1,5 @@
 ---
+import { createHash } from "node:crypto";
 import Bangumi from "@/features/bangumi/components/index.vue";
 import Comments from "@/components/comments.vue";
 import PageLayout from "@/layouts/page.astro";
@@ -6,11 +7,16 @@ import { getCollection } from "astro:content";
 import { getBangumiStaticData } from "@/features/bangumi/model.ts";
 
 const bangumiCache = getBangumiStaticData(await getCollection("bangumi"));
+const cacheVersion = createHash("sha1")
+  .update(JSON.stringify(bangumiCache))
+  .digest("hex")
+  .slice(0, 8);
+const cacheUrl = `/data/bangumi.json?v=${cacheVersion}`;
 ---
 
 <PageLayout post>
   <article class="prose-stone dark:prose-invert">
-    <Bangumi cache={bangumiCache} client:load />
+    <Bangumi cacheUrl={cacheUrl} client:load />
   </article>
   <Comments client:visible />
 </PageLayout>

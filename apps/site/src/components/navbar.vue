@@ -12,11 +12,10 @@ const props = defineProps<{ currentPath: string; routes: readonly Route[] }>();
         <li
           v-for="route in routes"
           :key="route.path"
+          :data-nav-path="route.path"
           :class="[
             'relative',
-            isRouteActive(currentPath, route, props.routes)
-              ? 'text-black dark:text-light-50 before:(content-[\'\'] absolute z-10 top-0 bottom-0 left--1 right--1 bg-light-50 dark:bg-dark rounded-full shadow)'
-              : '',
+            isRouteActive(currentPath, route, props.routes) ? 'nav-item-active' : '',
           ]"
         >
           <a class="relative z-20 block px-2 py-1" :href="route.path">{{ route.label }}</a>

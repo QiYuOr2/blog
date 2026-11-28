@@ -3,6 +3,7 @@ import test from "node:test";
 import {
   NAVBAR_ROUTES,
   getActiveNavIndex,
+  getSkeletonKind,
   isRouteActive,
   normalizePathname,
   resolvePageTransitionDirection,
@@ -76,4 +77,15 @@ test("staying within the same navbar tab uses vertical cross-fade", () => {
     resolvePageTransitionDirection("/2025/post-b", "/2025/post-a", "back"),
     "vertical-down",
   );
+});
+
+test("getSkeletonKind picks matching skeleton layout per route", () => {
+  assert.equal(getSkeletonKind("/"), "posts");
+  assert.equal(getSkeletonKind("/memo/"), "memo");
+  assert.equal(getSkeletonKind("/bgm"), "grid");
+  assert.equal(getSkeletonKind("/weread"), "grid");
+  assert.equal(getSkeletonKind("/weread/highlights"), "highlights");
+  assert.equal(getSkeletonKind("/about"), "article");
+  assert.equal(getSkeletonKind("/2026/simple_go_agent"), "article");
+  assert.equal(getSkeletonKind("/memo/1794093203000"), "article");
 });

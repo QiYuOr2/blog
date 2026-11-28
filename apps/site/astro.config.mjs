@@ -11,7 +11,7 @@ import { resolve } from "node:path";
 // https://astro.build/config
 export default defineConfig({
   site: "https://blog.qiyuor2.me/",
-  prefetch: true,
+  prefetch: false,
 
   integrations: [
     UnoCSS({
